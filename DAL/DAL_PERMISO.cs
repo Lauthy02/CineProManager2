@@ -54,17 +54,16 @@ namespace DAL
 
             int res = acceso.Escribir("PERMISO_PERMISO_BORRAR", parametros);
             //PERMISO_PERMISO_BORRAR tiene que tener: $@"delete from permiso_permiso where id_permiso_padre=@id;";
-
+            
+            List<SqlParameter> parametros2 = new List<SqlParameter>();
             foreach (var hijo in rol.ListaDeHijos)
             {
-                List<SqlParameter> pARAMETROS = new List<SqlParameter>();
-                pARAMETROS = new List<SqlParameter>();
-                p = acceso.CrearParametro("@id_permiso_padre", rol.Id);
-                pARAMETROS.Add(p);
-                p = acceso.CrearParametro("@id_permiso_hijo", hijo.Id);
-                pARAMETROS.Add(p);
+                SqlParameter p2 = acceso.CrearParametro("@idpermisopadre", rol.Id);
+                parametros2.Add(p2);
+                p2 = acceso.CrearParametro("@idpermisohijo", hijo.Id);
+                parametros2.Add(p2);
 
-                res = acceso.Escribir("PERMISO_PERMISO_INSERTAR", pARAMETROS);
+                res = acceso.Escribir("PERMISO_PERMISO_INSERTAR", parametros2);
                 //PERMISO_PERMISO_INSERTAR tiene que tener: $@"insert into permiso_permiso (id_permiso_padre,id_permiso_hijo) values (@id_permiso_padre,@id_permiso_hijo)";
             }
         }
@@ -72,7 +71,8 @@ namespace DAL
         //Permiso = Acciones
         public IList<BE_PERMISO> TraerTodo(string familia)
         {
-            var where = "IS NULL";
+            //var where = "IS NULL";
+            var where = "NULL";
             if (!string.IsNullOrEmpty(familia))
             {
                 where = familia;
@@ -100,12 +100,12 @@ namespace DAL
             foreach (DataRow dr in tabla.Rows)
             {
                 int idpadre = 0;
-                if (dr["id_permiso_padre"] != DBNull.Value)
+                if (dr["idpermisopadre"] != DBNull.Value)
                 {
-                    idpadre = Convert.ToInt32(dr["id_permiso_padre"]);
+                    idpadre = Convert.ToInt32(dr["idpermisopadre"]);
                 }
 
-                var id = int.Parse(dr["ID"].ToString());
+                var id = int.Parse(dr["id"].ToString());
                 var nombre = dr["nombre"].ToString();
 
                 var permiso = string.Empty;
@@ -155,7 +155,7 @@ namespace DAL
 
             foreach (DataRow dr in tabla.Rows)
             {
-                var id = int.Parse(dr["ID"].ToString());
+                var id = int.Parse(dr["id"].ToString());
                 var nombre = dr["nombre"].ToString();
                 var permiso = dr["permiso"].ToString();
 
@@ -178,7 +178,7 @@ namespace DAL
             
             foreach (DataRow dr in tabla.Rows)
             {
-                var id = int.Parse(dr["ID"].ToString());
+                var id = int.Parse(dr["id"].ToString());
                 var nombre = dr["nombre"].ToString();
 
                 BE_ROL rolaux = new BE_ROL();
@@ -228,7 +228,7 @@ namespace DAL
 
             foreach (DataRow dr in tabla.Rows)
             {
-                int idpermiso = int.Parse(dr["ID"].ToString());
+                int idpermiso = int.Parse(dr["id"].ToString());
                 string nombrepermiso = dr["nombre"].ToString();
 
                 var permisop = string.Empty;
@@ -252,7 +252,8 @@ namespace DAL
                     permisoaux.Id = idpermiso;
                     permisoaux.Nombre = nombrepermiso;
 
-                    var f = TraerTodo("=" + idpermiso);
+                    //var f = TraerTodo("=" + idpermiso);
+                    var f = TraerTodo(idpermiso.ToString());
                     foreach (var item in f)
                     {
                         permisoaux.AgregarHijo(item);
