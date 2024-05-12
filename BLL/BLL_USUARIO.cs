@@ -37,5 +37,10 @@ namespace BLL
         {
             return dalmapperusuario.TraerTodos();
         }
+
+        public void GuardarPermisos(BE_USUARIO beusuario)
+        {
+            dalmapperusuario.AltaPermisos(beusuario);
+        }
     }
 }

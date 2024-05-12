@@ -7,7 +7,9 @@ namespace BE
 {
     public enum BE_PERMISO_TIPO_ENUM
     {
-        PuedeHacerA,
-        PuedeHacerB,
+        Administrador,
+        IngresarAVentas,
+        VerVenta,
+        Accion
     }
 }

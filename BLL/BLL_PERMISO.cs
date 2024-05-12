@@ -44,9 +44,9 @@ namespace BLL
             return dalpermiso.TraerTodosLosPermisos();
         }
 
-        public int GuardarPermiso(BE_PERMISO permiso, bool esfamilia)
+        public int GuardarPermiso(BE_PERMISO permiso, bool esrol)
         {
-            return dalpermiso.AltaPermiso(permiso, esfamilia);
+            return dalpermiso.AltaPermiso(permiso, esrol);
         }
 
         public void GuardarFamilia(BE_ROL rol)

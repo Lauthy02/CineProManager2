@@ -16,7 +16,7 @@ namespace DAL
         {
             conexion = new SqlConnection("Data Source=DESKTOP-UMILLS4;Initial Catalog=CineProManagerTEST2;Integrated Security=SSPI");
             //String de conexion para la bd de la facu
-            //conexion = new SqlConnection("Data Source=.;Initial Catalog=CineProManagerTEST;Integrated Security=SSPI");
+            //conexion = new SqlConnection("Data Source=.;Initial Catalog=[nombre de la base];Integrated Security=SSPI");
             conexion.Open();
         }
 
@@ -81,7 +81,7 @@ namespace DAL
         public SqlParameter CrearParametro(string nombre, DBNull dbnull)
         {
             SqlParameter param = new SqlParameter(nombre, dbnull);
-            param.DbType = DbType.String; //No se si esto esta bien
+            //No especifico el DbType para que el motor lo asigne de manera automática, ya que no se puede asignar un valor a un DBNull
             return param;
         }
     }

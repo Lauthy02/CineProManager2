@@ -24,7 +24,7 @@ namespace DAL
         }
         */
 
-        public override int Alta(BE.BE_USUARIO entidad)
+        public override int Alta(BE_USUARIO entidad)
         {
             List<SqlParameter> parametros = new List<SqlParameter>();
             SqlParameter p = acceso.CrearParametro("@nombredeusuario", entidad.NombreDeUsuario);
@@ -42,7 +42,7 @@ namespace DAL
             return res;
         }
 
-        public override int Baja(BE.BE_USUARIO entidad)
+        public override int Baja(BE_USUARIO entidad)
         {
             List<SqlParameter> parametros = new List<SqlParameter>();
             SqlParameter p = acceso.CrearParametro("@id", entidad.Id);
@@ -52,7 +52,7 @@ namespace DAL
             return res;
         }
 
-        public override int Modificacion(BE.BE_USUARIO entidad)
+        public override int Modificacion(BE_USUARIO entidad)
         {
             List<SqlParameter> parametros = new List<SqlParameter>();
             SqlParameter p = acceso.CrearParametro("@id", entidad.Id);
@@ -72,9 +72,9 @@ namespace DAL
             return res;
         }
 
-        public List<BE_USUARIO> Buscar(BE.BE_USUARIO entidad)
+        public List<BE_USUARIO> Buscar(BE_USUARIO entidad)
         {
-            List<BE.BE_USUARIO> usuarios = new List<BE.BE_USUARIO>();
+            List<BE_USUARIO> usuarios = new List<BE_USUARIO>();
             List<SqlParameter> parametros = new List<SqlParameter>();
             SqlParameter p = acceso.CrearParametro("@nombredeusuario", entidad.NombreDeUsuario);
             parametros.Add(p);
@@ -89,9 +89,9 @@ namespace DAL
             return usuarios;
         }
 
-        public override List<BE.BE_USUARIO> TraerTodos()
+        public override List<BE_USUARIO> TraerTodos()
         {
-            List<BE.BE_USUARIO> usuarios = new List<BE.BE_USUARIO>();
+            List<BE_USUARIO> usuarios = new List<BE_USUARIO>();
             DataTable tabla = acceso.Leer("USUARIO_LISTAR", null);
             foreach (DataRow dr in tabla.Rows)
             {
@@ -100,7 +100,7 @@ namespace DAL
             return usuarios;
         }
 
-        internal override BE.BE_USUARIO Convertir(DataRow registro)
+        internal override BE_USUARIO Convertir(DataRow registro)
         {
             BE_USUARIO usuario = new BE_USUARIO();
             usuario.Id = int.Parse(registro["id"].ToString());
@@ -110,6 +110,35 @@ namespace DAL
             usuario.Apellido = registro["apellido"].ToString();
             usuario.Correo = registro["correo"].ToString();
             return usuario;
+        }
+
+        public void AltaPermisos(BE_USUARIO usuario)
+        {
+            try
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+                SqlParameter p = acceso.CrearParametro("@id", usuario.Id);
+                parametros.Add(p);
+
+                var res = acceso.Escribir("USUARIOS_PERMISOS_BORRAR", parametros);
+                //USUARIOS_PERMISOS_BORRAR tiene que tener: DELETE FROM USUARIOS_PERMISOS WHERE idusuario = @id
+
+                foreach (var item in usuario.ListaDePermisos)
+                {
+                    List<SqlParameter> parametros2 = new List<SqlParameter>();
+                    SqlParameter p2 = acceso.CrearParametro("@idusuario", usuario.Id);
+                    parametros2.Add(p2);
+                    p2 = acceso.CrearParametro("@idpermiso", item.Id);
+                    parametros2.Add(p2);
+
+                    var res2 = acceso.Escribir("USUARIOS_PERMISOS_INSERTAR", parametros2);
+                    //USUARIOS_PERMISOS_INSERTAR tiene que tener: INSERT INTO USUARIOS_PERMISOS VALUES (@idusuario, @idpermiso)
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

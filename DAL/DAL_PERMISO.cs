@@ -25,12 +25,12 @@ namespace DAL
             return Enum.GetValues(typeof(BE_PERMISO_TIPO_ENUM));
         }
 
-        public int AltaPermiso(BE_PERMISO permiso, bool esfamilia)
+        public int AltaPermiso(BE_PERMISO permiso, bool esrol)
         {
             List<SqlParameter> parametros = new List<SqlParameter>();
             SqlParameter p = acceso.CrearParametro("@nombre", permiso.Nombre);
             parametros.Add(p);
-            if (esfamilia)
+            if (esrol)
             {
                 p = acceso.CrearParametro("@permiso", DBNull.Value);
                 parametros.Add(p);
@@ -42,7 +42,7 @@ namespace DAL
             }
 
             int res = acceso.Escribir("PERMISO_INSERTAR", parametros);
-            //PERMISO_INSERTAR tiene que tener: $@"insert into permiso (nombre,permiso) values (@nombre,@permiso); SELECT ID AS LastID FROM permiso WHERE ID = @@Identity;";
+            //PERMISO_INSERTAR tiene que tener: INSERT INTO PERMISOS VALUES (@nombre, @permiso)
             return res;
         }
 
@@ -53,8 +53,8 @@ namespace DAL
             parametros.Add(p);
 
             int res = acceso.Escribir("PERMISO_PERMISO_BORRAR", parametros);
-            //PERMISO_PERMISO_BORRAR tiene que tener: $@"delete from permiso_permiso where id_permiso_padre=@id;";
-            
+            //PERMISO_PERMISO_BORRAR tiene que tener: DELETE FROM PERMISOS_PERMISOS WHERE idpermisopadre = @id
+
             List<SqlParameter> parametros2 = new List<SqlParameter>();
             foreach (var hijo in rol.ListaDeHijos)
             {
@@ -64,18 +64,18 @@ namespace DAL
                 parametros2.Add(p2);
 
                 res = acceso.Escribir("PERMISO_PERMISO_INSERTAR", parametros2);
-                //PERMISO_PERMISO_INSERTAR tiene que tener: $@"insert into permiso_permiso (id_permiso_padre,id_permiso_hijo) values (@id_permiso_padre,@id_permiso_hijo)";
+                //PERMISO_PERMISO_INSERTAR tiene que tener: INSERT INTO PERMISOS_PERMISOS VALUES (@idpermisopadre, @idpermisohijo) 
             }
         }
 
         //Permiso = Acciones
-        public IList<BE_PERMISO> TraerTodo(string familia)
+        public IList<BE_PERMISO> TraerTodo(string rol)
         {
             //var where = "IS NULL";
             var where = "NULL";
-            if (!string.IsNullOrEmpty(familia))
+            if (!string.IsNullOrEmpty(rol))
             {
-                where = familia;
+                where = rol;
             }
 
             IList<BE_PERMISO> listadepermisos = new List<BE_PERMISO>();
@@ -85,16 +85,17 @@ namespace DAL
             parametros.Add(p);
             DataTable tabla = acceso.Leer("PERMISO_LISTAR_RECURSIVO", parametros);
             /*
-            PERMISO_LISTAR_RECURSIVO tiene que tener: $@"with recursivo as (
-            select sp2.id_permiso_padre, sp2.id_permiso_hijo  from permiso_permiso SP2
-            where sp2.id_permiso_padre {where} --acá se va variando la familia que busco
-            UNION ALL 
-            select sp.id_permiso_padre, sp.id_permiso_hijo from permiso_permiso sp 
-            inner join recursivo r on r.id_permiso_hijo= sp.id_permiso_padre
-            )
-            select r.id_permiso_padre,r.id_permiso_hijo,p.id,p.nombre, p.permiso
-            from recursivo r 
-            inner join permiso p on r.id_permiso_hijo = p.id";
+            PERMISO_LISTAR_RECURSIVO tiene que tener: 
+            WITH recursivo AS	(
+						SELECT PP2.idpermisopadre, PP2.idpermisohijo FROM PERMISOS_PERMISOS PP2
+						WHERE PP2.idpermisopadre = @where --acá se va variando la familia que busco
+						UNION ALL 
+						SELECT PP1.idpermisopadre, PP1.idpermisohijo FROM PERMISOS_PERMISOS PP1 
+						inner join recursivo rec ON rec.idpermisohijo = PP1.idpermisopadre
+					)
+					SELECT rec.idpermisopadre, rec.idpermisohijo, P.id, P.nombre, P.permiso
+					FROM recursivo rec 
+					inner join PERMISOS P ON rec.idpermisohijo = P.id
             */
 
             foreach (DataRow dr in tabla.Rows)
@@ -151,7 +152,13 @@ namespace DAL
         {
             IList<BE_ACCION> listadeacciones = new List<BE_ACCION>();
             DataTable tabla = acceso.Leer("ACCION_LISTAR", null);
-            //ACCION_LISTAR tiene que tener: $@"select * from permiso p where p.permiso is not null;";
+            /*
+            ACCION_LISTAR tiene que tener: SELECT * FROM PERMISOS WHERE permiso IS NOT NULL
+            Me traigo los que no son NULL porque en la base los registros que en el campo permiso tengan el valor de NULL van a ser roles
+            1	IgresarAVentas  Accion  --> Es una accion/patente
+            2	VerVenta        Accion  --> Es una accion/patente
+            3   Administrador   NULL    --> Es un rol/familia
+            */
 
             foreach (DataRow dr in tabla.Rows)
             {
@@ -174,8 +181,8 @@ namespace DAL
         {
             IList<BE_ROL> listaderoles = new List<BE_ROL>();
             DataTable tabla = acceso.Leer("ROL_LISTAR", null);
-            //ROL_LISTAR tiene que tener: $@"select * from permiso p where p.permiso is null;";
-            
+            //ROL_LISTAR tiene que tener: SELECT * FROM PERMISOS WHERE permiso IS NULL
+
             foreach (DataRow dr in tabla.Rows)
             {
                 var id = int.Parse(dr["id"].ToString());
@@ -222,7 +229,7 @@ namespace DAL
             parametros.Add(p);
 
             DataTable tabla = acceso.Leer("USUARIO_PERMISO_LISTAR", parametros);
-            //USUARIO_PERMISO_LISTAR tiene que tener: $@"select p.* from usuarios_permisos up inner join permiso p on up.id_permiso=p.id where id_usuario=@id;";
+            //USUARIO_PERMISO_LISTAR tiene que tener: SELECT P.* FROM USUARIOS_PERMISOS UP INNER JOIN PERMISOS P ON UP.idpermiso = P.id WHERE idusuario = @id
 
             usuario.ListaDePermisos.Clear();
 
@@ -266,7 +273,7 @@ namespace DAL
         public void LlenarRolPermisos(BE_ROL rol)
         {
             rol.VaciarHijos();
-            foreach (var item in TraerTodo("=" + rol.Id))
+            foreach (var item in TraerTodo(rol.Id.ToString()))
             {
                 rol.AgregarHijo(item);
             }

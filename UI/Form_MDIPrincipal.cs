@@ -39,6 +39,20 @@ namespace UI
             }
         }
 
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_GestorUsuarios formgestorusuarios = new Form_GestorUsuarios();
+            formgestorusuarios.MdiParent = this;
+            formgestorusuarios.Show();
+        }
+
+        private void permisosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_GestorPermisos formgestorpermisos = new Form_GestorPermisos();
+            formgestorpermisos.MdiParent = this;
+            formgestorpermisos.Show();
+        }
+
         public void ValidarForm()
         {
             iniciarSesionToolStripMenuItem.Enabled = !BE_SESION.ObtenerInstancia.Logueado();
