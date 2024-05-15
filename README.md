@@ -1,6 +1,8 @@
 # Reglas para tener en cuenta
 ## En el código
 - El nombre de las clases van a estar escritas en mayúsculas, si es necesario más de una palabra se separa con _
+asdasdasd
+
 	- Ejemplo: BE_USUARIO, BE_MAPPER_USUARIO
 - El nombre de los atributos privados van en minúsuclas
 -	Ejemplo: nombredeusuario
