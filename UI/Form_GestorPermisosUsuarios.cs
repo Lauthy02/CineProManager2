@@ -14,14 +14,14 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UI
 {
-    public partial class Form_GestorUsuarios : Form
+    public partial class Form_GestorPermisosUsuarios : Form
     {
         BLL_USUARIO bllusuario;
         BLL_PERMISO bllpermiso;
         BE_USUARIO usuarioseleccionado;
         BE_USUARIO usuarioaux;
 
-        public Form_GestorUsuarios()
+        public Form_GestorPermisosUsuarios()
         {
             InitializeComponent();
             bllusuario = new BLL_USUARIO();

@@ -32,17 +32,17 @@ namespace DAL
             parametros.Add(p);
             if (esrol)
             {
-                p = acceso.CrearParametro("@permiso", DBNull.Value);
+                p = acceso.CrearParametro("@tipo", DBNull.Value);
                 parametros.Add(p);
             }
             else
             {
-                p = acceso.CrearParametro("@permiso", permiso.Nombre.ToString());
+                p = acceso.CrearParametro("@tipo", "Accion");
                 parametros.Add(p);
             }
 
             int res = acceso.Escribir("PERMISO_INSERTAR", parametros);
-            //PERMISO_INSERTAR tiene que tener: INSERT INTO PERMISOS VALUES (@nombre, @permiso)
+            //PERMISO_INSERTAR tiene que tener: INSERT INTO PERMISOS VALUES (@nombre, @tipo)
             return res;
         }
 
@@ -53,7 +53,7 @@ namespace DAL
             parametros.Add(p);
 
             int res = acceso.Escribir("PERMISO_PERMISO_BORRAR", parametros);
-            //PERMISO_PERMISO_BORRAR tiene que tener: DELETE FROM PERMISOS_PERMISOS WHERE idpermisopadre = @id
+            //DELETE FROM PERMISOS_PERMISOS WHERE idpermisopadre = @id
 
             List<SqlParameter> parametros2 = new List<SqlParameter>();
             foreach (var hijo in rol.ListaDeHijos)
@@ -64,7 +64,8 @@ namespace DAL
                 parametros2.Add(p2);
 
                 res = acceso.Escribir("PERMISO_PERMISO_INSERTAR", parametros2);
-                //PERMISO_PERMISO_INSERTAR tiene que tener: INSERT INTO PERMISOS_PERMISOS VALUES (@idpermisopadre, @idpermisohijo) 
+                parametros2.Clear();
+                //INSERT INTO PERMISOS_PERMISOS VALUES (@idpermisopadre, @idpermisohijo) 
             }
         }
 
@@ -109,15 +110,15 @@ namespace DAL
                 var id = int.Parse(dr["id"].ToString());
                 var nombre = dr["nombre"].ToString();
 
-                var permiso = string.Empty;
-                if (dr["permiso"] != DBNull.Value)
+                var tipo = string.Empty;
+                if (dr["tipo"] != DBNull.Value)
                 {
-                    permiso = dr["permiso"].ToString();
+                    tipo = dr["tipo"].ToString();
                 }
 
                 BE_PERMISO permisoaux;
 
-                if (string.IsNullOrEmpty(permiso))
+                if (string.IsNullOrEmpty(tipo))
                 {
                     permisoaux = new BE_ROL();
                 }
@@ -128,9 +129,9 @@ namespace DAL
 
                 permisoaux.Id = id;
                 permisoaux.Nombre = nombre;
-                if (!string.IsNullOrEmpty(permiso))
+                if (!string.IsNullOrEmpty(tipo))
                 {
-                    permisoaux.PermisoTipoEnum = (BE_PERMISO_TIPO_ENUM)Enum.Parse(typeof(BE_PERMISO_TIPO_ENUM), permiso);
+                    permisoaux.PermisoTipoEnum = (BE_PERMISO_TIPO_ENUM)Enum.Parse(typeof(BE_PERMISO_TIPO_ENUM), nombre);
                 }
 
                 var padre = TraerUnPermiso(idpadre, listadepermisos);
@@ -153,7 +154,7 @@ namespace DAL
             IList<BE_ACCION> listadeacciones = new List<BE_ACCION>();
             DataTable tabla = acceso.Leer("ACCION_LISTAR", null);
             /*
-            ACCION_LISTAR tiene que tener: SELECT * FROM PERMISOS WHERE permiso IS NOT NULL
+            SELECT * FROM PERMISOS WHERE tipo IS NOT NULL
             Me traigo los que no son NULL porque en la base los registros que en el campo permiso tengan el valor de NULL van a ser roles
             1	IgresarAVentas  Accion  --> Es una accion/patente
             2	VerVenta        Accion  --> Es una accion/patente
@@ -164,12 +165,12 @@ namespace DAL
             {
                 var id = int.Parse(dr["id"].ToString());
                 var nombre = dr["nombre"].ToString();
-                var permiso = dr["permiso"].ToString();
+                var permiso = dr["tipo"].ToString();
 
                 BE_ACCION accionaux = new BE_ACCION();
                 accionaux.Id = id;
                 accionaux.Nombre = nombre;
-                accionaux.PermisoTipoEnum = (BE_PERMISO_TIPO_ENUM)Enum.Parse(typeof(BE_PERMISO_TIPO_ENUM), permiso);
+                accionaux.PermisoTipoEnum = (BE_PERMISO_TIPO_ENUM)Enum.Parse(typeof(BE_PERMISO_TIPO_ENUM), nombre);
 
                 listadeacciones.Add(accionaux);
             }
@@ -181,7 +182,7 @@ namespace DAL
         {
             IList<BE_ROL> listaderoles = new List<BE_ROL>();
             DataTable tabla = acceso.Leer("ROL_LISTAR", null);
-            //ROL_LISTAR tiene que tener: SELECT * FROM PERMISOS WHERE permiso IS NULL
+            //SELECT * FROM PERMISOS WHERE tipo IS NULL
 
             foreach (DataRow dr in tabla.Rows)
             {
@@ -229,7 +230,7 @@ namespace DAL
             parametros.Add(p);
 
             DataTable tabla = acceso.Leer("USUARIO_PERMISO_LISTAR", parametros);
-            //USUARIO_PERMISO_LISTAR tiene que tener: SELECT P.* FROM USUARIOS_PERMISOS UP INNER JOIN PERMISOS P ON UP.idpermiso = P.id WHERE idusuario = @id
+            //SELECT P.* FROM USUARIOS_PERMISOS UP INNER JOIN PERMISOS P ON UP.idpermiso = P.id WHERE idusuario = @id
 
             usuario.ListaDePermisos.Clear();
 
@@ -238,19 +239,19 @@ namespace DAL
                 int idpermiso = int.Parse(dr["id"].ToString());
                 string nombrepermiso = dr["nombre"].ToString();
 
-                var permisop = string.Empty;
-                if (dr["permiso"] != DBNull.Value)
+                var permisotipo = string.Empty;
+                if (dr["tipo"] != DBNull.Value)
                 {
-                    permisop = dr["nombre"].ToString();
+                    permisotipo = dr["nombre"].ToString();
                 }
 
                 BE_PERMISO permisoaux;
-                if (!String.IsNullOrEmpty(permisop))
+                if (!String.IsNullOrEmpty(permisotipo))
                 {
                     permisoaux = new BE_ACCION();
                     permisoaux.Id = idpermiso;
                     permisoaux.Nombre = nombrepermiso;
-                    permisoaux.PermisoTipoEnum = (BE_PERMISO_TIPO_ENUM)Enum.Parse(typeof(BE_PERMISO_TIPO_ENUM), permisop);
+                    permisoaux.PermisoTipoEnum = (BE_PERMISO_TIPO_ENUM)Enum.Parse(typeof(BE_PERMISO_TIPO_ENUM), permisotipo);
                     usuario.ListaDePermisos.Add(permisoaux);
                 }
                 else
@@ -259,7 +260,6 @@ namespace DAL
                     permisoaux.Id = idpermiso;
                     permisoaux.Nombre = nombrepermiso;
 
-                    //var f = TraerTodo("=" + idpermiso);
                     var f = TraerTodo(idpermiso.ToString());
                     foreach (var item in f)
                     {

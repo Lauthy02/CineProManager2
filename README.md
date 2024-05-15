@@ -9,3 +9,4 @@ El parámetro = @nombre
 El stored procedure = STORED_PROCEDURE
 Nombre de la tabla = NOMBRE_DE_LA_TABLA --> En plural = USUARIOS
 Nombre de las columnas = columna
+

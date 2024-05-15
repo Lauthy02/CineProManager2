@@ -39,6 +39,7 @@ namespace DAL
             parametros.Add(p);
 
             int res = acceso.Escribir("USUARIO_INSERTAR", parametros);
+            //INSERT INTO USUARIOS VALUES (@nombredeusuario, @contrasenia, @nombre, @apellido, @correo)
             return res;
         }
 
@@ -49,6 +50,7 @@ namespace DAL
             parametros.Add(p);
 
             int res = acceso.Escribir("USUARIO_BORRAR", parametros);
+            //DELETE FROM USUARIOS WHERE id = @id
             return res;
         }
 
@@ -69,6 +71,15 @@ namespace DAL
             parametros.Add(p);
 
             int res = acceso.Escribir("USUARIO_EDITAR", parametros);
+            /*
+            update USUARIOS SET 
+                nombredeusuario = @nombredeusuario, 
+                contrasenia = @contrasenia,
+                nombre = @nombre,
+                apellido = @apellido,
+                correo = @correo
+            WHERE id = @id
+            */
             return res;
         }
 
@@ -82,6 +93,7 @@ namespace DAL
             parametros.Add(p);
 
             DataTable tabla = acceso.Leer("USUARIO_BUSCAR", parametros);
+            //SELECT * FROM USUARIOS WHERE nombredeusuario = @nombredeusuario AND contrasenia = @contrasenia
             foreach (DataRow dr in tabla.Rows)
             {
                 usuarios.Add(Convertir(dr));
@@ -93,6 +105,7 @@ namespace DAL
         {
             List<BE_USUARIO> usuarios = new List<BE_USUARIO>();
             DataTable tabla = acceso.Leer("USUARIO_LISTAR", null);
+            //SELECT * FROM USUARIOS
             foreach (DataRow dr in tabla.Rows)
             {
                 usuarios.Add(Convertir(dr));
@@ -121,7 +134,7 @@ namespace DAL
                 parametros.Add(p);
 
                 var res = acceso.Escribir("USUARIOS_PERMISOS_BORRAR", parametros);
-                //USUARIOS_PERMISOS_BORRAR tiene que tener: DELETE FROM USUARIOS_PERMISOS WHERE idusuario = @id
+                //DELETE FROM USUARIOS_PERMISOS WHERE idusuario = @id
 
                 foreach (var item in usuario.ListaDePermisos)
                 {
@@ -132,7 +145,7 @@ namespace DAL
                     parametros2.Add(p2);
 
                     var res2 = acceso.Escribir("USUARIOS_PERMISOS_INSERTAR", parametros2);
-                    //USUARIOS_PERMISOS_INSERTAR tiene que tener: INSERT INTO USUARIOS_PERMISOS VALUES (@idusuario, @idpermiso)
+                    //INSERT INTO USUARIOS_PERMISOS VALUES (@idusuario, @idpermiso)
                 }
             }
             catch (Exception)

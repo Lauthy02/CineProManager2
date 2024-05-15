@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class Form_GestorUsuarios
+    partial class Form_GestorPermisosUsuarios
     {
         /// <summary>
         /// Required designer variable.
@@ -80,7 +80,7 @@
             this.grpPatentes.Size = new System.Drawing.Size(256, 249);
             this.grpPatentes.TabIndex = 8;
             this.grpPatentes.TabStop = false;
-            this.grpPatentes.Text = "Usuarios";
+            this.grpPatentes.Text = "Permisos de usuarios";
             // 
             // button_AgregarRol
             // 
@@ -109,9 +109,9 @@
             this.label3.Location = new System.Drawing.Point(9, 178);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 13);
+            this.label3.Size = new System.Drawing.Size(114, 13);
             this.label3.TabIndex = 11;
-            this.label3.Text = "Agregar roles:";
+            this.label3.Text = "Agregar roles/familias: ";
             // 
             // button_AgregarAccion
             // 
@@ -140,9 +140,9 @@
             this.label1.Location = new System.Drawing.Point(9, 110);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 13);
+            this.label1.Size = new System.Drawing.Size(142, 13);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Agregar acciones:";
+            this.label1.Text = "Agregar acciones/patentes: ";
             // 
             // button_ConfigurarUsuario
             // 
@@ -175,7 +175,7 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Todos los usuarios";
             // 
-            // Form_GestorUsuarios
+            // Form_GestorPermisosUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -184,9 +184,9 @@
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.grpPatentes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Form_GestorUsuarios";
+            this.Name = "Form_GestorPermisosUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form_GestorUsuarios";
+            this.Text = "Gestor de permisos de usuarios";
             this.grpPatentes.ResumeLayout(false);
             this.grpPatentes.PerformLayout();
             this.ResumeLayout(false);

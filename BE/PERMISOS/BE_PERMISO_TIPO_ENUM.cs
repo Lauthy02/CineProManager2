@@ -7,9 +7,12 @@ namespace BE
 {
     public enum BE_PERMISO_TIPO_ENUM
     {
-        Administrador,
+        //Acá no van roles, van acciones
+        GestionarPermisosUsuarios,
+        GestionarPermisos,
         IngresarAVentas,
         VerVenta,
-        Accion
+        LimpiarCine,
+        Test,
     }
 }

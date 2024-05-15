@@ -39,11 +39,11 @@ namespace UI
             }
         }
 
-        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void permisosDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form_GestorUsuarios formgestorusuarios = new Form_GestorUsuarios();
-            formgestorusuarios.MdiParent = this;
-            formgestorusuarios.Show();
+            Form_GestorPermisosUsuarios formgestorpermisosusuarios = new Form_GestorPermisosUsuarios();
+            formgestorpermisosusuarios.MdiParent = this;
+            formgestorpermisosusuarios.Show();
         }
 
         private void permisosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -55,6 +55,7 @@ namespace UI
 
         public void ValidarForm()
         {
+            gestoresToolStripMenuItem.Enabled = false;
             iniciarSesionToolStripMenuItem.Enabled = !BE_SESION.ObtenerInstancia.Logueado();
             cerrarSesionToolStripMenuItem.Enabled = BE_SESION.ObtenerInstancia.Logueado();
 
@@ -64,7 +65,9 @@ namespace UI
                 toolStripStatusLabel_Sesion.ForeColor = Color.Green;
                 toolStripStatusLabel_NomApe.Text = BE_SESION.ObtenerInstancia.Usuario.ToString();
                 toolStripStatusLabel_Correo.Text = BE_SESION.ObtenerInstancia.Usuario.Correo;
-                toolStripStatusLabel_Rol.Text = "Rol";
+                toolStripStatusLabel_Rol.Text = BE_SESION.ObtenerInstancia.Usuario.ListaDePermisos[0].Nombre;
+
+                gestoresToolStripMenuItem.Enabled = BE_SESION.ObtenerInstancia.EstaEnElRol(BE_PERMISO_TIPO_ENUM.GestionarPermisosUsuarios) && BE_SESION.ObtenerInstancia.EstaEnElRol(BE_PERMISO_TIPO_ENUM.GestionarPermisos);
             }
             else
             {

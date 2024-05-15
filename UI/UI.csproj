@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form_GestorUsuarios.cs">
+    <Compile Include="Form_GestorPermisosUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_GestorUsuarios.Designer.cs">
-      <DependentUpon>Form_GestorUsuarios.cs</DependentUpon>
+    <Compile Include="Form_GestorPermisosUsuarios.Designer.cs">
+      <DependentUpon>Form_GestorPermisosUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_LogIn.cs">
       <SubType>Form</SubType>
@@ -72,8 +72,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form_GestorUsuarios.resx">
-      <DependentUpon>Form_GestorUsuarios.cs</DependentUpon>
+    <EmbeddedResource Include="Form_GestorPermisosUsuarios.resx">
+      <DependentUpon>Form_GestorPermisosUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_LogIn.resx">
       <DependentUpon>Form_LogIn.cs</DependentUpon>

@@ -27,7 +27,7 @@ namespace BLL
                     BE_USUARIO usuarioaux = usuario[0];
                     if (usuarioaux.Contrasenia == contrasenia)
                     {
-                        //new DAL_PERMISO().LlenarUsuarioPermisos(usuarioaux);
+                        new DAL_PERMISO().LlenarUsuarioPermisos(usuarioaux);
                         BE_SESION.ObtenerInstancia.LogIn(usuarioaux);
                         return BE_LOGIN_RESULTADO_ENUM.LogInCorrecto;
                     }

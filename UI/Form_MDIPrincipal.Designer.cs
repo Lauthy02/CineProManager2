@@ -28,18 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_MDIPrincipal));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.sesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iniciarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.permisosDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.permisosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel_Sesion = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_NomApe = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_Rol = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_Correo = new System.Windows.Forms.ToolStripStatusLabel();
-            this.gestoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.permisosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -78,6 +79,29 @@
             this.cerrarSesionToolStripMenuItem.Text = "Cerrar sesión";
             this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
             // 
+            // gestoresToolStripMenuItem
+            // 
+            this.gestoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.permisosDeUsuariosToolStripMenuItem,
+            this.permisosToolStripMenuItem});
+            this.gestoresToolStripMenuItem.Name = "gestoresToolStripMenuItem";
+            this.gestoresToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.gestoresToolStripMenuItem.Text = "Gestores";
+            // 
+            // permisosDeUsuariosToolStripMenuItem
+            // 
+            this.permisosDeUsuariosToolStripMenuItem.Name = "permisosDeUsuariosToolStripMenuItem";
+            this.permisosDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.permisosDeUsuariosToolStripMenuItem.Text = "Permisos de usuarios";
+            this.permisosDeUsuariosToolStripMenuItem.Click += new System.EventHandler(this.permisosDeUsuariosToolStripMenuItem_Click);
+            // 
+            // permisosToolStripMenuItem
+            // 
+            this.permisosToolStripMenuItem.Name = "permisosToolStripMenuItem";
+            this.permisosToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.permisosToolStripMenuItem.Text = "Permisos";
+            this.permisosToolStripMenuItem.Click += new System.EventHandler(this.permisosToolStripMenuItem_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -115,29 +139,6 @@
             this.toolStripStatusLabel_Correo.Size = new System.Drawing.Size(51, 17);
             this.toolStripStatusLabel_Correo.Text = "[Correo]";
             // 
-            // gestoresToolStripMenuItem
-            // 
-            this.gestoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.usuariosToolStripMenuItem,
-            this.permisosToolStripMenuItem});
-            this.gestoresToolStripMenuItem.Name = "gestoresToolStripMenuItem";
-            this.gestoresToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.gestoresToolStripMenuItem.Text = "Gestores";
-            // 
-            // usuariosToolStripMenuItem
-            // 
-            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.usuariosToolStripMenuItem.Text = "Usuarios";
-            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
-            // 
-            // permisosToolStripMenuItem
-            // 
-            this.permisosToolStripMenuItem.Name = "permisosToolStripMenuItem";
-            this.permisosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.permisosToolStripMenuItem.Text = "Permisos";
-            this.permisosToolStripMenuItem.Click += new System.EventHandler(this.permisosToolStripMenuItem_Click);
-            // 
             // Form_MDIPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -145,6 +146,7 @@
             this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form_MDIPrincipal";
@@ -171,7 +173,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_Rol;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_Correo;
         private System.Windows.Forms.ToolStripMenuItem gestoresToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem permisosDeUsuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem permisosToolStripMenuItem;
     }
 }
