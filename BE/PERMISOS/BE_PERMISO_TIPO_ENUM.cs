@@ -8,6 +8,7 @@ namespace BE
     public enum BE_PERMISO_TIPO_ENUM
     {
         //Acá no van roles, van acciones
+        SinPermisos,
         GestionarPermisosUsuarios,
         GestionarPermisos,
         IngresarAVentas,

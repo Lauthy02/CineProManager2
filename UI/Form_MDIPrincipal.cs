@@ -53,6 +53,20 @@ namespace UI
             formgestorpermisos.Show();
         }
 
+        private void aBMUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_GestorUsuarios formgestorusuarios = new Form_GestorUsuarios();
+            formgestorusuarios.MdiParent = this;
+            formgestorusuarios.Show();
+        }
+
+        private void aBMPelículasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_GestorPeliculas formgestorpeliculas = new Form_GestorPeliculas();
+            formgestorpeliculas.MdiParent = this;
+            formgestorpeliculas.Show();
+        }
+
         public void ValidarForm()
         {
             gestoresToolStripMenuItem.Enabled = false;

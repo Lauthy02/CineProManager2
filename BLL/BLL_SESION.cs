@@ -22,7 +22,7 @@ namespace BLL
             else
             {
                 var usuario = dalmapperusuario.Buscar(new BE_USUARIO { NombreDeUsuario = nombredeusuario, Contrasenia = contrasenia });
-                if (usuario != null)
+                if (usuario.Count != 0)
                 {
                     BE_USUARIO usuarioaux = usuario[0];
                     if (usuarioaux.Contrasenia == contrasenia)

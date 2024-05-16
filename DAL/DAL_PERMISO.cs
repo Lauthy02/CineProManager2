@@ -232,41 +232,53 @@ namespace DAL
             DataTable tabla = acceso.Leer("USUARIO_PERMISO_LISTAR", parametros);
             //SELECT P.* FROM USUARIOS_PERMISOS UP INNER JOIN PERMISOS P ON UP.idpermiso = P.id WHERE idusuario = @id
 
-            usuario.ListaDePermisos.Clear();
-
-            foreach (DataRow dr in tabla.Rows)
+            if (tabla.Rows.Count != 0)
             {
-                int idpermiso = int.Parse(dr["id"].ToString());
-                string nombrepermiso = dr["nombre"].ToString();
+                usuario.ListaDePermisos.Clear();
 
-                var permisotipo = string.Empty;
-                if (dr["tipo"] != DBNull.Value)
+                foreach (DataRow dr in tabla.Rows)
                 {
-                    permisotipo = dr["nombre"].ToString();
-                }
+                    int idpermiso = int.Parse(dr["id"].ToString());
+                    string nombrepermiso = dr["nombre"].ToString();
 
-                BE_PERMISO permisoaux;
-                if (!String.IsNullOrEmpty(permisotipo))
-                {
-                    permisoaux = new BE_ACCION();
-                    permisoaux.Id = idpermiso;
-                    permisoaux.Nombre = nombrepermiso;
-                    permisoaux.PermisoTipoEnum = (BE_PERMISO_TIPO_ENUM)Enum.Parse(typeof(BE_PERMISO_TIPO_ENUM), permisotipo);
-                    usuario.ListaDePermisos.Add(permisoaux);
-                }
-                else
-                {
-                    permisoaux = new BE_ROL();
-                    permisoaux.Id = idpermiso;
-                    permisoaux.Nombre = nombrepermiso;
-
-                    var f = TraerTodo(idpermiso.ToString());
-                    foreach (var item in f)
+                    var permisotipo = string.Empty;
+                    if (dr["tipo"] != DBNull.Value)
                     {
-                        permisoaux.AgregarHijo(item);
+                        permisotipo = dr["nombre"].ToString();
                     }
-                    usuario.ListaDePermisos.Add(permisoaux);
+
+                    BE_PERMISO permisoaux;
+                    if (!String.IsNullOrEmpty(permisotipo))
+                    {
+                        permisoaux = new BE_ACCION();
+                        permisoaux.Id = idpermiso;
+                        permisoaux.Nombre = nombrepermiso;
+                        permisoaux.PermisoTipoEnum = (BE_PERMISO_TIPO_ENUM)Enum.Parse(typeof(BE_PERMISO_TIPO_ENUM), nombrepermiso);
+                        usuario.ListaDePermisos.Add(permisoaux);
+                    }
+                    else
+                    {
+                        permisoaux = new BE_ROL();
+                        permisoaux.Id = idpermiso;
+                        permisoaux.Nombre = nombrepermiso;
+
+                        var f = TraerTodo(idpermiso.ToString());
+                        foreach (var item in f)
+                        {
+                            permisoaux.AgregarHijo(item);
+                        }
+                        usuario.ListaDePermisos.Add(permisoaux);
+                    }
                 }
+            }
+            else
+            {
+                BE_PERMISO permisoaux;
+                permisoaux = new BE_ACCION();
+                permisoaux.Id = 0;
+                permisoaux.Nombre = "SinPermisos";
+                permisoaux.PermisoTipoEnum = (BE_PERMISO_TIPO_ENUM)Enum.Parse(typeof(BE_PERMISO_TIPO_ENUM), "SinPermisos");
+                usuario.ListaDePermisos.Add(permisoaux);
             }
         }
 

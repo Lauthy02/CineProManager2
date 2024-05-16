@@ -11,25 +11,20 @@ namespace DAL
 {
     public class DAL_MAPPER_USUARIO : DAL_MAPPER<BE_USUARIO>
     {
+        DAL_ENCRIPTADOR encriptador;
+
         public DAL_MAPPER_USUARIO()
         {
             acceso.AbrirConexion();
+            encriptador = new DAL_ENCRIPTADOR();
         }
-
-        /*
-        ~DAL_MAPPER_USUARIO()
-        {
-            //Comento el destructor porque al cerrar la aplicación ocurre un error
-            acceso.CerrarConexion();
-        }
-        */
 
         public override int Alta(BE_USUARIO entidad)
         {
             List<SqlParameter> parametros = new List<SqlParameter>();
             SqlParameter p = acceso.CrearParametro("@nombredeusuario", entidad.NombreDeUsuario);
-            parametros.Add(p);
-            p = acceso.CrearParametro("@contrasenia", entidad.Contrasenia);
+            parametros.Add(p); 
+            p = acceso.CrearParametro("@contrasenia", encriptador.Encriptar(entidad.Contrasenia));
             parametros.Add(p);
             p = acceso.CrearParametro("@nombre", entidad.Nombre);
             parametros.Add(p);
@@ -61,7 +56,7 @@ namespace DAL
             parametros.Add(p);
             p = acceso.CrearParametro("@nombredeusuario", entidad.NombreDeUsuario);
             parametros.Add(p);
-            p = acceso.CrearParametro("@contrasenia", entidad.Contrasenia);
+            p = acceso.CrearParametro("@contrasenia", encriptador.Encriptar(entidad.Contrasenia));
             parametros.Add(p);
             p = acceso.CrearParametro("@nombre", entidad.Nombre);
             parametros.Add(p);
@@ -89,7 +84,7 @@ namespace DAL
             List<SqlParameter> parametros = new List<SqlParameter>();
             SqlParameter p = acceso.CrearParametro("@nombredeusuario", entidad.NombreDeUsuario);
             parametros.Add(p);
-            p = acceso.CrearParametro("@contrasenia", entidad.Contrasenia);
+            p = acceso.CrearParametro("@contrasenia", encriptador.Encriptar(entidad.Contrasenia));
             parametros.Add(p);
 
             DataTable tabla = acceso.Leer("USUARIO_BUSCAR", parametros);
@@ -118,7 +113,7 @@ namespace DAL
             BE_USUARIO usuario = new BE_USUARIO();
             usuario.Id = int.Parse(registro["id"].ToString());
             usuario.NombreDeUsuario = registro["nombredeusuario"].ToString();
-            usuario.Contrasenia = registro["contrasenia"].ToString();
+            usuario.Contrasenia = encriptador.Desencriptar(registro["contrasenia"].ToString());
             usuario.Nombre = registro["nombre"].ToString();
             usuario.Apellido = registro["apellido"].ToString();
             usuario.Correo = registro["correo"].ToString();

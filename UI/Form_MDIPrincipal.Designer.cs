@@ -41,6 +41,8 @@
             this.toolStripStatusLabel_NomApe = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_Rol = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_Correo = new System.Windows.Forms.ToolStripStatusLabel();
+            this.aBMUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aBMPelículasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -83,7 +85,9 @@
             // 
             this.gestoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.permisosDeUsuariosToolStripMenuItem,
-            this.permisosToolStripMenuItem});
+            this.permisosToolStripMenuItem,
+            this.aBMUsuariosToolStripMenuItem,
+            this.aBMPelículasToolStripMenuItem});
             this.gestoresToolStripMenuItem.Name = "gestoresToolStripMenuItem";
             this.gestoresToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.gestoresToolStripMenuItem.Text = "Gestores";
@@ -118,8 +122,8 @@
             // toolStripStatusLabel_Sesion
             // 
             this.toolStripStatusLabel_Sesion.Name = "toolStripStatusLabel_Sesion";
-            this.toolStripStatusLabel_Sesion.Size = new System.Drawing.Size(133, 17);
-            this.toolStripStatusLabel_Sesion.Text = "[No hay sesión iniciada]";
+            this.toolStripStatusLabel_Sesion.Size = new System.Drawing.Size(99, 17);
+            this.toolStripStatusLabel_Sesion.Text = "[Status de sesión]";
             // 
             // toolStripStatusLabel_NomApe
             // 
@@ -138,6 +142,20 @@
             this.toolStripStatusLabel_Correo.Name = "toolStripStatusLabel_Correo";
             this.toolStripStatusLabel_Correo.Size = new System.Drawing.Size(51, 17);
             this.toolStripStatusLabel_Correo.Text = "[Correo]";
+            // 
+            // aBMUsuariosToolStripMenuItem
+            // 
+            this.aBMUsuariosToolStripMenuItem.Name = "aBMUsuariosToolStripMenuItem";
+            this.aBMUsuariosToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.aBMUsuariosToolStripMenuItem.Text = "ABM Usuarios";
+            this.aBMUsuariosToolStripMenuItem.Click += new System.EventHandler(this.aBMUsuariosToolStripMenuItem_Click);
+            // 
+            // aBMPelículasToolStripMenuItem
+            // 
+            this.aBMPelículasToolStripMenuItem.Name = "aBMPelículasToolStripMenuItem";
+            this.aBMPelículasToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.aBMPelículasToolStripMenuItem.Text = "ABM Películas";
+            this.aBMPelículasToolStripMenuItem.Click += new System.EventHandler(this.aBMPelículasToolStripMenuItem_Click);
             // 
             // Form_MDIPrincipal
             // 
@@ -175,6 +193,8 @@
         private System.Windows.Forms.ToolStripMenuItem gestoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem permisosDeUsuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem permisosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aBMUsuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aBMPelículasToolStripMenuItem;
     }
 }
 
