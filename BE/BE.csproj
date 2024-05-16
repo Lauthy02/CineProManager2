@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MULTIIDOMA\BE_IDIOMA.cs" />
+    <Compile Include="MULTIIDOMA\BE_IDIOMA_NOMBRE_ENUM.cs" />
     <Compile Include="SESION\BE_LOGIN_EXCEPCION.cs" />
     <Compile Include="SESION\BE_LOGIN_RESULTADO_ENUM.cs" />
     <Compile Include="SESION\BE_SESION.cs" />

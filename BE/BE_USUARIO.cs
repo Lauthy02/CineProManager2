@@ -1,4 +1,5 @@
-﻿using BE.PERMISOS;
+﻿using BE.MULTIIDOMA;
+using BE.PERMISOS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,6 +62,13 @@ namespace BE
         {
             get { return correo; }
             set { correo = value; }
+        }
+
+        private BE_IDIOMA idioma;
+        public BE_IDIOMA Idioma
+        {
+            get { return idioma; }
+            set { idioma = value; }
         }
 
         public override string ToString()
