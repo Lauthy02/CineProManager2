@@ -125,7 +125,7 @@ namespace UI
         {
             try
             {
-                bllpermiso.GuardarFamilia(rolseleccionado);
+                bllpermiso.GuardarRol(rolseleccionado);
                 MessageBox.Show("Rol guardado correctamente");
             }
             catch (Exception)

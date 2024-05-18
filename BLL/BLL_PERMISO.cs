@@ -49,7 +49,7 @@ namespace BLL
             return dalpermiso.AltaPermiso(permiso, esrol);
         }
 
-        public void GuardarFamilia(BE_ROL rol)
+        public void GuardarRol(BE_ROL rol)
         {
             dalpermiso.AltaRol(rol);
         }

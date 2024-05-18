@@ -1,4 +1,5 @@
 ﻿using BE;
+using DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace BLL
 {
     public class BLL_USUARIO
     {
-        DAL.DAL_MAPPER_USUARIO dalmapperusuario = new DAL.DAL_MAPPER_USUARIO();
+        DAL_MAPPER_USUARIO dalmapperusuario = new DAL_MAPPER_USUARIO();
 
         public void GuardarUsuario(BE_USUARIO beusuario)
         {
@@ -23,12 +24,12 @@ namespace BLL
             }
         }
 
-        public void BorrarUsuario(BE.BE_USUARIO beusuario)
+        public void BorrarUsuario(BE_USUARIO beusuario)
         {
             dalmapperusuario.Baja(beusuario);
         }
 
-        public List<BE_USUARIO> BuscarUsuario(BE.BE_USUARIO beusuario)
+        public List<BE_USUARIO> BuscarUsuario(BE_USUARIO beusuario)
         {
             return dalmapperusuario.Buscar(beusuario);
         }

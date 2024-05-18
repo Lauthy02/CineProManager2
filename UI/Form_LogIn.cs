@@ -14,12 +14,11 @@ namespace UI
 {
     public partial class Form_LogIn : Form
     {
-        BLL_SESION bllsesion;
+        BLL_SESION bllsesion = new BLL_SESION();
 
         public Form_LogIn()
         {
             InitializeComponent();
-            bllsesion = new BLL_SESION();
         }
 
         private void button_LogIn_Click(object sender, EventArgs e)

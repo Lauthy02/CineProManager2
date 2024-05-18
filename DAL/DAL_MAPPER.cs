@@ -11,9 +11,9 @@ namespace DAL
     {
         internal DAL_ACCESOBD acceso = new DAL_ACCESOBD();
 
-        public abstract int Alta(T objeto);
-        public abstract int Baja(T objeto);
-        public abstract int Modificacion(T objeto);
+        public abstract int Alta(T entidad);
+        public abstract int Baja(T entidad);
+        public abstract int Modificacion(T entidad);
         public abstract List<T> TraerTodos();
 
         internal abstract T Convertir(DataRow registro);

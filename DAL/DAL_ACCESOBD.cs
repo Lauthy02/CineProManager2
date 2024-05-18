@@ -38,17 +38,6 @@ namespace DAL
             return cmd;
         }
 
-        public DataTable Leer(string sql, List<SqlParameter> args = null)
-        {
-            DataTable tabla = new DataTable();
-            using (SqlDataAdapter da = new SqlDataAdapter(CrearComando(sql, args)))
-            {
-                da.Fill(tabla);
-                da.Dispose();
-            }
-            return tabla;
-        }
-
         public int Escribir(string sql, List<SqlParameter> args = null)
         {
             SqlCommand cmd = CrearComando(sql, args);
@@ -62,6 +51,17 @@ namespace DAL
                 filAfec = -1;
             }
             return filAfec;
+        }
+
+        public DataTable Leer(string sql, List<SqlParameter> args = null)
+        {
+            DataTable tabla = new DataTable();
+            using (SqlDataAdapter da = new SqlDataAdapter(CrearComando(sql, args)))
+            {
+                da.Fill(tabla);
+                da.Dispose();
+            }
+            return tabla;
         }
 
         public SqlParameter CrearParametro(string nombre, string valor)
