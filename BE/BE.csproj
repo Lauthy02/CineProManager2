@@ -41,6 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BE_ASIENTO.cs" />
+    <Compile Include="BE_CINE.cs" />
+    <Compile Include="BE_FUNCION.cs" />
+    <Compile Include="BE_PELICULA.cs" />
+    <Compile Include="BE_RESERVA.cs" />
+    <Compile Include="BE_SALA.cs" />
     <Compile Include="MULTIIDOMA\BE_IDIOMA.cs" />
     <Compile Include="MULTIIDOMA\BE_IDIOMA_NOMBRE_ENUM.cs" />
     <Compile Include="SESION\BE_LOGIN_EXCEPCION.cs" />

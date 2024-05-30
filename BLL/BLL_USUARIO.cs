@@ -43,5 +43,7 @@ namespace BLL
         {
             dalmapperusuario.AltaPermisos(beusuario);
         }
+
+        //realizarReserva(), cancelarReserva().
     }
 }
