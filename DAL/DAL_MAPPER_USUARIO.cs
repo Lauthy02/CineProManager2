@@ -24,7 +24,7 @@ namespace DAL
             List<SqlParameter> parametros = new List<SqlParameter>();
             SqlParameter p = acceso.CrearParametro("@nombredeusuario", entidad.NombreDeUsuario);
             parametros.Add(p); 
-            p = acceso.CrearParametro("@contrasenia", encriptador.Encriptar(entidad.Contrasenia));
+            p = acceso.CrearParametro("@contrasenia", encriptador.EncriptarMD5(entidad.Contrasenia));
             parametros.Add(p);
             p = acceso.CrearParametro("@nombre", entidad.Nombre);
             parametros.Add(p);
@@ -56,7 +56,7 @@ namespace DAL
             parametros.Add(p);
             p = acceso.CrearParametro("@nombredeusuario", entidad.NombreDeUsuario);
             parametros.Add(p);
-            p = acceso.CrearParametro("@contrasenia", encriptador.Encriptar(entidad.Contrasenia));
+            p = acceso.CrearParametro("@contrasenia", encriptador.EncriptarMD5(entidad.Contrasenia));
             parametros.Add(p);
             p = acceso.CrearParametro("@nombre", entidad.Nombre);
             parametros.Add(p);
@@ -84,9 +84,9 @@ namespace DAL
             List<SqlParameter> parametros = new List<SqlParameter>();
             SqlParameter p = acceso.CrearParametro("@nombredeusuario", entidad.NombreDeUsuario);
             parametros.Add(p);
-            p = acceso.CrearParametro("@contrasenia", encriptador.Encriptar(entidad.Contrasenia));
+            p = acceso.CrearParametro("@contrasenia", encriptador.EncriptarMD5(entidad.Contrasenia));
             parametros.Add(p);
-
+            //"DwN1hMmef9T0+MWVUPj1Bw=="
             DataTable tabla = acceso.Leer("USUARIO_BUSCAR", parametros);
             //SELECT * FROM USUARIOS WHERE nombredeusuario = @nombredeusuario AND contrasenia = @contrasenia
             foreach (DataRow dr in tabla.Rows)
@@ -113,7 +113,7 @@ namespace DAL
             BE_USUARIO usuario = new BE_USUARIO();
             usuario.Id = int.Parse(registro["id"].ToString());
             usuario.NombreDeUsuario = registro["nombredeusuario"].ToString();
-            usuario.Contrasenia = encriptador.Desencriptar(registro["contrasenia"].ToString());
+            usuario.Contrasenia = encriptador.DesencriptarMD5(registro["contrasenia"].ToString());
             usuario.Nombre = registro["nombre"].ToString();
             usuario.Apellido = registro["apellido"].ToString();
             usuario.Correo = registro["correo"].ToString();
