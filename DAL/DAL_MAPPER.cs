@@ -14,6 +14,7 @@ namespace DAL
         public abstract int Alta(T entidad);
         public abstract int Baja(T entidad);
         public abstract int Modificacion(T entidad);
+        public abstract List<T> Buscar(T entidad);
         public abstract List<T> TraerTodos();
 
         internal abstract T Convertir(DataRow registro);

@@ -78,7 +78,7 @@ namespace DAL
             return res;
         }
 
-        public List<BE_USUARIO> Buscar(BE_USUARIO entidad)
+        public override List<BE_USUARIO> Buscar(BE_USUARIO entidad)
         {
             List<BE_USUARIO> usuarios = new List<BE_USUARIO>();
             List<SqlParameter> parametros = new List<SqlParameter>();
@@ -86,7 +86,7 @@ namespace DAL
             parametros.Add(p);
             p = acceso.CrearParametro("@contrasenia", encriptador.EncriptarMD5(entidad.Contrasenia));
             parametros.Add(p);
-            //"DwN1hMmef9T0+MWVUPj1Bw=="
+            
             DataTable tabla = acceso.Leer("USUARIO_BUSCAR", parametros);
             //SELECT * FROM USUARIOS WHERE nombredeusuario = @nombredeusuario AND contrasenia = @contrasenia
             foreach (DataRow dr in tabla.Rows)

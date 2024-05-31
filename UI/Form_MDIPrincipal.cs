@@ -20,7 +20,7 @@ namespace UI
         {
             InitializeComponent();
             bllsesion = new BLL_SESION();
-            ValidarForm();
+            //ValidarForm();
         }
 
         private void iniciarSesionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -55,16 +55,23 @@ namespace UI
 
         private void aBMUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form_GestorUsuarios formgestorusuarios = new Form_GestorUsuarios();
-            formgestorusuarios.MdiParent = this;
-            formgestorusuarios.Show();
+            Form_ABMUsuarios formabmusuarios = new Form_ABMUsuarios();
+            formabmusuarios.MdiParent = this;
+            formabmusuarios.Show();
         }
 
         private void aBMPelículasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form_GestorPeliculas formgestorpeliculas = new Form_GestorPeliculas();
-            formgestorpeliculas.MdiParent = this;
-            formgestorpeliculas.Show();
+            Form_ABMPeliculas formabmpeliculas = new Form_ABMPeliculas();
+            formabmpeliculas.MdiParent = this;
+            formabmpeliculas.Show();
+        }
+
+        private void carteleraToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form_Cartelera formcartelera = new Form_Cartelera();
+            formcartelera.MdiParent = this;
+            formcartelera.Show();
         }
 
         public void ValidarForm()

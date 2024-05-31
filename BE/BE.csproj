@@ -42,9 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BE_ASIENTO.cs" />
+    <Compile Include="BE_CARTELERA.cs" />
     <Compile Include="BE_CINE.cs" />
     <Compile Include="BE_FUNCION.cs" />
     <Compile Include="BE_PELICULA.cs" />
+    <Compile Include="BE_PELICULA_GENERO_ENUM.cs" />
     <Compile Include="BE_RESERVA.cs" />
     <Compile Include="BE_SALA.cs" />
     <Compile Include="MULTIIDOMA\BE_IDIOMA.cs" />

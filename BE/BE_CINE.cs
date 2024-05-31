@@ -40,5 +40,12 @@ namespace BE
 			get { return listaDeSalas; }
 			set { listaDeSalas = value; }
 		}
+
+		private BE_CARTELERA cartelera;
+		public BE_CARTELERA Cartelera
+		{
+			get { return cartelera; }
+			set { cartelera = value; }
+		}
 	}
 }

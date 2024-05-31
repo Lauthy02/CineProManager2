@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class Form_GestorUsuarios
+    partial class Form_ABMUsuarios
     {
         /// <summary>
         /// Required designer variable.
@@ -212,14 +212,15 @@
             this.dataGridView1.Size = new System.Drawing.Size(619, 314);
             this.dataGridView1.TabIndex = 0;
             // 
-            // Form_GestorUsuarios
+            // Form_ABMUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(893, 338);
+            this.ClientSize = new System.Drawing.Size(894, 339);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Form_GestorUsuarios";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Name = "Form_ABMUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ABM de usuarios";
             this.groupBox1.ResumeLayout(false);

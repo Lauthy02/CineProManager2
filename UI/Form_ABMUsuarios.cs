@@ -12,13 +12,13 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class Form_GestorUsuarios : Form
+    public partial class Form_ABMUsuarios : Form
     {
         BLL_USUARIO bllusuario = new BLL_USUARIO();
         BE_USUARIO usuarioaux;
         bool operacion = false;
 
-        public Form_GestorUsuarios()
+        public Form_ABMUsuarios()
         {
             InitializeComponent();
             LlenarDataGrid();

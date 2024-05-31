@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="DAL_ACCESOBD.cs" />
     <Compile Include="DAL_MAPPER.cs" />
+    <Compile Include="DAL_MAPPER_PELICULA.cs" />
     <Compile Include="DAL_PERMISO.cs" />
     <Compile Include="DAL_MAPPER_USUARIO.cs" />
     <Compile Include="ENCRIPTADOR\DAL_ENCRIPTADOR.cs" />
