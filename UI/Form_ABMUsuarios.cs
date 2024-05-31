@@ -28,11 +28,7 @@ namespace UI
         {
             MessageBox.Show("Ingrese los datos");
 
-            textBox_NombreDeUsuario.Enabled = true;
-            textBox_Nombre.Enabled = true;
-            textBox_Apellido.Enabled = true;
-            textBox_Contrasenia.Enabled = true;
-            textBox_Correo.Enabled = true;
+            ControlesEn(true);
 
             button_Baja.Enabled = false;
             button_Modificacion.Enabled = false;
@@ -60,11 +56,7 @@ namespace UI
         {
             MessageBox.Show("Modifique los datos");
 
-            textBox_NombreDeUsuario.Enabled = true;
-            textBox_Nombre.Enabled = true;
-            textBox_Apellido.Enabled = true;
-            textBox_Contrasenia.Enabled = true;
-            textBox_Correo.Enabled = true;
+            ControlesEn(true);
 
             button_Alta.Enabled = false;
             button_Baja.Enabled = false;
@@ -81,11 +73,7 @@ namespace UI
 
         private void button_Guardar_Click(object sender, EventArgs e)
         {
-            textBox_NombreDeUsuario.Enabled = false;
-            textBox_Nombre.Enabled = false;
-            textBox_Apellido.Enabled = false;
-            textBox_Contrasenia.Enabled = false;
-            textBox_Correo.Enabled = false;
+            ControlesEn(false);
 
             button_Alta.Enabled = true;
             button_Baja.Enabled = true;
@@ -124,6 +112,15 @@ namespace UI
         {
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = bllusuario.ListarUsuarios();
+        }
+
+        private void ControlesEn(bool trufal)
+        {
+            textBox_NombreDeUsuario.Enabled = trufal;
+            textBox_Nombre.Enabled = trufal;
+            textBox_Apellido.Enabled = trufal;
+            textBox_Contrasenia.Enabled = trufal;
+            textBox_Correo.Enabled = trufal;
         }
     }
 }
