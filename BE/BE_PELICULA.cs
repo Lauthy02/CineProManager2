@@ -50,5 +50,17 @@ namespace BE
             get { return imagen; }
             set { imagen = value; }
         }
+
+        private string descripcion;
+        public string Descripcion
+        {
+            get { return descripcion; }
+            set { descripcion = value; }
+        }
+
+        public override string ToString()
+        {
+            return titulo;
+        }
     }
 }

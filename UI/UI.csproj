@@ -64,6 +64,12 @@
     <Compile Include="Form_ABMUsuarios.Designer.cs">
       <DependentUpon>Form_ABMUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_DetallePelicula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_DetallePelicula.Designer.cs">
+      <DependentUpon>Form_DetallePelicula.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_GestorPermisosUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_ABMUsuarios.resx">
       <DependentUpon>Form_ABMUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_DetallePelicula.resx">
+      <DependentUpon>Form_DetallePelicula.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_GestorPermisosUsuarios.resx">
       <DependentUpon>Form_GestorPermisosUsuarios.cs</DependentUpon>

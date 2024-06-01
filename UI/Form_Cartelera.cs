@@ -9,11 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 //using static System.Net.Mime.MediaTypeNames;
 using System.IO;
+using BLL;
+using BE;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UI
 {
     public partial class Form_Cartelera : Form
     {
+        BLL_PELICULA bllpelicula = new BLL_PELICULA();
+
         public Form_Cartelera()
         {
             InitializeComponent();
@@ -21,11 +26,13 @@ namespace UI
 
         private void Form_Cartelera_Load(object sender, EventArgs e)
         {
+            /*
             string rutaImagen = @"C:\Users\Lauta\Downloads\Fotos peliculas\VolverAlFuturo1.jpeg";
             Image imagen = Image.FromFile(rutaImagen);
 
             byte[] bytesimagen = ConvertirImagenABytes(imagen);
             button1.Image = ConvertirBytesAImagen(bytesimagen);
+            */
         }
 
         private Image ConvertirBytesAImagen(byte[] Imagen)
@@ -48,9 +55,23 @@ namespace UI
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void listBox_Peliculas_SelectedIndexChanged(object sender, EventArgs e)
         {
+            /*
+            BE_PELICULA peliculaaux = new BE_PELICULA();
+            peliculaaux = (BE_PELICULA)listBox_Peliculas.SelectedItem;
+            textBox1.Text = peliculaaux.Titulo;
+            textBox2.Text = peliculaaux.Director;
+            textBox3.Text = peliculaaux.Duracion.ToString();
+            textBox4.Text = peliculaaux.Genero.ToString();
+            pictureBox1.Image = ConvertirBytesAImagen(peliculaaux.Imagen);
+            */
+        }
 
+        private void LlenarListBoxPeliculas()
+        {
+            listBox_Peliculas.DataSource = null;
+            listBox_Peliculas.DataSource = bllpelicula.ListarPeliculas();
         }
     }
 }

@@ -27,11 +27,13 @@ namespace DAL
             parametros.Add(p);
             p = acceso.CrearParametro("@genero", entidad.Genero.ToString());
             parametros.Add(p);
+            p = acceso.CrearParametro("@descripcion", entidad.Descripcion);
+            parametros.Add(p);
             p = acceso.CrearParametro("@imagen", entidad.Imagen);
             parametros.Add(p);
 
             int res = acceso.Escribir("PELICULA_INSERTAR", parametros);
-            //INSERT INTO PELICULAS VALUES (@titulo, @director, @duracion, @genero, @imagen)
+            //INSERT INTO PELICULAS VALUES (@titulo, @director, @duracion, @genero, @descripcion, @imagen)
             return res;
         }
 
@@ -59,6 +61,8 @@ namespace DAL
             parametros.Add(p);
             p = acceso.CrearParametro("@genero", entidad.Genero.ToString());
             parametros.Add(p);
+            p = acceso.CrearParametro("@descripcion", entidad.Descripcion);
+            parametros.Add(p);
             p = acceso.CrearParametro("@imagen", entidad.Imagen);
             parametros.Add(p);
 
@@ -69,6 +73,7 @@ namespace DAL
                 director = @director,
                 duracion = @duracion,
                 genero = @genero,
+                descripcion = @descripcion,
                 imagen = @imagen
             WHERE id = @id
             */
@@ -111,6 +116,7 @@ namespace DAL
             pelicula.Director = registro["director"].ToString();
             pelicula.Duracion = int.Parse(registro["duracion"].ToString());
             pelicula.Genero = (BE_PELICULA_GENERO_ENUM)Enum.Parse(typeof(BE_PELICULA_GENERO_ENUM), registro["genero"].ToString());
+            pelicula.Descripcion = registro["descripcion"].ToString();
             pelicula.Imagen = (byte[])registro["imagen"];
             return pelicula;
         }

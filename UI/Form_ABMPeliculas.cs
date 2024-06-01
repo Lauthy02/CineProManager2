@@ -69,6 +69,7 @@ namespace UI
             textBox_Director.Text = dataGridView1.CurrentRow.Cells["Director"].Value.ToString();
             textBox_Duracion.Text = dataGridView1.CurrentRow.Cells["Duracion"].Value.ToString();
             comboBox_Genero.Text = dataGridView1.CurrentRow.Cells["Genero"].Value.ToString();
+            richTextBox1.Text = dataGridView1.CurrentRow.Cells["Descripcion"].Value.ToString();
 
             operacion = false;
         }
@@ -88,30 +89,31 @@ namespace UI
             peliculaaux.Director = textBox_Director.Text;
             peliculaaux.Duracion = int.Parse(textBox_Duracion.Text);
             peliculaaux.Genero = (BE_PELICULA_GENERO_ENUM)Enum.Parse(typeof(BE_PELICULA_GENERO_ENUM), comboBox_Genero.SelectedItem.ToString());
-
-            string rutaImagen = textBox_ImagenRuta.Text;
-            Image imagen = Image.FromFile(rutaImagen);
-            
-            peliculaaux.Imagen = ConvertirImagenABytes(imagen);
+            peliculaaux.Descripcion = richTextBox1.Text;
 
             if (operacion)
             {
+                string rutaImagen = textBox_ImagenRuta.Text;
+                Image imagen = Image.FromFile(rutaImagen);
+                peliculaaux.Imagen = ConvertirImagenABytes(imagen);
+
                 peliculaaux.Id = 0;
                 bllpelicula.GuardarPelicula(peliculaaux);
                 LlenarDataGrid();
             }
             else
             {
+                peliculaaux.Imagen = (byte[])dataGridView1.CurrentRow.Cells["Imagen"].Value;
                 peliculaaux.Id = int.Parse(dataGridView1.CurrentRow.Cells["Id"].Value.ToString());
                 bllpelicula.GuardarPelicula(peliculaaux);
                 LlenarDataGrid();
             }
-
             textBox_Titulo.Text = "";
             textBox_Director.Text = "";
             textBox_Duracion.Text = "";
             comboBox_Genero.Text = "";
-            button_BuscarImagen.Text = "";
+            richTextBox1.Text = "";
+            textBox_ImagenRuta.Text = "";
         }
 
         private void button_BuscarImagen_Click(object sender, EventArgs e)
@@ -133,7 +135,8 @@ namespace UI
         {
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = bllpelicula.ListarPeliculas();
-            
+            dataGridView1.Columns["Descripcion"].Width = 200;
+
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 Image imagen = ConvertirBytesAImagen((byte[])dataGridView1.Rows[i].Cells["Imagen"].Value);
@@ -148,6 +151,7 @@ namespace UI
             textBox_Duracion.Enabled = trufal;
             comboBox_Genero.Enabled = trufal;
             button_BuscarImagen.Enabled = trufal;
+            richTextBox1.Enabled = trufal;
         }
 
         private byte[] ConvertirImagenABytes(Image imagen)

@@ -1,8 +1,8 @@
 CREATE PROC PELICULA_INSERTAR
-@titulo varchar(50), @director varchar(50), @duracion int, @genero varchar(50), @imagen varbinary(MAX)
+@titulo varchar(50), @director varchar(50), @duracion int, @genero varchar(50), @descripcion varchar(MAX), @imagen varbinary(MAX)
 AS
 BEGIN
-	INSERT INTO PELICULAS VALUES (@titulo, @director, @duracion, @genero, @imagen)
+	INSERT INTO PELICULAS VALUES (@titulo, @director, @duracion, @genero, @descripcion, @imagen)
 END
 GO
 
@@ -15,7 +15,7 @@ END
 GO
 
 CREATE PROC PELICULA_EDITAR
-@id int, @titulo varchar(50), @director varchar(50), @duracion int, @genero varchar(50), @imagen varbinary(MAX)
+@id int, @titulo varchar(50), @director varchar(50), @duracion int, @genero varchar(50), @descripcion varchar(MAX), @imagen varbinary(MAX)
 AS
 BEGIN
 	UPDATE PELICULAS SET 
@@ -23,6 +23,7 @@ BEGIN
         director = @director,
         duracion = @duracion,
         genero = @genero,
+		descripcion = @descripcion,
         imagen = @imagen
     WHERE id = @id
 END

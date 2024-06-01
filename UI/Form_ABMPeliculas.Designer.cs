@@ -30,6 +30,8 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button_BuscarImagen = new System.Windows.Forms.Button();
+            this.comboBox_Genero = new System.Windows.Forms.ComboBox();
             this.button_Modificacion = new System.Windows.Forms.Button();
             this.button_Guardar = new System.Windows.Forms.Button();
             this.button_Baja = new System.Windows.Forms.Button();
@@ -43,9 +45,10 @@
             this.textBox_Director = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox_Genero = new System.Windows.Forms.ComboBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.button_BuscarImagen = new System.Windows.Forms.Button();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.label1 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -60,11 +63,13 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(619, 314);
+            this.dataGridView1.Size = new System.Drawing.Size(765, 481);
             this.dataGridView1.TabIndex = 2;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.richTextBox1);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.button_BuscarImagen);
             this.groupBox1.Controls.Add(this.comboBox_Genero);
             this.groupBox1.Controls.Add(this.button_Modificacion);
@@ -82,10 +87,30 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(244, 314);
+            this.groupBox1.Size = new System.Drawing.Size(244, 481);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ABM Películas";
+            // 
+            // button_BuscarImagen
+            // 
+            this.button_BuscarImagen.Enabled = false;
+            this.button_BuscarImagen.Location = new System.Drawing.Point(4, 448);
+            this.button_BuscarImagen.Name = "button_BuscarImagen";
+            this.button_BuscarImagen.Size = new System.Drawing.Size(89, 23);
+            this.button_BuscarImagen.TabIndex = 10;
+            this.button_BuscarImagen.Text = "Buscar imagen";
+            this.button_BuscarImagen.UseVisualStyleBackColor = true;
+            this.button_BuscarImagen.Click += new System.EventHandler(this.button_BuscarImagen_Click);
+            // 
+            // comboBox_Genero
+            // 
+            this.comboBox_Genero.Enabled = false;
+            this.comboBox_Genero.FormattingEnabled = true;
+            this.comboBox_Genero.Location = new System.Drawing.Point(5, 210);
+            this.comboBox_Genero.Name = "comboBox_Genero";
+            this.comboBox_Genero.Size = new System.Drawing.Size(231, 21);
+            this.comboBox_Genero.TabIndex = 9;
             // 
             // button_Modificacion
             // 
@@ -101,7 +126,7 @@
             // button_Guardar
             // 
             this.button_Guardar.Enabled = false;
-            this.button_Guardar.Location = new System.Drawing.Point(163, 283);
+            this.button_Guardar.Location = new System.Drawing.Point(161, 447);
             this.button_Guardar.Margin = new System.Windows.Forms.Padding(2);
             this.button_Guardar.Name = "button_Guardar";
             this.button_Guardar.Size = new System.Drawing.Size(75, 23);
@@ -135,7 +160,7 @@
             // textBox_ImagenRuta
             // 
             this.textBox_ImagenRuta.Enabled = false;
-            this.textBox_ImagenRuta.Location = new System.Drawing.Point(6, 257);
+            this.textBox_ImagenRuta.Location = new System.Drawing.Point(4, 421);
             this.textBox_ImagenRuta.Name = "textBox_ImagenRuta";
             this.textBox_ImagenRuta.Size = new System.Drawing.Size(232, 20);
             this.textBox_ImagenRuta.TabIndex = 7;
@@ -151,7 +176,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 241);
+            this.label7.Location = new System.Drawing.Point(1, 405);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(48, 13);
             this.label7.TabIndex = 5;
@@ -209,36 +234,34 @@
             this.label8.TabIndex = 4;
             this.label8.Text = "Género: ";
             // 
-            // comboBox_Genero
-            // 
-            this.comboBox_Genero.Enabled = false;
-            this.comboBox_Genero.FormattingEnabled = true;
-            this.comboBox_Genero.Location = new System.Drawing.Point(5, 210);
-            this.comboBox_Genero.Name = "comboBox_Genero";
-            this.comboBox_Genero.Size = new System.Drawing.Size(231, 21);
-            this.comboBox_Genero.TabIndex = 9;
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Title = "Busca una imagen";
             // 
-            // button_BuscarImagen
+            // label1
             // 
-            this.button_BuscarImagen.Enabled = false;
-            this.button_BuscarImagen.Location = new System.Drawing.Point(6, 284);
-            this.button_BuscarImagen.Name = "button_BuscarImagen";
-            this.button_BuscarImagen.Size = new System.Drawing.Size(89, 23);
-            this.button_BuscarImagen.TabIndex = 10;
-            this.button_BuscarImagen.Text = "Buscar imagen";
-            this.button_BuscarImagen.UseVisualStyleBackColor = true;
-            this.button_BuscarImagen.Click += new System.EventHandler(this.button_BuscarImagen_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 245);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 13);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Descripción: ";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Enabled = false;
+            this.richTextBox1.Location = new System.Drawing.Point(7, 261);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(229, 141);
+            this.richTextBox1.TabIndex = 12;
+            this.richTextBox1.Text = "";
             // 
             // Form_ABMPeliculas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(894, 339);
+            this.ClientSize = new System.Drawing.Size(1039, 505);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -272,5 +295,8 @@
         private System.Windows.Forms.ComboBox comboBox_Genero;
         private System.Windows.Forms.Button button_BuscarImagen;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
