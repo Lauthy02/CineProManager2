@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button_Modificacion = new System.Windows.Forms.Button();
-            this.button_Guardar = new System.Windows.Forms.Button();
-            this.button_Baja = new System.Windows.Forms.Button();
-            this.button_Alta = new System.Windows.Forms.Button();
             this.textBox_Correo = new System.Windows.Forms.TextBox();
             this.textBox_Contrasenia = new System.Windows.Forms.TextBox();
             this.textBox_NombreDeUsuario = new System.Windows.Forms.TextBox();
@@ -44,6 +40,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button_Guardar = new System.Windows.Forms.Button();
+            this.button_Modificacion = new System.Windows.Forms.Button();
+            this.button_Baja = new System.Windows.Forms.Button();
+            this.button_Alta = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -70,51 +70,6 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ABM Usuarios";
-            // 
-            // button_Modificacion
-            // 
-            this.button_Modificacion.Location = new System.Drawing.Point(163, 18);
-            this.button_Modificacion.Margin = new System.Windows.Forms.Padding(2);
-            this.button_Modificacion.Name = "button_Modificacion";
-            this.button_Modificacion.Size = new System.Drawing.Size(75, 23);
-            this.button_Modificacion.TabIndex = 2;
-            this.button_Modificacion.Text = "Modificación";
-            this.button_Modificacion.UseVisualStyleBackColor = true;
-            this.button_Modificacion.Click += new System.EventHandler(this.button_Modificacion_Click);
-            // 
-            // button_Guardar
-            // 
-            this.button_Guardar.Enabled = false;
-            this.button_Guardar.Location = new System.Drawing.Point(163, 283);
-            this.button_Guardar.Margin = new System.Windows.Forms.Padding(2);
-            this.button_Guardar.Name = "button_Guardar";
-            this.button_Guardar.Size = new System.Drawing.Size(75, 23);
-            this.button_Guardar.TabIndex = 8;
-            this.button_Guardar.Text = "Guardar";
-            this.button_Guardar.UseVisualStyleBackColor = true;
-            this.button_Guardar.Click += new System.EventHandler(this.button_Guardar_Click);
-            // 
-            // button_Baja
-            // 
-            this.button_Baja.Location = new System.Drawing.Point(84, 18);
-            this.button_Baja.Margin = new System.Windows.Forms.Padding(2);
-            this.button_Baja.Name = "button_Baja";
-            this.button_Baja.Size = new System.Drawing.Size(75, 23);
-            this.button_Baja.TabIndex = 1;
-            this.button_Baja.Text = "Baja";
-            this.button_Baja.UseVisualStyleBackColor = true;
-            this.button_Baja.Click += new System.EventHandler(this.button_Baja_Click);
-            // 
-            // button_Alta
-            // 
-            this.button_Alta.Location = new System.Drawing.Point(5, 18);
-            this.button_Alta.Margin = new System.Windows.Forms.Padding(2);
-            this.button_Alta.Name = "button_Alta";
-            this.button_Alta.Size = new System.Drawing.Size(75, 23);
-            this.button_Alta.TabIndex = 0;
-            this.button_Alta.Text = "Alta";
-            this.button_Alta.UseVisualStyleBackColor = true;
-            this.button_Alta.Click += new System.EventHandler(this.button_Alta_Click);
             // 
             // textBox_Correo
             // 
@@ -212,6 +167,51 @@
             this.dataGridView1.Size = new System.Drawing.Size(619, 314);
             this.dataGridView1.TabIndex = 0;
             // 
+            // button_Guardar
+            // 
+            this.button_Guardar.Enabled = false;
+            this.button_Guardar.Location = new System.Drawing.Point(163, 283);
+            this.button_Guardar.Margin = new System.Windows.Forms.Padding(2);
+            this.button_Guardar.Name = "button_Guardar";
+            this.button_Guardar.Size = new System.Drawing.Size(75, 23);
+            this.button_Guardar.TabIndex = 8;
+            this.button_Guardar.Text = "Guardar";
+            this.button_Guardar.UseVisualStyleBackColor = true;
+            this.button_Guardar.Click += new System.EventHandler(this.button_Guardar_Click);
+            // 
+            // button_Modificacion
+            // 
+            this.button_Modificacion.Location = new System.Drawing.Point(163, 18);
+            this.button_Modificacion.Margin = new System.Windows.Forms.Padding(2);
+            this.button_Modificacion.Name = "button_Modificacion";
+            this.button_Modificacion.Size = new System.Drawing.Size(75, 23);
+            this.button_Modificacion.TabIndex = 2;
+            this.button_Modificacion.Text = "Modificación";
+            this.button_Modificacion.UseVisualStyleBackColor = true;
+            this.button_Modificacion.Click += new System.EventHandler(this.button_Modificacion_Click);
+            // 
+            // button_Baja
+            // 
+            this.button_Baja.Location = new System.Drawing.Point(84, 18);
+            this.button_Baja.Margin = new System.Windows.Forms.Padding(2);
+            this.button_Baja.Name = "button_Baja";
+            this.button_Baja.Size = new System.Drawing.Size(75, 23);
+            this.button_Baja.TabIndex = 1;
+            this.button_Baja.Text = "Baja";
+            this.button_Baja.UseVisualStyleBackColor = true;
+            this.button_Baja.Click += new System.EventHandler(this.button_Baja_Click);
+            // 
+            // button_Alta
+            // 
+            this.button_Alta.Location = new System.Drawing.Point(5, 18);
+            this.button_Alta.Margin = new System.Windows.Forms.Padding(2);
+            this.button_Alta.Name = "button_Alta";
+            this.button_Alta.Size = new System.Drawing.Size(75, 23);
+            this.button_Alta.TabIndex = 0;
+            this.button_Alta.Text = "Alta";
+            this.button_Alta.UseVisualStyleBackColor = true;
+            this.button_Alta.Click += new System.EventHandler(this.button_Alta_Click);
+            // 
             // Form_ABMUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,9 +242,9 @@
         private System.Windows.Forms.TextBox textBox_Nombre;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button_Guardar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button_Modificacion;
+        private System.Windows.Forms.Button button_Guardar;
         private System.Windows.Forms.Button button_Baja;
         private System.Windows.Forms.Button button_Alta;
     }

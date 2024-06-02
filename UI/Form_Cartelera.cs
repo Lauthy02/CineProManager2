@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using BE;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,10 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using static System.Net.Mime.MediaTypeNames;
 using System.IO;
-using BLL;
-using BE;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UI
@@ -18,6 +17,9 @@ namespace UI
     public partial class Form_Cartelera : Form
     {
         BLL_PELICULA bllpelicula = new BLL_PELICULA();
+        BLL_CINE bllcine = new BLL_CINE();
+
+        public BE_PELICULA PeliculaSeleccionada { get; set; }
 
         public Form_Cartelera()
         {
@@ -26,13 +28,41 @@ namespace UI
 
         private void Form_Cartelera_Load(object sender, EventArgs e)
         {
-            /*
-            string rutaImagen = @"C:\Users\Lauta\Downloads\Fotos peliculas\VolverAlFuturo1.jpeg";
-            Image imagen = Image.FromFile(rutaImagen);
+            LlenarComboBoxDeCines();
+            LlenarListBoxPeliculas();
+        }
 
-            byte[] bytesimagen = ConvertirImagenABytes(imagen);
-            button1.Image = ConvertirBytesAImagen(bytesimagen);
-            */
+        private void listBox_Peliculas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            button_ComprarEntradas.Enabled = true;
+            BE_PELICULA peliculaaux = new BE_PELICULA();
+            peliculaaux = (BE_PELICULA)listBox_Peliculas.SelectedItem;
+            label_Titulo.Text = "Titulo: " + peliculaaux.Titulo;
+            label_Director.Text = "Director: " + peliculaaux.Director;
+            label_Duracion.Text = "Duración: " + peliculaaux.Duracion.ToString();
+            label_Genero.Text = "Género: " + peliculaaux.Genero.ToString();
+            pictureBox1.Image = ConvertirBytesAImagen(peliculaaux.Imagen);
+            richTextBox_Descripcion.Text = peliculaaux.Descripcion;
+        }
+
+        private void button_ComprarEntradas_Click(object sender, EventArgs e)
+        {
+            PeliculaSeleccionada = (BE_PELICULA)listBox_Peliculas.SelectedItem;
+            Form_ComprarEntradas formdcomprarentradas = new Form_ComprarEntradas();
+            formdcomprarentradas.MainForm = this;
+            formdcomprarentradas.Show();
+        }
+
+        private void LlenarComboBoxDeCines()
+        {
+            comboBox_Cines.DataSource = null;
+            comboBox_Cines.DataSource = bllcine.ListarCines();
+        }
+
+        private void LlenarListBoxPeliculas()
+        {
+            listBox_Peliculas.DataSource = null;
+            listBox_Peliculas.DataSource = bllpelicula.ListarPeliculas();
         }
 
         private Image ConvertirBytesAImagen(byte[] Imagen)
@@ -50,28 +80,9 @@ namespace UI
         {
             using (MemoryStream ms = new MemoryStream())
             {
-                imagen.Save(ms, imagen.RawFormat); // Guardar la imagen en el MemoryStream en su formato original
-                return ms.ToArray(); // Convertir el MemoryStream en un arreglo de bytes
+                imagen.Save(ms, imagen.RawFormat);
+                return ms.ToArray();
             }
-        }
-
-        private void listBox_Peliculas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            /*
-            BE_PELICULA peliculaaux = new BE_PELICULA();
-            peliculaaux = (BE_PELICULA)listBox_Peliculas.SelectedItem;
-            textBox1.Text = peliculaaux.Titulo;
-            textBox2.Text = peliculaaux.Director;
-            textBox3.Text = peliculaaux.Duracion.ToString();
-            textBox4.Text = peliculaaux.Genero.ToString();
-            pictureBox1.Image = ConvertirBytesAImagen(peliculaaux.Imagen);
-            */
-        }
-
-        private void LlenarListBoxPeliculas()
-        {
-            listBox_Peliculas.DataSource = null;
-            listBox_Peliculas.DataSource = bllpelicula.ListarPeliculas();
         }
     }
 }

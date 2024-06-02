@@ -14,12 +14,11 @@ namespace UI
 {
     public partial class Form_MDIPrincipal : Form
     {
-        BLL_SESION bllsesion;
+        BLL_SESION bllsesion = new BLL_SESION();
 
         public Form_MDIPrincipal()
         {
             InitializeComponent();
-            bllsesion = new BLL_SESION();
             //ValidarForm();
         }
 
@@ -65,6 +64,13 @@ namespace UI
             Form_ABMPeliculas formabmpeliculas = new Form_ABMPeliculas();
             formabmpeliculas.MdiParent = this;
             formabmpeliculas.Show();
+        }
+
+        private void aBMCinesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_ABMCines formabmcines = new Form_ABMCines();
+            formabmcines.MdiParent = this;
+            formabmcines.Show();
         }
 
         private void carteleraToolStripMenuItem1_Click(object sender, EventArgs e)

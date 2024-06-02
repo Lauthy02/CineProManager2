@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form_ABMCines.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ABMCines.Designer.cs">
+      <DependentUpon>Form_ABMCines.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Cartelera.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,11 +70,11 @@
     <Compile Include="Form_ABMUsuarios.Designer.cs">
       <DependentUpon>Form_ABMUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_DetallePelicula.cs">
+    <Compile Include="Form_ComprarEntradas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_DetallePelicula.Designer.cs">
-      <DependentUpon>Form_DetallePelicula.cs</DependentUpon>
+    <Compile Include="Form_ComprarEntradas.Designer.cs">
+      <DependentUpon>Form_ComprarEntradas.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_GestorPermisosUsuarios.cs">
       <SubType>Form</SubType>
@@ -96,6 +102,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form_ABMCines.resx">
+      <DependentUpon>Form_ABMCines.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Cartelera.resx">
       <DependentUpon>Form_Cartelera.cs</DependentUpon>
     </EmbeddedResource>
@@ -105,8 +114,8 @@
     <EmbeddedResource Include="Form_ABMUsuarios.resx">
       <DependentUpon>Form_ABMUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_DetallePelicula.resx">
-      <DependentUpon>Form_DetallePelicula.cs</DependentUpon>
+    <EmbeddedResource Include="Form_ComprarEntradas.resx">
+      <DependentUpon>Form_ComprarEntradas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_GestorPermisosUsuarios.resx">
       <DependentUpon>Form_GestorPermisosUsuarios.cs</DependentUpon>

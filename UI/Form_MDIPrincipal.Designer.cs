@@ -46,6 +46,7 @@
             this.carteleraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.carteleraToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.cinesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aBMCinesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -91,7 +92,8 @@
             this.permisosDeUsuariosToolStripMenuItem,
             this.permisosToolStripMenuItem,
             this.aBMUsuariosToolStripMenuItem,
-            this.aBMPelículasToolStripMenuItem});
+            this.aBMPelículasToolStripMenuItem,
+            this.aBMCinesToolStripMenuItem});
             this.gestoresToolStripMenuItem.Name = "gestoresToolStripMenuItem";
             this.gestoresToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.gestoresToolStripMenuItem.Text = "Gestores";
@@ -183,6 +185,13 @@
             this.cinesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cinesToolStripMenuItem.Text = "Cines";
             // 
+            // aBMCinesToolStripMenuItem
+            // 
+            this.aBMCinesToolStripMenuItem.Name = "aBMCinesToolStripMenuItem";
+            this.aBMCinesToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.aBMCinesToolStripMenuItem.Text = "ABM Cines";
+            this.aBMCinesToolStripMenuItem.Click += new System.EventHandler(this.aBMCinesToolStripMenuItem_Click);
+            // 
             // Form_MDIPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -224,6 +233,7 @@
         private System.Windows.Forms.ToolStripMenuItem carteleraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem carteleraToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem cinesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aBMCinesToolStripMenuItem;
     }
 }
 

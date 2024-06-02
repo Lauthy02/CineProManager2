@@ -27,6 +27,13 @@ namespace BE
 			set { nombre = value; }
 		}
 
+		private string zona;
+		public string Zona
+		{
+			get { return zona; }
+			set { zona = value; }
+		}
+
 		private string direccion;
 		public string Direccion
 		{
@@ -47,5 +54,10 @@ namespace BE
 			get { return cartelera; }
 			set { cartelera = value; }
 		}
-	}
+
+        public override string ToString()
+        {
+			return Nombre + " " + Zona;
+        }
+    }
 }
