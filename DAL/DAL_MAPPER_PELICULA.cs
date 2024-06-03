@@ -96,6 +96,22 @@ namespace DAL
             return peliculas;
         }
 
+        public BE_PELICULA BuscarConId(int idpelicula)
+        {
+            List<BE_PELICULA> peliculas = new List<BE_PELICULA>();
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            SqlParameter p = acceso.CrearParametro("@id", idpelicula);
+            parametros.Add(p);
+
+            DataTable tabla = acceso.Leer("PELICULA_BUSCARID", parametros);
+            //SELECT * FROM PELICULAS WHERE id = @id
+            foreach (DataRow dr in tabla.Rows)
+            {
+                peliculas.Add(Convertir(dr));
+            }
+            return peliculas[0];
+        }
+
         public override List<BE_PELICULA> TraerTodos()
         {
             List<BE_PELICULA> peliculas = new List<BE_PELICULA>();

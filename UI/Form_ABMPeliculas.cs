@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using System.IO;
 using static System.Net.WebRequestMethods;
 using System.Drawing.Imaging;
+using System.Diagnostics.Contracts;
 
 namespace UI
 {
@@ -76,44 +77,62 @@ namespace UI
 
         private void button_Guardar_Click(object sender, EventArgs e)
         {
-            ControlesEn(false);
-
-            button_Alta.Enabled = true;
-            button_Baja.Enabled = true;
-            button_Modificacion.Enabled = true;
-            button_Guardar.Enabled = false;
-
-            peliculaaux = new BE_PELICULA();
-
-            peliculaaux.Titulo = textBox_Titulo.Text;
-            peliculaaux.Director = textBox_Director.Text;
-            peliculaaux.Duracion = int.Parse(textBox_Duracion.Text);
-            peliculaaux.Genero = (BE_PELICULA_GENERO_ENUM)Enum.Parse(typeof(BE_PELICULA_GENERO_ENUM), comboBox_Genero.SelectedItem.ToString());
-            peliculaaux.Descripcion = richTextBox1.Text;
-
-            if (operacion)
+            if (ControlesConDatos())
             {
-                string rutaImagen = textBox_ImagenRuta.Text;
-                Image imagen = Image.FromFile(rutaImagen);
-                peliculaaux.Imagen = ConvertirImagenABytes(imagen);
+                ControlesEn(false);
 
-                peliculaaux.Id = 0;
-                bllpelicula.GuardarPelicula(peliculaaux);
-                LlenarDataGrid();
+                button_Alta.Enabled = true;
+                button_Baja.Enabled = true;
+                button_Modificacion.Enabled = true;
+                button_Guardar.Enabled = false;
+
+                peliculaaux = new BE_PELICULA();
+
+                peliculaaux.Titulo = textBox_Titulo.Text;
+                peliculaaux.Director = textBox_Director.Text;
+                peliculaaux.Duracion = int.Parse(textBox_Duracion.Text);
+                peliculaaux.Genero = (BE_PELICULA_GENERO_ENUM)Enum.Parse(typeof(BE_PELICULA_GENERO_ENUM), comboBox_Genero.SelectedItem.ToString());
+                peliculaaux.Descripcion = richTextBox1.Text;
+
+                string ruta = textBox_ImagenRuta.Text;
+                Image imagenoriginal = Image.FromFile(ruta);
+                peliculaaux.Imagen = RedimensionarYConvertirImagen(imagenoriginal, 80, 100, ImageFormat.Jpeg);
+
+                if (operacion)
+                {
+                    peliculaaux.Id = 0;
+                    bllpelicula.GuardarPelicula(peliculaaux);
+                    LlenarDataGrid();
+                }
+                else
+                {
+                    peliculaaux.Id = int.Parse(dataGridView1.CurrentRow.Cells["Id"].Value.ToString());
+                    bllpelicula.GuardarPelicula(peliculaaux);
+                    LlenarDataGrid();
+                }
+                textBox_Titulo.Text = "";
+                textBox_Director.Text = "";
+                textBox_Duracion.Text = "";
+                comboBox_Genero.Text = "";
+                richTextBox1.Text = "";
+                textBox_ImagenRuta.Text = "";
             }
             else
             {
-                peliculaaux.Imagen = (byte[])dataGridView1.CurrentRow.Cells["Imagen"].Value;
-                peliculaaux.Id = int.Parse(dataGridView1.CurrentRow.Cells["Id"].Value.ToString());
-                bllpelicula.GuardarPelicula(peliculaaux);
-                LlenarDataGrid();
+                MessageBox.Show("Faltan datos");
             }
-            textBox_Titulo.Text = "";
-            textBox_Director.Text = "";
-            textBox_Duracion.Text = "";
-            comboBox_Genero.Text = "";
-            richTextBox1.Text = "";
-            textBox_ImagenRuta.Text = "";
+        }
+
+        private bool ControlesConDatos()
+        {
+            if (textBox_Titulo.Text == "" || textBox_Director.Text == "" || textBox_Duracion.Text == "" || comboBox_Genero.Text == "" || richTextBox1.Text == "" || textBox_ImagenRuta.Text == "")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         private void button_BuscarImagen_Click(object sender, EventArgs e)
@@ -136,12 +155,6 @@ namespace UI
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = bllpelicula.ListarPeliculas();
             dataGridView1.Columns["Descripcion"].Width = 200;
-
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
-            {
-                Image imagen = ConvertirBytesAImagen((byte[])dataGridView1.Rows[i].Cells["Imagen"].Value);
-                dataGridView1.Rows[i].Cells["Imagen"].Value = RedimensionarYConvertirImagen(imagen, 80, 100, ImageFormat.Jpeg);
-            }
         }
 
         private void ControlesEn(bool trufal)

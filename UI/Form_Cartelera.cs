@@ -29,6 +29,10 @@ namespace UI
         private void Form_Cartelera_Load(object sender, EventArgs e)
         {
             LlenarComboBoxDeCines();
+        }
+
+        private void comboBox_Cines_SelectedIndexChanged(object sender, EventArgs e)
+        {
             LlenarListBoxPeliculas();
         }
 
@@ -37,12 +41,15 @@ namespace UI
             button_ComprarEntradas.Enabled = true;
             BE_PELICULA peliculaaux = new BE_PELICULA();
             peliculaaux = (BE_PELICULA)listBox_Peliculas.SelectedItem;
-            label_Titulo.Text = "Titulo: " + peliculaaux.Titulo;
-            label_Director.Text = "Director: " + peliculaaux.Director;
-            label_Duracion.Text = "Duración: " + peliculaaux.Duracion.ToString();
-            label_Genero.Text = "Género: " + peliculaaux.Genero.ToString();
-            pictureBox1.Image = ConvertirBytesAImagen(peliculaaux.Imagen);
-            richTextBox_Descripcion.Text = peliculaaux.Descripcion;
+            if (peliculaaux != null)
+            {
+                label_Titulo.Text = "Titulo: " + peliculaaux.Titulo;
+                label_Director.Text = "Director: " + peliculaaux.Director;
+                label_Duracion.Text = "Duración: " + peliculaaux.Duracion.ToString();
+                label_Genero.Text = "Género: " + peliculaaux.Genero.ToString();
+                pictureBox1.Image = ConvertirBytesAImagen(peliculaaux.Imagen);
+                richTextBox_Descripcion.Text = peliculaaux.Descripcion;
+            }
         }
 
         private void button_ComprarEntradas_Click(object sender, EventArgs e)
@@ -61,8 +68,19 @@ namespace UI
 
         private void LlenarListBoxPeliculas()
         {
+            BE_CINE cineaux = new BE_CINE();
+            cineaux = (BE_CINE)comboBox_Cines.SelectedItem;
             listBox_Peliculas.DataSource = null;
-            listBox_Peliculas.DataSource = bllpelicula.ListarPeliculas();
+            listBox_Peliculas.DataSource = cineaux.Cartelera.ListaDePeliculas;
+            if (cineaux.Cartelera.ListaDePeliculas.Count == 0)
+            {
+                label_Titulo.Text = "Titulo:";
+                label_Director.Text = "Director:";
+                label_Duracion.Text = "Duración:";
+                label_Genero.Text = "Género:";
+                pictureBox1.Image = null;
+                richTextBox_Descripcion.Text = "";
+            }
         }
 
         private Image ConvertirBytesAImagen(byte[] Imagen)

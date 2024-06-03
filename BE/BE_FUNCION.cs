@@ -10,7 +10,7 @@ namespace BE
     {
 		public BE_FUNCION()
         {
-            this.listaDeAsientos = new List<BE_ASIENTO>();
+            listaDeAsientos = new List<BE_ASIENTO>();
         }
 
 		private int id;

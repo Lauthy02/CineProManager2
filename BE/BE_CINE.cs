@@ -11,6 +11,7 @@ namespace BE
 		public BE_CINE()
         {
             listaDeSalas = new List<BE_SALA>();
+			cartelera = new BE_CARTELERA();
         }
 
 		private int id;

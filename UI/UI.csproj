@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form_GestorCines.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_GestorCines.Designer.cs">
+      <DependentUpon>Form_GestorCines.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_ABMCines.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_ComprarEntradas.resx">
       <DependentUpon>Form_ComprarEntradas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_GestorCines.resx">
+      <DependentUpon>Form_GestorCines.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_GestorPermisosUsuarios.resx">
       <DependentUpon>Form_GestorPermisosUsuarios.cs</DependentUpon>

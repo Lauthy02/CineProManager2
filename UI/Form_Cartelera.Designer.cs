@@ -198,6 +198,7 @@
             this.comboBox_Cines.Name = "comboBox_Cines";
             this.comboBox_Cines.Size = new System.Drawing.Size(184, 21);
             this.comboBox_Cines.TabIndex = 0;
+            this.comboBox_Cines.SelectedIndexChanged += new System.EventHandler(this.comboBox_Cines_SelectedIndexChanged);
             // 
             // Form_Cartelera
             // 
