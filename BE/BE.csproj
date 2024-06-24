@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BE_ASIENTO.cs" />
+    <Compile Include="BE_BUTACA.cs" />
     <Compile Include="BE_CARTELERA.cs" />
     <Compile Include="BE_CINE.cs" />
     <Compile Include="BE_FUNCION.cs" />
@@ -49,8 +49,13 @@
     <Compile Include="BE_PELICULA_GENERO_ENUM.cs" />
     <Compile Include="BE_RESERVA.cs" />
     <Compile Include="BE_SALA.cs" />
-    <Compile Include="MULTIIDOMA\BE_IDIOMA.cs" />
-    <Compile Include="MULTIIDOMA\BE_IDIOMA_NOMBRE_ENUM.cs" />
+    <Compile Include="BE_SALA_FORMATO_ENUM.cs" />
+    <Compile Include="MULTIIDIOMA\BE_ETIQUETA.cs" />
+    <Compile Include="MULTIIDIOMA\BE_IDIOMA.cs" />
+    <Compile Include="MULTIIDIOMA\BE_IDIOMA_NOMBRE_ENUM.cs" />
+    <Compile Include="MULTIIDIOMA\BE_TRADUCCION.cs" />
+    <Compile Include="MULTIIDIOMA\BE_IOBSERVABLE.cs" />
+    <Compile Include="MULTIIDIOMA\BE_IOBSERVERIDIOMA.cs" />
     <Compile Include="SESION\BE_LOGIN_EXCEPCION.cs" />
     <Compile Include="SESION\BE_LOGIN_RESULTADO_ENUM.cs" />
     <Compile Include="SESION\BE_SESION.cs" />

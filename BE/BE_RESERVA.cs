@@ -29,8 +29,8 @@ namespace BE
 			set { funcion = value; }
 		}
 
-		private List<BE_ASIENTO> listaDeAsientosReservados;
-		public List<BE_ASIENTO> ListaDeAsientosReservados
+		private List<BE_BUTACA> listaDeAsientosReservados;
+		public List<BE_BUTACA> ListaDeAsientosReservados
 		{
 			get { return listaDeAsientosReservados; }
 			set { listaDeAsientosReservados = value; }

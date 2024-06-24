@@ -15,18 +15,18 @@ namespace BE.MULTIIDOMA
             set { id = value; }
         }
 
+        private string nombre;
+        public string Nombre
+        {
+            get { return nombre; }
+            set { nombre = value; }
+        }
+
         private bool pordefecto;
         public bool PorDefecto
         {
             get { return pordefecto; }
             set { pordefecto = value; }
-        }
-
-        private BE_IDIOMA_NOMBRE_ENUM nombre;
-        public BE_IDIOMA_NOMBRE_ENUM Nombre
-        {
-            get { return nombre; }
-            set { nombre = value; }
         }
     }
 }

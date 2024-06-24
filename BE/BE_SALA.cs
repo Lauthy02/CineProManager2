@@ -10,7 +10,7 @@ namespace BE
     {
 		public BE_SALA()
         {
-            listaDeAsientos = new List<BE_ASIENTO>();
+            listaDeAsientos = new List<BE_BUTACA>();
         }
 
 		private int id;
@@ -34,8 +34,16 @@ namespace BE
 			//set { capacidad = value; }
 		}
 
-		private List<BE_ASIENTO> listaDeAsientos;
-		public List<BE_ASIENTO> ListaDeAsientos
+		private BE_SALA_FORMATO_ENUM formato;
+		public BE_SALA_FORMATO_ENUM Formato
+		{
+			get { return formato; }
+			set { formato = value; }
+		}
+
+
+		private List<BE_BUTACA> listaDeAsientos;
+		public List<BE_BUTACA> ListaDeAsientos
 		{
 			get { return listaDeAsientos; }
 			set { listaDeAsientos = value; }

@@ -13,6 +13,7 @@ namespace BE
         public BE_USUARIO()
         {
             listaDePermisos = new List<BE_PERMISO>();
+            idioma = new BE_IDIOMA();
         }
 
         private List<BE_PERMISO> listaDePermisos;

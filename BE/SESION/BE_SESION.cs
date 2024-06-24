@@ -1,9 +1,12 @@
 ﻿using BE.PERMISOS;
 using System;
+using BE.MULTIIDIOMA;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BE.MULTIIDOMA;
 
 namespace BE
 {
@@ -14,11 +17,23 @@ namespace BE
         private static BE_SESION instancia;
         private static Object bloqueo = new Object();
 
+        public BE_SESION()
+        { 
+            observadores = new List<BE_IOBSERVERIDIOMA>();
+        }
+
         private BE_USUARIO usuario;
         public BE_USUARIO Usuario
         {
             get { return usuario; }
             set { usuario = value; }
+        }
+
+        private static List<BE_IOBSERVERIDIOMA> observadores;
+        public static List<BE_IOBSERVERIDIOMA> Observadores
+        {
+            get { return observadores; }
+            set { observadores = value; }
         }
 
         public static BE_SESION ObtenerInstancia

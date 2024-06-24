@@ -1,5 +1,8 @@
 ﻿using BE;
+using BE.MULTIIDIOMA;
+using BE.MULTIIDOMA;
 using BLL;
+using BLL.MULTIIDIOMA;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,14 +15,19 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class Form_MDIPrincipal : Form
+    public partial class Form_MDIPrincipal : Form, BE_IOBSERVERIDIOMA
     {
         BLL_SESION bllsesion = new BLL_SESION();
+        BLL_IDIOMA bllidioma = new BLL_IDIOMA();
+        BLL_TRADUCTOR blltraductor = new BLL_TRADUCTOR();
 
         public Form_MDIPrincipal()
         {
             InitializeComponent();
-            //ValidarForm();
+            ValidarForm();
+            MostrarIdiomas();
+            //MarcarIdioma();
+            //Traducir();
         }
 
         private void iniciarSesionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -104,6 +112,76 @@ namespace UI
                 toolStripStatusLabel_Correo.Text = "";
                 toolStripStatusLabel_Rol.Text = "";
             }
+        }
+
+        public void ActualizarIdioma(BE_IDIOMA idioma) //Implementación de la interfaz BLL_IOBSERVERIDIOMA
+        { 
+            
+        }
+
+        public void MarcarIdioma()
+        {
+            if (BE_SESION.ObtenerInstancia.Logueado())
+            {
+                foreach (var item in idiomasToolStripMenuItem.DropDownItems)
+                {
+                    ((ToolStripMenuItem)item).Enabled = true;
+                    ((ToolStripMenuItem)item).Checked = BE_SESION.ObtenerInstancia.Usuario.Idioma.Id.Equals(((BE_IDIOMA)((ToolStripMenuItem)item).Tag).Id);
+                }
+            }
+            else
+            {
+                foreach (var item in idiomasToolStripMenuItem.DropDownItems)
+                {
+                    var i = ((BE_IDIOMA)((ToolStripMenuItem)item).Tag);
+
+                    ((ToolStripMenuItem)item).Checked = i.PorDefecto;
+                    ((ToolStripMenuItem)item).Enabled = false;
+                }
+            }
+        }
+
+        private void MostrarIdiomas()
+        {
+            var idiomas = bllidioma.ListarIdiomas();
+
+            foreach (var item in idiomas)
+            {
+                var t = new ToolStripMenuItem();
+                t.Text = item.Nombre;
+                t.Tag = item;
+                idiomasToolStripMenuItem.DropDownItems.Add(t);
+
+                t.Click += idioma_Click;
+            }
+        }
+
+        private void idioma_Click(object sender, EventArgs e)
+        {
+            bllsesion.CambiarIdioma(((BE_IDIOMA)((ToolStripMenuItem)sender).Tag));
+            MarcarIdioma();
+        }
+
+        private void Traducir()
+        {
+            BE_IDIOMA idiomaaux = new BE_IDIOMA();
+
+            if (BE_SESION.ObtenerInstancia.Logueado())
+            {
+                idiomaaux = BE_SESION.ObtenerInstancia.Usuario.Idioma;
+            }
+
+            blltraductor.CambiarIdiomaEnFormulario(this, idiomaaux);
+        }
+
+        private void Form_MDIPrincipal_Load(object sender, EventArgs e)
+        {
+            bllsesion.AgregarObservadorForm(this);
+        }
+
+        private void Form_MDIPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            bllsesion.QuitarObservadorForm(this);
         }
     }
 }

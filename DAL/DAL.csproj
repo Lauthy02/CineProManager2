@@ -45,6 +45,7 @@
     <Compile Include="DAL_MAPPER.cs" />
     <Compile Include="DAL_MAPPER_CINE.cs" />
     <Compile Include="DAL_MAPPER_PELICULA.cs" />
+    <Compile Include="MULTIIDIOMA\DAL_MAPPER_IDIOMA.cs" />
     <Compile Include="PERMISOS\DAL_PERMISO.cs" />
     <Compile Include="DAL_MAPPER_USUARIO.cs" />
     <Compile Include="ENCRIPTADOR\DAL_ENCRIPTADOR.cs" />

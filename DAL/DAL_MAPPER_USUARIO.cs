@@ -32,9 +32,11 @@ namespace DAL
             parametros.Add(p);
             p = acceso.CrearParametro("@correo", entidad.Correo);
             parametros.Add(p);
+            p = acceso.CrearParametro("@ididioma", entidad.Idioma.Id);
+            parametros.Add(p);
 
             int res = acceso.Escribir("USUARIO_INSERTAR", parametros);
-            //INSERT INTO USUARIOS VALUES (@nombredeusuario, @contrasenia, @nombre, @apellido, @correo)
+            //INSERT INTO USUARIOS VALUES (@nombredeusuario, @contrasenia, @nombre, @apellido, @correo, @ididioma)
             return res;
         }
 
@@ -64,6 +66,8 @@ namespace DAL
             parametros.Add(p);
             p = acceso.CrearParametro("@correo", entidad.Correo);
             parametros.Add(p);
+            p = acceso.CrearParametro("@ididioma", entidad.Idioma.Id);
+            parametros.Add(p);
 
             int res = acceso.Escribir("USUARIO_EDITAR", parametros);
             /*
@@ -72,7 +76,8 @@ namespace DAL
                 contrasenia = @contrasenia,
                 nombre = @nombre,
                 apellido = @apellido,
-                correo = @correo
+                correo = @correo,
+                ididioma = @ididioma
             WHERE id = @id
             */
             return res;
@@ -117,6 +122,7 @@ namespace DAL
             usuario.Nombre = registro["nombre"].ToString();
             usuario.Apellido = registro["apellido"].ToString();
             usuario.Correo = registro["correo"].ToString();
+            usuario.Idioma.Id = int.Parse(registro["ididioma"].ToString());
             return usuario;
         }
 
