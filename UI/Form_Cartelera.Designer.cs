@@ -31,8 +31,8 @@
             this.listBox_Peliculas = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button_ComprarEntradas = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button_ComprarEntradas = new System.Windows.Forms.Button();
             this.richTextBox_Descripcion = new System.Windows.Forms.RichTextBox();
             this.label_Descripcion = new System.Windows.Forms.Label();
             this.label_Genero = new System.Windows.Forms.Label();
@@ -68,6 +68,7 @@
             this.groupBox1.Size = new System.Drawing.Size(529, 424);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Tag = "Cines";
             this.groupBox1.Text = "Cines";
             // 
             // groupBox2
@@ -80,18 +81,8 @@
             this.groupBox2.Size = new System.Drawing.Size(516, 352);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
+            this.groupBox2.Tag = "Peliculas";
             this.groupBox2.Text = "Películas";
-            // 
-            // button_ComprarEntradas
-            // 
-            this.button_ComprarEntradas.Enabled = false;
-            this.button_ComprarEntradas.Location = new System.Drawing.Point(197, 278);
-            this.button_ComprarEntradas.Name = "button_ComprarEntradas";
-            this.button_ComprarEntradas.Size = new System.Drawing.Size(104, 23);
-            this.button_ComprarEntradas.TabIndex = 5;
-            this.button_ComprarEntradas.Text = "Comprar entradas";
-            this.button_ComprarEntradas.UseVisualStyleBackColor = true;
-            this.button_ComprarEntradas.Click += new System.EventHandler(this.button_ComprarEntradas_Click);
             // 
             // groupBox3
             // 
@@ -108,7 +99,20 @@
             this.groupBox3.Size = new System.Drawing.Size(305, 306);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Detalle de película";
+            this.groupBox3.Tag = "DetallesPelicula";
+            this.groupBox3.Text = "Detalles de la película";
+            // 
+            // button_ComprarEntradas
+            // 
+            this.button_ComprarEntradas.Enabled = false;
+            this.button_ComprarEntradas.Location = new System.Drawing.Point(197, 278);
+            this.button_ComprarEntradas.Name = "button_ComprarEntradas";
+            this.button_ComprarEntradas.Size = new System.Drawing.Size(104, 23);
+            this.button_ComprarEntradas.TabIndex = 5;
+            this.button_ComprarEntradas.Tag = "ComprarEntradas";
+            this.button_ComprarEntradas.Text = "Comprar entradas";
+            this.button_ComprarEntradas.UseVisualStyleBackColor = true;
+            this.button_ComprarEntradas.Click += new System.EventHandler(this.button_ComprarEntradas_Click);
             // 
             // richTextBox_Descripcion
             // 
@@ -126,6 +130,7 @@
             this.label_Descripcion.Name = "label_Descripcion";
             this.label_Descripcion.Size = new System.Drawing.Size(69, 13);
             this.label_Descripcion.TabIndex = 5;
+            this.label_Descripcion.Tag = "Drescripcion";
             this.label_Descripcion.Text = "Descripción: ";
             // 
             // label_Genero
@@ -135,6 +140,7 @@
             this.label_Genero.Name = "label_Genero";
             this.label_Genero.Size = new System.Drawing.Size(48, 13);
             this.label_Genero.TabIndex = 4;
+            this.label_Genero.Tag = "Genero";
             this.label_Genero.Text = "Género: ";
             // 
             // label_Duracion
@@ -144,6 +150,7 @@
             this.label_Duracion.Name = "label_Duracion";
             this.label_Duracion.Size = new System.Drawing.Size(101, 13);
             this.label_Duracion.TabIndex = 3;
+            this.label_Duracion.Tag = "Duracion";
             this.label_Duracion.Text = "Duración (minutos): ";
             // 
             // label_Director
@@ -153,6 +160,7 @@
             this.label_Director.Name = "label_Director";
             this.label_Director.Size = new System.Drawing.Size(50, 13);
             this.label_Director.TabIndex = 2;
+            this.label_Director.Tag = "Director";
             this.label_Director.Text = "Director: ";
             // 
             // label_Titulo
@@ -162,6 +170,7 @@
             this.label_Titulo.Name = "label_Titulo";
             this.label_Titulo.Size = new System.Drawing.Size(41, 13);
             this.label_Titulo.TabIndex = 1;
+            this.label_Titulo.Tag = "Titulo";
             this.label_Titulo.Text = "Título: ";
             // 
             // pictureBox1
@@ -180,6 +189,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(128, 13);
             this.label2.TabIndex = 3;
+            this.label2.Tag = "SeleccionePelicula";
             this.label2.Text = "Seleccione una película: ";
             // 
             // label1
@@ -189,6 +199,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 13);
             this.label1.TabIndex = 1;
+            this.label1.Tag = "SeleccioneCine";
             this.label1.Text = "Seleccione un cine: ";
             // 
             // comboBox_Cines
@@ -209,7 +220,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form_Cartelera";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form_Cartelera";
+            this.Tag = "Cartelera";
+            this.Text = "Cartelera";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Cartelera_FormClosing);
             this.Load += new System.EventHandler(this.Form_Cartelera_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

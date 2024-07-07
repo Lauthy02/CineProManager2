@@ -8,15 +8,13 @@ namespace BE.MULTIIDOMA
 {
     public class BE_TRADUCCION
     {
-		/*
 		private int id;
 		public int Id
 		{
 			get { return id; }
 			set { id = value; }
 		}
-		*/
-
+		
 		private BE_ETIQUETA etiqueta;
 		public BE_ETIQUETA Etiqueta
 		{

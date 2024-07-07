@@ -50,6 +50,7 @@
             this.button_GuardarCambios.Name = "button_GuardarCambios";
             this.button_GuardarCambios.Size = new System.Drawing.Size(96, 23);
             this.button_GuardarCambios.TabIndex = 10;
+            this.button_GuardarCambios.Tag = "GuardarCambios";
             this.button_GuardarCambios.Text = "Guardar cambios";
             this.button_GuardarCambios.UseVisualStyleBackColor = true;
             this.button_GuardarCambios.Click += new System.EventHandler(this.button_GuardarCambios_Click);
@@ -80,6 +81,7 @@
             this.grpPatentes.Size = new System.Drawing.Size(256, 249);
             this.grpPatentes.TabIndex = 8;
             this.grpPatentes.TabStop = false;
+            this.grpPatentes.Tag = "PermisosDeUsuarios";
             this.grpPatentes.Text = "Permisos de usuarios";
             // 
             // button_AgregarRol
@@ -89,6 +91,7 @@
             this.button_AgregarRol.Name = "button_AgregarRol";
             this.button_AgregarRol.Size = new System.Drawing.Size(75, 23);
             this.button_AgregarRol.TabIndex = 13;
+            this.button_AgregarRol.Tag = "Agregar";
             this.button_AgregarRol.Text = "Agregar >>";
             this.button_AgregarRol.UseVisualStyleBackColor = true;
             this.button_AgregarRol.Click += new System.EventHandler(this.button_AgregarRol_Click);
@@ -111,6 +114,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(114, 13);
             this.label3.TabIndex = 11;
+            this.label3.Tag = "AgregarRolesFamilias";
             this.label3.Text = "Agregar roles/familias: ";
             // 
             // button_AgregarAccion
@@ -120,6 +124,7 @@
             this.button_AgregarAccion.Name = "button_AgregarAccion";
             this.button_AgregarAccion.Size = new System.Drawing.Size(75, 23);
             this.button_AgregarAccion.TabIndex = 10;
+            this.button_AgregarAccion.Tag = "Agregar";
             this.button_AgregarAccion.Text = "Agregar >>";
             this.button_AgregarAccion.UseVisualStyleBackColor = true;
             this.button_AgregarAccion.Click += new System.EventHandler(this.button_AgregarAccion_Click);
@@ -142,6 +147,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(142, 13);
             this.label1.TabIndex = 8;
+            this.label1.Tag = "AgregarAccionesPatentes";
             this.label1.Text = "Agregar acciones/patentes: ";
             // 
             // button_ConfigurarUsuario
@@ -151,6 +157,7 @@
             this.button_ConfigurarUsuario.Name = "button_ConfigurarUsuario";
             this.button_ConfigurarUsuario.Size = new System.Drawing.Size(75, 23);
             this.button_ConfigurarUsuario.TabIndex = 7;
+            this.button_ConfigurarUsuario.Tag = "Configurar";
             this.button_ConfigurarUsuario.Text = "Configurar";
             this.button_ConfigurarUsuario.UseVisualStyleBackColor = true;
             this.button_ConfigurarUsuario.Click += new System.EventHandler(this.button_ConfigurarUsuario_Click);
@@ -173,6 +180,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 13);
             this.label2.TabIndex = 5;
+            this.label2.Tag = "TodosLosUsuarios";
             this.label2.Text = "Todos los usuarios:";
             // 
             // Form_GestorPermisosUsuarios
@@ -186,7 +194,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form_GestorPermisosUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Tag = "PermisosDeUsuarios";
             this.Text = "Gestor de permisos de usuarios";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_GestorPermisosUsuarios_FormClosing);
+            this.Load += new System.EventHandler(this.Form_GestorPermisosUsuarios_Load);
             this.grpPatentes.ResumeLayout(false);
             this.grpPatentes.PerformLayout();
             this.ResumeLayout(false);

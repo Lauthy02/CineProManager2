@@ -41,7 +41,6 @@
             this.aBMCinesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.carteleraToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.cinesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.idiomasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel_Sesion = new System.Windows.Forms.ToolStripStatusLabel();
@@ -63,6 +62,7 @@
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1184, 24);
             this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Tag = "menustrip";
             this.menuStrip1.Text = "menuStrip1";
             // 
             // sesionToolStripMenuItem
@@ -79,6 +79,7 @@
             // 
             this.iniciarSesionToolStripMenuItem.Name = "iniciarSesionToolStripMenuItem";
             this.iniciarSesionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.iniciarSesionToolStripMenuItem.Tag = "IniciarSesion";
             this.iniciarSesionToolStripMenuItem.Text = "Iniciar sesión";
             this.iniciarSesionToolStripMenuItem.Click += new System.EventHandler(this.iniciarSesionToolStripMenuItem_Click);
             // 
@@ -86,6 +87,7 @@
             // 
             this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
             this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cerrarSesionToolStripMenuItem.Tag = "CerrarSesion";
             this.cerrarSesionToolStripMenuItem.Text = "Cerrar sesión";
             this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
             // 
@@ -105,43 +107,47 @@
             // permisosDeUsuariosToolStripMenuItem
             // 
             this.permisosDeUsuariosToolStripMenuItem.Name = "permisosDeUsuariosToolStripMenuItem";
-            this.permisosDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.permisosDeUsuariosToolStripMenuItem.Text = "Permisos de usuarios";
+            this.permisosDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.permisosDeUsuariosToolStripMenuItem.Tag = "GestionarPermisosDeUsuarios";
+            this.permisosDeUsuariosToolStripMenuItem.Text = "Gestionar permisos de usuarios";
             this.permisosDeUsuariosToolStripMenuItem.Click += new System.EventHandler(this.permisosDeUsuariosToolStripMenuItem_Click);
             // 
             // permisosToolStripMenuItem
             // 
             this.permisosToolStripMenuItem.Name = "permisosToolStripMenuItem";
-            this.permisosToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.permisosToolStripMenuItem.Text = "Permisos";
+            this.permisosToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.permisosToolStripMenuItem.Tag = "GestionarPermisos";
+            this.permisosToolStripMenuItem.Text = "Gestionar permisos";
             this.permisosToolStripMenuItem.Click += new System.EventHandler(this.permisosToolStripMenuItem_Click);
             // 
             // aBMUsuariosToolStripMenuItem
             // 
             this.aBMUsuariosToolStripMenuItem.Name = "aBMUsuariosToolStripMenuItem";
-            this.aBMUsuariosToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.aBMUsuariosToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.aBMUsuariosToolStripMenuItem.Tag = "ABMUsuarios";
             this.aBMUsuariosToolStripMenuItem.Text = "ABM Usuarios";
             this.aBMUsuariosToolStripMenuItem.Click += new System.EventHandler(this.aBMUsuariosToolStripMenuItem_Click);
             // 
             // aBMPelículasToolStripMenuItem
             // 
             this.aBMPelículasToolStripMenuItem.Name = "aBMPelículasToolStripMenuItem";
-            this.aBMPelículasToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.aBMPelículasToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.aBMPelículasToolStripMenuItem.Tag = "ABMPeliculas";
             this.aBMPelículasToolStripMenuItem.Text = "ABM Películas";
             this.aBMPelículasToolStripMenuItem.Click += new System.EventHandler(this.aBMPelículasToolStripMenuItem_Click);
             // 
             // aBMCinesToolStripMenuItem
             // 
             this.aBMCinesToolStripMenuItem.Name = "aBMCinesToolStripMenuItem";
-            this.aBMCinesToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.aBMCinesToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.aBMCinesToolStripMenuItem.Tag = "ABMCines";
             this.aBMCinesToolStripMenuItem.Text = "ABM Cines";
             this.aBMCinesToolStripMenuItem.Click += new System.EventHandler(this.aBMCinesToolStripMenuItem_Click);
             // 
             // cineToolStripMenuItem
             // 
             this.cineToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.carteleraToolStripMenuItem1,
-            this.cinesToolStripMenuItem});
+            this.carteleraToolStripMenuItem1});
             this.cineToolStripMenuItem.Name = "cineToolStripMenuItem";
             this.cineToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.cineToolStripMenuItem.Tag = "Cine";
@@ -151,14 +157,9 @@
             // 
             this.carteleraToolStripMenuItem1.Name = "carteleraToolStripMenuItem1";
             this.carteleraToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.carteleraToolStripMenuItem1.Text = "Cartelera";
+            this.carteleraToolStripMenuItem1.Tag = "ReservarEntradas";
+            this.carteleraToolStripMenuItem1.Text = "Reservar entradas";
             this.carteleraToolStripMenuItem1.Click += new System.EventHandler(this.carteleraToolStripMenuItem1_Click);
-            // 
-            // cinesToolStripMenuItem
-            // 
-            this.cinesToolStripMenuItem.Name = "cinesToolStripMenuItem";
-            this.cinesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cinesToolStripMenuItem.Text = "Cines";
             // 
             // idiomasToolStripMenuItem
             // 
@@ -216,6 +217,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form_MDIPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Tag = "MDIPrincipal";
             this.Text = "CineProManager";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_MDIPrincipal_FormClosing);
             this.Load += new System.EventHandler(this.Form_MDIPrincipal_Load);
@@ -246,7 +248,6 @@
         private System.Windows.Forms.ToolStripMenuItem aBMPelículasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cineToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem carteleraToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem cinesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aBMCinesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem idiomasToolStripMenuItem;
     }

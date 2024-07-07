@@ -1,8 +1,8 @@
 CREATE PROC USUARIO_INSERTAR
-@nombredeusuario varchar(50), @contrasenia varchar(50), @nombre varchar(50), @apellido varchar(50), @correo varchar(50)
+@nombredeusuario varchar(50), @contrasenia varchar(50), @nombre varchar(50), @apellido varchar(50), @correo varchar(50), @ididioma int
 AS 
 BEGIN
-	INSERT INTO USUARIOS VALUES (@nombredeusuario, @contrasenia, @nombre, @apellido, @correo)
+	INSERT INTO USUARIOS VALUES (@nombredeusuario, @contrasenia, @nombre, @apellido, @correo, @ididioma)
 END
 GO
 
@@ -15,7 +15,7 @@ END
 GO
 
 CREATE PROC USUARIO_EDITAR
-@id int, @nombredeusuario varchar(50), @contrasenia varchar(50), @nombre varchar(50), @apellido varchar(50), @correo varchar(50) 
+@id int, @nombredeusuario varchar(50), @contrasenia varchar(50), @nombre varchar(50), @apellido varchar(50), @correo varchar(50), @ididioma int
 AS 
 BEGIN
 	update USUARIOS SET 
@@ -23,7 +23,8 @@ BEGIN
 		contrasenia = @contrasenia,
 		nombre = @nombre,
 		apellido = @apellido,
-		correo = @correo
+		correo = @correo,
+		ididioma = @ididioma
 	WHERE id = @id
 END
 GO

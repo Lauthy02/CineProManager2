@@ -66,6 +66,7 @@
             this.groupBox4.Size = new System.Drawing.Size(290, 249);
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
+            this.groupBox4.Tag = "ConfigurarRoles";
             this.groupBox4.Text = "Configurar roles";
             // 
             // button_GuardarRol
@@ -75,6 +76,7 @@
             this.button_GuardarRol.Name = "button_GuardarRol";
             this.button_GuardarRol.Size = new System.Drawing.Size(96, 23);
             this.button_GuardarRol.TabIndex = 1;
+            this.button_GuardarRol.Tag = "Guardar";
             this.button_GuardarRol.Text = "Guardar rol";
             this.button_GuardarRol.UseVisualStyleBackColor = true;
             this.button_GuardarRol.Click += new System.EventHandler(this.button_GuardarRol_Click);
@@ -101,6 +103,7 @@
             this.groupBox2.Size = new System.Drawing.Size(258, 249);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
+            this.groupBox2.Tag = "Roles";
             this.groupBox2.Text = "Roles";
             // 
             // button_ConfigurarRol
@@ -110,6 +113,7 @@
             this.button_ConfigurarRol.Name = "button_ConfigurarRol";
             this.button_ConfigurarRol.Size = new System.Drawing.Size(96, 23);
             this.button_ConfigurarRol.TabIndex = 11;
+            this.button_ConfigurarRol.Tag = "Configurar";
             this.button_ConfigurarRol.Text = "Configurar";
             this.button_ConfigurarRol.UseVisualStyleBackColor = true;
             this.button_ConfigurarRol.Click += new System.EventHandler(this.button_ConfigurarRol_Click);
@@ -121,6 +125,7 @@
             this.button_AgregarRol.Name = "button_AgregarRol";
             this.button_AgregarRol.Size = new System.Drawing.Size(96, 23);
             this.button_AgregarRol.TabIndex = 10;
+            this.button_AgregarRol.Tag = "Agregar";
             this.button_AgregarRol.Text = "Agregar >> ";
             this.button_AgregarRol.UseVisualStyleBackColor = true;
             this.button_AgregarRol.Click += new System.EventHandler(this.button_AgregarRol_Click);
@@ -137,6 +142,7 @@
             this.groupBox3.Size = new System.Drawing.Size(232, 93);
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
+            this.groupBox3.Tag = "NuevoRol";
             this.groupBox3.Text = "Nuevo rol";
             // 
             // button_GuardarNuevoRol
@@ -146,6 +152,7 @@
             this.button_GuardarNuevoRol.Name = "button_GuardarNuevoRol";
             this.button_GuardarNuevoRol.Size = new System.Drawing.Size(96, 23);
             this.button_GuardarNuevoRol.TabIndex = 4;
+            this.button_GuardarNuevoRol.Tag = "Guardar";
             this.button_GuardarNuevoRol.Text = "Guardar";
             this.button_GuardarNuevoRol.UseVisualStyleBackColor = true;
             this.button_GuardarNuevoRol.Click += new System.EventHandler(this.button_GuardarNuevoRol_Click);
@@ -166,6 +173,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(50, 13);
             this.label5.TabIndex = 2;
+            this.label5.Tag = "Nombre";
             this.label5.Text = "Nombre: ";
             // 
             // comboBox_Roles
@@ -186,6 +194,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(84, 13);
             this.label4.TabIndex = 7;
+            this.label4.Tag = "TodosLosRoles";
             this.label4.Text = "Todos los roles: ";
             // 
             // grpPatentes
@@ -201,6 +210,7 @@
             this.grpPatentes.Size = new System.Drawing.Size(256, 249);
             this.grpPatentes.TabIndex = 7;
             this.grpPatentes.TabStop = false;
+            this.grpPatentes.Tag = "Acciones";
             this.grpPatentes.Text = "Acciones";
             // 
             // button_AgregarAccion
@@ -210,6 +220,7 @@
             this.button_AgregarAccion.Name = "button_AgregarAccion";
             this.button_AgregarAccion.Size = new System.Drawing.Size(96, 23);
             this.button_AgregarAccion.TabIndex = 8;
+            this.button_AgregarAccion.Tag = "Agregar";
             this.button_AgregarAccion.Text = "Agregar >> ";
             this.button_AgregarAccion.UseVisualStyleBackColor = true;
             this.button_AgregarAccion.Click += new System.EventHandler(this.button_AgregarAccion_Click);
@@ -232,6 +243,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(105, 13);
             this.label2.TabIndex = 5;
+            this.label2.Tag = "TodasLasAcciones";
             this.label2.Text = "Todas las acciones: ";
             // 
             // groupBox1
@@ -246,6 +258,7 @@
             this.groupBox1.Size = new System.Drawing.Size(232, 93);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Tag = "NuevaAccion";
             this.groupBox1.Text = "Nueva accion";
             // 
             // button_GuardarNuevaAccion
@@ -255,6 +268,7 @@
             this.button_GuardarNuevaAccion.Name = "button_GuardarNuevaAccion";
             this.button_GuardarNuevaAccion.Size = new System.Drawing.Size(96, 23);
             this.button_GuardarNuevaAccion.TabIndex = 4;
+            this.button_GuardarNuevaAccion.Tag = "Guardar";
             this.button_GuardarNuevaAccion.Text = "Guardar";
             this.button_GuardarNuevaAccion.UseVisualStyleBackColor = true;
             this.button_GuardarNuevaAccion.Click += new System.EventHandler(this.button_GuardarNuevaAccion_Click);
@@ -275,6 +289,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 2;
+            this.label3.Tag = "Nombre";
             this.label3.Text = "Nombre: ";
             // 
             // Form_GestorPermisos
@@ -288,7 +303,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form_GestorPermisos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Tag = "Permisos";
             this.Text = "Gestor de permisos";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_GestorPermisos_FormClosing);
+            this.Load += new System.EventHandler(this.Form_GestorPermisos_Load);
             this.groupBox4.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

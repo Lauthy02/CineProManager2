@@ -43,7 +43,6 @@ CREATE PROC OBTENER_TRADUCCIONES
 @ididioma int
 AS
 BEGIN
-	SELECT t.ididioma,t.texto AS traduccion_traduccion, e.id, e.nombre AS nombre_etiqueta FROM TRADUCCION t 
-	INNER JOIN ETIQUETA e ON t.idetiqueta = e.id WHERE t.ididioma = @ididioma
+	SELECT t.id AS 'idtraduccion', i.id AS 'ididioma', i.nombre AS 'nombreidioma', i.pordefecto, e.id AS 'idetiqueta', e.nombre AS 'nombreetiqueta', t.texto AS 'traduccion' FROM TRADUCCION t INNER JOIN IDIOMA i ON t.ididioma = i.id INNER JOIN ETIQUETA e ON t.idetiqueta = e.id WHERE i.id = @ididioma;
 END
 GO

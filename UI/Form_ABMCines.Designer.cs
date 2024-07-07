@@ -72,6 +72,7 @@
             this.groupBox1.Size = new System.Drawing.Size(244, 217);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Tag = "ABMCines";
             this.groupBox1.Text = "ABM Cines";
             // 
             // button_Modificacion
@@ -81,6 +82,7 @@
             this.button_Modificacion.Name = "button_Modificacion";
             this.button_Modificacion.Size = new System.Drawing.Size(75, 23);
             this.button_Modificacion.TabIndex = 2;
+            this.button_Modificacion.Tag = "Modificacion";
             this.button_Modificacion.Text = "Modificación";
             this.button_Modificacion.UseVisualStyleBackColor = true;
             this.button_Modificacion.Click += new System.EventHandler(this.button_Modificacion_Click);
@@ -93,6 +95,7 @@
             this.button_Guardar.Name = "button_Guardar";
             this.button_Guardar.Size = new System.Drawing.Size(75, 23);
             this.button_Guardar.TabIndex = 8;
+            this.button_Guardar.Tag = "Guardar";
             this.button_Guardar.Text = "Guardar";
             this.button_Guardar.UseVisualStyleBackColor = true;
             this.button_Guardar.Click += new System.EventHandler(this.button_Guardar_Click);
@@ -104,6 +107,7 @@
             this.button_Baja.Name = "button_Baja";
             this.button_Baja.Size = new System.Drawing.Size(75, 23);
             this.button_Baja.TabIndex = 1;
+            this.button_Baja.Tag = "Baja";
             this.button_Baja.Text = "Baja";
             this.button_Baja.UseVisualStyleBackColor = true;
             this.button_Baja.Click += new System.EventHandler(this.button_Baja_Click);
@@ -115,6 +119,7 @@
             this.button_Alta.Name = "button_Alta";
             this.button_Alta.Size = new System.Drawing.Size(75, 23);
             this.button_Alta.TabIndex = 0;
+            this.button_Alta.Tag = "Alta";
             this.button_Alta.Text = "Alta";
             this.button_Alta.UseVisualStyleBackColor = true;
             this.button_Alta.Click += new System.EventHandler(this.button_Alta_Click);
@@ -134,6 +139,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(50, 13);
             this.label11.TabIndex = 1;
+            this.label11.Tag = "Nombre";
             this.label11.Text = "Nombre: ";
             // 
             // textBox_Direccion
@@ -151,6 +157,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(38, 13);
             this.label10.TabIndex = 2;
+            this.label10.Tag = "Zona";
             this.label10.Text = "Zona: ";
             // 
             // textBox_Zona
@@ -168,6 +175,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(58, 13);
             this.label9.TabIndex = 3;
+            this.label9.Tag = "Direccion";
             this.label9.Text = "Dirección: ";
             // 
             // Form_ABMCines
@@ -180,7 +188,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form_ABMCines";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Tag = "ABMCines";
             this.Text = "ABM de cines";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_ABMCines_FormClosing);
+            this.Load += new System.EventHandler(this.Form_ABMCines_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

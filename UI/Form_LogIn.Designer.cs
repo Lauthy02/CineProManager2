@@ -42,6 +42,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(102, 13);
             this.label1.TabIndex = 0;
+            this.label1.Tag = "NombreDeUsuario";
             this.label1.Text = "Nombre de usuario: ";
             // 
             // label2
@@ -51,6 +52,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 1;
+            this.label2.Tag = "Contrasenia";
             this.label2.Text = "Contraseña: ";
             // 
             // textBox_NombreDeUsuario
@@ -91,7 +93,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form_LogIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Tag = "IniciarSesion";
             this.Text = "Iniciar sesión";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_LogIn_FormClosing);
+            this.Load += new System.EventHandler(this.Form_LogIn_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

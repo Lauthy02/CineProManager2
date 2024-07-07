@@ -1,5 +1,9 @@
-﻿using BE.SESION;
+﻿using BE;
+using BE.MULTIIDIOMA;
+using BE.MULTIIDOMA;
+using BE.SESION;
 using BLL;
+using BLL.MULTIIDIOMA;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,13 +16,16 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class Form_LogIn : Form
+    public partial class Form_LogIn : Form, BE_IOBSERVERIDIOMA
     {
         BLL_SESION bllsesion = new BLL_SESION();
+        BLL_TRADUCTOR blltraductor = new BLL_TRADUCTOR();
+        BE_IDIOMA idiomasinuso = new BE_IDIOMA();
 
         public Form_LogIn()
         {
             InitializeComponent();
+            ActualizarIdioma(idiomasinuso);
         }
 
         private void button_LogIn_Click(object sender, EventArgs e)
@@ -28,6 +35,8 @@ namespace UI
                 var res = bllsesion.LogIn(textBox_NombreDeUsuario.Text, textBox_Contrasenia.Text);
                 Form_MDIPrincipal form_MDIPrincipal = (Form_MDIPrincipal)this.MdiParent;
                 form_MDIPrincipal.ValidarForm();
+                form_MDIPrincipal.MarcarIdioma();
+                form_MDIPrincipal.ActualizarIdioma(BE_SESION.ObtenerInstancia.Usuario.Idioma);
                 this.Close();
             }
             catch (BE_LOGIN_EXCEPCION error)
@@ -44,6 +53,21 @@ namespace UI
                         break;
                 }
             }
+        }
+
+        private void Form_LogIn_Load(object sender, EventArgs e)
+        {
+            bllsesion.AgregarObservadorForm(this);
+        }
+
+        private void Form_LogIn_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            bllsesion.QuitarObservadorForm(this);
+        }
+
+        public void ActualizarIdioma(BE_IDIOMA idioma)
+        {
+            blltraductor.CambiarIdiomaEnFormulario(this, idioma);
         }
     }
 }

@@ -34,7 +34,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(266, 131);
+            this.label1.Location = new System.Drawing.Point(206, 79);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 0;
@@ -49,7 +49,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form_ComprarEntradas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form_ComprarEntradas";
+            this.Tag = "ComprarEntradas";
+            this.Text = "Comprar entradas";
             this.Load += new System.EventHandler(this.Form_ComprarEntradas_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -11,11 +11,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using BLL.MULTIIDIOMA;
+using BE.MULTIIDIOMA;
+using BE.MULTIIDOMA;
 
 namespace UI
 {
-    public partial class Form_Cartelera : Form
+    public partial class Form_Cartelera : Form, BE_IOBSERVERIDIOMA
     {
+        BLL_SESION bllsesion = new BLL_SESION();
+        BLL_TRADUCTOR blltraductor = new BLL_TRADUCTOR();
         BLL_PELICULA bllpelicula = new BLL_PELICULA();
         BLL_CINE bllcine = new BLL_CINE();
 
@@ -24,11 +29,8 @@ namespace UI
         public Form_Cartelera()
         {
             InitializeComponent();
-        }
-
-        private void Form_Cartelera_Load(object sender, EventArgs e)
-        {
             LlenarComboBoxDeCines();
+            ActualizarIdioma(BE_SESION.ObtenerInstancia.Usuario.Idioma);
         }
 
         private void comboBox_Cines_SelectedIndexChanged(object sender, EventArgs e)
@@ -101,6 +103,20 @@ namespace UI
                 imagen.Save(ms, imagen.RawFormat);
                 return ms.ToArray();
             }
+        }
+
+        private void Form_Cartelera_Load(object sender, EventArgs e)
+        {
+            bllsesion.AgregarObservadorForm(this);
+        }
+        private void Form_Cartelera_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            bllsesion.QuitarObservadorForm(this);
+        }
+
+        public void ActualizarIdioma(BE_IDIOMA idioma)
+        {
+            blltraductor.CambiarIdiomaEnFormulario(this, idioma);
         }
     }
 }

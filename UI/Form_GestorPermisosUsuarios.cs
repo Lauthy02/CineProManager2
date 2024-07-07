@@ -1,6 +1,9 @@
 ﻿using BE;
+using BE.MULTIIDIOMA;
+using BE.MULTIIDOMA;
 using BE.PERMISOS;
 using BLL;
+using BLL.MULTIIDIOMA;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,8 +17,10 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UI
 {
-    public partial class Form_GestorPermisosUsuarios : Form
+    public partial class Form_GestorPermisosUsuarios : Form, BE_IOBSERVERIDIOMA
     {
+        BLL_SESION bllsesion = new BLL_SESION();
+        BLL_TRADUCTOR blltraductor = new BLL_TRADUCTOR();
         BLL_USUARIO bllusuario;
         BLL_PERMISO bllpermiso;
         BE_USUARIO usuarioseleccionado;
@@ -24,6 +29,7 @@ namespace UI
         public Form_GestorPermisosUsuarios()
         {
             InitializeComponent();
+            ActualizarIdioma(BE_SESION.ObtenerInstancia.Usuario.Idioma);
             bllusuario = new BLL_USUARIO();
             bllpermiso = new BLL_PERMISO();
             comboBox_Usuarios.DataSource = bllusuario.ListarUsuarios();
@@ -148,6 +154,21 @@ namespace UI
             {
                 MessageBox.Show("Error al guardar los cambios");
             }
+        }
+
+        private void Form_GestorPermisosUsuarios_Load(object sender, EventArgs e)
+        {
+            bllsesion.AgregarObservadorForm(this);
+        }
+
+        private void Form_GestorPermisosUsuarios_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            bllsesion.QuitarObservadorForm(this);
+        }
+
+        public void ActualizarIdioma(BE_IDIOMA idioma)
+        {
+            blltraductor.CambiarIdiomaEnFormulario(this, idioma);
         }
     }
 }

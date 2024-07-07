@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace BLL.MULTIIDIOMA
 {
@@ -19,9 +20,9 @@ namespace BLL.MULTIIDIOMA
             return dalmapperidioma.TraerTodos().Where(x => x.PorDefecto == true).FirstOrDefault();
         }
 
-        public IDictionary<string, BE_TRADUCCION> ObtenerTraducciones(BE_IDIOMA idioma = null)
+        public List<BE_TRADUCCION> ObtenerTraducciones(BE_IDIOMA idioma = null)
         {
-            if (idioma == null)
+            if (idioma == null || idioma.Id == 0)
             {
                 idioma = ObtenerIdiomaPorDefecto();
             }
@@ -31,16 +32,68 @@ namespace BLL.MULTIIDIOMA
 
         public void CambiarIdiomaEnFormulario(Form formulario, BE_IDIOMA idioma)
         {
-            var traducciones = ObtenerTraducciones(idioma);
+            List<BE_TRADUCCION> traducciones = ObtenerTraducciones(idioma);
 
-            foreach (var traduccion in traducciones)
+            foreach (BE_TRADUCCION traduccion in traducciones)
             {
-                //RecorrerControles(formulario, traduccion);
+                RecorrerControles(formulario, traduccion);
             }
         }
 
         private void RecorrerControles(Control control, BE_TRADUCCION traduccion)
         {
+            Type tipodecontrol = control.GetType();
+
+            if (tipodecontrol.Equals(typeof(MenuStrip)))
+            {
+                foreach (ToolStripMenuItem menuitem in ((MenuStrip)control).Items)
+                {
+                    if (menuitem.Tag != null && menuitem.Tag.ToString() == traduccion.Etiqueta.Nombre)
+                    {
+                        if (traduccion.Texto != "-----")
+                        {
+                            menuitem.Text = traduccion.Texto;
+                        }
+                    }
+
+                    if (menuitem.DropDownItems.Count != 0)
+                    {
+                        foreach (ToolStripDropDownItem menudownitem in menuitem.DropDownItems)
+                        {
+                            if (menudownitem.Tag != null && menudownitem.Tag.ToString() == traduccion.Etiqueta.Nombre)
+                            {
+                                if (traduccion.Texto != "-----")
+                                {
+                                    menudownitem.Text = traduccion.Texto;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (tipodecontrol.Equals(typeof(Button)))
+            {
+                if (((Button)control).Tag != null && ((Button)control).Tag.ToString() == traduccion.Etiqueta.Nombre)
+                {
+                    if (traduccion.Texto != "-----")
+                    {
+                        ((Button)control).Text = traduccion.Texto;
+                    }
+                }
+            }
+
+            if (tipodecontrol.Equals(typeof(Label)))
+            {
+                if (((Label)control).Tag != null && ((Label)control).Tag.ToString() == traduccion.Etiqueta.Nombre)
+                {
+                    if (traduccion.Texto != "-----")
+                    {
+                        ((Label)control).Text = traduccion.Texto;
+                    }
+                }
+            }
+
             if (control.Tag != null && control.Tag.ToString() == traduccion.Etiqueta.Nombre)
             {
                 if (traduccion.Texto != "-----")
@@ -54,6 +107,5 @@ namespace BLL.MULTIIDIOMA
                 RecorrerControles(childControl, traduccion);
             }
         }
-
     }
 }

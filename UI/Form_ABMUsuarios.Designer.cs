@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button_Modificacion = new System.Windows.Forms.Button();
+            this.button_Guardar = new System.Windows.Forms.Button();
+            this.button_Baja = new System.Windows.Forms.Button();
+            this.button_Alta = new System.Windows.Forms.Button();
             this.textBox_Correo = new System.Windows.Forms.TextBox();
             this.textBox_Contrasenia = new System.Windows.Forms.TextBox();
             this.textBox_NombreDeUsuario = new System.Windows.Forms.TextBox();
@@ -40,16 +44,16 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button_Guardar = new System.Windows.Forms.Button();
-            this.button_Modificacion = new System.Windows.Forms.Button();
-            this.button_Baja = new System.Windows.Forms.Button();
-            this.button_Alta = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox_Idioma = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBox_Idioma);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.button_Modificacion);
             this.groupBox1.Controls.Add(this.button_Guardar);
             this.groupBox1.Controls.Add(this.button_Baja);
@@ -66,10 +70,60 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(244, 314);
+            this.groupBox1.Size = new System.Drawing.Size(244, 367);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Tag = "ABMUsuarios";
             this.groupBox1.Text = "ABM Usuarios";
+            // 
+            // button_Modificacion
+            // 
+            this.button_Modificacion.Location = new System.Drawing.Point(163, 18);
+            this.button_Modificacion.Margin = new System.Windows.Forms.Padding(2);
+            this.button_Modificacion.Name = "button_Modificacion";
+            this.button_Modificacion.Size = new System.Drawing.Size(75, 23);
+            this.button_Modificacion.TabIndex = 2;
+            this.button_Modificacion.Tag = "Modificacion";
+            this.button_Modificacion.Text = "Modificación";
+            this.button_Modificacion.UseVisualStyleBackColor = true;
+            this.button_Modificacion.Click += new System.EventHandler(this.button_Modificacion_Click);
+            // 
+            // button_Guardar
+            // 
+            this.button_Guardar.Enabled = false;
+            this.button_Guardar.Location = new System.Drawing.Point(163, 339);
+            this.button_Guardar.Margin = new System.Windows.Forms.Padding(2);
+            this.button_Guardar.Name = "button_Guardar";
+            this.button_Guardar.Size = new System.Drawing.Size(75, 23);
+            this.button_Guardar.TabIndex = 8;
+            this.button_Guardar.Tag = "Guardar";
+            this.button_Guardar.Text = "Guardar";
+            this.button_Guardar.UseVisualStyleBackColor = true;
+            this.button_Guardar.Click += new System.EventHandler(this.button_Guardar_Click);
+            // 
+            // button_Baja
+            // 
+            this.button_Baja.Location = new System.Drawing.Point(84, 18);
+            this.button_Baja.Margin = new System.Windows.Forms.Padding(2);
+            this.button_Baja.Name = "button_Baja";
+            this.button_Baja.Size = new System.Drawing.Size(75, 23);
+            this.button_Baja.TabIndex = 1;
+            this.button_Baja.Tag = "Baja";
+            this.button_Baja.Text = "Baja";
+            this.button_Baja.UseVisualStyleBackColor = true;
+            this.button_Baja.Click += new System.EventHandler(this.button_Baja_Click);
+            // 
+            // button_Alta
+            // 
+            this.button_Alta.Location = new System.Drawing.Point(5, 18);
+            this.button_Alta.Margin = new System.Windows.Forms.Padding(2);
+            this.button_Alta.Name = "button_Alta";
+            this.button_Alta.Size = new System.Drawing.Size(75, 23);
+            this.button_Alta.TabIndex = 0;
+            this.button_Alta.Tag = "Alta";
+            this.button_Alta.Text = "Alta";
+            this.button_Alta.UseVisualStyleBackColor = true;
+            this.button_Alta.Click += new System.EventHandler(this.button_Alta_Click);
             // 
             // textBox_Correo
             // 
@@ -102,6 +156,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(99, 13);
             this.label7.TabIndex = 5;
+            this.label7.Tag = "CorreoElectronico";
             this.label7.Text = "Correo electrónico: ";
             // 
             // label11
@@ -111,6 +166,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(102, 13);
             this.label11.TabIndex = 1;
+            this.label11.Tag = "NombreDeUsuario";
             this.label11.Text = "Nombre de usuario: ";
             // 
             // textBox_Apellido
@@ -128,6 +184,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(50, 13);
             this.label10.TabIndex = 2;
+            this.label10.Tag = "Nombre";
             this.label10.Text = "Nombre: ";
             // 
             // textBox_Nombre
@@ -145,6 +202,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 13);
             this.label9.TabIndex = 3;
+            this.label9.Tag = "Apellido";
             this.label9.Text = "Apellido:  ";
             // 
             // label8
@@ -154,6 +212,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(67, 13);
             this.label8.TabIndex = 4;
+            this.label8.Tag = "Contrasenia";
             this.label8.Text = "Contraseña: ";
             // 
             // dataGridView1
@@ -164,65 +223,42 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(619, 314);
+            this.dataGridView1.Size = new System.Drawing.Size(619, 367);
             this.dataGridView1.TabIndex = 0;
             // 
-            // button_Guardar
+            // label1
             // 
-            this.button_Guardar.Enabled = false;
-            this.button_Guardar.Location = new System.Drawing.Point(163, 283);
-            this.button_Guardar.Margin = new System.Windows.Forms.Padding(2);
-            this.button_Guardar.Name = "button_Guardar";
-            this.button_Guardar.Size = new System.Drawing.Size(75, 23);
-            this.button_Guardar.TabIndex = 8;
-            this.button_Guardar.Text = "Guardar";
-            this.button_Guardar.UseVisualStyleBackColor = true;
-            this.button_Guardar.Click += new System.EventHandler(this.button_Guardar_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 289);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(95, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Tag = "IdiomaDelUsuario";
+            this.label1.Text = "Idioma del usuario:";
             // 
-            // button_Modificacion
+            // comboBox_Idioma
             // 
-            this.button_Modificacion.Location = new System.Drawing.Point(163, 18);
-            this.button_Modificacion.Margin = new System.Windows.Forms.Padding(2);
-            this.button_Modificacion.Name = "button_Modificacion";
-            this.button_Modificacion.Size = new System.Drawing.Size(75, 23);
-            this.button_Modificacion.TabIndex = 2;
-            this.button_Modificacion.Text = "Modificación";
-            this.button_Modificacion.UseVisualStyleBackColor = true;
-            this.button_Modificacion.Click += new System.EventHandler(this.button_Modificacion_Click);
-            // 
-            // button_Baja
-            // 
-            this.button_Baja.Location = new System.Drawing.Point(84, 18);
-            this.button_Baja.Margin = new System.Windows.Forms.Padding(2);
-            this.button_Baja.Name = "button_Baja";
-            this.button_Baja.Size = new System.Drawing.Size(75, 23);
-            this.button_Baja.TabIndex = 1;
-            this.button_Baja.Text = "Baja";
-            this.button_Baja.UseVisualStyleBackColor = true;
-            this.button_Baja.Click += new System.EventHandler(this.button_Baja_Click);
-            // 
-            // button_Alta
-            // 
-            this.button_Alta.Location = new System.Drawing.Point(5, 18);
-            this.button_Alta.Margin = new System.Windows.Forms.Padding(2);
-            this.button_Alta.Name = "button_Alta";
-            this.button_Alta.Size = new System.Drawing.Size(75, 23);
-            this.button_Alta.TabIndex = 0;
-            this.button_Alta.Text = "Alta";
-            this.button_Alta.UseVisualStyleBackColor = true;
-            this.button_Alta.Click += new System.EventHandler(this.button_Alta_Click);
+            this.comboBox_Idioma.Enabled = false;
+            this.comboBox_Idioma.FormattingEnabled = true;
+            this.comboBox_Idioma.Location = new System.Drawing.Point(7, 306);
+            this.comboBox_Idioma.Name = "comboBox_Idioma";
+            this.comboBox_Idioma.Size = new System.Drawing.Size(231, 21);
+            this.comboBox_Idioma.TabIndex = 10;
             // 
             // Form_ABMUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(894, 339);
+            this.ClientSize = new System.Drawing.Size(894, 393);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form_ABMUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Tag = "ABMUsuarios";
             this.Text = "ABM de usuarios";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_ABMUsuarios_FormClosing);
+            this.Load += new System.EventHandler(this.Form_ABMUsuarios_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -247,5 +283,7 @@
         private System.Windows.Forms.Button button_Guardar;
         private System.Windows.Forms.Button button_Baja;
         private System.Windows.Forms.Button button_Alta;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox_Idioma;
     }
 }

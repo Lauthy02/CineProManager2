@@ -1,5 +1,8 @@
 ﻿using BE;
+using BE.MULTIIDIOMA;
+using BE.MULTIIDOMA;
 using BLL;
+using BLL.MULTIIDIOMA;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,8 +15,11 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class Form_ABMUsuarios : Form
+    public partial class Form_ABMUsuarios : Form, BE_IOBSERVERIDIOMA
     {
+        BLL_SESION bllsesion = new BLL_SESION();
+        BLL_TRADUCTOR blltraductor = new BLL_TRADUCTOR();
+        BLL_IDIOMA bllidioma = new BLL_IDIOMA();
         BLL_USUARIO bllusuario = new BLL_USUARIO();
         BE_USUARIO usuarioaux;
         bool operacion = false;
@@ -21,6 +27,8 @@ namespace UI
         public Form_ABMUsuarios()
         {
             InitializeComponent();
+            ActualizarIdioma(BE_SESION.ObtenerInstancia.Usuario.Idioma);
+            LlenarComboBoxIdioma();
             LlenarDataGrid();
         }
 
@@ -87,6 +95,7 @@ namespace UI
             usuarioaux.Apellido = textBox_Apellido.Text;
             usuarioaux.Contrasenia = textBox_Contrasenia.Text;
             usuarioaux.Correo = textBox_Correo.Text;
+            usuarioaux.Idioma = (BE_IDIOMA)comboBox_Idioma.SelectedItem;
 
             if (operacion)
             {
@@ -114,6 +123,13 @@ namespace UI
             dataGridView1.DataSource = bllusuario.ListarUsuarios();
         }
 
+        private void LlenarComboBoxIdioma()
+        {
+            comboBox_Idioma.DataSource = null;
+            comboBox_Idioma.DataSource = bllidioma.ListarIdiomas();
+            comboBox_Idioma.DisplayMember = "Nombre";
+        }
+
         private void ControlesEn(bool trufal)
         {
             textBox_NombreDeUsuario.Enabled = trufal;
@@ -121,6 +137,22 @@ namespace UI
             textBox_Apellido.Enabled = trufal;
             textBox_Contrasenia.Enabled = trufal;
             textBox_Correo.Enabled = trufal;
+            comboBox_Idioma.Enabled = trufal;
+        }
+
+        private void Form_ABMUsuarios_Load(object sender, EventArgs e)
+        {
+            bllsesion.AgregarObservadorForm(this);
+        }
+
+        private void Form_ABMUsuarios_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            bllsesion.QuitarObservadorForm(this);
+        }
+
+        public void ActualizarIdioma(BE_IDIOMA idioma)
+        {
+            blltraductor.CambiarIdiomaEnFormulario(this, idioma);
         }
     }
 }

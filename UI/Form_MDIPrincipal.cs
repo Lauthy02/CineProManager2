@@ -20,14 +20,15 @@ namespace UI
         BLL_SESION bllsesion = new BLL_SESION();
         BLL_IDIOMA bllidioma = new BLL_IDIOMA();
         BLL_TRADUCTOR blltraductor = new BLL_TRADUCTOR();
+        BE_IDIOMA idiomasinuso = new BE_IDIOMA();
 
         public Form_MDIPrincipal()
         {
             InitializeComponent();
             ValidarForm();
             MostrarIdiomas();
-            //MarcarIdioma();
-            //Traducir();
+            MarcarIdioma();
+            ActualizarIdioma(idiomasinuso);
         }
 
         private void iniciarSesionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -88,9 +89,11 @@ namespace UI
             formcartelera.Show();
         }
 
-        public void ValidarForm()
+        public void ValidarForm() //Para los permisos
         {
-            gestoresToolStripMenuItem.Enabled = false;
+            MenuItemsEnDisabled(gestoresToolStripMenuItem);
+            MenuItemsEnDisabled(cineToolStripMenuItem);
+
             iniciarSesionToolStripMenuItem.Enabled = !BE_SESION.ObtenerInstancia.Logueado();
             cerrarSesionToolStripMenuItem.Enabled = BE_SESION.ObtenerInstancia.Logueado();
 
@@ -102,7 +105,8 @@ namespace UI
                 toolStripStatusLabel_Correo.Text = BE_SESION.ObtenerInstancia.Usuario.Correo;
                 toolStripStatusLabel_Rol.Text = BE_SESION.ObtenerInstancia.Usuario.ListaDePermisos[0].Nombre;
 
-                gestoresToolStripMenuItem.Enabled = BE_SESION.ObtenerInstancia.EstaEnElRol(BE_PERMISO_TIPO_ENUM.GestionarPermisosUsuarios) && BE_SESION.ObtenerInstancia.EstaEnElRol(BE_PERMISO_TIPO_ENUM.GestionarPermisos);
+                ValidarMenuPorItem(gestoresToolStripMenuItem);
+                ValidarMenuPorItem(cineToolStripMenuItem);
             }
             else
             {
@@ -114,9 +118,28 @@ namespace UI
             }
         }
 
+        public void ValidarMenuPorItem(ToolStripMenuItem menuitem)
+        {
+            foreach (ToolStripDropDownItem menudownitem in menuitem.DropDownItems)
+            {
+                foreach (var permiso in BE_SESION.ObtenerInstancia.Usuario.ListaDePermisos)
+                {
+                    menudownitem.Enabled = BE_SESION.ObtenerInstancia.EstaEnElRol((BE_PERMISO_TIPO_ENUM)Enum.Parse(typeof(BE_PERMISO_TIPO_ENUM), menudownitem.Tag.ToString()));
+                }
+            }
+        }
+
+        public void MenuItemsEnDisabled(ToolStripMenuItem menuitem)
+        {
+            foreach (ToolStripDropDownItem menudownitem in menuitem.DropDownItems)
+            {
+                menudownitem.Enabled = false;
+            }
+        }
+
         public void ActualizarIdioma(BE_IDIOMA idioma) //Implementación de la interfaz BLL_IOBSERVERIDIOMA
-        { 
-            
+        {
+            blltraductor.CambiarIdiomaEnFormulario(this, idioma);
         }
 
         public void MarcarIdioma()
@@ -160,18 +183,7 @@ namespace UI
         {
             bllsesion.CambiarIdioma(((BE_IDIOMA)((ToolStripMenuItem)sender).Tag));
             MarcarIdioma();
-        }
-
-        private void Traducir()
-        {
-            BE_IDIOMA idiomaaux = new BE_IDIOMA();
-
-            if (BE_SESION.ObtenerInstancia.Logueado())
-            {
-                idiomaaux = BE_SESION.ObtenerInstancia.Usuario.Idioma;
-            }
-
-            blltraductor.CambiarIdiomaEnFormulario(this, idiomaaux);
+            ActualizarIdioma(BE_SESION.ObtenerInstancia.Usuario.Idioma);
         }
 
         private void Form_MDIPrincipal_Load(object sender, EventArgs e)

@@ -33,7 +33,7 @@ namespace BLL
                     if (usuarioaux.Contrasenia == contrasenia)
                     {
                         new DAL_PERMISO().LlenarUsuarioPermisos(usuarioaux);
-                        //new DAL_MAPPER_IDIOMA().LlenarUsuarioIdioma(usuarioaux);
+                        new DAL_MAPPER_IDIOMA().LlenarUsuarioIdioma(usuarioaux);
                         BE_SESION.ObtenerInstancia.LogIn(usuarioaux);
                         return BE_LOGIN_RESULTADO_ENUM.LogInCorrecto;
                     }

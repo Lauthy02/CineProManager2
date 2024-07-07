@@ -13,11 +13,16 @@ using System.IO;
 using static System.Net.WebRequestMethods;
 using System.Drawing.Imaging;
 using System.Diagnostics.Contracts;
+using BE.MULTIIDOMA;
+using BLL.MULTIIDIOMA;
+using BE.MULTIIDIOMA;
 
 namespace UI
 {
-    public partial class Form_ABMPeliculas : Form
+    public partial class Form_ABMPeliculas : Form, BE_IOBSERVERIDIOMA
     {
+        BLL_SESION bllsesion = new BLL_SESION();
+        BLL_TRADUCTOR blltraductor = new BLL_TRADUCTOR();
         BLL_PELICULA bllpelicula = new BLL_PELICULA();
         BE_PELICULA peliculaaux;
         bool operacion = false;
@@ -25,6 +30,7 @@ namespace UI
         public Form_ABMPeliculas()
         {
             InitializeComponent();
+            ActualizarIdioma(BE_SESION.ObtenerInstancia.Usuario.Idioma);
             LlenarComboBoxGenero();
             LlenarDataGrid();
         }
@@ -204,6 +210,21 @@ namespace UI
                 imagenRedimensionada.Save(ms, formato ?? ImageFormat.Png);
                 return ms.ToArray();
             }
+        }
+
+        private void Form_ABMPeliculas_Load(object sender, EventArgs e)
+        {
+            bllsesion.AgregarObservadorForm(this);
+        }
+
+        private void Form_ABMPeliculas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            bllsesion.QuitarObservadorForm(this);
+        }
+
+        public void ActualizarIdioma(BE_IDIOMA idioma)
+        {
+            blltraductor.CambiarIdiomaEnFormulario(this, idioma);
         }
     }
 }

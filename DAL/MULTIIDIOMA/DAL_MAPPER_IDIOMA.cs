@@ -110,34 +110,44 @@ namespace DAL.MULTIIDIOMA
         {
             List<BE_IDIOMA> idiomasaux = new List<BE_IDIOMA>();
             idiomasaux = TraerTodos();
-            usuario.Idioma = idiomasaux[usuario.Idioma.Id];
+            BE_IDIOMA idiomaaux = new BE_IDIOMA();
+            idiomaaux = idiomasaux.FirstOrDefault(idioma => idioma.Id == usuario.Idioma.Id);
+            
+            usuario.Idioma.Id = idiomaaux.Id;
+            usuario.Idioma.Nombre = idiomaaux.Nombre;
+            usuario.Idioma.PorDefecto = idiomaaux.PorDefecto;
         }
 
-        public IDictionary<string, BE_TRADUCCION> ObtenerTraducciones(BE_IDIOMA idioma)
+        public List<BE_TRADUCCION> ObtenerTraducciones(BE_IDIOMA idioma)
         {
-            IDictionary<string, BE_TRADUCCION> traducciones = new Dictionary<string, BE_TRADUCCION>();
+            List<BE_TRADUCCION> traducciones = new List<BE_TRADUCCION>();
             List<SqlParameter> parametros = new List<SqlParameter>();
-            SqlParameter p = acceso.CrearParametro("@nombre", idioma.Id);
+            SqlParameter p = acceso.CrearParametro("@ididioma", idioma.Id);
             parametros.Add(p);
 
             DataTable tabla = acceso.Leer("OBTENER_TRADUCCIONES", parametros);
-            //SELECT t.ididioma,t.texto AS traduccion_traduccion, e.id, e.nombre AS nombre_etiqueta FROM TRADUCCION t INNER JOIN ETIQUETA e ON t.idetiqueta = e.id WHERE t.ididioma = @ididioma
+            //SELECT t.id AS 'idtraduccion', i.id AS 'ididioma', i.nombre AS 'nombreidioma', i.pordefecto, e.id AS 'idetiqueta', e.nombre AS 'nombreetiqueta', t.texto AS 'traduccion' FROM TRADUCCION t INNER JOIN IDIOMA i ON t.ididioma = i.id INNER JOIN ETIQUETA e ON t.idetiqueta = e.id WHERE i.id = @ididioma;
 
             if (tabla.Rows.Count != 0)
             {
                 foreach (DataRow dr in tabla.Rows)
                 {
-                    var etiqueta = dr["nombre_etiqueta"].ToString();
-                    traducciones.Add(etiqueta, new BE_TRADUCCION() 
+                    traducciones.Add(new BE_TRADUCCION()
                     {
-                        //Id = int.Parse(dr["id"].ToString()),
-                        Idioma = idioma,
-                        Etiqueta = new BE_ETIQUETA() 
+                        Id = int.Parse(dr["idtraduccion"].ToString()),
+                        Etiqueta = new BE_ETIQUETA()
                         {
-                            Id = int.Parse(dr["id"].ToString()),
-                            Nombre = dr["nombre_etiqueta"].ToString()
+                            Id = int.Parse(dr["idetiqueta"].ToString()),
+                            Nombre = dr["nombreetiqueta"].ToString()
                         },
-                        Texto = dr["traduccion_traduccion"].ToString()
+                        Idioma = new BE_IDIOMA()
+                        {
+                            Id = int.Parse(dr["ididioma"].ToString()),
+                            Nombre = dr["nombreidioma"].ToString(),
+                            PorDefecto = bool.Parse(dr["pordefecto"].ToString())
+
+                        },
+                        Texto = dr["traduccion"].ToString()
                     });
                 }
             }

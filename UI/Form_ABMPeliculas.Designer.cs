@@ -30,6 +30,8 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.button_BuscarImagen = new System.Windows.Forms.Button();
             this.comboBox_Genero = new System.Windows.Forms.ComboBox();
             this.button_Modificacion = new System.Windows.Forms.Button();
@@ -47,8 +49,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.label1 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -90,7 +90,27 @@
             this.groupBox1.Size = new System.Drawing.Size(244, 481);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Tag = "ABMPeliculas";
             this.groupBox1.Text = "ABM Películas";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Enabled = false;
+            this.richTextBox1.Location = new System.Drawing.Point(7, 261);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(229, 141);
+            this.richTextBox1.TabIndex = 12;
+            this.richTextBox1.Text = "";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 245);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 13);
+            this.label1.TabIndex = 11;
+            this.label1.Tag = "Descripcion";
+            this.label1.Text = "Descripción: ";
             // 
             // button_BuscarImagen
             // 
@@ -99,6 +119,7 @@
             this.button_BuscarImagen.Name = "button_BuscarImagen";
             this.button_BuscarImagen.Size = new System.Drawing.Size(89, 23);
             this.button_BuscarImagen.TabIndex = 10;
+            this.button_BuscarImagen.Tag = "BuscarImagen";
             this.button_BuscarImagen.Text = "Buscar imagen";
             this.button_BuscarImagen.UseVisualStyleBackColor = true;
             this.button_BuscarImagen.Click += new System.EventHandler(this.button_BuscarImagen_Click);
@@ -119,6 +140,7 @@
             this.button_Modificacion.Name = "button_Modificacion";
             this.button_Modificacion.Size = new System.Drawing.Size(75, 23);
             this.button_Modificacion.TabIndex = 2;
+            this.button_Modificacion.Tag = "Modificacion";
             this.button_Modificacion.Text = "Modificación";
             this.button_Modificacion.UseVisualStyleBackColor = true;
             this.button_Modificacion.Click += new System.EventHandler(this.button_Modificacion_Click);
@@ -131,6 +153,7 @@
             this.button_Guardar.Name = "button_Guardar";
             this.button_Guardar.Size = new System.Drawing.Size(75, 23);
             this.button_Guardar.TabIndex = 8;
+            this.button_Guardar.Tag = "Guardar";
             this.button_Guardar.Text = "Guardar";
             this.button_Guardar.UseVisualStyleBackColor = true;
             this.button_Guardar.Click += new System.EventHandler(this.button_Guardar_Click);
@@ -142,6 +165,7 @@
             this.button_Baja.Name = "button_Baja";
             this.button_Baja.Size = new System.Drawing.Size(75, 23);
             this.button_Baja.TabIndex = 1;
+            this.button_Baja.Tag = "Baja";
             this.button_Baja.Text = "Baja";
             this.button_Baja.UseVisualStyleBackColor = true;
             this.button_Baja.Click += new System.EventHandler(this.button_Baja_Click);
@@ -153,6 +177,7 @@
             this.button_Alta.Name = "button_Alta";
             this.button_Alta.Size = new System.Drawing.Size(75, 23);
             this.button_Alta.TabIndex = 0;
+            this.button_Alta.Tag = "Alta";
             this.button_Alta.Text = "Alta";
             this.button_Alta.UseVisualStyleBackColor = true;
             this.button_Alta.Click += new System.EventHandler(this.button_Alta_Click);
@@ -180,6 +205,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(48, 13);
             this.label7.TabIndex = 5;
+            this.label7.Tag = "Imagen";
             this.label7.Text = "Imagen: ";
             // 
             // label11
@@ -189,6 +215,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(41, 13);
             this.label11.TabIndex = 1;
+            this.label11.Tag = "Titulo";
             this.label11.Text = "Título: ";
             // 
             // textBox_Duracion
@@ -206,6 +233,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(50, 13);
             this.label10.TabIndex = 2;
+            this.label10.Tag = "Director";
             this.label10.Text = "Director: ";
             // 
             // textBox_Director
@@ -223,6 +251,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(101, 13);
             this.label9.TabIndex = 3;
+            this.label9.Tag = "Duracion";
             this.label9.Text = "Duración (minutos): ";
             // 
             // label8
@@ -232,30 +261,13 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(48, 13);
             this.label8.TabIndex = 4;
+            this.label8.Tag = "Genero";
             this.label8.Text = "Género: ";
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Title = "Busca una imagen";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 245);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 13);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Descripción: ";
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Enabled = false;
-            this.richTextBox1.Location = new System.Drawing.Point(7, 261);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(229, 141);
-            this.richTextBox1.TabIndex = 12;
-            this.richTextBox1.Text = "";
             // 
             // Form_ABMPeliculas
             // 
@@ -267,7 +279,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form_ABMPeliculas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Tag = "ABMPeliculas";
             this.Text = "ABM de películas";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_ABMPeliculas_FormClosing);
+            this.Load += new System.EventHandler(this.Form_ABMPeliculas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

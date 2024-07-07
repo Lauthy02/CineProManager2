@@ -10,11 +10,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL.MULTIIDIOMA;
+using BE.MULTIIDIOMA;
+using BE.MULTIIDOMA;
 
 namespace UI
 {
-    public partial class Form_GestorPermisos : Form
+    public partial class Form_GestorPermisos : Form, BE_IOBSERVERIDIOMA
     {
+        BLL_SESION bllsesion = new BLL_SESION();
+        BLL_TRADUCTOR blltraductor = new BLL_TRADUCTOR();
         BLL_PERMISO bllpermiso;
         BE_ROL rolseleccionado;
 
@@ -23,6 +28,7 @@ namespace UI
             InitializeComponent();
             bllpermiso = new BLL_PERMISO();
             LlenarComboBoxAccionesYRoles();
+            ActualizarIdioma(BE_SESION.ObtenerInstancia.Usuario.Idioma);
         }
 
         #region Botones
@@ -186,5 +192,20 @@ namespace UI
             }
         }
         #endregion
+
+        private void Form_GestorPermisos_Load(object sender, EventArgs e)
+        {
+            bllsesion.AgregarObservadorForm(this);
+        }
+
+        private void Form_GestorPermisos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            bllsesion.QuitarObservadorForm(this);
+        }
+
+        public void ActualizarIdioma(BE_IDIOMA idioma)
+        {
+            blltraductor.CambiarIdiomaEnFormulario(this, idioma);
+        }
     }
 }

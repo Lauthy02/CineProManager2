@@ -1,5 +1,8 @@
 ﻿using BE;
+using BE.MULTIIDIOMA;
+using BE.MULTIIDOMA;
 using BLL;
+using BLL.MULTIIDIOMA;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,8 +15,10 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class Form_ABMCines : Form
+    public partial class Form_ABMCines : Form, BE_IOBSERVERIDIOMA
     {
+        BLL_SESION bllsesion = new BLL_SESION();
+        BLL_TRADUCTOR blltraductor = new BLL_TRADUCTOR();
         BLL_CINE bllcine = new BLL_CINE();
         BE_CINE cineaux;
         bool operacion = false;
@@ -21,6 +26,7 @@ namespace UI
         public Form_ABMCines()
         {
             InitializeComponent();
+            ActualizarIdioma(BE_SESION.ObtenerInstancia.Usuario.Idioma);
             LlenarDataGrid();
         }
 
@@ -112,6 +118,21 @@ namespace UI
             textBox_Nombre.Enabled = trufal;
             textBox_Zona.Enabled = trufal;
             textBox_Direccion.Enabled = trufal;
+        }
+
+        private void Form_ABMCines_Load(object sender, EventArgs e)
+        {
+            bllsesion.AgregarObservadorForm(this);
+        }
+
+        private void Form_ABMCines_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            bllsesion.QuitarObservadorForm(this);
+        }
+
+        public void ActualizarIdioma(BE_IDIOMA idioma)
+        {
+            blltraductor.CambiarIdiomaEnFormulario(this, idioma);
         }
     }
 }

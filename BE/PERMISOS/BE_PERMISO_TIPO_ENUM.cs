@@ -9,11 +9,14 @@ namespace BE
     {
         //Acá no van roles, van acciones
         SinPermisos,
-        GestionarPermisosUsuarios,
+        GestionarPermisosDeUsuarios,
         GestionarPermisos,
-        IngresarAVentas,
-        VerVenta,
-        LimpiarCine,
-        Test,
+        ABMUsuarios,
+        ABMPeliculas,
+        ABMCines,
+        ReservarEntradas,
+        PagarEntradas,
+        EmitirEntradas,
+        MarcarEntradas,
     }
 }
