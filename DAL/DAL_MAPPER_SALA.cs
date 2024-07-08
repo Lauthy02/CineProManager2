@@ -1,0 +1,116 @@
+﻿using BE;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DAL
+{
+    public class DAL_MAPPER_SALA : DAL_MAPPER<BE_SALA>
+    {
+        public DAL_MAPPER_SALA()
+        {
+            acceso.AbrirConexion();
+        }
+
+        public override int Alta(BE_SALA entidad)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            SqlParameter p = acceso.CrearParametro("@capacidad", entidad.Capacidad);
+            parametros.Add(p);
+            p = acceso.CrearParametro("@formato", entidad.Formato.ToString());
+            parametros.Add(p);
+
+            int res = acceso.Escribir("SALA_INSERTAR", parametros);
+            //INSERT INTO SALA VALUES (@capacidad, @formato)
+            return res;
+        }
+
+        public override int Baja(BE_SALA entidad)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            SqlParameter p = acceso.CrearParametro("@id", entidad.Id);
+            parametros.Add(p);
+
+            int res = acceso.Escribir("SALA_BORRAR", parametros);
+            //DELETE FROM SALA WHERE id = @id
+            return res;
+        }
+
+        public override List<BE_SALA> Buscar(BE_SALA entidad)
+        {
+            List<BE_SALA> salas = new List<BE_SALA>();
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            SqlParameter p = acceso.CrearParametro("@id", entidad.Id);
+            parametros.Add(p);
+
+            DataTable tabla = acceso.Leer("SALA_BUSCAR", parametros);
+            //SELECT * FROM SALA WHERE id = @id
+            foreach (DataRow dr in tabla.Rows)
+            {
+                salas.Add(Convertir(dr));
+            }
+            return salas;
+        }
+
+        public BE_SALA BuscarConId(int idsala)
+        {
+            List<BE_SALA> salas = new List<BE_SALA>();
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            SqlParameter p = acceso.CrearParametro("@id", idsala);
+            parametros.Add(p);
+
+            DataTable tabla = acceso.Leer("SALA_BUSCARID", parametros);
+            //SELECT * FROM SALA WHERE id = @id
+            foreach (DataRow dr in tabla.Rows)
+            {
+                salas.Add(Convertir(dr));
+            }
+            return salas[0];
+        }
+
+        public override int Modificacion(BE_SALA entidad)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            SqlParameter p = acceso.CrearParametro("@id", entidad.Id);
+            parametros.Add(p);
+            p = acceso.CrearParametro("@capacidad", entidad.Capacidad);
+            parametros.Add(p);
+            p = acceso.CrearParametro("@formato", entidad.Formato.ToString());
+            parametros.Add(p);
+
+            int res = acceso.Escribir("SALA_EDITAR", parametros);
+            /*
+            UPDATE SALA SET 
+                capacidad = @capacidad, 
+                formato = @formato
+            WHERE id = @id
+            */
+            return res;
+        }
+
+        public override List<BE_SALA> TraerTodos()
+        {
+            List<BE_SALA> salas = new List<BE_SALA>();
+            DataTable tabla = acceso.Leer("SALA_LISTAR", null);
+            //SELECT * FROM SALA
+            foreach (DataRow dr in tabla.Rows)
+            {
+                salas.Add(Convertir(dr));
+            }
+            return salas;
+        }
+
+        internal override BE_SALA Convertir(DataRow registro)
+        {
+            BE_SALA sala = new BE_SALA();
+            sala.Id = int.Parse(registro["id"].ToString());
+            sala.Capacidad = int.Parse(registro["capacidad"].ToString());
+            sala.Formato = (BE_SALA_FORMATO_ENUM)Enum.Parse(typeof(BE_SALA_FORMATO_ENUM), registro["formato"].ToString());
+            return sala;
+        }
+    }
+}

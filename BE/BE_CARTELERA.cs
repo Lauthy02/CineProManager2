@@ -10,7 +10,7 @@ namespace BE
     {
 		public BE_CARTELERA()
         {
-            this.listaDePeliculas = new List<BE_PELICULA>();
+            listaDePeliculas = new List<BE_PELICULA>();
         }
 
 		private List<BE_PELICULA> listaDePeliculas;

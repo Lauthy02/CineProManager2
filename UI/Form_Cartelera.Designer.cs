@@ -43,10 +43,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox_Cines = new System.Windows.Forms.ComboBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBox_Horarios = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBox_Peliculas
@@ -60,12 +69,15 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.groupBox5);
+            this.groupBox1.Controls.Add(this.groupBox4);
+            this.groupBox1.Controls.Add(this.button_ComprarEntradas);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.comboBox_Cines);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(529, 424);
+            this.groupBox1.Size = new System.Drawing.Size(1023, 708);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Tag = "Cines";
@@ -78,7 +90,7 @@
             this.groupBox2.Controls.Add(this.listBox_Peliculas);
             this.groupBox2.Location = new System.Drawing.Point(6, 66);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(516, 352);
+            this.groupBox2.Size = new System.Drawing.Size(516, 351);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Tag = "Peliculas";
@@ -86,7 +98,6 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button_ComprarEntradas);
             this.groupBox3.Controls.Add(this.richTextBox_Descripcion);
             this.groupBox3.Controls.Add(this.label_Descripcion);
             this.groupBox3.Controls.Add(this.label_Genero);
@@ -105,12 +116,12 @@
             // button_ComprarEntradas
             // 
             this.button_ComprarEntradas.Enabled = false;
-            this.button_ComprarEntradas.Location = new System.Drawing.Point(197, 278);
+            this.button_ComprarEntradas.Location = new System.Drawing.Point(913, 679);
             this.button_ComprarEntradas.Name = "button_ComprarEntradas";
             this.button_ComprarEntradas.Size = new System.Drawing.Size(104, 23);
             this.button_ComprarEntradas.TabIndex = 5;
-            this.button_ComprarEntradas.Tag = "ComprarEntradas";
-            this.button_ComprarEntradas.Text = "Comprar entradas";
+            this.button_ComprarEntradas.Tag = "ReservarEntradas";
+            this.button_ComprarEntradas.Text = "Reservar entradas";
             this.button_ComprarEntradas.UseVisualStyleBackColor = true;
             this.button_ComprarEntradas.Click += new System.EventHandler(this.button_ComprarEntradas_Click);
             // 
@@ -119,7 +130,7 @@
             this.richTextBox_Descripcion.Location = new System.Drawing.Point(9, 157);
             this.richTextBox_Descripcion.Name = "richTextBox_Descripcion";
             this.richTextBox_Descripcion.ReadOnly = true;
-            this.richTextBox_Descripcion.Size = new System.Drawing.Size(292, 115);
+            this.richTextBox_Descripcion.Size = new System.Drawing.Size(292, 143);
             this.richTextBox_Descripcion.TabIndex = 7;
             this.richTextBox_Descripcion.Text = "";
             // 
@@ -211,11 +222,87 @@
             this.comboBox_Cines.TabIndex = 0;
             this.comboBox_Cines.SelectedIndexChanged += new System.EventHandler(this.comboBox_Cines_SelectedIndexChanged);
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.comboBox_Horarios);
+            this.groupBox4.Controls.Add(this.label6);
+            this.groupBox4.Controls.Add(this.label5);
+            this.groupBox4.Controls.Add(this.label4);
+            this.groupBox4.Controls.Add(this.label3);
+            this.groupBox4.Controls.Add(this.dateTimePicker1);
+            this.groupBox4.Location = new System.Drawing.Point(528, 67);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(463, 350);
+            this.groupBox4.TabIndex = 6;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Horarios";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Location = new System.Drawing.Point(6, 423);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(985, 250);
+            this.groupBox5.TabIndex = 7;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Butacas";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(7, 22);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 0;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 57);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(32, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Año: ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 87);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(33, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Mes: ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 117);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(31, 13);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Día: ";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 177);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(36, 13);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Hora: ";
+            // 
+            // comboBox_Horarios
+            // 
+            this.comboBox_Horarios.FormattingEnabled = true;
+            this.comboBox_Horarios.Location = new System.Drawing.Point(6, 144);
+            this.comboBox_Horarios.Name = "comboBox_Horarios";
+            this.comboBox_Horarios.Size = new System.Drawing.Size(201, 21);
+            this.comboBox_Horarios.TabIndex = 5;
+            // 
             // Form_Cartelera
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(546, 440);
+            this.ClientSize = new System.Drawing.Size(1118, 850);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form_Cartelera";
@@ -231,6 +318,8 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -251,5 +340,13 @@
         private System.Windows.Forms.Label label_Titulo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button_ComprarEntradas;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBox_Horarios;
     }
 }

@@ -30,8 +30,8 @@ namespace BE
 		private int capacidad;
 		public int Capacidad
 		{
-			get { return listaDeAsientos.Count; }
-			//set { capacidad = value; }
+			get { return capacidad; }
+			set { capacidad = value; }
 		}
 
 		private BE_SALA_FORMATO_ENUM formato;
@@ -40,7 +40,6 @@ namespace BE
 			get { return formato; }
 			set { formato = value; }
 		}
-
 
 		private List<BE_BUTACA> listaDeAsientos;
 		public List<BE_BUTACA> ListaDeAsientos

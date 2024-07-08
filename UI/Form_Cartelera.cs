@@ -24,8 +24,6 @@ namespace UI
         BLL_PELICULA bllpelicula = new BLL_PELICULA();
         BLL_CINE bllcine = new BLL_CINE();
 
-        public BE_PELICULA PeliculaSeleccionada { get; set; }
-
         public Form_Cartelera()
         {
             InitializeComponent();
@@ -56,10 +54,7 @@ namespace UI
 
         private void button_ComprarEntradas_Click(object sender, EventArgs e)
         {
-            PeliculaSeleccionada = (BE_PELICULA)listBox_Peliculas.SelectedItem;
-            Form_ComprarEntradas formdcomprarentradas = new Form_ComprarEntradas();
-            formdcomprarentradas.MainForm = this;
-            formdcomprarentradas.Show();
+            MessageBox.Show("No implementado");
         }
 
         private void LlenarComboBoxDeCines()
@@ -108,6 +103,27 @@ namespace UI
         private void Form_Cartelera_Load(object sender, EventArgs e)
         {
             bllsesion.AgregarObservadorForm(this);
+
+            var fechaactual = DateTime.Now;
+            dateTimePicker1.MinDate = fechaactual;
+            dateTimePicker1.MaxDate = fechaactual.AddDays(3);
+
+            List<DateTime> listadehorarios = new List<DateTime>();
+
+            DateTime h1 = new DateTime(2024, 1, 1, 12, 10, 0);
+            DateTime h2 = new DateTime(2024, 1, 1, 13, 40, 0);
+            DateTime h3 = new DateTime(2024, 1, 1, 16, 0, 0);
+            DateTime h4 = new DateTime(2024, 1, 1, 16, 50, 0);
+            DateTime h5 = new DateTime(2024, 1, 1, 18, 20, 0);
+
+            listadehorarios.Add(h1);
+            listadehorarios.Add(h2);
+            listadehorarios.Add(h3);
+            listadehorarios.Add(h4);
+            listadehorarios.Add(h5);
+
+            comboBox_Horarios.DataSource = listadehorarios;
+            comboBox_Horarios.DisplayMember = "TimeOfDay";
         }
         private void Form_Cartelera_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -117,6 +133,14 @@ namespace UI
         public void ActualizarIdioma(BE_IDIOMA idioma)
         {
             blltraductor.CambiarIdiomaEnFormulario(this, idioma);
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            label3.Text = "Año: " + dateTimePicker1.Value.Year.ToString();
+            label4.Text = "Mes: " + dateTimePicker1.Value.Month.ToString();
+            label5.Text = "Día: " + dateTimePicker1.Value.Day.ToString();
+            label6.Text = "Hora: " + dateTimePicker1.Value.Hour.ToString() + ":" + dateTimePicker1.Value.Minute.ToString();
         }
     }
 }

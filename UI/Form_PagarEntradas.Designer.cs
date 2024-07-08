@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class Form_ComprarEntradas
+    partial class Form_PagarEntradas
     {
         /// <summary>
         /// Required designer variable.
@@ -40,18 +40,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             // 
-            // Form_ComprarEntradas
+            // Form_PagarEntradas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Form_ComprarEntradas";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Tag = "ComprarEntradas";
-            this.Text = "Comprar entradas";
-            this.Load += new System.EventHandler(this.Form_ComprarEntradas_Load);
+            this.Name = "Form_PagarEntradas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Tag = "PagarEntradas";
+            this.Text = "Pagar entradas";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_PagarEntradas_FormClosing);
+            this.Load += new System.EventHandler(this.Form_PagarEntradas_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

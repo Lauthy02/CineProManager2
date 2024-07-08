@@ -47,6 +47,11 @@
             this.toolStripStatusLabel_NomApe = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_Rol = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_Correo = new System.Windows.Forms.ToolStripStatusLabel();
+            this.gestionarCinesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pagarEntradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.emitirEntradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcarEntradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aBMSalasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +65,7 @@
             this.idiomasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1184, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(846, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Tag = "menustrip";
             this.menuStrip1.Text = "menuStrip1";
@@ -96,9 +101,11 @@
             this.gestoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.permisosDeUsuariosToolStripMenuItem,
             this.permisosToolStripMenuItem,
+            this.gestionarCinesToolStripMenuItem,
             this.aBMUsuariosToolStripMenuItem,
             this.aBMPelículasToolStripMenuItem,
-            this.aBMCinesToolStripMenuItem});
+            this.aBMCinesToolStripMenuItem,
+            this.aBMSalasToolStripMenuItem});
             this.gestoresToolStripMenuItem.Name = "gestoresToolStripMenuItem";
             this.gestoresToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.gestoresToolStripMenuItem.Tag = "Gestores";
@@ -147,7 +154,10 @@
             // cineToolStripMenuItem
             // 
             this.cineToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.carteleraToolStripMenuItem1});
+            this.carteleraToolStripMenuItem1,
+            this.pagarEntradasToolStripMenuItem,
+            this.emitirEntradasToolStripMenuItem,
+            this.marcarEntradasToolStripMenuItem});
             this.cineToolStripMenuItem.Name = "cineToolStripMenuItem";
             this.cineToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.cineToolStripMenuItem.Tag = "Cine";
@@ -159,7 +169,7 @@
             this.carteleraToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.carteleraToolStripMenuItem1.Tag = "ReservarEntradas";
             this.carteleraToolStripMenuItem1.Text = "Reservar entradas";
-            this.carteleraToolStripMenuItem1.Click += new System.EventHandler(this.carteleraToolStripMenuItem1_Click);
+            this.carteleraToolStripMenuItem1.Click += new System.EventHandler(this.reservarEntradasToolStripMenuItem1_Click);
             // 
             // idiomasToolStripMenuItem
             // 
@@ -175,9 +185,9 @@
             this.toolStripStatusLabel_NomApe,
             this.toolStripStatusLabel_Rol,
             this.toolStripStatusLabel_Correo});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 739);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 457);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1184, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(846, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -205,11 +215,51 @@
             this.toolStripStatusLabel_Correo.Size = new System.Drawing.Size(51, 17);
             this.toolStripStatusLabel_Correo.Text = "[Correo]";
             // 
+            // gestionarCinesToolStripMenuItem
+            // 
+            this.gestionarCinesToolStripMenuItem.Name = "gestionarCinesToolStripMenuItem";
+            this.gestionarCinesToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.gestionarCinesToolStripMenuItem.Tag = "GestionarCines";
+            this.gestionarCinesToolStripMenuItem.Text = "Gestionar cines";
+            this.gestionarCinesToolStripMenuItem.Click += new System.EventHandler(this.gestionarCinesToolStripMenuItem_Click);
+            // 
+            // pagarEntradasToolStripMenuItem
+            // 
+            this.pagarEntradasToolStripMenuItem.Name = "pagarEntradasToolStripMenuItem";
+            this.pagarEntradasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pagarEntradasToolStripMenuItem.Tag = "PagarEntradas";
+            this.pagarEntradasToolStripMenuItem.Text = "Pagar entradas";
+            this.pagarEntradasToolStripMenuItem.Click += new System.EventHandler(this.pagarEntradasToolStripMenuItem_Click);
+            // 
+            // emitirEntradasToolStripMenuItem
+            // 
+            this.emitirEntradasToolStripMenuItem.Name = "emitirEntradasToolStripMenuItem";
+            this.emitirEntradasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.emitirEntradasToolStripMenuItem.Tag = "EmitirEntradas";
+            this.emitirEntradasToolStripMenuItem.Text = "Emitir entradas";
+            this.emitirEntradasToolStripMenuItem.Click += new System.EventHandler(this.emitirEntradasToolStripMenuItem_Click);
+            // 
+            // marcarEntradasToolStripMenuItem
+            // 
+            this.marcarEntradasToolStripMenuItem.Name = "marcarEntradasToolStripMenuItem";
+            this.marcarEntradasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.marcarEntradasToolStripMenuItem.Tag = "MarcarEntradas";
+            this.marcarEntradasToolStripMenuItem.Text = "Marcar entradas";
+            this.marcarEntradasToolStripMenuItem.Click += new System.EventHandler(this.marcarEntradasToolStripMenuItem_Click);
+            // 
+            // aBMSalasToolStripMenuItem
+            // 
+            this.aBMSalasToolStripMenuItem.Name = "aBMSalasToolStripMenuItem";
+            this.aBMSalasToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.aBMSalasToolStripMenuItem.Tag = "ABMSalas";
+            this.aBMSalasToolStripMenuItem.Text = "ABM Salas";
+            this.aBMSalasToolStripMenuItem.Click += new System.EventHandler(this.aBMSalasToolStripMenuItem_Click);
+            // 
             // Form_MDIPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 761);
+            this.ClientSize = new System.Drawing.Size(846, 479);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -219,6 +269,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "MDIPrincipal";
             this.Text = "CineProManager";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_MDIPrincipal_FormClosing);
             this.Load += new System.EventHandler(this.Form_MDIPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -250,6 +301,11 @@
         private System.Windows.Forms.ToolStripMenuItem carteleraToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aBMCinesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem idiomasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gestionarCinesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pagarEntradasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem emitirEntradasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem marcarEntradasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aBMSalasToolStripMenuItem;
     }
 }
 

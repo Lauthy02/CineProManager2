@@ -18,8 +18,8 @@ namespace UI
     public partial class Form_MDIPrincipal : Form, BE_IOBSERVERIDIOMA
     {
         BLL_SESION bllsesion = new BLL_SESION();
-        BLL_IDIOMA bllidioma = new BLL_IDIOMA();
         BLL_TRADUCTOR blltraductor = new BLL_TRADUCTOR();
+        BLL_IDIOMA bllidioma = new BLL_IDIOMA();
         BE_IDIOMA idiomasinuso = new BE_IDIOMA();
 
         public Form_MDIPrincipal()
@@ -61,6 +61,13 @@ namespace UI
             formgestorpermisos.Show();
         }
 
+        private void gestionarCinesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_GestorCines formgestorcines = new Form_GestorCines();
+            formgestorcines.MdiParent = this;
+            formgestorcines.Show();
+        }
+
         private void aBMUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form_ABMUsuarios formabmusuarios = new Form_ABMUsuarios();
@@ -82,11 +89,33 @@ namespace UI
             formabmcines.Show();
         }
 
-        private void carteleraToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void aBMSalasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_ABMSalas formabmsalas = new Form_ABMSalas();
+            formabmsalas.MdiParent = this;
+            formabmsalas.Show();
+        }
+
+        private void reservarEntradasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Form_Cartelera formcartelera = new Form_Cartelera();
             formcartelera.MdiParent = this;
             formcartelera.Show();
+        }
+
+        private void pagarEntradasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("No implementado");
+        }
+
+        private void emitirEntradasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("No implementado");
+        }
+
+        private void marcarEntradasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("No implementado");
         }
 
         public void ValidarForm() //Para los permisos
@@ -135,11 +164,6 @@ namespace UI
             {
                 menudownitem.Enabled = false;
             }
-        }
-
-        public void ActualizarIdioma(BE_IDIOMA idioma) //Implementación de la interfaz BLL_IOBSERVERIDIOMA
-        {
-            blltraductor.CambiarIdiomaEnFormulario(this, idioma);
         }
 
         public void MarcarIdioma()
@@ -194,6 +218,11 @@ namespace UI
         private void Form_MDIPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
             bllsesion.QuitarObservadorForm(this);
+        }
+
+        public void ActualizarIdioma(BE_IDIOMA idioma) //Implementación de la interfaz BE_IOBSERVERIDIOMA
+        {
+            blltraductor.CambiarIdiomaEnFormulario(this, idioma);
         }
     }
 }
