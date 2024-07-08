@@ -11,6 +11,8 @@ namespace DAL
 {
     public class DAL_MAPPER_SALA : DAL_MAPPER<BE_SALA>
     {
+        DAL_MAPPER_FUNCION dalfuncion = new DAL_MAPPER_FUNCION();
+
         public DAL_MAPPER_SALA()
         {
             acceso.AbrirConexion();
@@ -19,13 +21,17 @@ namespace DAL
         public override int Alta(BE_SALA entidad)
         {
             List<SqlParameter> parametros = new List<SqlParameter>();
-            SqlParameter p = acceso.CrearParametro("@capacidad", entidad.Capacidad);
+            SqlParameter p = acceso.CrearParametro("@id", entidad.Id);
+            parametros.Add(p);
+            p = acceso.CrearParametro("@numerodesala", entidad.NumeroDeSala);
+            parametros.Add(p);
+            p = acceso.CrearParametro("@capacidad", entidad.Capacidad);
             parametros.Add(p);
             p = acceso.CrearParametro("@formato", entidad.Formato.ToString());
             parametros.Add(p);
 
             int res = acceso.Escribir("SALA_INSERTAR", parametros);
-            //INSERT INTO SALA VALUES (@capacidad, @formato)
+            //INSERT INTO SALA VALUES (@id, @numerodesala, @capacidad, @formato)
             return res;
         }
 
@@ -53,6 +59,11 @@ namespace DAL
             {
                 salas.Add(Convertir(dr));
             }
+
+            foreach (var sala in salas)
+            {
+                LlenarFunciones(sala);
+            }
             return salas;
         }
 
@@ -69,6 +80,11 @@ namespace DAL
             {
                 salas.Add(Convertir(dr));
             }
+
+            foreach (var sala in salas)
+            {
+                LlenarFunciones(sala);
+            }
             return salas[0];
         }
 
@@ -76,6 +92,8 @@ namespace DAL
         {
             List<SqlParameter> parametros = new List<SqlParameter>();
             SqlParameter p = acceso.CrearParametro("@id", entidad.Id);
+            parametros.Add(p);
+            p = acceso.CrearParametro("@numerodesala", entidad.NumeroDeSala);
             parametros.Add(p);
             p = acceso.CrearParametro("@capacidad", entidad.Capacidad);
             parametros.Add(p);
@@ -85,6 +103,7 @@ namespace DAL
             int res = acceso.Escribir("SALA_EDITAR", parametros);
             /*
             UPDATE SALA SET 
+                numerodesala = @numerodesala,
                 capacidad = @capacidad, 
                 formato = @formato
             WHERE id = @id
@@ -101,6 +120,11 @@ namespace DAL
             {
                 salas.Add(Convertir(dr));
             }
+
+            foreach (var sala in salas)
+            {
+                LlenarFunciones(sala);
+            }
             return salas;
         }
 
@@ -108,9 +132,24 @@ namespace DAL
         {
             BE_SALA sala = new BE_SALA();
             sala.Id = int.Parse(registro["id"].ToString());
+            sala.NumeroDeSala = int.Parse(registro["numerodesala"].ToString());
             sala.Capacidad = int.Parse(registro["capacidad"].ToString());
             sala.Formato = (BE_SALA_FORMATO_ENUM)Enum.Parse(typeof(BE_SALA_FORMATO_ENUM), registro["formato"].ToString());
             return sala;
+        }
+
+        public void LlenarFunciones(BE_SALA entidad)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            SqlParameter p = acceso.CrearParametro("@idsala", entidad.Id);
+            parametros.Add(p);
+
+            DataTable tabla = acceso.Leer("SALA_FUNCION_BUSCAR", parametros);
+            //SELECT * FROM SALA_FUNCION WHERE idsala = @idsala
+            foreach (DataRow dr in tabla.Rows)
+            {
+                entidad.ListaDeFunciones.Add(dalfuncion.BuscarConId(int.Parse(dr["idfuncion"].ToString())));
+            }
         }
     }
 }

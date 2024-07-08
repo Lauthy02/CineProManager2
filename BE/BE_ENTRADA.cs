@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public class BE_RESERVA
+    public class BE_ENTRADA
     {
+		public BE_ENTRADA()
+		{
+            cliente = new BE_USUARIO();
+			funcion = new BE_FUNCION();
+		}
+
 		private int id;
 		public int Id
 		{
@@ -29,11 +35,11 @@ namespace BE
 			set { funcion = value; }
 		}
 
-		private List<BE_BUTACA> listaDeAsientosReservados;
-		public List<BE_BUTACA> ListaDeAsientosReservados
-		{
-			get { return listaDeAsientosReservados; }
-			set { listaDeAsientosReservados = value; }
+		private BE_BUTACA asientoReservado;
+		public BE_BUTACA AsientoReservado
+        {
+			get { return asientoReservado; }
+			set { asientoReservado = value; }
 		}
 
 		private DateTime fechaDeReserva;
@@ -41,6 +47,13 @@ namespace BE
 		{
 			get { return fechaDeReserva; }
 			set { fechaDeReserva = value; }
+		}
+
+		private BE_ENTRADA_ESTADO_ENUM estado;
+		public BE_ENTRADA_ESTADO_ENUM Estado
+		{
+			get { return estado; }
+			set { estado = value; }
 		}
 	}
 }

@@ -2,7 +2,7 @@ CREATE PROC USUARIO_INSERTAR
 @nombredeusuario varchar(50), @contrasenia varchar(50), @nombre varchar(50), @apellido varchar(50), @correo varchar(50), @ididioma int
 AS 
 BEGIN
-	INSERT INTO USUARIOS VALUES (@nombredeusuario, @contrasenia, @nombre, @apellido, @correo, @ididioma)
+	INSERT INTO USUARIO VALUES (@nombredeusuario, @contrasenia, @nombre, @apellido, @correo, @ididioma)
 END
 GO
 
@@ -10,7 +10,7 @@ CREATE PROC USUARIO_BORRAR
 @id int
 AS 
 BEGIN
-	DELETE FROM USUARIOS WHERE id = @id
+	DELETE FROM USUARIO WHERE id = @id
 END
 GO
 
@@ -18,7 +18,7 @@ CREATE PROC USUARIO_EDITAR
 @id int, @nombredeusuario varchar(50), @contrasenia varchar(50), @nombre varchar(50), @apellido varchar(50), @correo varchar(50), @ididioma int
 AS 
 BEGIN
-	update USUARIOS SET 
+	update USUARIO SET 
 		nombredeusuario = @nombredeusuario, 
 		contrasenia = @contrasenia,
 		nombre = @nombre,
@@ -33,14 +33,21 @@ CREATE PROC USUARIO_BUSCAR
 @nombredeusuario varchar(50), @contrasenia varchar(50)
 AS
 BEGIN
-	SELECT * FROM USUARIOS WHERE nombredeusuario = @nombredeusuario AND contrasenia = @contrasenia
+	SELECT * FROM USUARIO WHERE nombredeusuario = @nombredeusuario AND contrasenia = @contrasenia
 END
 GO
 
 CREATE PROC USUARIO_LISTAR
 AS
 BEGIN
-	SELECT * FROM USUARIOS
+	SELECT * FROM USUARIO
 END
 GO
 
+CREATE PROC USUARIO_BUSCARID
+@id int
+AS
+BEGIN
+	SELECT * FROM USUARIO WHERE id = @id
+END
+GO

@@ -46,6 +46,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form_ABMFunciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ABMFunciones.Designer.cs">
+      <DependentUpon>Form_ABMFunciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_EntradasEmitir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_EntradasEmitir.Designer.cs">
+      <DependentUpon>Form_EntradasEmitir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_EntradasMarcar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_EntradasMarcar.Designer.cs">
+      <DependentUpon>Form_EntradasMarcar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_EntradasPagar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_EntradasPagar.Designer.cs">
+      <DependentUpon>Form_EntradasPagar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_GestorCines.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,11 +82,11 @@
     <Compile Include="Form_ABMCines.Designer.cs">
       <DependentUpon>Form_ABMCines.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Cartelera.cs">
+    <Compile Include="Form_EntradasReservar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Cartelera.Designer.cs">
-      <DependentUpon>Form_Cartelera.cs</DependentUpon>
+    <Compile Include="Form_EntradasReservar.Designer.cs">
+      <DependentUpon>Form_EntradasReservar.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_ABMPeliculas.cs">
       <SubType>Form</SubType>
@@ -117,8 +141,11 @@
     <EmbeddedResource Include="Form_ABMCines.resx">
       <DependentUpon>Form_ABMCines.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Cartelera.resx">
-      <DependentUpon>Form_Cartelera.cs</DependentUpon>
+    <EmbeddedResource Include="Form_ABMFunciones.resx">
+      <DependentUpon>Form_ABMFunciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_EntradasReservar.resx">
+      <DependentUpon>Form_EntradasReservar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_ABMPeliculas.resx">
       <DependentUpon>Form_ABMPeliculas.cs</DependentUpon>
@@ -128,6 +155,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_ABMSalas.resx">
       <DependentUpon>Form_ABMSalas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_EntradasEmitir.resx">
+      <DependentUpon>Form_EntradasEmitir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_EntradasMarcar.resx">
+      <DependentUpon>Form_EntradasMarcar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_EntradasPagar.resx">
+      <DependentUpon>Form_EntradasPagar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_PagarEntradas.resx">
       <DependentUpon>Form_PagarEntradas.cs</DependentUpon>

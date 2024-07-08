@@ -16,6 +16,7 @@ namespace BE
         ABMPeliculas,
         ABMCines,
         ABMSalas,
+        ABMFunciones,
         ReservarEntradas,
         PagarEntradas,
         EmitirEntradas,

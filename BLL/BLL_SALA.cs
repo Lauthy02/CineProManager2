@@ -12,12 +12,15 @@ namespace BLL
     {
         //agregarFuncion(), obtenerFunciones(), buscarFuncion()
         DAL_MAPPER_SALA dalmappersala = new DAL_MAPPER_SALA();
+        DAL_CINE_SALA dalcinesala = new DAL_CINE_SALA();
         
-        public void GuardarSala(BE_SALA besala)
+        public void GuardarSala(BE_CINE becine, BE_SALA besala)
         {
             if (besala.Id == 0)
             {
+                besala.Id = dalmappersala.TraerTodos().OrderByDescending(sala => sala.Id).FirstOrDefault().Id + 1;
                 dalmappersala.Alta(besala);
+                dalcinesala.Alta(becine, besala);
             }
             else
             {

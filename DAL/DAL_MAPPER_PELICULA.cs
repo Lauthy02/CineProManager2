@@ -33,7 +33,7 @@ namespace DAL
             parametros.Add(p);
 
             int res = acceso.Escribir("PELICULA_INSERTAR", parametros);
-            //INSERT INTO PELICULAS VALUES (@titulo, @director, @duracion, @genero, @descripcion, @imagen)
+            //INSERT INTO PELICULA VALUES (@titulo, @director, @duracion, @genero, @descripcion, @imagen)
             return res;
         }
 
@@ -44,7 +44,7 @@ namespace DAL
             parametros.Add(p);
 
             int res = acceso.Escribir("PELICULA_BORRAR", parametros);
-            //DELETE FROM PELICULAS WHERE id = @id
+            //DELETE FROM PELICULA WHERE id = @id
             return res;
         }
 
@@ -68,7 +68,7 @@ namespace DAL
 
             int res = acceso.Escribir("PELICULA_EDITAR", parametros);
             /*
-            UPDATE PELICULAS SET 
+            UPDATE PELICULA SET 
                 titulo = @titulo, 
                 director = @director,
                 duracion = @duracion,
@@ -88,7 +88,7 @@ namespace DAL
             parametros.Add(p);
 
             DataTable tabla = acceso.Leer("PELICULA_BUSCAR", parametros);
-            //SELECT * FROM PELICULAS WHERE titulo = @titulo
+            //SELECT * FROM PELICULA WHERE titulo = @titulo
             foreach (DataRow dr in tabla.Rows)
             {
                 peliculas.Add(Convertir(dr));
@@ -104,7 +104,7 @@ namespace DAL
             parametros.Add(p);
 
             DataTable tabla = acceso.Leer("PELICULA_BUSCARID", parametros);
-            //SELECT * FROM PELICULAS WHERE id = @id
+            //SELECT * FROM PELICULA WHERE id = @id
             foreach (DataRow dr in tabla.Rows)
             {
                 peliculas.Add(Convertir(dr));
@@ -116,7 +116,7 @@ namespace DAL
         {
             List<BE_PELICULA> peliculas = new List<BE_PELICULA>();
             DataTable tabla = acceso.Leer("PELICULA_LISTAR", null);
-            //SELECT * FROM PELICULAS
+            //SELECT * FROM PELICULA
             foreach (DataRow dr in tabla.Rows)
             {
                 peliculas.Add(Convertir(dr));

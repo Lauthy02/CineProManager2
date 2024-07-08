@@ -52,6 +52,7 @@
             this.emitirEntradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.marcarEntradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMSalasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aBMFuncionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -105,7 +106,8 @@
             this.aBMUsuariosToolStripMenuItem,
             this.aBMPelículasToolStripMenuItem,
             this.aBMCinesToolStripMenuItem,
-            this.aBMSalasToolStripMenuItem});
+            this.aBMSalasToolStripMenuItem,
+            this.aBMFuncionesToolStripMenuItem});
             this.gestoresToolStripMenuItem.Name = "gestoresToolStripMenuItem";
             this.gestoresToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.gestoresToolStripMenuItem.Tag = "Gestores";
@@ -255,6 +257,14 @@
             this.aBMSalasToolStripMenuItem.Text = "ABM Salas";
             this.aBMSalasToolStripMenuItem.Click += new System.EventHandler(this.aBMSalasToolStripMenuItem_Click);
             // 
+            // aBMFuncionesToolStripMenuItem
+            // 
+            this.aBMFuncionesToolStripMenuItem.Name = "aBMFuncionesToolStripMenuItem";
+            this.aBMFuncionesToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.aBMFuncionesToolStripMenuItem.Tag = "ABMFunciones";
+            this.aBMFuncionesToolStripMenuItem.Text = "ABM Funciones";
+            this.aBMFuncionesToolStripMenuItem.Click += new System.EventHandler(this.aBMFuncionesToolStripMenuItem_Click);
+            // 
             // Form_MDIPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -306,6 +316,7 @@
         private System.Windows.Forms.ToolStripMenuItem emitirEntradasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem marcarEntradasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aBMSalasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aBMFuncionesToolStripMenuItem;
     }
 }
 

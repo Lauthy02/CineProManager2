@@ -96,26 +96,39 @@ namespace UI
             formabmsalas.Show();
         }
 
+        private void aBMFuncionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_ABMFunciones formabmfunciones = new Form_ABMFunciones();
+            formabmfunciones.MdiParent = this;
+            formabmfunciones.Show();
+        }
+
         private void reservarEntradasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Form_Cartelera formcartelera = new Form_Cartelera();
+            Form_EntradasReservar formcartelera = new Form_EntradasReservar();
             formcartelera.MdiParent = this;
             formcartelera.Show();
         }
 
         private void pagarEntradasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("No implementado");
+            Form_EntradasPagar formentradaspagar = new Form_EntradasPagar();
+            formentradaspagar.MdiParent = this;
+            formentradaspagar.Show();
         }
 
         private void emitirEntradasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("No implementado");
+            Form_EntradasEmitir formentradasemitir = new Form_EntradasEmitir();
+            formentradasemitir.MdiParent = this;
+            formentradasemitir.Show();
         }
 
         private void marcarEntradasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("No implementado");
+            Form_EntradasMarcar formentradasmarcar = new Form_EntradasMarcar();
+            formentradasmarcar.MdiParent = this;
+            formentradasmarcar.Show();
         }
 
         public void ValidarForm() //Para los permisos

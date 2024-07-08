@@ -10,7 +10,7 @@ namespace BE
     {
 		public BE_FUNCION()
         {
-            listaDeAsientos = new List<BE_BUTACA>();
+			pelicula = new BE_PELICULA();
         }
 
 		private int id;
@@ -27,13 +27,6 @@ namespace BE
 			set { pelicula = value; }
 		}
 
-		private BE_SALA sala;
-		public BE_SALA Sala
-		{
-			get { return sala; }
-			set { sala = value; }
-		}
-
 		private DateTime horario;
 		public DateTime Horario
 		{
@@ -41,11 +34,9 @@ namespace BE
 			set { horario = value; }
 		}
 
-		private List<BE_BUTACA> listaDeAsientos;
-		public List<BE_BUTACA> ListaDeAsientos
-		{
-			get { return listaDeAsientos; }
-			set { listaDeAsientos = value; }
-		}
-	}
+        public override string ToString()
+        {
+            return id.ToString() + " - " + pelicula.Titulo + " - " + horario.ToString();
+        }
+    }
 }

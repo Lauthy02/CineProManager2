@@ -91,5 +91,12 @@ namespace DAL
             //No especifico el DbType para que el motor lo asigne de manera automática, ya que no se puede asignar un valor a un DBNull
             return param;
         }
+
+        public SqlParameter CrearParametro(string nombre, DateTime valor)
+        {
+            SqlParameter param = new SqlParameter(nombre, valor);
+            param.DbType = DbType.DateTime;
+            return param;
+        }
     }
 }

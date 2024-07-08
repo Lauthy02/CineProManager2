@@ -36,7 +36,7 @@ namespace DAL
             parametros.Add(p);
 
             int res = acceso.Escribir("USUARIO_INSERTAR", parametros);
-            //INSERT INTO USUARIOS VALUES (@nombredeusuario, @contrasenia, @nombre, @apellido, @correo, @ididioma)
+            //INSERT INTO USUARIO VALUES (@nombredeusuario, @contrasenia, @nombre, @apellido, @correo, @ididioma)
             return res;
         }
 
@@ -47,7 +47,7 @@ namespace DAL
             parametros.Add(p);
 
             int res = acceso.Escribir("USUARIO_BORRAR", parametros);
-            //DELETE FROM USUARIOS WHERE id = @id
+            //DELETE FROM USUARIO WHERE id = @id
             return res;
         }
 
@@ -71,7 +71,7 @@ namespace DAL
 
             int res = acceso.Escribir("USUARIO_EDITAR", parametros);
             /*
-            update USUARIOS SET 
+            update USUARIO SET 
                 nombredeusuario = @nombredeusuario, 
                 contrasenia = @contrasenia,
                 nombre = @nombre,
@@ -93,7 +93,7 @@ namespace DAL
             parametros.Add(p);
             
             DataTable tabla = acceso.Leer("USUARIO_BUSCAR", parametros);
-            //SELECT * FROM USUARIOS WHERE nombredeusuario = @nombredeusuario AND contrasenia = @contrasenia
+            //SELECT * FROM USUARIO WHERE nombredeusuario = @nombredeusuario AND contrasenia = @contrasenia
             foreach (DataRow dr in tabla.Rows)
             {
                 usuarios.Add(Convertir(dr));
@@ -101,11 +101,27 @@ namespace DAL
             return usuarios;
         }
 
+        public BE_USUARIO BuscarConId(int idusuario)
+        {
+            List<BE_USUARIO> usuarios = new List<BE_USUARIO>();
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            SqlParameter p = acceso.CrearParametro("@id", idusuario);
+            parametros.Add(p);
+
+            DataTable tabla = acceso.Leer("USUARIO_BUSCARID", parametros);
+            //SELECT * FROM USUARIO WHERE id = @id
+            foreach (DataRow dr in tabla.Rows)
+            {
+                usuarios.Add(Convertir(dr));
+            }
+            return usuarios[0];
+        }
+
         public override List<BE_USUARIO> TraerTodos()
         {
             List<BE_USUARIO> usuarios = new List<BE_USUARIO>();
             DataTable tabla = acceso.Leer("USUARIO_LISTAR", null);
-            //SELECT * FROM USUARIOS
+            //SELECT * FROM USUARIO
             foreach (DataRow dr in tabla.Rows)
             {
                 usuarios.Add(Convertir(dr));
@@ -135,7 +151,7 @@ namespace DAL
                 parametros.Add(p);
 
                 var res = acceso.Escribir("USUARIOS_PERMISOS_BORRAR", parametros);
-                //DELETE FROM USUARIOS_PERMISOS WHERE idusuario = @id
+                //DELETE FROM USUARIO_PERMISOS WHERE idusuario = @id
 
                 foreach (var item in usuario.ListaDePermisos)
                 {
@@ -146,7 +162,7 @@ namespace DAL
                     parametros2.Add(p2);
 
                     var res2 = acceso.Escribir("USUARIOS_PERMISOS_INSERTAR", parametros2);
-                    //INSERT INTO USUARIOS_PERMISOS VALUES (@idusuario, @idpermiso)
+                    //INSERT INTO USUARIO_PERMISOS VALUES (@idusuario, @idpermiso)
                 }
             }
             catch (Exception)

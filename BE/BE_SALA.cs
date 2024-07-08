@@ -11,6 +11,7 @@ namespace BE
 		public BE_SALA()
         {
             listaDeAsientos = new List<BE_BUTACA>();
+            listaDeFunciones = new List<BE_FUNCION>();
         }
 
 		private int id;
@@ -23,8 +24,8 @@ namespace BE
 		private int numeroDeSala;
 		public int NumeroDeSala
 		{
-			get { return id; }
-			//set { numeroDeSala = value; }
+			get { return numeroDeSala; }
+			set { numeroDeSala = value; }
 		}
 
 		private int capacidad;
@@ -39,6 +40,13 @@ namespace BE
 		{
 			get { return formato; }
 			set { formato = value; }
+		}
+
+		private List<BE_FUNCION> listaDeFunciones;
+		public List<BE_FUNCION> ListaDeFunciones
+		{
+			get { return listaDeFunciones; }
+			set { listaDeFunciones = value; }
 		}
 
 		private List<BE_BUTACA> listaDeAsientos;

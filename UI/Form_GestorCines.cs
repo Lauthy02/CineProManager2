@@ -19,11 +19,51 @@ namespace UI
     {
         BLL_SESION bllsesion = new BLL_SESION();
         BLL_TRADUCTOR blltraductor = new BLL_TRADUCTOR();
+        BLL_CINE bllcine = new BLL_CINE();
 
         public Form_GestorCines()
         {
             InitializeComponent();
             ActualizarIdioma(BE_SESION.ObtenerInstancia.Usuario.Idioma);
+            LlenarComboBoxCines();
+        }
+
+        private void comboBox_Cines_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LlenarListBoxCartelera();
+            LlenarListBoxSalas();
+        }
+
+        public void LlenarComboBoxCines()
+        {
+            comboBox_Cines.DataSource = null;
+            comboBox_Cines.DataSource = bllcine.ListarCines();
+        }
+
+        public void LlenarListBoxCartelera()
+        {
+            BE_CINE cineaux = (BE_CINE)comboBox_Cines.SelectedItem;
+            listBox_Cartelera.DataSource = null;
+            listBox_Cartelera.DataSource = cineaux.Cartelera.ListaDePeliculas;
+        }
+
+        public void LlenarListBoxSalas()
+        {
+            BE_CINE cineaux = (BE_CINE)comboBox_Cines.SelectedItem;
+            listBox_Salas.DataSource = null;
+            listBox_Salas.DataSource = cineaux.ListaDeSalas;
+            listBox_Salas.DisplayMember = "Id";
+        }
+
+        private void listBox_Salas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BE_SALA salaaux = (BE_SALA)listBox_Salas.SelectedItem;
+            if (salaaux != null)
+            {
+                listBox_Funciones.DataSource = null;
+                listBox_Funciones.DataSource = salaaux.ListaDeFunciones;
+                listBox_Funciones.DisplayMember = "Id";
+            }
         }
 
         private void Form_GestorCines_Load(object sender, EventArgs e)

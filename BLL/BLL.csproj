@@ -47,9 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL_ASIENTO.cs" />
+    <Compile Include="BLL_CINE_SALA.cs" />
     <Compile Include="BLL_FUNCION.cs" />
     <Compile Include="BLL_PELICULA.cs" />
-    <Compile Include="BLL_RESERVA.cs" />
+    <Compile Include="BLL_ENTRADA.cs" />
     <Compile Include="BLL_SALA.cs" />
     <Compile Include="BLL_CINE.cs" />
     <Compile Include="MULTIIDIOMA\BLL_IDIOMA.cs" />

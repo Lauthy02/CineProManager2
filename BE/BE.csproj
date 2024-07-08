@@ -44,10 +44,11 @@
     <Compile Include="BE_BUTACA.cs" />
     <Compile Include="BE_CARTELERA.cs" />
     <Compile Include="BE_CINE.cs" />
+    <Compile Include="BE_ENTRADA_ESTADO_ENUM.cs" />
     <Compile Include="BE_FUNCION.cs" />
     <Compile Include="BE_PELICULA.cs" />
     <Compile Include="BE_PELICULA_GENERO_ENUM.cs" />
-    <Compile Include="BE_RESERVA.cs" />
+    <Compile Include="BE_ENTRADA.cs" />
     <Compile Include="BE_SALA.cs" />
     <Compile Include="BE_SALA_FORMATO_ENUM.cs" />
     <Compile Include="MULTIIDIOMA\BE_ETIQUETA.cs" />

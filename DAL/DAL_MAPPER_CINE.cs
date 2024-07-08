@@ -30,7 +30,7 @@ namespace DAL
             parametros.Add(p);
 
             int res = acceso.Escribir("CINE_INSERTAR", parametros);
-            //INSERT INTO CINES VALUES (@nombre, @zona, @direccion)
+            //INSERT INTO CINE VALUES (@nombre, @zona, @direccion)
             return res;
         }
 
@@ -41,7 +41,7 @@ namespace DAL
             parametros.Add(p);
 
             int res = acceso.Escribir("CINE_BORRAR", parametros);
-            //DELETE FROM CINES WHERE id = @id
+            //DELETE FROM CINE WHERE id = @id
             return res;
         }
 
@@ -59,7 +59,7 @@ namespace DAL
 
             int res = acceso.Escribir("CINE_EDITAR", parametros);
             /*
-            UPDATE CINES SET 
+            UPDATE CINE SET 
                 nombre = @nombre, 
                 zona = @zona,
                 direccion = @direccion
@@ -76,7 +76,7 @@ namespace DAL
             parametros.Add(p);
 
             DataTable tabla = acceso.Leer("CINE_BUSCAR", parametros);
-            //SELECT * FROM CINES WHERE nombre = @nombre
+            //SELECT * FROM CINE WHERE nombre = @nombre
             foreach (DataRow dr in tabla.Rows)
             {
                 cines.Add(Convertir(dr));
@@ -86,6 +86,11 @@ namespace DAL
             {
                 LlenarCartelera(cine);
             }
+
+            foreach (var cine in cines)
+            {
+                LlenarSalas(cine);
+            }
             return cines;
         }
 
@@ -93,7 +98,7 @@ namespace DAL
         {
             List<BE_CINE> cines = new List<BE_CINE>();
             DataTable tabla = acceso.Leer("CINE_LISTAR", null);
-            //SELECT * FROM CINES
+            //SELECT * FROM CINE
             foreach (DataRow dr in tabla.Rows)
             {
                 cines.Add(Convertir(dr));
