@@ -10,11 +10,11 @@
 	- Ejemplo: AltaUsuario(BE_USUARIO usuario)
 
 ## En la base de datos
-- El nombre de las tablas van en mayúsculas, si es necesario más de una palabra se separa con _ y en plural
-	- Ejemplo: USUARIOS, USUARIOS_PERMISOS
+- El nombre de las tablas van en mayúsculas, si es necesario más de una palabra se separa con _ y en singular
+	- Ejemplo: USUARIO, USUARIO_PERMISO
 - El nombre de las columnas van en minúsuclas, si es necesario más de una palabra se escribe todo junto y en singular
 	- Ejemplo: id, nombre, nombredeusuario
-- El nombre de los parámetros van a estar escritos en minúsculas
+- El nombre de los parámetros van a estar escritos igual que las columnas
 	- Ejemplo: @nombre
 - El nombre de los procedimientos almacenados van a estar escritos en mayúsculas, si es necesario más de una palabra se separa con _ y el nombre va a estar en singular
 	- Ejemplo: ALTA_USUARIO
@@ -29,3 +29,56 @@ Extraidos de google fonts https://fonts.google.com/icons?icon.style=Rounded&icon
 - Style:
 	- Material Symbols (new)
  	- Outlined
+
+# Para mejorar
+La cartelera puede ser creada con las películas que tienen una función
+
+# Permisos
+Administrador 3
+	GestionarPermisosDeUsuarios
+	GestionarPermisos
+	ABMUsuarios
+	ABMPeliculas
+	ABMCines
+	Cliente
+	Taquillero
+	Control de acceso
+
+Cliente 1010
+	ReservarEntradas
+
+Taquillero 4
+	PagarEntradas	
+	EmitirEntradas
+
+Control de acceso 1011
+	MarcarEntradas
+
+Gerente de cine 1006
+	ABMUsuarios
+	ABMPeliculas
+	ABMCines
+	ABMSalas
+	ABMFunciones
+	GestionarCines
+
+ # Usuarios
+ Administrador
+ 	Nombre de usuario: Lauta
+  	Contraseña: 1234
+   
+ Cliente
+ 	Nombre de usuario: Nano
+  	Contraseña: 1234
+   
+ Taquillero
+ 	Nombre de usuario: CharLec
+  	Contraseña: 1234
+   
+ Control de acceso
+ 	Nombre de usuario: Checo
+  	Contraseña: 1234
+   
+Gerente de cine 
+ 	Nombre de usuario: MaxV 
+  	Contraseña: 1234
