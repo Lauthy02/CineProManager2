@@ -19,17 +19,6 @@
 - El nombre de los procedimientos almacenados van a estar escritos en mayúsculas, si es necesario más de una palabra se separa con _ y el nombre va a estar en singular
 	- Ejemplo: ALTA_USUARIO
 
-# Iconos del sistema
-Extraidos de google fonts https://fonts.google.com/icons?icon.style=Rounded&icon.set=Material+Symbols
-## Caracterísitcas de los iconos
-- Fill: On
-- Weight: 400
-- Grade: 0
-- Optical size: 24
-- Style:
-	- Material Symbols (new)
- 	- Outlined
-
 # Para mejorar
 La cartelera puede ser creada con las películas que tienen una función
 
