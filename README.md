@@ -20,7 +20,7 @@
 	- Ejemplo: ALTA_USUARIO
 
 # Para mejorar
-La cartelera puede ser creada con las películas que tienen una función
+La cartelera puede ser creada con las películas que están en una función
 
 # Permisos
 - Administrador 3
