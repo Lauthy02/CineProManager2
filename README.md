@@ -36,46 +36,38 @@ La cartelera puede ser creada con las películas que tienen una función
 # Permisos
 - Administrador 3
 	- Cliente
- - Cliente
- - Taquillero
- - Control de acceso
- - Gerente de cine
-
-Cliente 1010
-	ReservarEntradas
-
-Taquillero 4
-	PagarEntradas	
-	EmitirEntradas
-
-Control de acceso 1011
-	MarcarEntradas
-
-Gerente de cine 1006
-	ABMUsuarios
-	ABMPeliculas
-	ABMCines
-	ABMSalas
-	ABMFunciones
-	GestionarCines
+	- Cliente
+	- Taquillero
+	- Control de acceso
+	- Gerente de cine
+- Cliente 1010
+	- ReservarEntradas
+- Taquillero 4
+	- PagarEntradas	
+	- EmitirEntradas
+- Control de acceso 1011
+	- MarcarEntradas
+- Gerente de cine 1006
+	- ABMUsuarios
+	- ABMPeliculas
+	- ABMCines
+	- ABMSalas
+	- ABMFunciones
+	- GestionarCines
 
  # Usuarios
- Administrador
- 	Nombre de usuario: Lauta
-  	Contraseña: 1234
-   
- Cliente
- 	Nombre de usuario: Nano
-  	Contraseña: 1234
-   
- Taquillero
- 	Nombre de usuario: CharLec
-  	Contraseña: 1234
-   
- Control de acceso
- 	Nombre de usuario: Checo
-  	Contraseña: 1234
-   
-Gerente de cine 
- 	Nombre de usuario: MaxV 
-  	Contraseña: 1234
+ - Administrador
+ 	- Nombre de usuario: Lauta
+  	- Contraseña: 1234
+ - Cliente
+ 	- Nombre de usuario: Nano
+  	- Contraseña: 1234
+ - Taquillero
+ 	- Nombre de usuario: CharLec
+  	- Contraseña: 1234
+- Control de acceso
+ 	- Nombre de usuario: Checo
+  	- Contraseña: 1234
+- Gerente de cine 
+ 	- Nombre de usuario: MaxV 
+  	- Contraseña: 1234
