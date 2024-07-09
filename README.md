@@ -34,15 +34,12 @@ Extraidos de google fonts https://fonts.google.com/icons?icon.style=Rounded&icon
 La cartelera puede ser creada con las películas que tienen una función
 
 # Permisos
-Administrador 3
-	GestionarPermisosDeUsuarios
-	GestionarPermisos
-	ABMUsuarios
-	ABMPeliculas
-	ABMCines
-	Cliente
-	Taquillero
-	Control de acceso
+- Administrador 3
+	- Cliente
+ - Cliente
+ - Taquillero
+ - Control de acceso
+ - Gerente de cine
 
 Cliente 1010
 	ReservarEntradas
