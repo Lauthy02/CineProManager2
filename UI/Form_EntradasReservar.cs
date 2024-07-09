@@ -75,17 +75,30 @@ namespace UI
                 label_Mes.Text = "Mes: " + funcionaux.Horario.Month.ToString();
                 label_Dia.Text = "Día: " + funcionaux.Horario.Day.ToString();
                 label_Hora.Text = "Hora: " + funcionaux.Horario.Hour.ToString() + ":" + funcionaux.Horario.Minute.ToString();
+
+                BE_SALA salaaux = new BE_SALA();
+                salaaux = (BE_SALA)comboBox_Salas.SelectedItem;
+                if (salaaux != null)
+                {
+                    CrearDataGridViewPersonalizado(salaaux.Capacidad);
+                }
             }
         }
 
         private void button_ReservarEntradas_Click(object sender, EventArgs e)
         {
             BE_ENTRADA entradaaux = new BE_ENTRADA();
+            BE_BUTACA butacaaux = new BE_BUTACA();
 
             entradaaux.Id = 0;
             entradaaux.Cliente = BE_SESION.ObtenerInstancia.Usuario;
             entradaaux.Funcion = (BE_FUNCION)listBox_Funciones.SelectedItem;
-            //entradaaux.AsientoReservado = 
+            
+            string fila = (string)dataGridView_Butacas.Rows[dataGridView_Butacas.SelectedCells[0].RowIndex].Cells[0].Value;
+            butacaaux.Fila = (BE_BUTACA_FILA_ENUM)Enum.Parse(typeof(BE_BUTACA_FILA_ENUM), fila);
+            butacaaux.Columna = dataGridView_Butacas.SelectedCells[0].ColumnIndex;
+            
+            entradaaux.AsientoReservado = butacaaux; 
             entradaaux.FechaDeReserva = DateTime.Now;
             entradaaux.Estado = BE_ENTRADA_ESTADO_ENUM.Reservada;
 
@@ -147,6 +160,60 @@ namespace UI
                     pictureBox1.Image = null;
                     richTextBox_Descripcion.Text = "";
                 }
+            }
+        }
+
+        private void CrearDataGridViewPersonalizado(int capacidad)
+        {
+            dataGridView_Butacas.Rows.Clear();
+            dataGridView_Butacas.Columns.Clear();
+
+            int cantidadColumnas = capacidad / 2;
+            int cantidadFilas = capacidad - cantidadColumnas;
+
+            // Configurar columnas
+            dataGridView_Butacas.Columns.Add("Filas", "Filas");
+            for (int i = 0; i < cantidadColumnas; i++)
+            {
+                dataGridView_Butacas.Columns.Add($"Column{i + 1}", $"Column {i + 1}");
+                dataGridView_Butacas.Columns[i + 1].Width = 50;
+            }
+
+            // Agregar filas
+            for (int i = 0; i < cantidadFilas; i++)
+            {
+                dataGridView_Butacas.Rows.Add($"{(BE_BUTACA_FILA_ENUM)Enum.Parse(typeof(BE_BUTACA_FILA_ENUM), i.ToString())}");
+            }
+
+            MarcarButacasOcupadas(dataGridView_Butacas);
+        }
+
+        private void MarcarButacasOcupadas(DataGridView datagrid)
+        {
+            BE_FUNCION funcionaux = new BE_FUNCION();
+            funcionaux = (BE_FUNCION)listBox_Funciones.SelectedItem;
+            if (funcionaux != null)
+            {
+                if (funcionaux.ListaDeAsientosOcupados.Count != 0)
+                {
+                    foreach (var butaca in funcionaux.ListaDeAsientosOcupados)
+                    {
+                        datagrid.Rows[Convert.ToInt32(butaca.Fila)].Cells[butaca.Columna].Style.BackColor = Color.Red;
+                    }
+                }
+            }
+        }
+
+        private void dataGridView_Butacas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView_Butacas.SelectedCells[0].ColumnIndex != 0)
+            {
+                dataGridView_Butacas.SelectedCells[0].Style.BackColor = Color.Red;
+                label_Butaca.Text = $"Butaca: Fila: {dataGridView_Butacas.Rows[dataGridView_Butacas.SelectedCells[0].RowIndex].Cells[0].Value} - Columna: {dataGridView_Butacas.SelectedCells[0].ColumnIndex}";
+            }
+            else
+            {
+                MessageBox.Show("No se puede seleccionar en esta columna");
             }
         }
 

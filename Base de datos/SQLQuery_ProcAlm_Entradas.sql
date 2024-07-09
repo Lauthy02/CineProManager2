@@ -15,12 +15,13 @@ END
 GO
 
 CREATE PROC ENTRADA_EDITAR
-@id int, @idusuario int, @idfuncion int, @fehcadereserva DateTime, @estado varchar(50)
+@id int, @idusuario int, @idfuncion int, @butaca varchar(50), @fehcadereserva DateTime, @estado varchar(50)
 AS 
 BEGIN
 	UPDATE ENTRADA SET 
 		idusuario = @idusuario, 
 		idfuncion = @idfuncion,
+		butaca = @butaca
 		fechadereserva = @fehcadereserva,
 		estado = @estado
 WHERE id = @id

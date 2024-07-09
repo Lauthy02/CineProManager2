@@ -47,3 +47,11 @@ BEGIN
 	SELECT * FROM FUNCION
 END
 GO
+
+CREATE PROC BUTACA_OCUPADA_BUSCAR
+@idfuncion int
+AS
+BEGIN
+	SELECT butaca FROM ENTRADA WHERE idfuncion = @idfuncion AND (estado = 'Pagada' OR estado = 'Emitida')
+END
+GO

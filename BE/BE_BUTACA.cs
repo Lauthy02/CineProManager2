@@ -8,25 +8,23 @@ namespace BE
 {
     public class BE_BUTACA
     {
-		private int fila;
-		public int Fila
+        private int columna;
+        public int Columna
+        {
+            get { return columna; }
+            set { columna = value; }
+        }
+
+        private BE_BUTACA_FILA_ENUM fila;
+		public BE_BUTACA_FILA_ENUM Fila
 		{
 			get { return fila; }
 			set { fila = value; }
 		}
 
-		private int columna;
-		public int Columna
+        public override string ToString()
         {
-			get { return columna; }
-			set { columna = value; }
-		}
-
-		private bool disponible;
-		public bool Disponible
-		{
-			get { return disponible; }
-			set { disponible = value; }
-		}
-	}
+            return fila.ToString() + columna.ToString();
+        }
+    }
 }

@@ -26,15 +26,15 @@ namespace DAL
             parametros.Add(p);
             p = acceso.CrearParametro("@idfuncion",entidad.Funcion.Id);
             parametros.Add(p);
-            //p = acceso.CrearParametro("@butaca", entidad.AsientoReservado);
-            //parametros.Add(p);
+            p = acceso.CrearParametro("@butaca", entidad.AsientoReservado.ToString());
+            parametros.Add(p);
             p = acceso.CrearParametro("@fehcadereserva", entidad.FechaDeReserva);
             parametros.Add(p);
             p = acceso.CrearParametro("@estado", entidad.Estado.ToString());
             parametros.Add(p);
 
             int res = acceso.Escribir("ENTRADA_INSERTAR", parametros);
-            //INSERT INTO ENTRADA VALUES (@idusuario, @idfuncion, @fehcadereserva, @estado)
+            //INSERT INTO ENTRADA VALUES (@idusuario, @butaca, @idfuncion, @fehcadereserva, @estado)
             return res;
         }
 
@@ -102,8 +102,8 @@ namespace DAL
             parametros.Add(p);
             p = acceso.CrearParametro("@idfuncion", entidad.Funcion.Id);
             parametros.Add(p);
-            //p = acceso.CrearParametro("@butaca", entidad.Duracion);
-            //parametros.Add(p);
+            p = acceso.CrearParametro("@butaca", entidad.AsientoReservado.ToString());
+            parametros.Add(p);
             p = acceso.CrearParametro("@fehcadereserva", entidad.FechaDeReserva);
             parametros.Add(p);
             p = acceso.CrearParametro("@estado", entidad.Estado.ToString());
@@ -111,11 +111,12 @@ namespace DAL
 
             int res = acceso.Escribir("ENTRADA_EDITAR", parametros);
             /*
-            UPDATE PELICULA SET 
+            UPDATE ENTRADA SET 
                 idusuario = @idusuario, 
                 idfuncion = @idfuncion,
+                butaca = @butaca,
                 fehcadereserva = @fehcadereserva,
-                estad = @estado
+                estado = @estado
             WHERE id = @id
             */
             return res;
@@ -145,7 +146,16 @@ namespace DAL
             entrada.Id = int.Parse(registro["id"].ToString());
             entrada.Cliente.Id = int.Parse(registro["idusuario"].ToString());
             entrada.Funcion.Id = int.Parse(registro["idfuncion"].ToString());
-            //entrada.AsientoReservado = registro["butaca"].ToString();
+
+            string butaca = registro["butaca"].ToString();
+            string fila = new string(butaca.TakeWhile(c => !char.IsDigit(c)).ToArray());
+            string columna = new string(butaca.SkipWhile(c => !char.IsDigit(c)).ToArray());
+
+            BE_BUTACA butacaaux = new BE_BUTACA();
+            butacaaux.Fila = (BE_BUTACA_FILA_ENUM)Enum.Parse(typeof(BE_BUTACA_FILA_ENUM), fila);
+            butacaaux.Columna = int.Parse(columna);
+            entrada.AsientoReservado = butacaaux;
+
             entrada.FechaDeReserva = DateTime.Parse(registro["fechadereserva"].ToString());
             entrada.Estado = (BE_ENTRADA_ESTADO_ENUM)Enum.Parse(typeof(BE_ENTRADA_ESTADO_ENUM), registro["estado"].ToString());
             return entrada;

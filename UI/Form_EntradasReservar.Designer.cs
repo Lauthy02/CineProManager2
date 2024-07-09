@@ -58,11 +58,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox_Cines = new System.Windows.Forms.ComboBox();
+            this.dataGridView_Butacas = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
+            this.groupBox_Butacas.SuspendLayout();
             this.groupBox_DetalleEntrada.SuspendLayout();
             this.groupBox_Funciones.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Butacas)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox_Funciones
@@ -113,6 +116,7 @@
             // 
             // groupBox_Butacas
             // 
+            this.groupBox_Butacas.Controls.Add(this.dataGridView_Butacas);
             this.groupBox_Butacas.Location = new System.Drawing.Point(6, 423);
             this.groupBox_Butacas.Name = "groupBox_Butacas";
             this.groupBox_Butacas.Size = new System.Drawing.Size(1011, 368);
@@ -369,7 +373,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(125, 13);
             this.label2.TabIndex = 3;
-            this.label2.Tag = "SeleccionePelicula";
+            this.label2.Tag = "SeleccioneFuncion";
             this.label2.Text = "Seleccione una función: ";
             // 
             // label1
@@ -391,6 +395,21 @@
             this.comboBox_Cines.TabIndex = 0;
             this.comboBox_Cines.SelectedIndexChanged += new System.EventHandler(this.comboBox_Cines_SelectedIndexChanged);
             // 
+            // dataGridView_Butacas
+            // 
+            this.dataGridView_Butacas.AllowUserToAddRows = false;
+            this.dataGridView_Butacas.AllowUserToDeleteRows = false;
+            this.dataGridView_Butacas.AllowUserToResizeColumns = false;
+            this.dataGridView_Butacas.AllowUserToResizeRows = false;
+            this.dataGridView_Butacas.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dataGridView_Butacas.Location = new System.Drawing.Point(6, 19);
+            this.dataGridView_Butacas.MultiSelect = false;
+            this.dataGridView_Butacas.Name = "dataGridView_Butacas";
+            this.dataGridView_Butacas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataGridView_Butacas.Size = new System.Drawing.Size(756, 343);
+            this.dataGridView_Butacas.TabIndex = 4;
+            this.dataGridView_Butacas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Butacas_CellClick);
+            // 
             // Form_EntradasReservar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -406,6 +425,7 @@
             this.Load += new System.EventHandler(this.Form_Cartelera_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox_Butacas.ResumeLayout(false);
             this.groupBox_DetalleEntrada.ResumeLayout(false);
             this.groupBox_DetalleEntrada.PerformLayout();
             this.groupBox_Funciones.ResumeLayout(false);
@@ -413,6 +433,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Butacas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -448,5 +469,6 @@
         private System.Windows.Forms.Label label_NumeroDeSala;
         private System.Windows.Forms.Label label_CineDireccion;
         private System.Windows.Forms.Button button_Confirmar;
+        private System.Windows.Forms.DataGridView dataGridView_Butacas;
     }
 }

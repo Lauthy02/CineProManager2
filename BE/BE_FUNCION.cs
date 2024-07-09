@@ -11,6 +11,7 @@ namespace BE
 		public BE_FUNCION()
         {
 			pelicula = new BE_PELICULA();
+			listaDeAsientosOcupados = new List<BE_BUTACA>();
         }
 
 		private int id;
@@ -34,7 +35,14 @@ namespace BE
 			set { horario = value; }
 		}
 
-        public override string ToString()
+		private List<BE_BUTACA> listaDeAsientosOcupados;
+		public List<BE_BUTACA> ListaDeAsientosOcupados
+        {
+			get { return listaDeAsientosOcupados; }
+			set { listaDeAsientosOcupados = value; }
+		}
+
+		public override string ToString()
         {
             return id.ToString() + " - " + pelicula.Titulo + " - " + horario.ToString();
         }

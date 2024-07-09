@@ -60,6 +60,7 @@ namespace DAL
             foreach (var funcion in funciones)
             {
                 LlenarPelicula(funcion);
+                LlenarButacas(funcion);
             }
             return funciones;
         }
@@ -81,6 +82,7 @@ namespace DAL
             foreach (var funcion in funciones)
             {
                 LlenarPelicula(funcion);
+                LlenarButacas(funcion);
             }
             return funciones[0];
         }
@@ -118,6 +120,7 @@ namespace DAL
             foreach (var funcion in funciones)
             {
                 LlenarPelicula(funcion);
+                LlenarButacas(funcion);
             }
             return funciones;
         }
@@ -142,6 +145,28 @@ namespace DAL
             foreach (DataRow dr in tabla.Rows)
             {
                 entidad.Pelicula = dalpelicula.BuscarConId(int.Parse(dr["id"].ToString()));
+            }
+        }
+
+        private void LlenarButacas(BE_FUNCION entidad)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            SqlParameter p = acceso.CrearParametro("@idfuncion", entidad.Id);
+            parametros.Add(p);
+
+            DataTable tabla = acceso.Leer("BUTACA_OCUPADA_BUSCAR", parametros);
+            //SELECT butaca FROM ENTRADA WHERE idfuncion = @idfuncion AND (estado = 'Pagada' OR estado = 'Emitida')
+            foreach (DataRow dr in tabla.Rows)
+            {
+                string butaca = dr["butaca"].ToString();
+                string fila = new string(butaca.TakeWhile(c => !char.IsDigit(c)).ToArray());
+                string columna = new string(butaca.SkipWhile(c => !char.IsDigit(c)).ToArray());
+
+                BE_BUTACA butacaaux = new BE_BUTACA();
+                butacaaux.Fila = (BE_BUTACA_FILA_ENUM)Enum.Parse(typeof(BE_BUTACA_FILA_ENUM), fila);
+                butacaaux.Columna = int.Parse(columna);
+
+                entidad.ListaDeAsientosOcupados.Add(butacaaux);
             }
         }
     }

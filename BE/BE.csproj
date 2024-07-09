@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BE_BUTACA.cs" />
+    <Compile Include="BE_BUTACA_FILA_ENUM.cs" />
     <Compile Include="BE_CARTELERA.cs" />
     <Compile Include="BE_CINE.cs" />
     <Compile Include="BE_ENTRADA_ESTADO_ENUM.cs" />

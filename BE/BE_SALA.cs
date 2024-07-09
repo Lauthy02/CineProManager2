@@ -10,7 +10,6 @@ namespace BE
     {
 		public BE_SALA()
         {
-            listaDeAsientos = new List<BE_BUTACA>();
             listaDeFunciones = new List<BE_FUNCION>();
         }
 
@@ -47,13 +46,6 @@ namespace BE
 		{
 			get { return listaDeFunciones; }
 			set { listaDeFunciones = value; }
-		}
-
-		private List<BE_BUTACA> listaDeAsientos;
-		public List<BE_BUTACA> ListaDeAsientos
-		{
-			get { return listaDeAsientos; }
-			set { listaDeAsientos = value; }
 		}
 	}
 }
