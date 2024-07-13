@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BLL.BLL_CINE" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACIAAAAEQEAAAAAAAAA=</HashCode>
+      <FileName>BLL_CINE.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BLL_CINE_SALA" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BLL_CINE_SALA.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BLL_ENTRADA" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAgAAAEAAAEAAAAAAAAIABAAAAA=</HashCode>
+      <FileName>BLL_ENTRADA.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BLL_FUNCION" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAIAAAAAAAEBAAAAACAAAAAAAAAE=</HashCode>
+      <FileName>BLL_FUNCION.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BLL_PELICULA" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEQAAAAAAAAQAABAAAgAAAAAAAAA=</HashCode>
+      <FileName>BLL_PELICULA.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BLL_SALA" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABBAAEAACAAAAAAAAAAAAAAAAABAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>BLL_SALA.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BLL_USUARIO" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAIAAAAAAAYAAgAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>BLL_USUARIO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BLL_PERMISO" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAkAIAAABAAFAAAAAABAAIAAg=</HashCode>
+      <FileName>PERMISOS\BLL_PERMISO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BLL_SESION" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAABAAACAAAgAAAAAAAAAAABABAAAAAAAAAgA=</HashCode>
+      <FileName>SESION\BLL_SESION.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.MULTIIDIOMA.BLL_IDIOMA" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAABgAAAA=</HashCode>
+      <FileName>MULTIIDIOMA\BLL_IDIOMA.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.MULTIIDIOMA.BLL_TRADUCTOR" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIIAAAAAAAAAAABAAIAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>MULTIIDIOMA\BLL_TRADUCTOR.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

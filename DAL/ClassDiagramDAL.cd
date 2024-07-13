@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DAL.DAL_ACCESOBD" Collapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAEAAAAQAAAAAAAAAAAAAAAAAAACABAIAAAAAAAAAE=</HashCode>
+      <FileName>DAL_ACCESOBD.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DAL_CINE_SALA" Collapsed="true">
+    <Position X="18.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DAL_CINE_SALA.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DAL_MAPPER&lt;T&gt;" Collapsed="true">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAABAAAAAAgAIAAAAQAAAAAAAAAAgAAQ=</HashCode>
+      <FileName>DAL_MAPPER.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DAL_MAPPER_CINE" Collapsed="true">
+    <Position X="11.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAIAAAAAAAEABAAAAAAgAIAAAAQAAAAAAAAAAoAAQ=</HashCode>
+      <FileName>DAL_MAPPER_CINE.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DAL_MAPPER_ENTRADA" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAQAAAAhAAAAAAgAIAAAAQABAAAAAAAAgAEQ=</HashCode>
+      <FileName>DAL_MAPPER_ENTRADA.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DAL_MAPPER_FUNCION" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAFAAAAAAgAICAAAQAAAAAAAIAAgAAQ=</HashCode>
+      <FileName>DAL_MAPPER_FUNCION.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DAL_MAPPER_PELICULA" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAFAAAAAAgAIAAAAQAAAAAAAAAAgAAQ=</HashCode>
+      <FileName>DAL_MAPPER_PELICULA.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DAL_MAPPER_SALA" Collapsed="true">
+    <Position X="14" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAFAAAAAAgAIAAACQAAAAAAAAAAgAEQ=</HashCode>
+      <FileName>DAL_MAPPER_SALA.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DAL_MAPPER_USUARIO" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAFAAAAAQgAIAAAASAAAAAAAAAAgAAQ=</HashCode>
+      <FileName>DAL_MAPPER_USUARIO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DAL_SALA_FUNCION" Collapsed="true">
+    <Position X="18.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DAL_SALA_FUNCION.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DAL_ENCRIPTADOR" Collapsed="true">
+    <Position X="20" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAABAAAAAAAAAAAQEAAAAgAAAAAAABAAKA=</HashCode>
+      <FileName>ENCRIPTADOR\DAL_ENCRIPTADOR.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.DAL_PERMISO" Collapsed="true">
+    <Position X="16.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAQACAAAQAAAABEAIAAAAACAAAAAAgAAAAQAA=</HashCode>
+      <FileName>PERMISOS\DAL_PERMISO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.MULTIIDIOMA.DAL_MAPPER_IDIOMA" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAABAAAAAAgAIAIAAQAAAAAAAAAAgAAQ=</HashCode>
+      <FileName>MULTIIDIOMA\DAL_MAPPER_IDIOMA.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

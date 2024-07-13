@@ -11,12 +11,11 @@ namespace DAL
 {
     public class DAL_MAPPER_USUARIO : DAL_MAPPER<BE_USUARIO>
     {
-        DAL_ENCRIPTADOR encriptador;
+        DAL_ENCRIPTADOR encriptador = new DAL_ENCRIPTADOR();
 
         public DAL_MAPPER_USUARIO()
         {
             acceso.AbrirConexion();
-            encriptador = new DAL_ENCRIPTADOR();
         }
 
         public override int Alta(BE_USUARIO entidad)

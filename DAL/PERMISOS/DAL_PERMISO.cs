@@ -12,11 +12,10 @@ namespace DAL
 {
     public class DAL_PERMISO
     {
-        internal DAL_ACCESOBD acceso;
+        internal DAL_ACCESOBD acceso = new DAL_ACCESOBD();
 
         public DAL_PERMISO()
         {
-            acceso = new DAL_ACCESOBD();
             acceso.AbrirConexion();
         }
 

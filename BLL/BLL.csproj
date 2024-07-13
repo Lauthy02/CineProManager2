@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL_ASIENTO.cs" />
     <Compile Include="BLL_CINE_SALA.cs" />
     <Compile Include="BLL_FUNCION.cs" />
     <Compile Include="BLL_PELICULA.cs" />
@@ -71,6 +70,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagramBLL.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

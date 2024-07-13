@@ -10,7 +10,6 @@ namespace DAL
     public abstract class DAL_MAPPER<T>
     {
         internal DAL_ACCESOBD acceso = new DAL_ACCESOBD();
-
         public abstract int Alta(T entidad);
         public abstract int Baja(T entidad);
         public abstract int Modificacion(T entidad);

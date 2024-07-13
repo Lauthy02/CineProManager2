@@ -10,11 +10,10 @@ namespace DAL
 {
     public class DAL_SALA_FUNCION
     {
-        internal DAL_ACCESOBD acceso;
+        internal DAL_ACCESOBD acceso = new DAL_ACCESOBD();
 
         public DAL_SALA_FUNCION()
         {
-            acceso = new DAL_ACCESOBD();
             acceso.AbrirConexion();
         }
 

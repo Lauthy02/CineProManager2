@@ -13,7 +13,6 @@ namespace BLL.MULTIIDIOMA
     public class BLL_TRADUCTOR
     {
         DAL_MAPPER_IDIOMA dalmapperidioma = new DAL_MAPPER_IDIOMA();
-        BLL_IDIOMA bllidioma = new BLL_IDIOMA();
 
         public BE_IDIOMA ObtenerIdiomaPorDefecto()
         {
