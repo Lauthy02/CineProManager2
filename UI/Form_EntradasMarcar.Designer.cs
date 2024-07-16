@@ -53,12 +53,12 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(577, 200);
+            this.dataGridView1.Size = new System.Drawing.Size(830, 200);
             this.dataGridView1.TabIndex = 4;
             // 
             // button_UtilizarEntrada
             // 
-            this.button_UtilizarEntrada.Location = new System.Drawing.Point(413, 218);
+            this.button_UtilizarEntrada.Location = new System.Drawing.Point(194, 218);
             this.button_UtilizarEntrada.Name = "button_UtilizarEntrada";
             this.button_UtilizarEntrada.Size = new System.Drawing.Size(176, 23);
             this.button_UtilizarEntrada.TabIndex = 6;
@@ -71,7 +71,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(596, 247);
+            this.ClientSize = new System.Drawing.Size(854, 247);
             this.Controls.Add(this.button_UtilizarEntrada);
             this.Controls.Add(this.button_VencerEntradas);
             this.Controls.Add(this.dataGridView1);
