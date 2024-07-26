@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [CineProManagerTEST2]    Script Date: 8/7/2024 22:48:18 ******/
+/****** Object:  Database [CineProManagerTEST2]    Script Date: 26/7/2024 13:10:00 ******/
 CREATE DATABASE [CineProManagerTEST2]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -82,7 +82,7 @@ ALTER DATABASE [CineProManagerTEST2] SET QUERY_STORE (OPERATION_MODE = READ_WRIT
 GO
 USE [CineProManagerTEST2]
 GO
-/****** Object:  Table [dbo].[CARTELERA]    Script Date: 8/7/2024 22:48:19 ******/
+/****** Object:  Table [dbo].[CARTELERA]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -97,7 +97,7 @@ CREATE TABLE [dbo].[CARTELERA](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[CINE]    Script Date: 8/7/2024 22:48:19 ******/
+/****** Object:  Table [dbo].[CINE]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -113,7 +113,7 @@ CREATE TABLE [dbo].[CINE](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[CINE_SALA]    Script Date: 8/7/2024 22:48:19 ******/
+/****** Object:  Table [dbo].[CINE_SALA]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -128,7 +128,7 @@ CREATE TABLE [dbo].[CINE_SALA](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ENTRADA]    Script Date: 8/7/2024 22:48:19 ******/
+/****** Object:  Table [dbo].[ENTRADA]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -146,7 +146,7 @@ CREATE TABLE [dbo].[ENTRADA](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ETIQUETA]    Script Date: 8/7/2024 22:48:19 ******/
+/****** Object:  Table [dbo].[ETIQUETA]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -160,7 +160,7 @@ CREATE TABLE [dbo].[ETIQUETA](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[FUNCION]    Script Date: 8/7/2024 22:48:19 ******/
+/****** Object:  Table [dbo].[FUNCION]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -175,7 +175,7 @@ CREATE TABLE [dbo].[FUNCION](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[IDIOMA]    Script Date: 8/7/2024 22:48:19 ******/
+/****** Object:  Table [dbo].[IDIOMA]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -184,13 +184,14 @@ CREATE TABLE [dbo].[IDIOMA](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[nombre] [varchar](50) NOT NULL,
 	[pordefecto] [bit] NOT NULL,
+	[listoparausar] [bit] NOT NULL,
  CONSTRAINT [PK_Idioma] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[PELICULA]    Script Date: 8/7/2024 22:48:19 ******/
+/****** Object:  Table [dbo].[PELICULA]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -209,7 +210,7 @@ CREATE TABLE [dbo].[PELICULA](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[PERMISOS]    Script Date: 8/7/2024 22:48:19 ******/
+/****** Object:  Table [dbo].[PERMISOS]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -224,7 +225,7 @@ CREATE TABLE [dbo].[PERMISOS](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[PERMISOS_PERMISOS]    Script Date: 8/7/2024 22:48:19 ******/
+/****** Object:  Table [dbo].[PERMISOS_PERMISOS]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -239,7 +240,7 @@ CREATE TABLE [dbo].[PERMISOS_PERMISOS](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[SALA]    Script Date: 8/7/2024 22:48:19 ******/
+/****** Object:  Table [dbo].[SALA]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -255,7 +256,7 @@ CREATE TABLE [dbo].[SALA](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[SALA_FUNCION]    Script Date: 8/7/2024 22:48:19 ******/
+/****** Object:  Table [dbo].[SALA_FUNCION]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -270,7 +271,7 @@ CREATE TABLE [dbo].[SALA_FUNCION](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TRADUCCION]    Script Date: 8/7/2024 22:48:19 ******/
+/****** Object:  Table [dbo].[TRADUCCION]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -288,7 +289,7 @@ CREATE TABLE [dbo].[TRADUCCION](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[USUARIOS]    Script Date: 8/7/2024 22:48:19 ******/
+/****** Object:  Table [dbo].[USUARIOS]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -307,7 +308,7 @@ CREATE TABLE [dbo].[USUARIOS](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[USUARIOS_PERMISOS]    Script Date: 8/7/2024 22:48:19 ******/
+/****** Object:  Table [dbo].[USUARIOS_PERMISOS]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -385,6 +386,8 @@ GO
 INSERT [dbo].[ENTRADA] ([id], [idusuario], [idfuncion], [butaca], [fechadereserva], [estado]) VALUES (8, 1, 17, N'D8', CAST(N'2024-07-08T21:29:37.000' AS DateTime), N'Emitida')
 GO
 INSERT [dbo].[ENTRADA] ([id], [idusuario], [idfuncion], [butaca], [fechadereserva], [estado]) VALUES (9, 1, 15, N'F4', CAST(N'2024-07-08T21:30:19.000' AS DateTime), N'Pagada')
+GO
+INSERT [dbo].[ENTRADA] ([id], [idusuario], [idfuncion], [butaca], [fechadereserva], [estado]) VALUES (10, 4, 13, N'D4', CAST(N'2024-07-16T20:29:22.000' AS DateTime), N'Utilizada')
 GO
 SET IDENTITY_INSERT [dbo].[ENTRADA] OFF
 GO
@@ -550,6 +553,10 @@ INSERT [dbo].[ETIQUETA] ([id], [nombre]) VALUES (1079, N'EstablecerEntradaComoVe
 GO
 INSERT [dbo].[ETIQUETA] ([id], [nombre]) VALUES (1080, N'SeleccioneFuncion')
 GO
+INSERT [dbo].[ETIQUETA] ([id], [nombre]) VALUES (1081, N'ABMIdiomas')
+GO
+INSERT [dbo].[ETIQUETA] ([id], [nombre]) VALUES (1082, N'ListoParaUsar')
+GO
 SET IDENTITY_INSERT [dbo].[ETIQUETA] OFF
 GO
 INSERT [dbo].[FUNCION] ([id], [idpelicula], [horario]) VALUES (13, 3, CAST(N'2024-07-11T12:10:00.000' AS DateTime))
@@ -568,9 +575,11 @@ INSERT [dbo].[FUNCION] ([id], [idpelicula], [horario]) VALUES (19, 8, CAST(N'202
 GO
 SET IDENTITY_INSERT [dbo].[IDIOMA] ON 
 GO
-INSERT [dbo].[IDIOMA] ([id], [nombre], [pordefecto]) VALUES (2, N'Español', 1)
+INSERT [dbo].[IDIOMA] ([id], [nombre], [pordefecto], [listoparausar]) VALUES (2, N'Español', 1, 1)
 GO
-INSERT [dbo].[IDIOMA] ([id], [nombre], [pordefecto]) VALUES (3, N'English', 0)
+INSERT [dbo].[IDIOMA] ([id], [nombre], [pordefecto], [listoparausar]) VALUES (3, N'English', 0, 1)
+GO
+INSERT [dbo].[IDIOMA] ([id], [nombre], [pordefecto], [listoparausar]) VALUES (11, N'Deutsch', 0, 0)
 GO
 SET IDENTITY_INSERT [dbo].[IDIOMA] OFF
 GO
@@ -664,6 +673,8 @@ INSERT [dbo].[PERMISOS] ([id], [nombre], [tipo]) VALUES (1023, N'ABMSalas', N'Ac
 GO
 INSERT [dbo].[PERMISOS] ([id], [nombre], [tipo]) VALUES (1024, N'ABMFunciones', N'Accion')
 GO
+INSERT [dbo].[PERMISOS] ([id], [nombre], [tipo]) VALUES (1025, N'ABMIdiomas', N'Accion')
+GO
 SET IDENTITY_INSERT [dbo].[PERMISOS] OFF
 GO
 INSERT [dbo].[PERMISOS_PERMISOS] ([idpermisopadre], [idpermisohijo]) VALUES (3, 4)
@@ -683,6 +694,8 @@ GO
 INSERT [dbo].[PERMISOS_PERMISOS] ([idpermisopadre], [idpermisohijo]) VALUES (3, 1017)
 GO
 INSERT [dbo].[PERMISOS_PERMISOS] ([idpermisopadre], [idpermisohijo]) VALUES (3, 1018)
+GO
+INSERT [dbo].[PERMISOS_PERMISOS] ([idpermisopadre], [idpermisohijo]) VALUES (3, 1025)
 GO
 INSERT [dbo].[PERMISOS_PERMISOS] ([idpermisopadre], [idpermisohijo]) VALUES (4, 1019)
 GO
@@ -1054,6 +1067,178 @@ INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1169
 GO
 INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1170, 2, 1080, N'Seleccione una funcion')
 GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1171, 3, 1081, N'CDM Languages')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1172, 2, 1081, N'ABM Idiomas')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1173, 3, 1082, N'Ready for use')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1176, 2, 1082, N'Listo para usar')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1341, 11, 1, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1342, 11, 2, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1343, 11, 1002, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1344, 11, 1003, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1345, 11, 1004, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1346, 11, 1005, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1347, 11, 1006, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1348, 11, 1007, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1349, 11, 1008, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1350, 11, 1009, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1351, 11, 1010, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1352, 11, 1011, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1353, 11, 1012, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1354, 11, 1013, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1355, 11, 1014, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1356, 11, 1015, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1357, 11, 1016, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1358, 11, 1017, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1359, 11, 1018, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1360, 11, 1019, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1361, 11, 1020, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1362, 11, 1021, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1363, 11, 1022, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1364, 11, 1023, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1365, 11, 1024, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1366, 11, 1025, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1367, 11, 1026, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1368, 11, 1027, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1369, 11, 1028, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1370, 11, 1029, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1371, 11, 1030, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1372, 11, 1031, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1373, 11, 1032, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1374, 11, 1033, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1375, 11, 1034, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1376, 11, 1035, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1377, 11, 1036, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1378, 11, 1037, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1379, 11, 1038, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1380, 11, 1039, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1381, 11, 1040, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1382, 11, 1041, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1383, 11, 1042, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1384, 11, 1043, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1385, 11, 1044, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1386, 11, 1045, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1387, 11, 1046, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1388, 11, 1047, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1389, 11, 1048, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1390, 11, 1049, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1391, 11, 1050, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1392, 11, 1051, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1393, 11, 1052, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1394, 11, 1053, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1395, 11, 1054, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1396, 11, 1055, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1397, 11, 1056, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1398, 11, 1057, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1399, 11, 1058, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1400, 11, 1059, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1401, 11, 1060, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1402, 11, 1061, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1403, 11, 1062, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1404, 11, 1063, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1405, 11, 1064, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1406, 11, 1065, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1407, 11, 1066, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1408, 11, 1067, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1409, 11, 1068, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1410, 11, 1069, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1411, 11, 1070, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1412, 11, 1071, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1413, 11, 1072, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1414, 11, 1073, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1415, 11, 1075, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1416, 11, 1076, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1417, 11, 1077, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1418, 11, 1078, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1419, 11, 1079, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1420, 11, 1080, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1421, 11, 1081, N'Traducción pendiente')
+GO
+INSERT [dbo].[TRADUCCION] ([id], [ididioma], [idetiqueta], [texto]) VALUES (1422, 11, 1082, N'Traducción pendiente')
+GO
 SET IDENTITY_INSERT [dbo].[TRADUCCION] OFF
 GO
 SET IDENTITY_INSERT [dbo].[USUARIOS] ON 
@@ -1166,7 +1351,7 @@ REFERENCES [dbo].[USUARIOS] ([id])
 GO
 ALTER TABLE [dbo].[USUARIOS_PERMISOS] CHECK CONSTRAINT [FK_USUARIOS_PERMISOS_USUARIOS]
 GO
-/****** Object:  StoredProcedure [dbo].[ACCION_LISTAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[ACCION_LISTAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1178,7 +1363,7 @@ BEGIN
 	SELECT * FROM PERMISOS WHERE tipo IS NOT NULL
 END
 GO
-/****** Object:  StoredProcedure [dbo].[BUTACA_OCUPADA_BUSCAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[BUTACA_OCUPADA_BUSCAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1190,7 +1375,7 @@ BEGIN
 	SELECT butaca FROM ENTRADA WHERE idfuncion = @idfuncion AND (estado = 'Pagada' OR estado = 'Emitida')
 END
 GO
-/****** Object:  StoredProcedure [dbo].[CARTELERA_BUSCAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[CARTELERA_BUSCAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1202,7 +1387,7 @@ BEGIN
 	SELECT * FROM CARTELERA WHERE idcine = @idcine
 END
 GO
-/****** Object:  StoredProcedure [dbo].[CINE_BORRAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[CINE_BORRAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1215,7 +1400,7 @@ BEGIN
 	DELETE FROM CINE WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[CINE_BUSCAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[CINE_BUSCAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1228,7 +1413,7 @@ BEGIN
 	SELECT * FROM CINE WHERE nombre = @nombre
 END
 GO
-/****** Object:  StoredProcedure [dbo].[CINE_EDITAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[CINE_EDITAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1245,7 +1430,7 @@ BEGIN
 	WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[CINE_INSERTAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[CINE_INSERTAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1257,7 +1442,7 @@ BEGIN
 	INSERT INTO CINE VALUES (@nombre, @zona, @direccion)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[CINE_LISTAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[CINE_LISTAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1269,7 +1454,7 @@ BEGIN
 	SELECT * FROM CINE
 END
 GO
-/****** Object:  StoredProcedure [dbo].[CINE_SALA_BUSCAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[CINE_SALA_BUSCAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1281,7 +1466,7 @@ BEGIN
 	SELECT * FROM CINE_SALA WHERE idcine = @idcine
 END
 GO
-/****** Object:  StoredProcedure [dbo].[CINE_SALA_INSERTAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[CINE_SALA_INSERTAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1293,7 +1478,7 @@ BEGIN
 	INSERT INTO CINE_SALA VALUES (@idcine, @idsala)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[ENTRADA_BORRAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[ENTRADA_BORRAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1306,7 +1491,7 @@ BEGIN
 	DELETE FROM ENTRADA WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[ENTRADA_BUSCAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[ENTRADA_BUSCAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1319,7 +1504,7 @@ BEGIN
 	SELECT * FROM ENTRADA WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[ENTRADA_BUSCARESTADO]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[ENTRADA_BUSCARESTADO]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1332,7 +1517,7 @@ BEGIN
 	SELECT * FROM ENTRADA WHERE estado = @estado
 END
 GO
-/****** Object:  StoredProcedure [dbo].[ENTRADA_EDITAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[ENTRADA_EDITAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1350,7 +1535,7 @@ BEGIN
 WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[ENTRADA_INSERTAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[ENTRADA_INSERTAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1362,7 +1547,7 @@ BEGIN
 	INSERT INTO ENTRADA VALUES (@idusuario, @idfuncion, @butaca, @fehcadereserva, @estado)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[ENTRADA_LISTAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[ENTRADA_LISTAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1374,7 +1559,7 @@ BEGIN
 	SELECT * FROM ENTRADA
 END
 GO
-/****** Object:  StoredProcedure [dbo].[FUNCION_BORRAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[FUNCION_BORRAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1387,7 +1572,7 @@ BEGIN
 	DELETE FROM FUNCION WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[FUNCION_BUSCAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[FUNCION_BUSCAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1400,7 +1585,7 @@ BEGIN
 	SELECT * FROM FUNCION WHERE idpelicula = @idpelicula
 END
 GO
-/****** Object:  StoredProcedure [dbo].[FUNCION_BUSCARID]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[FUNCION_BUSCARID]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1413,7 +1598,7 @@ BEGIN
 	SELECT * FROM FUNCION WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[FUNCION_EDITAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[FUNCION_EDITAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1429,7 +1614,7 @@ BEGIN
     WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[FUNCION_INSERTAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[FUNCION_INSERTAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1441,7 +1626,7 @@ BEGIN
 	INSERT INTO FUNCION VALUES (@id, @idpelicula, @horario)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[FUNCION_LISTAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[FUNCION_LISTAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1453,7 +1638,7 @@ BEGIN
 	SELECT * FROM FUNCION
 END
 GO
-/****** Object:  StoredProcedure [dbo].[IDIOMA_BORRAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[IDIOMA_BORRAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1463,10 +1648,11 @@ CREATE PROC [dbo].[IDIOMA_BORRAR]
 @id int
 AS
 BEGIN
+	DELETE FROM TRADUCCION WHERE ididioma = @id
 	DELETE FROM IDIOMA WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[IDIOMA_BUSCAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[IDIOMA_BUSCAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1479,34 +1665,36 @@ BEGIN
 	SELECT * FROM IDIOMA WHERE nombre = @nombre
 END
 GO
-/****** Object:  StoredProcedure [dbo].[IDIOMA_EDITAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[IDIOMA_EDITAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE PROC [dbo].[IDIOMA_EDITAR]
-@id int, @nombre varchar(50)
+@id int, @nombre varchar(50), @listoparausar bit
 AS
 BEGIN
 	UPDATE IDIOMA SET 
-		nombre = @nombre
+		nombre = @nombre,
+		listoparausar = @listoparausar
 	WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[IDIOMA_INSERTAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[IDIOMA_INSERTAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROC [dbo].[IDIOMA_INSERTAR]
-@nombre varchar(50), @pordefecto bit
+@nombre varchar(50), @pordefecto bit, @listoparausar bit
 AS
 BEGIN
-	INSERT INTO IDIOMA VALUES (@nombre, @pordefecto)
+	INSERT INTO IDIOMA VALUES (@nombre, @pordefecto, @listoparausar)
+	--Cree un trigger para cuando se inserte un nuevo idioma se puedan crear las traducciones de forma automática
 END
 GO
-/****** Object:  StoredProcedure [dbo].[IDIOMA_LISTAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[IDIOMA_LISTAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1518,7 +1706,7 @@ BEGIN
 	SELECT * FROM IDIOMA
 END
 GO
-/****** Object:  StoredProcedure [dbo].[OBTENER_TRADUCCIONES]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[OBTENER_TRADUCCIONES]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1531,7 +1719,7 @@ BEGIN
 	SELECT t.id AS 'idtraduccion', i.id AS 'ididioma', i.nombre AS 'nombreidioma', i.pordefecto, e.id AS 'idetiqueta', e.nombre AS 'nombreetiqueta', t.texto AS 'traduccion' FROM TRADUCCION t INNER JOIN IDIOMA i ON t.ididioma = i.id INNER JOIN ETIQUETA e ON t.idetiqueta = e.id WHERE i.id = @ididioma
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PELICULA_BORRAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[PELICULA_BORRAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1544,7 +1732,7 @@ BEGIN
 	DELETE FROM PELICULA WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PELICULA_BUSCAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[PELICULA_BUSCAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1557,7 +1745,7 @@ BEGIN
 	SELECT * FROM PELICULA WHERE titulo = @titulo
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PELICULA_BUSCARID]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[PELICULA_BUSCARID]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1569,7 +1757,7 @@ BEGIN
 	SELECT * FROM PELICULA WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PELICULA_EDITAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[PELICULA_EDITAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1589,7 +1777,7 @@ BEGIN
     WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PELICULA_INSERTAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[PELICULA_INSERTAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1601,7 +1789,7 @@ BEGIN
 	INSERT INTO PELICULA VALUES (@titulo, @director, @duracion, @genero, @descripcion, @imagen)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PELICULA_LISTAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[PELICULA_LISTAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1612,7 +1800,7 @@ BEGIN
 	SELECT * FROM PELICULA
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PERMISO_INSERTAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[PERMISO_INSERTAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1625,7 +1813,7 @@ BEGIN
 	--SELECT id AS LastID FROM PERMISOS WHERE id = @@Identity
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PERMISO_LISTAR_RECURSIVO]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[PERMISO_LISTAR_RECURSIVO]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1647,7 +1835,7 @@ BEGIN
 						inner join PERMISOS P ON rec.idpermisohijo = P.id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PERMISO_PERMISO_BORRAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[PERMISO_PERMISO_BORRAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1660,7 +1848,7 @@ BEGIN
 	DELETE FROM PERMISOS_PERMISOS WHERE idpermisopadre = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PERMISO_PERMISO_INSERTAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[PERMISO_PERMISO_INSERTAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1673,7 +1861,7 @@ BEGIN
 	INSERT INTO PERMISOS_PERMISOS VALUES (@idpermisopadre, @idpermisohijo) 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[ROL_LISTAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[ROL_LISTAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1685,7 +1873,7 @@ BEGIN
 	SELECT * FROM PERMISOS WHERE tipo IS NULL
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SALA_BORRAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[SALA_BORRAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1698,7 +1886,7 @@ BEGIN
 	DELETE FROM SALA WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SALA_BUSCAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[SALA_BUSCAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1711,7 +1899,7 @@ BEGIN
 	SELECT * FROM SALA WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SALA_BUSCARID]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[SALA_BUSCARID]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1724,7 +1912,7 @@ BEGIN
 	SELECT * FROM SALA WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SALA_EDITAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[SALA_EDITAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1741,7 +1929,7 @@ BEGIN
     WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SALA_FUNCION_BUSCAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[SALA_FUNCION_BUSCAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1753,7 +1941,7 @@ BEGIN
 	SELECT * FROM SALA_FUNCION WHERE idsala = @idsala
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SALA_FUNCION_INSERTAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[SALA_FUNCION_INSERTAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1765,7 +1953,7 @@ BEGIN
 	INSERT INTO SALA_FUNCION VALUES (@idsala, @idfuncion)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SALA_INSERTAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[SALA_INSERTAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1777,7 +1965,7 @@ BEGIN
 	INSERT INTO SALA VALUES (@id, @numerodesala, @capacidad, @formato)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SALA_LISTAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[SALA_LISTAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1788,7 +1976,7 @@ BEGIN
 	SELECT * FROM SALA
 END
 GO
-/****** Object:  StoredProcedure [dbo].[USUARIO_BORRAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[USUARIO_BORRAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1801,7 +1989,7 @@ BEGIN
 	DELETE FROM USUARIOS WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[USUARIO_BUSCAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[USUARIO_BUSCAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1814,7 +2002,7 @@ BEGIN
 	SELECT * FROM USUARIOS WHERE nombredeusuario = @nombredeusuario AND contrasenia = @contrasenia
 END
 GO
-/****** Object:  StoredProcedure [dbo].[USUARIO_BUSCARID]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[USUARIO_BUSCARID]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1826,7 +2014,7 @@ BEGIN
 	SELECT * FROM USUARIOS WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[USUARIO_EDITAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[USUARIO_EDITAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1846,7 +2034,7 @@ BEGIN
 	WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[USUARIO_INSERTAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[USUARIO_INSERTAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1858,7 +2046,7 @@ BEGIN
 	INSERT INTO USUARIOS VALUES (@nombredeusuario, @nombre, @apellido, @contrasenia, @correo, @ididioma)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[USUARIO_LISTAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[USUARIO_LISTAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1870,7 +2058,7 @@ BEGIN
 	SELECT * FROM USUARIOS
 END
 GO
-/****** Object:  StoredProcedure [dbo].[USUARIO_PERMISO_LISTAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[USUARIO_PERMISO_LISTAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1883,7 +2071,7 @@ BEGIN
 	SELECT P.* FROM USUARIOS_PERMISOS UP INNER JOIN PERMISOS P ON UP.idpermiso = P.id WHERE idusuario = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[USUARIOS_PERMISOS_BORRAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[USUARIOS_PERMISOS_BORRAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1895,7 +2083,7 @@ BEGIN
 	DELETE FROM USUARIOS_PERMISOS WHERE idusuario = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[USUARIOS_PERMISOS_INSERTAR]    Script Date: 8/7/2024 22:48:20 ******/
+/****** Object:  StoredProcedure [dbo].[USUARIOS_PERMISOS_INSERTAR]    Script Date: 26/7/2024 13:10:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
