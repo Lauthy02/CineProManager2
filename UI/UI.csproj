@@ -52,6 +52,12 @@
     <Compile Include="Form_ABMFunciones.Designer.cs">
       <DependentUpon>Form_ABMFunciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_ABMIdioma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ABMIdioma.Designer.cs">
+      <DependentUpon>Form_ABMIdioma.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_EntradasEmitir.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_ABMFunciones.resx">
       <DependentUpon>Form_ABMFunciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ABMIdioma.resx">
+      <DependentUpon>Form_ABMIdioma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_EntradasReservar.resx">
       <DependentUpon>Form_EntradasReservar.cs</DependentUpon>

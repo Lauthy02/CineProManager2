@@ -22,11 +22,18 @@ namespace BE.MULTIIDOMA
             set { nombre = value; }
         }
 
-        private bool pordefecto;
+        private bool porDefecto;
         public bool PorDefecto
         {
-            get { return pordefecto; }
-            set { pordefecto = value; }
+            get { return porDefecto; }
+            set { porDefecto = value; }
+        }
+
+        private bool listoParaUsar;
+        public bool ListoParaUsar
+        {
+            get { return listoParaUsar; }
+            set { listoParaUsar = value; }
         }
     }
 }

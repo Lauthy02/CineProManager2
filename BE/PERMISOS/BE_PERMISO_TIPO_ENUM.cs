@@ -17,6 +17,7 @@ namespace BE
         ABMCines,
         ABMSalas,
         ABMFunciones,
+        ABMIdiomas,
         ReservarEntradas,
         PagarEntradas,
         EmitirEntradas,

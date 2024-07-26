@@ -54,7 +54,6 @@
     <Compile Include="BE_SALA_FORMATO_ENUM.cs" />
     <Compile Include="MULTIIDIOMA\BE_ETIQUETA.cs" />
     <Compile Include="MULTIIDIOMA\BE_IDIOMA.cs" />
-    <Compile Include="MULTIIDIOMA\BE_IDIOMA_NOMBRE_ENUM.cs" />
     <Compile Include="MULTIIDIOMA\BE_TRADUCCION.cs" />
     <Compile Include="MULTIIDIOMA\BE_IOBSERVABLE.cs" />
     <Compile Include="MULTIIDIOMA\BE_IOBSERVERIDIOMA.cs" />

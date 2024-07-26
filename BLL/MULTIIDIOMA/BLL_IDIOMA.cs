@@ -40,7 +40,5 @@ namespace BLL.MULTIIDIOMA
         {
             return dalmapperidioma.TraerTodos();
         }
-
-
     }
 }

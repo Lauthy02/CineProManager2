@@ -103,6 +103,13 @@ namespace UI
             formabmfunciones.Show();
         }
 
+        private void aBMIdiomaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_ABMIdioma formabmidioma = new Form_ABMIdioma();
+            formabmidioma.MdiParent = this;
+            formabmidioma.Show();
+        }
+
         private void reservarEntradasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Form_EntradasReservar formcartelera = new Form_EntradasReservar();
@@ -205,11 +212,15 @@ namespace UI
         {
             var idiomas = bllidioma.ListarIdiomas();
 
-            foreach (var item in idiomas)
+            foreach (var idioma in idiomas)
             {
                 var t = new ToolStripMenuItem();
-                t.Text = item.Nombre;
-                t.Tag = item;
+                t.Text = idioma.Nombre;
+                t.Tag = idioma;
+                if (!idioma.ListoParaUsar)
+                {
+                    t.ForeColor = Color.Red;
+                }
                 idiomasToolStripMenuItem.DropDownItems.Add(t);
 
                 t.Click += idioma_Click;

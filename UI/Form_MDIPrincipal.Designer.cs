@@ -36,23 +36,24 @@
             this.gestoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.permisosDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.permisosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestionarCinesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMPelículasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMCinesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aBMSalasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aBMFuncionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aBMIdiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.carteleraToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pagarEntradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.emitirEntradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcarEntradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.idiomasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel_Sesion = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_NomApe = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_Rol = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_Correo = new System.Windows.Forms.ToolStripStatusLabel();
-            this.gestionarCinesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pagarEntradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.emitirEntradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.marcarEntradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aBMSalasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aBMFuncionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -84,7 +85,7 @@
             // iniciarSesionToolStripMenuItem
             // 
             this.iniciarSesionToolStripMenuItem.Name = "iniciarSesionToolStripMenuItem";
-            this.iniciarSesionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.iniciarSesionToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.iniciarSesionToolStripMenuItem.Tag = "IniciarSesion";
             this.iniciarSesionToolStripMenuItem.Text = "Iniciar sesión";
             this.iniciarSesionToolStripMenuItem.Click += new System.EventHandler(this.iniciarSesionToolStripMenuItem_Click);
@@ -92,7 +93,7 @@
             // cerrarSesionToolStripMenuItem
             // 
             this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
-            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.cerrarSesionToolStripMenuItem.Tag = "CerrarSesion";
             this.cerrarSesionToolStripMenuItem.Text = "Cerrar sesión";
             this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
@@ -107,7 +108,8 @@
             this.aBMPelículasToolStripMenuItem,
             this.aBMCinesToolStripMenuItem,
             this.aBMSalasToolStripMenuItem,
-            this.aBMFuncionesToolStripMenuItem});
+            this.aBMFuncionesToolStripMenuItem,
+            this.aBMIdiomaToolStripMenuItem});
             this.gestoresToolStripMenuItem.Name = "gestoresToolStripMenuItem";
             this.gestoresToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.gestoresToolStripMenuItem.Tag = "Gestores";
@@ -128,6 +130,14 @@
             this.permisosToolStripMenuItem.Tag = "GestionarPermisos";
             this.permisosToolStripMenuItem.Text = "Gestionar permisos";
             this.permisosToolStripMenuItem.Click += new System.EventHandler(this.permisosToolStripMenuItem_Click);
+            // 
+            // gestionarCinesToolStripMenuItem
+            // 
+            this.gestionarCinesToolStripMenuItem.Name = "gestionarCinesToolStripMenuItem";
+            this.gestionarCinesToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.gestionarCinesToolStripMenuItem.Tag = "GestionarCines";
+            this.gestionarCinesToolStripMenuItem.Text = "Gestionar cines";
+            this.gestionarCinesToolStripMenuItem.Click += new System.EventHandler(this.gestionarCinesToolStripMenuItem_Click);
             // 
             // aBMUsuariosToolStripMenuItem
             // 
@@ -153,6 +163,30 @@
             this.aBMCinesToolStripMenuItem.Text = "ABM Cines";
             this.aBMCinesToolStripMenuItem.Click += new System.EventHandler(this.aBMCinesToolStripMenuItem_Click);
             // 
+            // aBMSalasToolStripMenuItem
+            // 
+            this.aBMSalasToolStripMenuItem.Name = "aBMSalasToolStripMenuItem";
+            this.aBMSalasToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.aBMSalasToolStripMenuItem.Tag = "ABMSalas";
+            this.aBMSalasToolStripMenuItem.Text = "ABM Salas";
+            this.aBMSalasToolStripMenuItem.Click += new System.EventHandler(this.aBMSalasToolStripMenuItem_Click);
+            // 
+            // aBMFuncionesToolStripMenuItem
+            // 
+            this.aBMFuncionesToolStripMenuItem.Name = "aBMFuncionesToolStripMenuItem";
+            this.aBMFuncionesToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.aBMFuncionesToolStripMenuItem.Tag = "ABMFunciones";
+            this.aBMFuncionesToolStripMenuItem.Text = "ABM Funciones";
+            this.aBMFuncionesToolStripMenuItem.Click += new System.EventHandler(this.aBMFuncionesToolStripMenuItem_Click);
+            // 
+            // aBMIdiomaToolStripMenuItem
+            // 
+            this.aBMIdiomaToolStripMenuItem.Name = "aBMIdiomaToolStripMenuItem";
+            this.aBMIdiomaToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.aBMIdiomaToolStripMenuItem.Tag = "ABMIdiomas";
+            this.aBMIdiomaToolStripMenuItem.Text = "ABM Idioma";
+            this.aBMIdiomaToolStripMenuItem.Click += new System.EventHandler(this.aBMIdiomaToolStripMenuItem_Click);
+            // 
             // cineToolStripMenuItem
             // 
             this.cineToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -168,10 +202,34 @@
             // carteleraToolStripMenuItem1
             // 
             this.carteleraToolStripMenuItem1.Name = "carteleraToolStripMenuItem1";
-            this.carteleraToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.carteleraToolStripMenuItem1.Size = new System.Drawing.Size(166, 22);
             this.carteleraToolStripMenuItem1.Tag = "ReservarEntradas";
             this.carteleraToolStripMenuItem1.Text = "Reservar entradas";
             this.carteleraToolStripMenuItem1.Click += new System.EventHandler(this.reservarEntradasToolStripMenuItem1_Click);
+            // 
+            // pagarEntradasToolStripMenuItem
+            // 
+            this.pagarEntradasToolStripMenuItem.Name = "pagarEntradasToolStripMenuItem";
+            this.pagarEntradasToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.pagarEntradasToolStripMenuItem.Tag = "PagarEntradas";
+            this.pagarEntradasToolStripMenuItem.Text = "Pagar entradas";
+            this.pagarEntradasToolStripMenuItem.Click += new System.EventHandler(this.pagarEntradasToolStripMenuItem_Click);
+            // 
+            // emitirEntradasToolStripMenuItem
+            // 
+            this.emitirEntradasToolStripMenuItem.Name = "emitirEntradasToolStripMenuItem";
+            this.emitirEntradasToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.emitirEntradasToolStripMenuItem.Tag = "EmitirEntradas";
+            this.emitirEntradasToolStripMenuItem.Text = "Emitir entradas";
+            this.emitirEntradasToolStripMenuItem.Click += new System.EventHandler(this.emitirEntradasToolStripMenuItem_Click);
+            // 
+            // marcarEntradasToolStripMenuItem
+            // 
+            this.marcarEntradasToolStripMenuItem.Name = "marcarEntradasToolStripMenuItem";
+            this.marcarEntradasToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.marcarEntradasToolStripMenuItem.Tag = "MarcarEntradas";
+            this.marcarEntradasToolStripMenuItem.Text = "Marcar entradas";
+            this.marcarEntradasToolStripMenuItem.Click += new System.EventHandler(this.marcarEntradasToolStripMenuItem_Click);
             // 
             // idiomasToolStripMenuItem
             // 
@@ -216,54 +274,6 @@
             this.toolStripStatusLabel_Correo.Name = "toolStripStatusLabel_Correo";
             this.toolStripStatusLabel_Correo.Size = new System.Drawing.Size(51, 17);
             this.toolStripStatusLabel_Correo.Text = "[Correo]";
-            // 
-            // gestionarCinesToolStripMenuItem
-            // 
-            this.gestionarCinesToolStripMenuItem.Name = "gestionarCinesToolStripMenuItem";
-            this.gestionarCinesToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
-            this.gestionarCinesToolStripMenuItem.Tag = "GestionarCines";
-            this.gestionarCinesToolStripMenuItem.Text = "Gestionar cines";
-            this.gestionarCinesToolStripMenuItem.Click += new System.EventHandler(this.gestionarCinesToolStripMenuItem_Click);
-            // 
-            // pagarEntradasToolStripMenuItem
-            // 
-            this.pagarEntradasToolStripMenuItem.Name = "pagarEntradasToolStripMenuItem";
-            this.pagarEntradasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.pagarEntradasToolStripMenuItem.Tag = "PagarEntradas";
-            this.pagarEntradasToolStripMenuItem.Text = "Pagar entradas";
-            this.pagarEntradasToolStripMenuItem.Click += new System.EventHandler(this.pagarEntradasToolStripMenuItem_Click);
-            // 
-            // emitirEntradasToolStripMenuItem
-            // 
-            this.emitirEntradasToolStripMenuItem.Name = "emitirEntradasToolStripMenuItem";
-            this.emitirEntradasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.emitirEntradasToolStripMenuItem.Tag = "EmitirEntradas";
-            this.emitirEntradasToolStripMenuItem.Text = "Emitir entradas";
-            this.emitirEntradasToolStripMenuItem.Click += new System.EventHandler(this.emitirEntradasToolStripMenuItem_Click);
-            // 
-            // marcarEntradasToolStripMenuItem
-            // 
-            this.marcarEntradasToolStripMenuItem.Name = "marcarEntradasToolStripMenuItem";
-            this.marcarEntradasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.marcarEntradasToolStripMenuItem.Tag = "MarcarEntradas";
-            this.marcarEntradasToolStripMenuItem.Text = "Marcar entradas";
-            this.marcarEntradasToolStripMenuItem.Click += new System.EventHandler(this.marcarEntradasToolStripMenuItem_Click);
-            // 
-            // aBMSalasToolStripMenuItem
-            // 
-            this.aBMSalasToolStripMenuItem.Name = "aBMSalasToolStripMenuItem";
-            this.aBMSalasToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
-            this.aBMSalasToolStripMenuItem.Tag = "ABMSalas";
-            this.aBMSalasToolStripMenuItem.Text = "ABM Salas";
-            this.aBMSalasToolStripMenuItem.Click += new System.EventHandler(this.aBMSalasToolStripMenuItem_Click);
-            // 
-            // aBMFuncionesToolStripMenuItem
-            // 
-            this.aBMFuncionesToolStripMenuItem.Name = "aBMFuncionesToolStripMenuItem";
-            this.aBMFuncionesToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
-            this.aBMFuncionesToolStripMenuItem.Tag = "ABMFunciones";
-            this.aBMFuncionesToolStripMenuItem.Text = "ABM Funciones";
-            this.aBMFuncionesToolStripMenuItem.Click += new System.EventHandler(this.aBMFuncionesToolStripMenuItem_Click);
             // 
             // Form_MDIPrincipal
             // 
@@ -317,6 +327,7 @@
         private System.Windows.Forms.ToolStripMenuItem marcarEntradasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aBMSalasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aBMFuncionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aBMIdiomaToolStripMenuItem;
     }
 }
 

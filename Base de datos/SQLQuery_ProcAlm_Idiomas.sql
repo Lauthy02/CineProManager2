@@ -1,8 +1,8 @@
 CREATE PROC IDIOMA_INSERTAR
-@nombre varchar(50), @pordefecto bit
+@nombre varchar(50), @pordefecto bit, @listoparausar bit
 AS
 BEGIN
-	INSERT INTO IDIOMA VALUES (@nombre, @pordefecto)
+	INSERT INTO IDIOMA VALUES (@nombre, @pordefecto, @listoparausar)
 END
 GO
 
@@ -10,6 +10,7 @@ CREATE PROC IDIOMA_BORRAR
 @id int
 AS
 BEGIN
+	DELETE FROM TRADUCCION WHERE ididioma = @id
 	DELETE FROM IDIOMA WHERE id = @id
 END
 GO
@@ -23,11 +24,12 @@ END
 GO
 
 CREATE PROC IDIOMA_EDITAR
-@id int, @nombre varchar(50)
+@id int, @nombre varchar(50), @listoparausar bit
 AS
 BEGIN
 	UPDATE IDIOMA SET 
-		nombre = @nombre
+		nombre = @nombre,
+		listoparausar = @listoparausar
 	WHERE id = @id
 END
 GO

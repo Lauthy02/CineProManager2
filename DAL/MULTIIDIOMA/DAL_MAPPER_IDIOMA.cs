@@ -25,19 +25,26 @@ namespace DAL.MULTIIDIOMA
             List<SqlParameter> parametros = new List<SqlParameter>();
             SqlParameter p = acceso.CrearParametro("@nombre", entidad.Nombre);
             parametros.Add(p);
-            if (entidad.PorDefecto)
-            {
-                p = acceso.CrearParametro("@pordefecto", 1);
-                parametros.Add(p);
-            }
-            else
-            {
-                p = acceso.CrearParametro("@pordefecto", 0);
-                parametros.Add(p);
-            }
+            p = acceso.CrearParametro("@pordefecto", 0);
+            parametros.Add(p);
+            p = acceso.CrearParametro("@listoparausar", 0);
+            parametros.Add(p);
 
             int res = acceso.Escribir("IDIOMA_INSERTAR", parametros);
-            //INSERT INTO IDIOMA VALUES (@nombre, @pordefecto)
+            //INSERT INTO IDIOMA VALUES (@nombre, @pordefecto, @listoparausar)
+            /*Crear un trigger para crear las traducciones de las etiquetas al insertar un idioma
+                CREATE TRIGGER trg_DespuesDeInsertarIdioma
+                ON IDIOMA
+                AFTER INSERT
+                AS
+                BEGIN
+                    -- Insertar traducciones para cada etiqueta existente
+                    INSERT INTO TRADUCCION (ididioma, idetiqueta, texto)
+                    SELECT i.id, e.id, 'Traducción pendiente'
+                    FROM ETIQUETA e
+                    CROSS JOIN INSERTED i;
+                END;
+             */
             return res;
         }
 
@@ -75,11 +82,22 @@ namespace DAL.MULTIIDIOMA
             parametros.Add(p);
             p = acceso.CrearParametro("@nombre", entidad.Nombre);
             parametros.Add(p);
+            if (entidad.ListoParaUsar)
+            {
+                p = acceso.CrearParametro("@listoparausar", 1);
+                parametros.Add(p);
+            }
+            else
+            {
+                p = acceso.CrearParametro("@listoparausar", 0);
+                parametros.Add(p);
+            }
 
             int res = acceso.Escribir("IDIOMA_EDITAR", parametros);
             /*
             update IDIOMA SET 
                 nombre = @nombre
+                listoparausar = @listoparausar
             WHERE id = @id
             */
             return res;
@@ -103,6 +121,7 @@ namespace DAL.MULTIIDIOMA
             idioma.Id = int.Parse(registro["id"].ToString());
             idioma.Nombre = registro["nombre"].ToString();
             idioma.PorDefecto = bool.Parse(registro["pordefecto"].ToString());
+            idioma.ListoParaUsar = bool.Parse(registro["listoparausar"].ToString());
             return idioma;
         }
 
@@ -144,8 +163,8 @@ namespace DAL.MULTIIDIOMA
                         {
                             Id = int.Parse(dr["ididioma"].ToString()),
                             Nombre = dr["nombreidioma"].ToString(),
-                            PorDefecto = bool.Parse(dr["pordefecto"].ToString())
-
+                            PorDefecto = bool.Parse(dr["pordefecto"].ToString()),
+                            ListoParaUsar = bool.Parse(dr["pordefecto"].ToString())
                         },
                         Texto = dr["traduccion"].ToString()
                     });
