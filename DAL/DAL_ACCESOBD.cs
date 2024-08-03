@@ -78,6 +78,13 @@ namespace DAL
             return param;
         }
 
+        public SqlParameter CrearParametro(string nombre, float valor)
+        {
+            SqlParameter param = new SqlParameter(nombre, valor);
+            param.DbType = DbType.Double;
+            return param;
+        }
+
         public SqlParameter CrearParametro(string nombre, byte[] valor)
         {
             SqlParameter param = new SqlParameter(nombre, valor);
