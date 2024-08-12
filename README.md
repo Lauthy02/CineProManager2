@@ -20,9 +20,9 @@
 	- Ejemplo: ALTA_USUARIO
 
 # Para mejorar
-La cartelera puede ser creada con las películas que están en una función
-Levantar un nuevo idioma y con una query traer las etiquetas que ya tengo y crearlas en la tabla idioma, y en traducción poner un texto default como "falta traducir"
-hacer mejor reservar más de una entrada
+- Poder reservar más de 1 entrada
+- La cartelera puede ser creada con las películas que están en una función
+- Hacer que no explote con los permisos
 
 # Permisos
 - Administrador 3
