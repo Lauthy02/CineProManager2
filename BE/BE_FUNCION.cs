@@ -44,7 +44,7 @@ namespace BE
 
 		public override string ToString()
         {
-            return id.ToString() + " - " + pelicula.Titulo + " - " + horario.ToString();
+            return id + " - " + pelicula.Titulo + " - " + horario.ToString();
         }
     }
 }

@@ -42,6 +42,13 @@ namespace BE
 			set { asientoReservado = value; }
 		}
 
+		private BE_SALA sala;
+		public BE_SALA Sala
+		{
+			get { return sala; }
+			set { sala = value; }
+		}
+
 		private DateTime fechaDeReserva;
 		public DateTime FechaDeReserva
 		{
@@ -54,6 +61,20 @@ namespace BE
 		{
 			get { return estado; }
 			set { estado = value; }
+		}
+
+		private double precio;
+		public double Precio
+		{
+			get { return precio; }
+			set { precio = value; }
+		}
+		
+		private int cantidad;
+		public int Cantidad
+		{
+			get { return cantidad; }
+			set { cantidad = value; }
 		}
 	}
 }

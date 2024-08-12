@@ -90,17 +90,19 @@ namespace UI
             BE_ENTRADA entradaaux = new BE_ENTRADA();
             BE_BUTACA butacaaux = new BE_BUTACA();
 
-            entradaaux.Id = 0;
-            entradaaux.Cliente = BE_SESION.ObtenerInstancia.Usuario;
-            entradaaux.Funcion = (BE_FUNCION)listBox_Funciones.SelectedItem;
-            
             string fila = (string)dataGridView_Butacas.Rows[dataGridView_Butacas.SelectedCells[0].RowIndex].Cells[0].Value;
             butacaaux.Fila = (BE_BUTACA_FILA_ENUM)Enum.Parse(typeof(BE_BUTACA_FILA_ENUM), fila);
             butacaaux.Columna = dataGridView_Butacas.SelectedCells[0].ColumnIndex;
-            
+
+            entradaaux.Id = 0;
+            entradaaux.Cliente = BE_SESION.ObtenerInstancia.Usuario;
+            entradaaux.Funcion = (BE_FUNCION)listBox_Funciones.SelectedItem;
             entradaaux.AsientoReservado = butacaaux; 
             entradaaux.FechaDeReserva = DateTime.Now;
             entradaaux.Estado = BE_ENTRADA_ESTADO_ENUM.Reservada;
+            entradaaux.Sala = (BE_SALA)comboBox_Salas.SelectedItem;
+            entradaaux.Cantidad = 1; //CAMBIAR ESTO - Como hago para reservar mas de una butaca? y como lo guardo en base?
+            entradaaux.Precio = bllentrada.CalcularPrecio(entradaaux);
 
             bllentrada.GuardarEntrada(entradaaux);
 
@@ -140,7 +142,7 @@ namespace UI
             cineaux = (BE_CINE)comboBox_Cines.SelectedItem;
             comboBox_Salas.DataSource = null;
             comboBox_Salas.DataSource = cineaux.ListaDeSalas;
-            comboBox_Salas.DisplayMember = "NumeroDeSala";
+            //comboBox_Salas.DisplayMember = "NumeroDeSala";
         }
 
         private void LlenarListBoxFunciones()

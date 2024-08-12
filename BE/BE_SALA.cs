@@ -47,5 +47,10 @@ namespace BE
 			get { return listaDeFunciones; }
 			set { listaDeFunciones = value; }
 		}
-	}
+
+        public override string ToString()
+        {
+			return "Sala: " + numeroDeSala + " " + formato.ToString();
+        }
+    }
 }
