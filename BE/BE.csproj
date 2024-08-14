@@ -52,6 +52,8 @@
     <Compile Include="BE_ENTRADA.cs" />
     <Compile Include="BE_SALA.cs" />
     <Compile Include="BE_SALA_FORMATO_ENUM.cs" />
+    <Compile Include="BITACORAYCAMBIOS\BE_BITACORA_CAMBIOS.cs" />
+    <Compile Include="BITACORAYCAMBIOS\BE_BITACORA_EVENTOS.cs" />
     <Compile Include="MULTIIDIOMA\BE_ETIQUETA.cs" />
     <Compile Include="MULTIIDIOMA\BE_IDIOMA.cs" />
     <Compile Include="MULTIIDIOMA\BE_TRADUCCION.cs" />
