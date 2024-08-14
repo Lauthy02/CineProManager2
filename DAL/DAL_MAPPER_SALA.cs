@@ -29,9 +29,11 @@ namespace DAL
             parametros.Add(p);
             p = acceso.CrearParametro("@formato", entidad.Formato.ToString());
             parametros.Add(p);
+            p = acceso.CrearParametro("@precio", entidad.Precio);
+            parametros.Add(p);
 
             int res = acceso.Escribir("SALA_INSERTAR", parametros);
-            //INSERT INTO SALA VALUES (@id, @numerodesala, @capacidad, @formato)
+            //INSERT INTO SALA VALUES (@id, @numerodesala, @capacidad, @formato, @precio)
             return res;
         }
 
@@ -99,13 +101,16 @@ namespace DAL
             parametros.Add(p);
             p = acceso.CrearParametro("@formato", entidad.Formato.ToString());
             parametros.Add(p);
+            p = acceso.CrearParametro("@precio", entidad.Precio);
+            parametros.Add(p);
 
             int res = acceso.Escribir("SALA_EDITAR", parametros);
             /*
             UPDATE SALA SET 
                 numerodesala = @numerodesala,
                 capacidad = @capacidad, 
-                formato = @formato
+                formato = @formato,
+                precio = @precio
             WHERE id = @id
             */
             return res;
@@ -135,6 +140,7 @@ namespace DAL
             sala.NumeroDeSala = int.Parse(registro["numerodesala"].ToString());
             sala.Capacidad = int.Parse(registro["capacidad"].ToString());
             sala.Formato = (BE_SALA_FORMATO_ENUM)Enum.Parse(typeof(BE_SALA_FORMATO_ENUM), registro["formato"].ToString());
+            sala.Precio = float.Parse(registro["precio"].ToString());
             return sala;
         }
 

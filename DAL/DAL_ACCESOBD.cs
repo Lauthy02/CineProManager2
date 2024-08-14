@@ -78,10 +78,10 @@ namespace DAL
             return param;
         }
 
-        public SqlParameter CrearParametro(string nombre, double valor)
+        public SqlParameter CrearParametro(string nombre, float valor)
         {
             SqlParameter param = new SqlParameter(nombre, valor);
-            param.DbType = DbType.Double;
+            //No especifico el DbType para que el motor lo asigne de manera automática
             return param;
         }
 
@@ -95,7 +95,7 @@ namespace DAL
         public SqlParameter CrearParametro(string nombre, DBNull dbnull)
         {
             SqlParameter param = new SqlParameter(nombre, dbnull);
-            //No especifico el DbType para que el motor lo asigne de manera automática, ya que no se puede asignar un valor a un DBNull
+            //No especifico el DbType para que el motor lo asigne de manera automática
             return param;
         }
 

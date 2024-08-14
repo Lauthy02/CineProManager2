@@ -73,6 +73,7 @@ namespace UI
             textBox_SalaCapacidad.Text = dataGridView1.CurrentRow.Cells["Capacidad"].Value.ToString();
             textBox_NroSala.Text = dataGridView1.CurrentRow.Cells["Numerodesala"].Value.ToString();
             comboBox_SalaFormato.Text = dataGridView1.CurrentRow.Cells["Formato"].Value.ToString();
+            textBox_Precio.Text = dataGridView1.CurrentRow.Cells["Precio"].Value.ToString();
 
             operacion = false;
         }
@@ -91,6 +92,7 @@ namespace UI
             salaaux.Capacidad = int.Parse(textBox_SalaCapacidad.Text);
             salaaux.NumeroDeSala = int.Parse(textBox_NroSala.Text);
             salaaux.Formato = (BE_SALA_FORMATO_ENUM)Enum.Parse(typeof(BE_SALA_FORMATO_ENUM), comboBox_SalaFormato.SelectedItem.ToString());
+            salaaux.Precio = float.Parse(textBox_Precio.Text);
 
             if (operacion)
             {
@@ -110,6 +112,7 @@ namespace UI
             textBox_SalaCapacidad.Text = "";
             textBox_NroSala.Text = "";
             comboBox_SalaFormato.Text = "";
+            textBox_Precio.Text = "";
         }
 
         private void ControlesEn(bool trufal)
@@ -117,6 +120,7 @@ namespace UI
             textBox_SalaCapacidad.Enabled = trufal;
             textBox_NroSala.Enabled = trufal;
             comboBox_SalaFormato.Enabled = trufal;
+            textBox_Precio.Enabled = trufal;
         }
 
         private void comboBox_Cines_SelectedIndexChanged(object sender, EventArgs e)

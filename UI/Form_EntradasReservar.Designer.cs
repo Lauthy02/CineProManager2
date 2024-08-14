@@ -33,6 +33,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.comboBox_Salas = new System.Windows.Forms.ComboBox();
             this.groupBox_Butacas = new System.Windows.Forms.GroupBox();
+            this.dataGridView_Butacas = new System.Windows.Forms.DataGridView();
             this.groupBox_DetalleEntrada = new System.Windows.Forms.GroupBox();
             this.button_Confirmar = new System.Windows.Forms.Button();
             this.label_Butaca = new System.Windows.Forms.Label();
@@ -58,14 +59,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox_Cines = new System.Windows.Forms.ComboBox();
-            this.dataGridView_Butacas = new System.Windows.Forms.DataGridView();
+            this.label_Precio = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox_Butacas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Butacas)).BeginInit();
             this.groupBox_DetalleEntrada.SuspendLayout();
             this.groupBox_Funciones.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Butacas)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox_Funciones
@@ -125,8 +126,24 @@
             this.groupBox_Butacas.Tag = "Butacas";
             this.groupBox_Butacas.Text = "Butacas";
             // 
+            // dataGridView_Butacas
+            // 
+            this.dataGridView_Butacas.AllowUserToAddRows = false;
+            this.dataGridView_Butacas.AllowUserToDeleteRows = false;
+            this.dataGridView_Butacas.AllowUserToResizeColumns = false;
+            this.dataGridView_Butacas.AllowUserToResizeRows = false;
+            this.dataGridView_Butacas.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dataGridView_Butacas.Location = new System.Drawing.Point(6, 19);
+            this.dataGridView_Butacas.MultiSelect = false;
+            this.dataGridView_Butacas.Name = "dataGridView_Butacas";
+            this.dataGridView_Butacas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataGridView_Butacas.Size = new System.Drawing.Size(756, 343);
+            this.dataGridView_Butacas.TabIndex = 4;
+            this.dataGridView_Butacas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Butacas_CellClick);
+            // 
             // groupBox_DetalleEntrada
             // 
+            this.groupBox_DetalleEntrada.Controls.Add(this.label_Precio);
             this.groupBox_DetalleEntrada.Controls.Add(this.button_Confirmar);
             this.groupBox_DetalleEntrada.Controls.Add(this.label_Butaca);
             this.groupBox_DetalleEntrada.Controls.Add(this.label_Película);
@@ -395,20 +412,15 @@
             this.comboBox_Cines.TabIndex = 0;
             this.comboBox_Cines.SelectedIndexChanged += new System.EventHandler(this.comboBox_Cines_SelectedIndexChanged);
             // 
-            // dataGridView_Butacas
+            // label_Precio
             // 
-            this.dataGridView_Butacas.AllowUserToAddRows = false;
-            this.dataGridView_Butacas.AllowUserToDeleteRows = false;
-            this.dataGridView_Butacas.AllowUserToResizeColumns = false;
-            this.dataGridView_Butacas.AllowUserToResizeRows = false;
-            this.dataGridView_Butacas.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
-            this.dataGridView_Butacas.Location = new System.Drawing.Point(6, 19);
-            this.dataGridView_Butacas.MultiSelect = false;
-            this.dataGridView_Butacas.Name = "dataGridView_Butacas";
-            this.dataGridView_Butacas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView_Butacas.Size = new System.Drawing.Size(756, 343);
-            this.dataGridView_Butacas.TabIndex = 4;
-            this.dataGridView_Butacas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Butacas_CellClick);
+            this.label_Precio.AutoSize = true;
+            this.label_Precio.Location = new System.Drawing.Point(7, 311);
+            this.label_Precio.Name = "label_Precio";
+            this.label_Precio.Size = new System.Drawing.Size(40, 13);
+            this.label_Precio.TabIndex = 12;
+            this.label_Precio.Tag = "Precio";
+            this.label_Precio.Text = "Precio:";
             // 
             // Form_EntradasReservar
             // 
@@ -426,6 +438,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox_Butacas.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Butacas)).EndInit();
             this.groupBox_DetalleEntrada.ResumeLayout(false);
             this.groupBox_DetalleEntrada.PerformLayout();
             this.groupBox_Funciones.ResumeLayout(false);
@@ -433,7 +446,6 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Butacas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -470,5 +482,6 @@
         private System.Windows.Forms.Label label_CineDireccion;
         private System.Windows.Forms.Button button_Confirmar;
         private System.Windows.Forms.DataGridView dataGridView_Butacas;
+        private System.Windows.Forms.Label label_Precio;
     }
 }

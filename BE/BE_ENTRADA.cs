@@ -12,6 +12,7 @@ namespace BE
 		{
             cliente = new BE_USUARIO();
 			funcion = new BE_FUNCION();
+			sala = new BE_SALA();
 		}
 
 		private int id;
@@ -35,21 +36,28 @@ namespace BE
 			set { funcion = value; }
 		}
 
-		private BE_BUTACA asientoReservado;
+        private BE_SALA sala;
+        public BE_SALA Sala
+        {
+            get { return sala; }
+            set { sala = value; }
+        }
+
+        private BE_BUTACA asientoReservado;
 		public BE_BUTACA AsientoReservado
         {
 			get { return asientoReservado; }
 			set { asientoReservado = value; }
 		}
 
-		private BE_SALA sala;
-		public BE_SALA Sala
-		{
-			get { return sala; }
-			set { sala = value; }
-		}
+        private float precio;
+        public float Precio
+        {
+            get { return precio; }
+            set { precio = value; }
+        }
 
-		private DateTime fechaDeReserva;
+        private DateTime fechaDeReserva;
 		public DateTime FechaDeReserva
 		{
 			get { return fechaDeReserva; }
@@ -61,20 +69,6 @@ namespace BE
 		{
 			get { return estado; }
 			set { estado = value; }
-		}
-
-		private double precio;
-		public double Precio
-		{
-			get { return precio; }
-			set { precio = value; }
-		}
-		
-		private int cantidad;
-		public int Cantidad
-		{
-			get { return cantidad; }
-			set { cantidad = value; }
 		}
 	}
 }

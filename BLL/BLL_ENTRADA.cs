@@ -43,38 +43,5 @@ namespace BLL
         {
             return dalmapperentrada.TraerTodos();
         }
-
-        public int CalcularPrecio(BE_ENTRADA beentrada)
-        {
-            int precio = 0;
-            switch (beentrada.Sala.Formato)
-            {
-                case BE_SALA_FORMATO_ENUM._2D:
-                    precio = 100 * beentrada.Cantidad;
-                    break;
-                case BE_SALA_FORMATO_ENUM._3D:
-                    precio = 150 * beentrada.Cantidad;
-                    break;
-                case BE_SALA_FORMATO_ENUM._4D:
-                    precio = 200 * beentrada.Cantidad;
-                    break;
-                case BE_SALA_FORMATO_ENUM._XD:
-                    precio = 250 * beentrada.Cantidad;
-                    break;
-                case BE_SALA_FORMATO_ENUM._DBOX:
-                    precio = 300 * beentrada.Cantidad;
-                    break;
-                case BE_SALA_FORMATO_ENUM._PREMIUM:
-                    precio = 350 * beentrada.Cantidad;
-                    break;
-                case BE_SALA_FORMATO_ENUM._COMFORT:
-                    precio = 400 * beentrada.Cantidad;
-                    break;
-                default:
-                    precio = 0;
-                    break;
-            }
-            return precio;
-        }
     }
 }

@@ -41,6 +41,13 @@ namespace BE
 			set { formato = value; }
 		}
 
+		private float precio;
+		public float Precio
+		{
+			get { return precio; }
+			set { precio = value; }
+		}
+
 		private List<BE_FUNCION> listaDeFunciones;
 		public List<BE_FUNCION> ListaDeFunciones
 		{

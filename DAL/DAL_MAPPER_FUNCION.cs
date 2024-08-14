@@ -17,6 +17,7 @@ namespace DAL
         {
             acceso.AbrirConexion();
         }
+
         public override int Alta(BE_FUNCION entidad)
         {
             List<SqlParameter> parametros = new List<SqlParameter>();

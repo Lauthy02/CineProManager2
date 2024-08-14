@@ -1,8 +1,8 @@
 CREATE PROC SALA_INSERTAR
-@capacidad int, @formato varchar(50)
+@id int, @numerodesala int, @capacidad int, @formato varchar(50), @precio float
 AS
 BEGIN
-	INSERT INTO SALA VALUES (@capacidad, @formato)
+	INSERT INTO SALA VALUES (@id, @numerodesala, @capacidad, @formato, @precio)
 END
 GO
 
@@ -31,12 +31,14 @@ END
 GO
 
 CREATE PROC SALA_EDITAR
-@id int, @capacidad int, @formato varchar(50)
+@id int, @numerodesala int, @capacidad int, @formato varchar(50), @precio float
 AS
 BEGIN
-	UPDATE SALA SET 
-		capacidad = @capacidad, 
-		formato = @formato
+    UPDATE SALA SET 
+        numerodesala = @numerodesala,
+        capacidad = @capacidad, 
+        formato = @formato,
+        precio = @precio
     WHERE id = @id
 END
 GO

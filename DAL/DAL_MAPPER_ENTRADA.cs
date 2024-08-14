@@ -13,6 +13,7 @@ namespace DAL
     {
         DAL_MAPPER_USUARIO dalusuario = new DAL_MAPPER_USUARIO();
         DAL_MAPPER_FUNCION dalfuncion = new DAL_MAPPER_FUNCION();
+        DAL_MAPPER_SALA dalsala = new DAL_MAPPER_SALA();
 
         public DAL_MAPPER_ENTRADA()
         {
@@ -26,7 +27,11 @@ namespace DAL
             parametros.Add(p);
             p = acceso.CrearParametro("@idfuncion",entidad.Funcion.Id);
             parametros.Add(p);
+            p = acceso.CrearParametro("@idsala", entidad.Sala.Id);
+            parametros.Add(p);
             p = acceso.CrearParametro("@butaca", entidad.AsientoReservado.ToString());
+            parametros.Add(p);
+            p = acceso.CrearParametro("@precio", entidad.Precio);
             parametros.Add(p);
             p = acceso.CrearParametro("@fehcadereserva", entidad.FechaDeReserva);
             parametros.Add(p);
@@ -34,7 +39,7 @@ namespace DAL
             parametros.Add(p);
 
             int res = acceso.Escribir("ENTRADA_INSERTAR", parametros);
-            //INSERT INTO ENTRADA VALUES (@idusuario, @butaca, @idfuncion, @fehcadereserva, @estado)
+            //INSERT INTO ENTRADA VALUES (@idusuario, @idfuncion, @idsala, @butaca, @precio, @fehcadereserva, @estado)
             return res;
         }
 
@@ -67,6 +72,7 @@ namespace DAL
             {
                 LlenarUsuario(entrada);
                 LlenarFuncion(entrada);
+                LlenarSala(entrada);
             }
             return entradas;
         }
@@ -89,6 +95,7 @@ namespace DAL
             {
                 LlenarUsuario(entrada);
                 LlenarFuncion(entrada);
+                LlenarSala(entrada);
             }
             return entradas;
         }
@@ -102,9 +109,13 @@ namespace DAL
             parametros.Add(p);
             p = acceso.CrearParametro("@idfuncion", entidad.Funcion.Id);
             parametros.Add(p);
+            p = acceso.CrearParametro("@idsala", entidad.Sala.Id);
+            parametros.Add(p);
             p = acceso.CrearParametro("@butaca", entidad.AsientoReservado.ToString());
             parametros.Add(p);
-            p = acceso.CrearParametro("@fehcadereserva", entidad.FechaDeReserva);
+            p = acceso.CrearParametro("@precio", entidad.Precio);
+            parametros.Add(p);
+            p = acceso.CrearParametro("@fechadereserva", entidad.FechaDeReserva);
             parametros.Add(p);
             p = acceso.CrearParametro("@estado", entidad.Estado.ToString());
             parametros.Add(p);
@@ -114,8 +125,10 @@ namespace DAL
             UPDATE ENTRADA SET 
                 idusuario = @idusuario, 
                 idfuncion = @idfuncion,
+                idsala = @idsala,
                 butaca = @butaca,
-                fehcadereserva = @fehcadereserva,
+                precio = @precio,
+                fechadereserva = @fechadereserva,
                 estado = @estado
             WHERE id = @id
             */
@@ -136,6 +149,7 @@ namespace DAL
             {
                 LlenarUsuario(entrada);
                 LlenarFuncion(entrada);
+                LlenarSala(entrada);
             }
             return entradas;
         }
@@ -146,6 +160,7 @@ namespace DAL
             entrada.Id = int.Parse(registro["id"].ToString());
             entrada.Cliente.Id = int.Parse(registro["idusuario"].ToString());
             entrada.Funcion.Id = int.Parse(registro["idfuncion"].ToString());
+            entrada.Sala.Id = int.Parse(registro["idsala"].ToString());
 
             string butaca = registro["butaca"].ToString();
             string fila = new string(butaca.TakeWhile(c => !char.IsDigit(c)).ToArray());
@@ -156,6 +171,7 @@ namespace DAL
             butacaaux.Columna = int.Parse(columna);
             entrada.AsientoReservado = butacaaux;
 
+            entrada.Precio = float.Parse(registro["precio"].ToString());
             entrada.FechaDeReserva = DateTime.Parse(registro["fechadereserva"].ToString());
             entrada.Estado = (BE_ENTRADA_ESTADO_ENUM)Enum.Parse(typeof(BE_ENTRADA_ESTADO_ENUM), registro["estado"].ToString());
             return entrada;
@@ -178,14 +194,28 @@ namespace DAL
         private void LlenarFuncion(BE_ENTRADA entidad)
         {
             List<SqlParameter> parametros = new List<SqlParameter>();
-            SqlParameter p = acceso.CrearParametro("@id", entidad.Cliente.Id);
+            SqlParameter p = acceso.CrearParametro("@id", entidad.Funcion.Id);
             parametros.Add(p);
 
             DataTable tabla = acceso.Leer("FUNCION_BUSCARID", parametros);
-            //SELECT * FROM USUARIO WHERE id = @id
+            //SELECT * FROM FUNCION WHERE id = @id
             foreach (DataRow dr in tabla.Rows)
             {
                 entidad.Funcion = dalfuncion.BuscarConId(int.Parse(dr["id"].ToString()));
+            }
+        }
+
+        private void LlenarSala(BE_ENTRADA entidad)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            SqlParameter p = acceso.CrearParametro("@id", entidad.Sala.Id);
+            parametros.Add(p);
+
+            DataTable tabla = acceso.Leer("SALA_BUSCARID", parametros);
+            //SELECT * FROM SALA WHERE id = @id
+            foreach (DataRow dr in tabla.Rows)
+            {
+                entidad.Sala = dalsala.BuscarConId(int.Parse(dr["id"].ToString()));
             }
         }
     }
