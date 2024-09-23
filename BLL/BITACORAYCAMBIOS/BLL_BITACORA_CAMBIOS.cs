@@ -8,6 +8,7 @@ namespace BLL.BITACORAYCAMBIOS
 {
     public class BLL_BITACORA_CAMBIOS
     {
+        /*
         public List<BE_BitacoraCambiosProducto> retornarBitacoraCambios() //Listar
         {
             return daoBitacora.retornarBitacoraCambios();
@@ -17,5 +18,6 @@ namespace BLL.BITACORAYCAMBIOS
         {
             return daoBitacora.restaurarCambio(reverseSQL);
         }
+        */
     }
 }

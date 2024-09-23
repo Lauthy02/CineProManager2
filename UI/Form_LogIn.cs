@@ -1,8 +1,10 @@
 ﻿using BE;
+using BE.BITACORAYCAMBIOS;
 using BE.MULTIIDIOMA;
 using BE.MULTIIDOMA;
 using BE.SESION;
 using BLL;
+using BLL.BITACORAYCAMBIOS;
 using BLL.MULTIIDIOMA;
 using System;
 using System.Collections.Generic;
@@ -20,6 +22,8 @@ namespace UI
     {
         BLL_SESION bllsesion = new BLL_SESION();
         BLL_TRADUCTOR blltraductor = new BLL_TRADUCTOR();
+        BLL_BITACORA_EVENTOS bllbitacoraeventos = new BLL_BITACORA_EVENTOS();
+
         BE_IDIOMA idiomasinuso = new BE_IDIOMA();
 
         public Form_LogIn()
@@ -37,6 +41,7 @@ namespace UI
                 form_MDIPrincipal.ValidarForm();
                 form_MDIPrincipal.MarcarIdioma();
                 form_MDIPrincipal.ActualizarIdioma(BE_SESION.ObtenerInstancia.Usuario.Idioma);
+                bllbitacoraeventos.GuardarBitacoraEvento(new BE_BITACORA_EVENTOS(BE_SESION.ObtenerInstancia.Usuario, DateTime.Now, "LogIn"));
                 this.Close();
             }
             catch (BE_LOGIN_EXCEPCION error)

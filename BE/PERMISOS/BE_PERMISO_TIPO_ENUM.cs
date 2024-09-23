@@ -22,5 +22,6 @@ namespace BE
         PagarEntradas,
         EmitirEntradas,
         MarcarEntradas,
+        GestionarBitacoraEventos,
     }
 }

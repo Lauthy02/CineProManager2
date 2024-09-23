@@ -10,7 +10,6 @@ namespace BLL
 {
     public class BLL_CINE
     {
-        //agregarSala(), obtenerSalas(), buscarSala().
         DAL_MAPPER_CINE dalmappercine = new DAL_MAPPER_CINE();
 
         public void GuardarCine(BE_CINE becine)

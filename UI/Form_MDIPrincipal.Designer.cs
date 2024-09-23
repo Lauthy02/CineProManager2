@@ -43,6 +43,7 @@
             this.aBMSalasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMFuncionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMIdiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bitacoraEventosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.carteleraToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pagarEntradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -109,7 +110,8 @@
             this.aBMCinesToolStripMenuItem,
             this.aBMSalasToolStripMenuItem,
             this.aBMFuncionesToolStripMenuItem,
-            this.aBMIdiomaToolStripMenuItem});
+            this.aBMIdiomaToolStripMenuItem,
+            this.bitacoraEventosToolStripMenuItem});
             this.gestoresToolStripMenuItem.Name = "gestoresToolStripMenuItem";
             this.gestoresToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.gestoresToolStripMenuItem.Tag = "Gestores";
@@ -186,6 +188,14 @@
             this.aBMIdiomaToolStripMenuItem.Tag = "ABMIdiomas";
             this.aBMIdiomaToolStripMenuItem.Text = "ABM Idioma";
             this.aBMIdiomaToolStripMenuItem.Click += new System.EventHandler(this.aBMIdiomaToolStripMenuItem_Click);
+            // 
+            // bitacoraEventosToolStripMenuItem
+            // 
+            this.bitacoraEventosToolStripMenuItem.Name = "bitacoraEventosToolStripMenuItem";
+            this.bitacoraEventosToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.bitacoraEventosToolStripMenuItem.Tag = "GestionarBitacoraEventos";
+            this.bitacoraEventosToolStripMenuItem.Text = "Bitacora eventos";
+            this.bitacoraEventosToolStripMenuItem.Click += new System.EventHandler(this.bitacoraEventosToolStripMenuItem_Click);
             // 
             // cineToolStripMenuItem
             // 
@@ -328,6 +338,7 @@
         private System.Windows.Forms.ToolStripMenuItem aBMSalasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aBMFuncionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aBMIdiomaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bitacoraEventosToolStripMenuItem;
     }
 }
 

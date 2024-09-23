@@ -19,6 +19,7 @@ namespace UI
     {
         BLL_SESION bllsesion = new BLL_SESION();
         BLL_TRADUCTOR blltraductor = new BLL_TRADUCTOR();
+
         BLL_CINE bllcine = new BLL_CINE();
         BLL_SALA bllsala = new BLL_SALA();
         BE_SALA salaaux;

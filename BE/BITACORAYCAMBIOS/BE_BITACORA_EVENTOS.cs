@@ -8,7 +8,17 @@ namespace BE.BITACORAYCAMBIOS
 {
     public class BE_BITACORA_EVENTOS
     {
-        //Registro de eventos
+        public BE_BITACORA_EVENTOS()
+        {
+            usuario = new BE_USUARIO();
+        }
+
+        public BE_BITACORA_EVENTOS(BE_USUARIO usuariO, DateTime fechA, string accioN)
+        {
+            usuario = usuariO;
+            fecha = fechA;
+            accion = accioN;
+        }
 
         private int id;
         public int Id
@@ -36,20 +46,6 @@ namespace BE.BITACORAYCAMBIOS
         {
             get { return accion; }
             set { accion = value; }
-        }
-
-        private string modulo;
-        public string Modulo
-        {
-            get { return modulo; }
-            set { modulo = value; }
-        }
-
-        private int criticidad; 
-        public int Criticidad
-        {
-            get { return criticidad; }
-            set { criticidad = value; }
         }
     }
 }

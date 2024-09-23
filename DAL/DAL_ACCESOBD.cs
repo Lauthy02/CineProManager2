@@ -85,6 +85,13 @@ namespace DAL
             return param;
         }
 
+        public SqlParameter CrearParametro(string nombre, double valor)
+        {
+            SqlParameter param = new SqlParameter(nombre, valor);
+            //No especifico el DbType para que el motor lo asigne de manera automática
+            return param;
+        }
+
         public SqlParameter CrearParametro(string nombre, byte[] valor)
         {
             SqlParameter param = new SqlParameter(nombre, valor);

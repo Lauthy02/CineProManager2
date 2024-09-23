@@ -1,7 +1,9 @@
 ﻿using BE;
+using BE.BITACORAYCAMBIOS;
 using BE.MULTIIDIOMA;
 using BE.MULTIIDOMA;
 using BLL;
+using BLL.BITACORAYCAMBIOS;
 using BLL.MULTIIDIOMA;
 using System;
 using System.Collections.Generic;
@@ -20,6 +22,7 @@ namespace UI
         BLL_SESION bllsesion = new BLL_SESION();
         BLL_TRADUCTOR blltraductor = new BLL_TRADUCTOR();
         BLL_IDIOMA bllidioma = new BLL_IDIOMA();
+        BLL_BITACORA_EVENTOS bllbitacoraeventos = new BLL_BITACORA_EVENTOS();
         BE_IDIOMA idiomasinuso = new BE_IDIOMA();
 
         public Form_MDIPrincipal()
@@ -31,6 +34,7 @@ namespace UI
             ActualizarIdioma(idiomasinuso);
         }
 
+        #region Sesion
         private void iniciarSesionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form_LogIn formlogin = new Form_LogIn();
@@ -42,11 +46,14 @@ namespace UI
         {
             if (MessageBox.Show("¿Seguro que desea salir?", "Conifrmación", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+                bllbitacoraeventos.GuardarBitacoraEvento(new BE_BITACORA_EVENTOS(BE_SESION.ObtenerInstancia.Usuario, DateTime.Now, "LogOut"));
                 bllsesion.LogOut();
                 ValidarForm();
             }
         }
+        #endregion
 
+        #region Gestores
         private void permisosDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form_GestorPermisosUsuarios formgestorpermisosusuarios = new Form_GestorPermisosUsuarios();
@@ -110,6 +117,15 @@ namespace UI
             formabmidioma.Show();
         }
 
+        private void bitacoraEventosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_BitacoraEventos formbitacoraeventos = new Form_BitacoraEventos();
+            formbitacoraeventos.MdiParent = this;
+            formbitacoraeventos.Show();
+        }
+        #endregion
+
+        #region Cine
         private void reservarEntradasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Form_EntradasReservar formcartelera = new Form_EntradasReservar();
@@ -137,6 +153,8 @@ namespace UI
             formentradasmarcar.MdiParent = this;
             formentradasmarcar.Show();
         }
+        #endregion
+
 
         public void ValidarForm() //Para los permisos
         {

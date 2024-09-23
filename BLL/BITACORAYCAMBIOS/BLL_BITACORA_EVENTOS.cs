@@ -1,4 +1,5 @@
 ﻿using BE.BITACORAYCAMBIOS;
+using DAL.BITACORAYCAMBIOS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,16 +10,16 @@ namespace BLL.BITACORAYCAMBIOS
 {
     public class BLL_BITACORA_EVENTOS
     {
-        //DAL_BITACORA dalbitacora = new DAL_BITACORA();
+        DAL_MAPPER_BITACORA_EVENTOS dalbitacoraeventos = new DAL_MAPPER_BITACORA_EVENTOS();
 
-        public List<BE_BITACORA_EVENTOS> retornarBitacoraEventos() //Listar
+        public int GuardarBitacoraEvento(BE_BITACORA_EVENTOS bebitacoraeventos)
         {
-            return daoBitacora.retornarBitacoraEventos();
+            return dalbitacoraeventos.Alta(bebitacoraeventos);
         }
 
-        public bool registrarBitacoraEvento(string accion, string Modulo, int Criticidad)
+        public List<BE_BITACORA_EVENTOS> ListarBitacoraEvento()
         {
-            return daoBitacora.registrarBitacoraEvento(accion, Modulo, Criticidad);
+            return dalbitacoraeventos.TraerTodos();
         }
     }
 }
