@@ -123,6 +123,13 @@ namespace UI
             formbitacoraeventos.MdiParent = this;
             formbitacoraeventos.Show();
         }
+
+        private void backupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_GestorBackup formgestorbackup = new Form_GestorBackup();
+            formgestorbackup.MdiParent = this;
+            formgestorbackup.Show();
+        }
         #endregion
 
         #region Cine

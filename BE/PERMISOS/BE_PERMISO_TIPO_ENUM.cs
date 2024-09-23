@@ -23,5 +23,6 @@ namespace BE
         EmitirEntradas,
         MarcarEntradas,
         GestionarBitacoraEventos,
+        GestionarBackup,
     }
 }

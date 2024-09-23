@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BACKUP\BLL_BACKUP.cs" />
     <Compile Include="BITACORAYCAMBIOS\BLL_BITACORA_CAMBIOS.cs" />
     <Compile Include="BITACORAYCAMBIOS\BLL_BITACORA_EVENTOS.cs" />
     <Compile Include="BLL_CINE_SALA.cs" />
@@ -75,5 +76,6 @@
     <None Include="ClassDiagramBLL.cd" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

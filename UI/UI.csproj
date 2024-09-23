@@ -82,6 +82,12 @@
     <Compile Include="Form_EntradasPagar.Designer.cs">
       <DependentUpon>Form_EntradasPagar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_GestorBackup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_GestorBackup.Designer.cs">
+      <DependentUpon>Form_GestorBackup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_GestorCines.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_EntradasPagar.resx">
       <DependentUpon>Form_EntradasPagar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_GestorBackup.resx">
+      <DependentUpon>Form_GestorBackup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_PagarEntradas.resx">
       <DependentUpon>Form_PagarEntradas.cs</DependentUpon>
