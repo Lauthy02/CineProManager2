@@ -70,5 +70,12 @@ namespace BE
 			get { return estado; }
 			set { estado = value; }
 		}
+
+		private string digitoverificador;
+		public string DigitoVerificador
+		{
+			get { return digitoverificador; }
+			set { digitoverificador = value; }
+		}
 	}
 }

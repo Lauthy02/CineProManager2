@@ -53,6 +53,7 @@
     <Compile Include="DAL_MAPPER_PELICULA.cs" />
     <Compile Include="DAL_MAPPER_SALA.cs" />
     <Compile Include="DAL_SALA_FUNCION.cs" />
+    <Compile Include="DIGITOVERIFICADOR\DAL_DIGITOVERIFICADOR.cs" />
     <Compile Include="MULTIIDIOMA\DAL_MAPPER_IDIOMA.cs" />
     <Compile Include="PERMISOS\DAL_PERMISO.cs" />
     <Compile Include="DAL_MAPPER_USUARIO.cs" />

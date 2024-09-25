@@ -1,4 +1,5 @@
 ﻿using BE;
+using DAL.DIGITOVERIFICADOR;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,6 +12,8 @@ namespace DAL
 {
     public class DAL_MAPPER_ENTRADA : DAL_MAPPER<BE_ENTRADA>
     {
+        DAL_DIGITOVERIFICADOR daldigitoverificador = new DAL_DIGITOVERIFICADOR();
+
         DAL_MAPPER_USUARIO dalusuario = new DAL_MAPPER_USUARIO();
         DAL_MAPPER_FUNCION dalfuncion = new DAL_MAPPER_FUNCION();
         DAL_MAPPER_SALA dalsala = new DAL_MAPPER_SALA();
@@ -37,9 +40,15 @@ namespace DAL
             parametros.Add(p);
             p = acceso.CrearParametro("@estado", entidad.Estado.ToString());
             parametros.Add(p);
+            p = acceso.CrearParametro("@digitohorizontal", string.Empty);
+            parametros.Add(p);
 
             int res = acceso.Escribir("ENTRADA_INSERTAR", parametros);
-            //INSERT INTO ENTRADA VALUES (@idusuario, @idfuncion, @idsala, @butaca, @precio, @fehcadereserva, @estado)
+            //INSERT INTO ENTRADA VALUES (@idusuario, @idfuncion, @idsala, @butaca, @precio, @fehcadereserva, @estado, @digitohorizontal)
+
+            daldigitoverificador.CalcularDVH("ENTRADA"); //De la fila
+            daldigitoverificador.CalcularDVV("ENTRADA"); //De toda la tabla
+
             return res;
         }
 
@@ -119,6 +128,8 @@ namespace DAL
             parametros.Add(p);
             p = acceso.CrearParametro("@estado", entidad.Estado.ToString());
             parametros.Add(p);
+            p = acceso.CrearParametro("@digitohorizontal", string.Empty);
+            parametros.Add(p);
 
             int res = acceso.Escribir("ENTRADA_EDITAR", parametros);
             /*
@@ -129,9 +140,14 @@ namespace DAL
                 butaca = @butaca,
                 precio = @precio,
                 fechadereserva = @fechadereserva,
-                estado = @estado
+                estado = @estado,
+                digitohorizontal = @digitohorizontal
             WHERE id = @id
             */
+
+            daldigitoverificador.CalcularDVH("ENTRADA");
+            daldigitoverificador.CalcularDVV("ENTRADA");
+
             return res;
         }
 
@@ -174,6 +190,8 @@ namespace DAL
             entrada.Precio = float.Parse(registro["precio"].ToString());
             entrada.FechaDeReserva = DateTime.Parse(registro["fechadereserva"].ToString());
             entrada.Estado = (BE_ENTRADA_ESTADO_ENUM)Enum.Parse(typeof(BE_ENTRADA_ESTADO_ENUM), registro["estado"].ToString());
+            entrada.DigitoVerificador = registro["digitohorizontal"].ToString();
+
             return entrada;
         }
 

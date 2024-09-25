@@ -63,10 +63,10 @@ namespace DAL
             return filAfec;
         }
 
-        public DataTable Leer(string sql, List<SqlParameter> args = null)
+        public DataTable Leer(string sql, List<SqlParameter> args = null, bool type = true)
         {
             DataTable tabla = new DataTable();
-            using (SqlDataAdapter da = new SqlDataAdapter(CrearComando(sql, args)))
+            using (SqlDataAdapter da = new SqlDataAdapter(CrearComando(sql, args, type)))
             {
                 da.Fill(tabla);
                 da.Dispose();

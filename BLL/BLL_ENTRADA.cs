@@ -1,4 +1,5 @@
 ﻿using BE;
+using BLL.DIGITOVERIFICADOR;
 using DAL;
 using System;
 using System.Collections.Generic;

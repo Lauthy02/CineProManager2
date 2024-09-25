@@ -1,8 +1,8 @@
 CREATE PROC ENTRADA_INSERTAR
-@idusuario int, @idfuncion int, @idsala int, @butaca varchar(50), @precio float, @fehcadereserva datetime, @estado varchar(50)
+@idusuario int, @idfuncion int, @idsala int, @butaca varchar(50), @precio float, @fehcadereserva datetime, @estado varchar(50), @digitohorizontal varchar(70)
 AS 
 BEGIN
-	INSERT INTO ENTRADA VALUES (@idusuario, @idfuncion,@idsala, @butaca, @precio, @fehcadereserva, @estado)
+	INSERT INTO ENTRADA VALUES (@idusuario, @idfuncion,@idsala, @butaca, @precio, @fehcadereserva, @estado, @digitohorizontal)
 END
 
 CREATE PROC ENTRADA_BORRAR
@@ -14,7 +14,7 @@ END
 GO
 
 CREATE PROC ENTRADA_EDITAR
-@id int, @idusuario int, @idfuncion int, @idsala int, @butaca varchar(50), @precio float, @fechadereserva DateTime, @estado varchar(50)
+@id int, @idusuario int, @idfuncion int, @idsala int, @butaca varchar(50), @precio float, @fechadereserva DateTime, @estado varchar(50), @digitohorizontal varchar(70)
 AS 
 BEGIN
     UPDATE ENTRADA SET 
@@ -24,7 +24,8 @@ BEGIN
         butaca = @butaca,
         precio = @precio,
         fechadereserva = @fechadereserva,
-        estado = @estado
+        estado = @estado,
+		digitohorizontal = @digitohorizontal
     WHERE id = @id
 END
 GO
