@@ -34,6 +34,7 @@ namespace UI
         private void button_CrearBackup_Click(object sender, EventArgs e)
         {
             bllbackup.CrearBackup();
+            MessageBox.Show("Backup realizado en el directorio: C:\\BackupCineProManager");
         }
 
         private void button_RestaurarBackup_Click(object sender, EventArgs e)
@@ -45,6 +46,7 @@ namespace UI
             {
                 bllbackup.RestaurarBackup(ofd.FileName);
             }
+            MessageBox.Show("Datos restaurados");
         }
 
         private void Form_GestorBackup_Load(object sender, EventArgs e)

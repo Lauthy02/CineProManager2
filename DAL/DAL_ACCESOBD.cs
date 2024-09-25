@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DAL
 {
@@ -27,20 +28,28 @@ namespace DAL
             GC.Collect();
         }
 
-        private SqlCommand CrearComando(string sql, List<SqlParameter> args = null)
+        private SqlCommand CrearComando(string sql, List<SqlParameter> args = null, bool type = true)
         {
             SqlCommand cmd = new SqlCommand(sql, conexion);
             if (args != null)
             {
                 cmd.Parameters.AddRange(args.ToArray());
             }
-            cmd.CommandType = CommandType.StoredProcedure;
+
+            if (type)
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+            }
+            else
+            {
+                cmd.CommandType = CommandType.Text;
+            }
             return cmd;
         }
 
-        public int Escribir(string sql, List<SqlParameter> args = null)
+        public int Escribir(string sql, List<SqlParameter> args = null, bool type = true)
         {
-            SqlCommand cmd = CrearComando(sql, args);
+            SqlCommand cmd = CrearComando(sql, args, type);
             int filAfec = 0;
             try
             {
@@ -49,6 +58,7 @@ namespace DAL
             catch
             {
                 filAfec = -1;
+                throw new Exception("Error al ejecutar la query");
             }
             return filAfec;
         }

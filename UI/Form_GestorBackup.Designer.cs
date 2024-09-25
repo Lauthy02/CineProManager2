@@ -48,7 +48,7 @@
             this.button_RestaurarBackup.Name = "button_RestaurarBackup";
             this.button_RestaurarBackup.Size = new System.Drawing.Size(102, 23);
             this.button_RestaurarBackup.TabIndex = 1;
-            this.button_RestaurarBackup.Text = "Restaurar backup";
+            this.button_RestaurarBackup.Text = "Restaurar datos";
             this.button_RestaurarBackup.UseVisualStyleBackColor = true;
             this.button_RestaurarBackup.Click += new System.EventHandler(this.button_RestaurarBackup_Click);
             // 
@@ -56,7 +56,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(218, 134);
             this.Controls.Add(this.button_RestaurarBackup);
             this.Controls.Add(this.button_CrearBackup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
