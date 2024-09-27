@@ -50,8 +50,9 @@ namespace UI
             {
                 MessageBox.Show("Espere hasta que se restauren los datos...");
                 bllbackup.RestaurarBackup(ofd.FileName);
+                MessageBox.Show("Datos restaurados");
+                MessageBox.Show("Reinicie la aplicacion");
             }
-            MessageBox.Show("Datos restaurados");
         }
 
         private void Form_GestorBackup_Load(object sender, EventArgs e)

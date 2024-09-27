@@ -15,5 +15,15 @@ namespace BLL.DIGITOVERIFICADOR
         {
             return daldigitoverificador.VerificarDigito(nombretabla);
         }
+
+        public int CalcularDVV(string nombretabla)
+        {
+            return daldigitoverificador.CalcularDVV(nombretabla);
+        }
+
+        public int CalcularDVH(string nombretabla)
+        {
+            return daldigitoverificador.CalcularDVH(nombretabla);
+        }
     }
 }

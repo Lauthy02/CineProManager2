@@ -58,7 +58,6 @@ namespace DAL
             catch
             {
                 filAfec = -1;
-                throw new Exception("Error al ejecutar la query");
             }
             return filAfec;
         }
