@@ -7,9 +7,7 @@ using System.Threading.Tasks;
 namespace BE.BITACORAYCAMBIOS
 {
     public class BE_BITACORA_CAMBIOS
-    {
-        //Registro de cambios en entidades
-        
+    {        
         private int id;
         public int Id
         {

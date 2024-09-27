@@ -88,5 +88,38 @@ namespace DAL.DIGITOVERIFICADOR
 
             return res;
         }
+
+        private string CalcularCadenaDVV(string cadena)
+        {
+            string digitovertical = dalencriptador.EncriptarSHA256(cadena.ToString());
+
+            return digitovertical;
+        }
+
+        public bool VerificarDigito(string nombretabla)
+        {
+            //Tengo que generar denuevo los DVH porque si cambio un dato en la base el DVH previamente almacenado no va a cambiar. 
+            //Entonces si hago la verificación con los DVH previamente almacenado va a coincidir siempre.
+            //Genero nuevos DVH de la tabla x y con estos genero un nuevo DVV. Luego comparo este DVV con el almacenado en la tabla DVV.
+
+            StringBuilder cadena = new StringBuilder();
+
+            cadena.Append(CalcularDVH(nombretabla)); //Voy concatenando los dígitos horizontales de cada fila
+            //Genero un nuevo DVV con estos valores
+            string digitoverticalnuevo = CalcularCadenaDVV(cadena.ToString());
+
+            DataTable tabla = acceso.Leer($"SELECT * FROM TABLA_DVV WHERE nombretabla = '{nombretabla}'", null, false);
+            //SELECT * FROM TABLA_DVV WHERE nombretabla = @nombretabla
+
+            if (tabla.Rows.Count == 0)
+            {
+                return false;
+            }
+            else
+            {
+                string digitovertical = tabla.Rows[0]["digitovertical"].ToString();
+                return digitoverticalnuevo == digitovertical;
+            }
+        }
     }
 }

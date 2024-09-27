@@ -4,6 +4,7 @@ using BE.MULTIIDIOMA;
 using BE.MULTIIDOMA;
 using BLL;
 using BLL.BITACORAYCAMBIOS;
+using BLL.DIGITOVERIFICADOR;
 using BLL.MULTIIDIOMA;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,7 +25,9 @@ namespace UI
         BLL_TRADUCTOR blltraductor = new BLL_TRADUCTOR();
         BLL_IDIOMA bllidioma = new BLL_IDIOMA();
         BLL_BITACORA_EVENTOS bllbitacoraeventos = new BLL_BITACORA_EVENTOS();
+        BLL_DIGITOVERIFICADOR blldigitoverificador = new BLL_DIGITOVERIFICADOR();
         BE_IDIOMA idiomasinuso = new BE_IDIOMA();
+        bool flag;
 
         public Form_MDIPrincipal()
         {
@@ -32,14 +36,26 @@ namespace UI
             MostrarIdiomas();
             MarcarIdioma();
             ActualizarIdioma(idiomasinuso);
+            flag = ValidarDigitoVerificador("ENTRADA");
         }
 
         #region Sesion
         private void iniciarSesionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form_LogIn formlogin = new Form_LogIn();
-            formlogin.MdiParent = this;
-            formlogin.Show();
+            if (flag)
+            {
+                //Todo bien
+                Form_LogIn formlogin = new Form_LogIn(flag);
+                formlogin.MdiParent = this;
+                formlogin.Show();
+            }
+            else
+            {
+                //Algo salio mal
+                Form_LogIn formlogin = new Form_LogIn(flag);
+                formlogin.MdiParent = this;
+                formlogin.Show();
+            }
         }
 
         private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -189,6 +205,21 @@ namespace UI
                 toolStripStatusLabel_NomApe.Text = "";
                 toolStripStatusLabel_Correo.Text = "";
                 toolStripStatusLabel_Rol.Text = "";
+            }
+        }
+
+        public bool ValidarDigitoVerificador(string nombretabla)
+        {
+            if (blldigitoverificador.VerificarDigito($"{nombretabla}"))
+            {
+                //Todo bien
+                return true;
+            }
+            else
+            {
+                //Algo salio mal
+                MessageBox.Show("Error en la integridad de los datos. Hable con un administrador", "ATENCION");
+                return false;
             }
         }
 

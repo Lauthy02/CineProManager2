@@ -55,6 +55,7 @@
     <Compile Include="BLL_ENTRADA.cs" />
     <Compile Include="BLL_SALA.cs" />
     <Compile Include="BLL_CINE.cs" />
+    <Compile Include="DIGITOVERIFICADOR\BLL_DIGITOVERIFICADOR.cs" />
     <Compile Include="MULTIIDIOMA\BLL_IDIOMA.cs" />
     <Compile Include="MULTIIDIOMA\BLL_TRADUCTOR.cs" />
     <Compile Include="PERMISOS\BLL_PERMISO.cs" />
@@ -76,8 +77,6 @@
     <None Include="ClassDiagramBLL.cd" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DIGITOVERIFICADOR\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
