@@ -45,33 +45,6 @@ namespace DAL
 
             return Encoding.Unicode.GetString(resultado);
         }
-
-        /*
-        public string EncriptarMD5(string contrasenia)
-        {
-            string resultado = string.Empty;
-            byte[] encriptado = Encoding.Unicode.GetBytes(contrasenia);
-            using (MD5 md5 = MD5.Create())
-            {
-                byte[] hash = md5.ComputeHash(encriptado);
-                resultado = Convert.ToBase64String(hash);
-            }
-            return resultado;
-        }
-
-        No anda, no se por qué
-        public string DesencriptarMD5(string contraseniaencriptada)
-        {
-            string resultado = string.Empty;
-            byte[] desencriptado = Convert.FromBase64String(contraseniaencriptada);
-            using (MD5 md5 = MD5.Create())
-            {
-                byte[] hash = md5.ComputeHash(desencriptado);
-                resultado = Encoding.Unicode.GetString(hash);
-            }
-            return resultado;
-        }
-        */
         #endregion
 
         #region SHA256

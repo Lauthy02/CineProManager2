@@ -45,14 +45,14 @@ namespace UI
             if (flag)
             {
                 //Todo bien
-                Form_LogIn formlogin = new Form_LogIn(flag);
+                Form_LogIn formlogin = new Form_LogIn(flag); //Ture
                 formlogin.MdiParent = this;
                 formlogin.Show();
             }
             else
             {
                 //Algo salio mal
-                Form_LogIn formlogin = new Form_LogIn(flag);
+                Form_LogIn formlogin = new Form_LogIn(flag); //False
                 formlogin.MdiParent = this;
                 formlogin.Show();
             }
@@ -140,6 +140,13 @@ namespace UI
             formbitacoraeventos.Show();
         }
 
+        private void bitacoraCambiosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_BitacoraCambios formbitacoracambios = new Form_BitacoraCambios();
+            formbitacoracambios.MdiParent = this;
+            formbitacoracambios.Show();
+        }
+
         private void backupToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form_GestorBackup formgestorbackup = new Form_GestorBackup();
@@ -210,7 +217,7 @@ namespace UI
 
         public bool ValidarDigitoVerificador(string nombretabla)
         {
-            if (blldigitoverificador.VerificarDigito($"{nombretabla}"))
+            if (blldigitoverificador.VerificarDigito(nombretabla))
             {
                 //Todo bien
                 return true;

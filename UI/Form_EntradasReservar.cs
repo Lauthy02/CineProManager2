@@ -14,6 +14,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using BLL.MULTIIDIOMA;
 using BE.MULTIIDIOMA;
 using BE.MULTIIDOMA;
+using BLL.BITACORAYCAMBIOS;
+using BE.BITACORAYCAMBIOS;
+using BLL.DIGITOVERIFICADOR;
 
 namespace UI
 {
@@ -24,6 +27,8 @@ namespace UI
         BLL_PELICULA bllpelicula = new BLL_PELICULA();
         BLL_CINE bllcine = new BLL_CINE();
         BLL_ENTRADA bllentrada = new BLL_ENTRADA();
+        BLL_DIGITOVERIFICADOR blldigitoverificador = new BLL_DIGITOVERIFICADOR();
+        BLL_BITACORA_CAMBIOS_ENTRADA bllbitacoracambiosentrada = new BLL_BITACORA_CAMBIOS_ENTRADA();
 
         public Form_EntradasReservar()
         {
@@ -89,6 +94,7 @@ namespace UI
         private void button_ReservarEntradas_Click(object sender, EventArgs e)
         {
             BE_ENTRADA entradaaux = new BE_ENTRADA();
+            BE_BITACORA_CAMBIOS_ENTRADA bitacoracambiosentradaaux = new BE_BITACORA_CAMBIOS_ENTRADA();
             BE_BUTACA butacaaux = new BE_BUTACA();
             BE_SALA salauax = new BE_SALA();
 
@@ -106,8 +112,16 @@ namespace UI
             entradaaux.Estado = BE_ENTRADA_ESTADO_ENUM.Reservada;
             entradaaux.Sala = salauax;
             entradaaux.Precio = salauax.Precio;
+            entradaaux.DigitoVerificador = blldigitoverificador.CalcularDVH(entradaaux);
 
             bllentrada.GuardarEntrada(entradaaux);
+
+            bitacoracambiosentradaaux.UsuarioQueModifica = BE_SESION.ObtenerInstancia.Usuario;
+            bitacoracambiosentradaaux.FechaDeCambio = DateTime.Now;
+            bitacoracambiosentradaaux.Activo = true;
+            bitacoracambiosentradaaux.B_Entrada = entradaaux;
+
+            bllbitacoracambiosentrada.GuardarEntrada(bitacoracambiosentradaaux);
 
             MessageBox.Show("Entrada reservada correctamente");
             MessageBox.Show("Hable con el taquillero para pagar la entrada");

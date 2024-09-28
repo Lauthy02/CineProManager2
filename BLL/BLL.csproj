@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BACKUP\BLL_BACKUP.cs" />
-    <Compile Include="BITACORAYCAMBIOS\BLL_BITACORA_CAMBIOS.cs" />
+    <Compile Include="BITACORAYCAMBIOS\BLL_BITACORA_CAMBIOS_ENTRADA.cs" />
     <Compile Include="BITACORAYCAMBIOS\BLL_BITACORA_EVENTOS.cs" />
     <Compile Include="BLL_CINE_SALA.cs" />
     <Compile Include="BLL_FUNCION.cs" />

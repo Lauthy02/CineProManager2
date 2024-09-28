@@ -1,4 +1,6 @@
 ﻿using BE;
+using BE.BITACORAYCAMBIOS;
+using DAL.BITACORAYCAMBIOS;
 using DAL.DIGITOVERIFICADOR;
 using System;
 using System.Collections.Generic;
@@ -13,6 +15,7 @@ namespace DAL
     public class DAL_MAPPER_ENTRADA : DAL_MAPPER<BE_ENTRADA>
     {
         DAL_DIGITOVERIFICADOR daldigitoverificador = new DAL_DIGITOVERIFICADOR();
+        DAL_MAPPER_BITACORA_CAMBIOS_ENTRADA dalbitacoracambiosentrada = new DAL_MAPPER_BITACORA_CAMBIOS_ENTRADA();
 
         DAL_MAPPER_USUARIO dalusuario = new DAL_MAPPER_USUARIO();
         DAL_MAPPER_FUNCION dalfuncion = new DAL_MAPPER_FUNCION();
@@ -40,13 +43,12 @@ namespace DAL
             parametros.Add(p);
             p = acceso.CrearParametro("@estado", entidad.Estado.ToString());
             parametros.Add(p);
-            p = acceso.CrearParametro("@digitohorizontal", string.Empty);
+            p = acceso.CrearParametro("@digitohorizontal", entidad.DigitoVerificador);
             parametros.Add(p);
 
             int res = acceso.Escribir("ENTRADA_INSERTAR", parametros);
             //INSERT INTO ENTRADA VALUES (@idusuario, @idfuncion, @idsala, @butaca, @precio, @fehcadereserva, @estado, @digitohorizontal)
 
-            daldigitoverificador.CalcularDVH("ENTRADA"); //De la fila
             daldigitoverificador.CalcularDVV("ENTRADA"); //De toda la tabla
 
             return res;
@@ -128,7 +130,7 @@ namespace DAL
             parametros.Add(p);
             p = acceso.CrearParametro("@estado", entidad.Estado.ToString());
             parametros.Add(p);
-            p = acceso.CrearParametro("@digitohorizontal", string.Empty);
+            p = acceso.CrearParametro("@digitohorizontal", entidad.DigitoVerificador);
             parametros.Add(p);
 
             int res = acceso.Escribir("ENTRADA_EDITAR", parametros);
@@ -145,7 +147,6 @@ namespace DAL
             WHERE id = @id
             */
 
-            daldigitoverificador.CalcularDVH("ENTRADA");
             daldigitoverificador.CalcularDVV("ENTRADA");
 
             return res;

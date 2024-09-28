@@ -1,91 +1,112 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="BE.BE_BUTACA" Collapsed="true">
-    <Position X="5.25" Y="0.5" Width="1.5" />
+    <Position X="7" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAEAAAABAAAAgAAAAIAA=</HashCode>
       <FileName>BE_BUTACA.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BE.BE_CARTELERA" Collapsed="true">
-    <Position X="7" Y="0.5" Width="1.5" />
+    <Position X="8.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
       <FileName>BE_CARTELERA.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BE.BE_CINE" Collapsed="true">
-    <Position X="8.75" Y="0.5" Width="1.5" />
+    <Position X="10.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIACAAAAAAAAIACEACQBgAAEAQAAAAAAAAAAAACAAgA=</HashCode>
       <FileName>BE_CINE.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BE.BE_ENTRADA" Collapsed="true">
-    <Position X="10.5" Y="0.5" Width="1.5" />
+    <Position X="5.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACCAAMAAAACAAAAACAAAAAgEAAAEBAAAAAAAAAAgg=</HashCode>
+      <HashCode>AAACCAAMAAAACAAAAACAAAgQgEAAEEBgAAAAAAAAAgg=</HashCode>
       <FileName>BE_ENTRADA.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BE.BE_FUNCION" Collapsed="true">
-    <Position X="7" Y="1.5" Width="1.5" />
+    <Position X="8.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAECAAABAAAAAAAEAAAAAAAAAAQgAAAEIAAAAAAAAgA=</HashCode>
       <FileName>BE_FUNCION.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BE.BE_PELICULA" Collapsed="true">
-    <Position X="5.25" Y="2.5" Width="1.5" />
+    <Position X="7" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACABAAAAAQAAAEAAEAAAIBEAADABAAAQAAEAAAAhA=</HashCode>
       <FileName>BE_PELICULA.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BE.BE_SALA" Collapsed="true">
-    <Position X="7" Y="2.5" Width="1.5" />
+    <Position X="8.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACgAAAAAAEAQAAAAEAAQAAAAAAAAAAAAAAAAQAAoA=</HashCode>
+      <HashCode>AAACgAAAAAAEAQAEAAEAAQAQAAAAEAAAAAAAAAQAAoA=</HashCode>
       <FileName>BE_SALA.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BE.BE_USUARIO" Collapsed="true">
-    <Position X="5.25" Y="3.5" Width="1.5" />
+    <Position X="7" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAASAAAQAIQAEACEAAAAgACAAIAAAACAAAAAAAAAEgA=</HashCode>
       <FileName>BE_USUARIO.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BE.BE_SESION" Collapsed="true">
-    <Position X="8.75" Y="2.5" Width="1.5" />
+    <Position X="10.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAEAAAAAAAAAgAAACAAAAABABQAAQUEAAAEEAA=</HashCode>
       <FileName>SESION\BE_SESION.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="BE.BITACORAYCAMBIOS.BE_BITACORA_CAMBIOS">
+    <Position X="2.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAAAAAAAAAAAAAAEQAAEAAgAAAAIAAAAgA=</HashCode>
+      <FileName>BITACORAYCAMBIOS\BE_BITACORA_CAMBIOS.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.BITACORAYCAMBIOS.BE_BITACORA_CAMBIOS_ENTRADA">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gIAAAQAAAAEEAAAABAgAAACIEQAAEBAAABAgAIAAIQA=</HashCode>
+      <FileName>BITACORAYCAMBIOS\BE_BITACORA_CAMBIOS_ENTRADA.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.BITACORAYCAMBIOS.BE_BITACORA_EVENTOS" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACBAAAAQAAAAEAAAAAAAAAAAAAAAQAAAAEAAAAAgQ=</HashCode>
+      <FileName>BITACORAYCAMBIOS\BE_BITACORA_EVENTOS.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="BE.MULTIIDOMA.BE_ETIQUETA" Collapsed="true">
-    <Position X="5.25" Y="1.5" Width="1.5" />
+    <Position X="7" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>MULTIIDIOMA\BE_ETIQUETA.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BE.MULTIIDOMA.BE_IDIOMA" Collapsed="true">
-    <Position X="8.75" Y="1.5" Width="1.5" />
+    <Position X="10.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAACAAAAAACAAAAAgAAAAAAAAAAAAAAAAAACAgA=</HashCode>
+      <HashCode>AAACAAACAAAAAACAAAAAiAAAAAgAAAAAAAIAAAAAAgA=</HashCode>
       <FileName>MULTIIDIOMA\BE_IDIOMA.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BE.MULTIIDOMA.BE_TRADUCCION" Collapsed="true">
-    <Position X="10.5" Y="2.5" Width="1.5" />
+    <Position X="5.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAIAAAACABAABAAQAAQAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>MULTIIDIOMA\BE_TRADUCCION.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BE.PERMISOS.BE_ACCION" Collapsed="true">
-    <Position X="0.5" Y="1.75" Width="1.5" />
+    <Position X="2.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAgAAAAQAAAEAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>PERMISOS\BE_ACCION.cs</FileName>
@@ -99,14 +120,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="BE.PERMISOS.BE_ROL" Collapsed="true">
-    <Position X="2.75" Y="1.75" Width="1.5" />
+    <Position X="0.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAgAAAAQAAAEEAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>PERMISOS\BE_ROL.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BE.SESION.BE_LOGIN_EXCEPCION" Collapsed="true">
-    <Position X="10.5" Y="1.5" Width="1.5" />
+    <Position X="5.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
       <FileName>SESION\BE_LOGIN_EXCEPCION.cs</FileName>
@@ -141,35 +162,28 @@
     </TypeIdentifier>
   </Enum>
   <Enum Name="BE.BE_PELICULA_GENERO_ENUM" Collapsed="true">
-    <Position X="5.25" Y="6.5" Width="1.5" />
+    <Position X="10.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAACIQAAAAIQAABAAAIAABAAAAQAAAADABAAAACA=</HashCode>
       <FileName>BE_PELICULA_GENERO_ENUM.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="BE.BE_SALA_FORMATO_ENUM" Collapsed="true">
-    <Position X="8.75" Y="6.5" Width="1.5" />
+    <Position X="7" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAhIAAAAAAAAAAIAAAABAAAAAAAAAACAAAAgAA=</HashCode>
       <FileName>BE_SALA_FORMATO_ENUM.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="BE.BE_PERMISO_TIPO_ENUM" Collapsed="true">
-    <Position X="7" Y="6.5" Width="1.5" />
+    <Position X="5.25" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CAAAAACgAAAAAAAAQAEAAAABAAQgAACAACAAAACAAKA=</HashCode>
+      <HashCode>CAAAAQCgAAQAAAAASAEAAAABAAQgAACAACAAAACAgKA=</HashCode>
       <FileName>PERMISOS\BE_PERMISO_TIPO_ENUM.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="BE.MULTIIDOMA.BE_IDIOMA_NOMBRE_ENUM" Collapsed="true">
-    <Position X="8.75" Y="5.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>MULTIIDIOMA\BE_IDIOMA_NOMBRE_ENUM.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
   <Enum Name="BE.SESION.BE_LOGIN_RESULTADO_ENUM" Collapsed="true">
-    <Position X="10.5" Y="5.75" Width="1.5" />
+    <Position X="8.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAQAAAAAQAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SESION\BE_LOGIN_RESULTADO_ENUM.cs</FileName>

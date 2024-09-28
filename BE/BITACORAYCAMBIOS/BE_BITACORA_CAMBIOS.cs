@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE.BITACORAYCAMBIOS
 {
-    public class BE_BITACORA_CAMBIOS
+    public abstract class BE_BITACORA_CAMBIOS
     {        
         private int id;
         public int Id
@@ -15,53 +15,25 @@ namespace BE.BITACORAYCAMBIOS
             set { id = value; }
         }
 
-        private BE_USUARIO usuario;
-        public BE_USUARIO Usuario
+        private BE_USUARIO usuarioquemodifica;
+        public BE_USUARIO UsuarioQueModifica
         {
-            get { return usuario; }
-            set { usuario = value; }
-        }
-
-        private string accion;
-        public string Accion
-        {
-            get { return accion; }
-            set { accion = value; }
-        }
-
-        private string datoPrevio;
-        public string DatoPrevio
-        {
-            get { return datoPrevio; }
-            set { datoPrevio = value; }
-        }
-
-        private string datoPosterior;
-        public string DatoPosterior
-        {
-            get { return datoPosterior; }
-            set { datoPosterior = value; }
+            get { return usuarioquemodifica; }
+            set { usuarioquemodifica = value; }
         }
         
-        private DateTime fecha;
-        public DateTime Fecha
+        private DateTime fechadecambio;
+        public DateTime FechaDeCambio
         {
-            get { return fecha; }
-            set { fecha = value; }
+            get { return fechadecambio; }
+            set { fechadecambio = value; }
         }
 
-        private string consultaEjecutada;
-        public string ConsultaEjecutada
+        private bool activo;
+        public bool Activo
         {
-            get { return consultaEjecutada; }
-            set { consultaEjecutada = value; }
-        }
-
-        private string consultaReversa;
-        public string ConsultaReversa
-        {
-            get { return consultaReversa; }
-            set { consultaReversa = value; }
+            get { return activo; }
+            set { activo = value; }
         }
     }
 }
