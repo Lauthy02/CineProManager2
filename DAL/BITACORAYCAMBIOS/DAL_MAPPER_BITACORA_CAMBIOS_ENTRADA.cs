@@ -84,19 +84,11 @@ namespace DAL.BITACORAYCAMBIOS
 
             //Setear como activo en la bitácora
 
-            //No uso stored procedure porque hay un "error" al mandar la fecha por parámetro:
-            //La fecha desde el códgo se manda con el formato '2024-09-29 15:32:08' pero para que la query funcione
-            //se tiene que mandar '2024-09-29 15:32:08.853' y no supe como resolverlo 
+            //MessageBox.Show(entradaanterior.FechaDeCambio.ToString("yyyy-MM-dd HH:mm:ss.fff"));
+            //MessageBox.Show(entradaanterior.FechaDeCambio.Millisecond.ToString());
 
-            MessageBox.Show(entradaanterior.FechaDeCambio.ToString("yyyy-MM-dd HH:mm:ss.fff"));
-            MessageBox.Show(entradaanterior.FechaDeCambio.Millisecond.ToString());
-
-            int res = acceso.Escribir($"UPDATE BITACORACAMBIOS_ENTRADA SET activo = 0 WHERE b_identrada = {entrada.Id};", null, false);
-            int res2 = acceso.Escribir($"UPDATE BITACORACAMBIOS_ENTRADA SET activo = 1 WHERE fechadecambio = '{entradaanterior.FechaDeCambio.ToString("yyyy-MM-dd HH:mm:ss.fff")}';", null, false);
-            /*
-            string fechaconmilisegundos = entradaanterior.FechaDeCambio.ToString("yyyy-MM-dd HH:mm:ss.fff");
             List<SqlParameter> parametros = new List<SqlParameter>();
-            SqlParameter p = acceso.CrearParametro("@fechadecambio", fechaconmilisegundos);
+            SqlParameter p = acceso.CrearParametro("@fechadecambio", entradaanterior.FechaDeCambio);
             parametros.Add(p);
             p = acceso.CrearParametro("@activo", 1);
             parametros.Add(p);
@@ -148,11 +140,12 @@ namespace DAL.BITACORAYCAMBIOS
 
             bitacoraentrada.Id = int.Parse(registro["id"].ToString());
             bitacoraentrada.UsuarioQueModifica.Id = int.Parse(registro["idusuarioquemodifica"].ToString());
-            
+
+            //Hago un tratamiento manual de la fecha porque el DateTime.Parse() no me guarda los milisegundos leídos del registro
+            //Estos milisegundos los necesito para la comparación de fechas en la función RecomponerEstado() para saber cuál setear como activo
             object registroFecha = registro["fechadecambio"]; // Valor de SQL Server
             DateTime fechaFinal = ProcesarFechaDesdeSQL(registroFecha);
             bitacoraentrada.FechaDeCambio = fechaFinal;
-            //bitacoraentrada.FechaDeCambio = DateTime.Parse(registro["fechadecambio"].ToString());
 
             bitacoraentrada.Activo = bool.Parse(registro["activo"].ToString());
             bitacoraentrada.B_Entrada = new BE_ENTRADA 
