@@ -200,7 +200,6 @@ namespace DAL.BITACORAYCAMBIOS
             return ConstruirFecha(year, month, day, hour, minute, second, millisecond);
         }
 
-
         //PODRIA HACER UNA FUNCION QUE SEA LENAR ENTRADA. 
 
         private void LlenarUsuario(BE_BITACORA_CAMBIOS_ENTRADA entidad)
