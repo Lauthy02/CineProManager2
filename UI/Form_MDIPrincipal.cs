@@ -185,7 +185,6 @@ namespace UI
         }
         #endregion
 
-
         public void ValidarForm() //Para los permisos
         {
             MenuItemsEnDisabled(gestoresToolStripMenuItem);

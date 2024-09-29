@@ -15,7 +15,6 @@ namespace DAL
     public class DAL_MAPPER_ENTRADA : DAL_MAPPER<BE_ENTRADA>
     {
         DAL_DIGITOVERIFICADOR daldigitoverificador = new DAL_DIGITOVERIFICADOR();
-        DAL_MAPPER_BITACORA_CAMBIOS_ENTRADA dalbitacoracambiosentrada = new DAL_MAPPER_BITACORA_CAMBIOS_ENTRADA();
 
         DAL_MAPPER_USUARIO dalusuario = new DAL_MAPPER_USUARIO();
         DAL_MAPPER_FUNCION dalfuncion = new DAL_MAPPER_FUNCION();
@@ -43,12 +42,13 @@ namespace DAL
             parametros.Add(p);
             p = acceso.CrearParametro("@estado", entidad.Estado.ToString());
             parametros.Add(p);
-            p = acceso.CrearParametro("@digitohorizontal", entidad.DigitoVerificador);
+            p = acceso.CrearParametro("@digitohorizontal", string.Empty);
             parametros.Add(p);
 
             int res = acceso.Escribir("ENTRADA_INSERTAR", parametros);
             //INSERT INTO ENTRADA VALUES (@idusuario, @idfuncion, @idsala, @butaca, @precio, @fehcadereserva, @estado, @digitohorizontal)
 
+            daldigitoverificador.CalcularDVH("ENTRADA");
             daldigitoverificador.CalcularDVV("ENTRADA"); //De toda la tabla
 
             return res;
@@ -111,6 +111,29 @@ namespace DAL
             return entradas;
         }
 
+        public BE_ENTRADA BuscarFecha(DateTime fecha)
+        {
+            List<BE_ENTRADA> entradas = new List<BE_ENTRADA>();
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            SqlParameter p = acceso.CrearParametro("@fecha", fecha);
+            parametros.Add(p);
+
+            DataTable tabla = acceso.Leer("ENTRADA_BUSCARFECHA", parametros);
+            //SELECT * FROM ENTRADA WHERE fechadereserva = @fecha
+            foreach (DataRow dr in tabla.Rows)
+            {
+                entradas.Add(Convertir(dr));
+            }
+
+            foreach (var entrada in entradas)
+            {
+                LlenarUsuario(entrada);
+                LlenarFuncion(entrada);
+                LlenarSala(entrada);
+            }
+            return entradas[0];
+        }
+
         public override int Modificacion(BE_ENTRADA entidad)
         {
             List<SqlParameter> parametros = new List<SqlParameter>();
@@ -130,7 +153,7 @@ namespace DAL
             parametros.Add(p);
             p = acceso.CrearParametro("@estado", entidad.Estado.ToString());
             parametros.Add(p);
-            p = acceso.CrearParametro("@digitohorizontal", entidad.DigitoVerificador);
+            p = acceso.CrearParametro("@digitohorizontal", string.Empty);
             parametros.Add(p);
 
             int res = acceso.Escribir("ENTRADA_EDITAR", parametros);
@@ -147,6 +170,7 @@ namespace DAL
             WHERE id = @id
             */
 
+            daldigitoverificador.CalcularDVH("ENTRADA");
             daldigitoverificador.CalcularDVV("ENTRADA");
 
             return res;

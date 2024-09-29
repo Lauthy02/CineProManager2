@@ -36,18 +36,9 @@ namespace UI
             BE_BITACORA_CAMBIOS_ENTRADA entradabitacoraaux = new BE_BITACORA_CAMBIOS_ENTRADA();
 
             entradabitacoraaux = (BE_BITACORA_CAMBIOS_ENTRADA)dataGridView1.CurrentRow.DataBoundItem;
-            /*
-            entradabitacoraaux.B_Entrada.Id = int.Parse(dataGridView1.CurrentRow.Cells["b_identrada"].Value.ToString());
-            entradabitacoraaux.B_Entrada.Cliente.Id = int.Parse(dataGridView1.CurrentRow.Cells["b_idusuario"].Value.ToString());
-            entradabitacoraaux.B_Entrada.Funcion.Id = int.Parse(dataGridView1.CurrentRow.Cells["b_idfuncion"].Value.ToString());
-            entradabitacoraaux.B_Entrada.Sala.Id = int.Parse(dataGridView1.CurrentRow.Cells["b_idsala"].Value.ToString());
-            entradabitacoraaux.B_Entrada.AsientoReservado = dataGridView1.CurrentRow.Cells["b_butaca"].Value.ToString();
-            entradabitacoraaux.B_Entrada.Precio = float.Parse(dataGridView1.CurrentRow.Cells["b_precio"].Value.ToString());
-            entradabitacoraaux.B_Entrada.FechaDeReserva = DateTime.Parse(dataGridView1.CurrentRow.Cells["b_fechadereserva"].Value.ToString());
-            entradabitacoraaux.B_Entrada.Estado = (BE_ENTRADA_ESTADO_ENUM)Enum.Parse(typeof(BE_ENTRADA_ESTADO_ENUM), dataGridView1.CurrentRow.Cells["b_estado"].Value.ToString());
-            entradabitacoraaux.B_Entrada.DigitoVerificador = dataGridView1.CurrentRow.Cells["b_digitohorizontal"].Value.ToString();
-            */
             bllbitacoracambios.RecomponerEstado(entradabitacoraaux);
+            MessageBox.Show("Estado del registro cambiado con éxito");
+            LlenarDataGrid();
         }
 
         private void LlenarDataGrid()

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace BE.BITACORAYCAMBIOS
 {
     public abstract class BE_BITACORA_CAMBIOS
-    {        
+    {
         private int id;
         public int Id
         {

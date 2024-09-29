@@ -112,7 +112,7 @@ namespace UI
             entradaaux.Estado = BE_ENTRADA_ESTADO_ENUM.Reservada;
             entradaaux.Sala = salauax;
             entradaaux.Precio = salauax.Precio;
-            entradaaux.DigitoVerificador = blldigitoverificador.CalcularDVH(entradaaux);
+            //entradaaux.DigitoVerificador = blldigitoverificador.CalcularDVH(entradaaux);
 
             bllentrada.GuardarEntrada(entradaaux);
 

@@ -42,7 +42,7 @@ namespace UI
             if (entradaaux != null)
             {
                 entradaaux.Estado = BE_ENTRADA_ESTADO_ENUM.Pagada;
-                entradaaux.DigitoVerificador = blldigitoverificador.CalcularDVH(entradaaux);
+                //entradaaux.DigitoVerificador = blldigitoverificador.CalcularDVH(entradaaux);
 
                 bllentdada.GuardarEntrada(entradaaux);
 

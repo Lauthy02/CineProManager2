@@ -8,7 +8,12 @@ namespace BE.BITACORAYCAMBIOS
 {
     public class BE_BITACORA_CAMBIOS_ENTRADA : BE_BITACORA_CAMBIOS
     {
-		private BE_ENTRADA b_entrada;
+        public BE_BITACORA_CAMBIOS_ENTRADA()
+        {
+            this.UsuarioQueModifica = new BE_USUARIO();
+        }
+
+        private BE_ENTRADA b_entrada;
 		public BE_ENTRADA B_Entrada
 		{
 			get { return b_entrada; }

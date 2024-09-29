@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DAL.BITACORAYCAMBIOS
 {
@@ -27,6 +28,8 @@ namespace DAL.BITACORAYCAMBIOS
 
         public int Alta(BE_BITACORA_CAMBIOS_ENTRADA entidad)
         {
+            BE_ENTRADA entrada = dalmapperentrada.BuscarFecha(entidad.B_Entrada.FechaDeReserva);
+
             List<SqlParameter> parametros = new List<SqlParameter>();
             SqlParameter p = acceso.CrearParametro("@idusuarioquemodifica", entidad.UsuarioQueModifica.Id);
             parametros.Add(p);
@@ -34,7 +37,7 @@ namespace DAL.BITACORAYCAMBIOS
             parametros.Add(p);
             p = acceso.CrearParametro("@activo", entidad.Activo ? 1 : 0);
             parametros.Add(p);
-            p = acceso.CrearParametro("@b_identrada", entidad.B_Entrada.Id);
+            p = acceso.CrearParametro("@b_identrada", entrada.Id);
             parametros.Add(p);
             p = acceso.CrearParametro("@b_idusuario", entidad.B_Entrada.Cliente.Id);
             parametros.Add(p);
@@ -50,13 +53,13 @@ namespace DAL.BITACORAYCAMBIOS
             parametros.Add(p);
             p = acceso.CrearParametro("@b_estado", entidad.B_Entrada.Estado.ToString());
             parametros.Add(p);
-            p = acceso.CrearParametro("@b_digitohorizontal", entidad.B_Entrada.DigitoVerificador);
+            p = acceso.CrearParametro("@b_digitohorizontal", entrada.DigitoVerificador);
             parametros.Add(p);
 
             int res = acceso.Escribir("BITACORA_CAMBIOS_ENTRADA_INSERTAR", parametros);
             return res;
             /*
-            UPDATE BITACORACAMBIOS_ENTRADA SET activo = 0;
+            --UPDATE BITACORACAMBIOS_ENTRADA SET activo = 0 WHERE b_identrada = @identrada;
             INSERT INTO BITACORACAMBIOS_ENTRADA VALUES (@idusuarioquemodifica, @fechadecambio, @activo, @accion, @b_identrada, @b_idusuario, @b_idfuncion, @b_idsala, @b_butaca, @b_precio, @b_fechadereserva, @b_estado, @b_digitohorizontal)
             */
         }
@@ -80,16 +83,30 @@ namespace DAL.BITACORAYCAMBIOS
             dalmapperentrada.Modificacion(entrada);
 
             //Setear como activo en la bitácora
+
+            //No uso stored procedure porque hay un "error" al mandar la fecha por parámetro:
+            //La fecha desde el códgo se manda con el formato '2024-09-29 15:32:08' pero para que la query funcione
+            //se tiene que mandar '2024-09-29 15:32:08.853' y no supe como resolverlo 
+
+            MessageBox.Show(entradaanterior.FechaDeCambio.ToString("yyyy-MM-dd HH:mm:ss.fff"));
+            MessageBox.Show(entradaanterior.FechaDeCambio.Millisecond.ToString());
+
+            int res = acceso.Escribir($"UPDATE BITACORACAMBIOS_ENTRADA SET activo = 0 WHERE b_identrada = {entrada.Id};", null, false);
+            int res2 = acceso.Escribir($"UPDATE BITACORACAMBIOS_ENTRADA SET activo = 1 WHERE fechadecambio = '{entradaanterior.FechaDeCambio.ToString("yyyy-MM-dd HH:mm:ss.fff")}';", null, false);
+            /*
+            string fechaconmilisegundos = entradaanterior.FechaDeCambio.ToString("yyyy-MM-dd HH:mm:ss.fff");
             List<SqlParameter> parametros = new List<SqlParameter>();
-            SqlParameter p = acceso.CrearParametro("@fechadecambio", entradaanterior.FechaDeCambio);
+            SqlParameter p = acceso.CrearParametro("@fechadecambio", fechaconmilisegundos);
             parametros.Add(p);
             p = acceso.CrearParametro("@activo", 1);
+            parametros.Add(p);
+            p = acceso.CrearParametro("@b_identrada", entrada.Id);
             parametros.Add(p);
 
             int res = acceso.Escribir("BITACORA_CAMBIOS_ENTRADA_MODIFICAR", parametros);
             /*
            	--Setear todos los activos en 0
-	        UPDATE BITACORACAMBIOS_ENTRADA SET activo = 0;
+	        UPDATE BITACORACAMBIOS_ENTRADA SET activo = 0 WHERE b_identrada = @b_identrada;
 
 	        --Setear solo el activo en 1
 	        UPDATE BITACORACAMBIOS_ENTRADA SET 
@@ -119,7 +136,7 @@ namespace DAL.BITACORAYCAMBIOS
 
         internal BE_BITACORA_CAMBIOS_ENTRADA Convertir(DataRow registro)
         {
-            string butaca = registro["butaca"].ToString();
+            string butaca = registro["b_butaca"].ToString();
             string fila = new string(butaca.TakeWhile(c => !char.IsDigit(c)).ToArray());
             string columna = new string(butaca.SkipWhile(c => !char.IsDigit(c)).ToArray());
 
@@ -131,7 +148,12 @@ namespace DAL.BITACORAYCAMBIOS
 
             bitacoraentrada.Id = int.Parse(registro["id"].ToString());
             bitacoraentrada.UsuarioQueModifica.Id = int.Parse(registro["idusuarioquemodifica"].ToString());
-            bitacoraentrada.FechaDeCambio = DateTime.Parse(registro["fechadecambio"].ToString());
+            
+            object registroFecha = registro["fechadecambio"]; // Valor de SQL Server
+            DateTime fechaFinal = ProcesarFechaDesdeSQL(registroFecha);
+            bitacoraentrada.FechaDeCambio = fechaFinal;
+            //bitacoraentrada.FechaDeCambio = DateTime.Parse(registro["fechadecambio"].ToString());
+
             bitacoraentrada.Activo = bool.Parse(registro["activo"].ToString());
             bitacoraentrada.B_Entrada = new BE_ENTRADA 
             {
@@ -148,6 +170,45 @@ namespace DAL.BITACORAYCAMBIOS
 
             return bitacoraentrada;
         }
+
+        public DateTime ConstruirFecha(int year, int month, int day, int hour, int minute, int second, int millisecond)
+        {
+            // Crear un nuevo objeto DateTime con los valores asignados
+            DateTime fechaConstruida = new DateTime(year, month, day, hour, minute, second, millisecond);
+            return fechaConstruida;
+        }
+
+        public DateTime ProcesarFechaDesdeSQL(object registroFecha)
+        {
+            // Verificar si el valor que viene de la base de datos es un DateTime
+            DateTime fechaSQL;
+
+            // Si ya es un DateTime, no necesitamos hacer un parse
+            if (registroFecha is DateTime)
+            {
+                fechaSQL = (DateTime)registroFecha;
+            }
+            else
+            {
+                // Si es una cadena, convertirla
+                fechaSQL = DateTime.Parse(registroFecha.ToString());
+            }
+
+            // Obtener los componentes de la fecha
+            int year = fechaSQL.Year;
+            int month = fechaSQL.Month;
+            int day = fechaSQL.Day;
+            int hour = fechaSQL.Hour;
+            int minute = fechaSQL.Minute;
+            int second = fechaSQL.Second;
+            int millisecond = fechaSQL.Millisecond;
+
+            // Usar la función ConstruirFecha para reconstruirla si es necesario
+            return ConstruirFecha(year, month, day, hour, minute, second, millisecond);
+        }
+
+
+        //PODRIA HACER UNA FUNCION QUE SEA LENAR ENTRADA. 
 
         private void LlenarUsuario(BE_BITACORA_CAMBIOS_ENTRADA entidad)
         {
