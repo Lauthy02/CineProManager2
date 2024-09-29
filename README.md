@@ -45,6 +45,8 @@
 	- ABMSalas
 	- ABMFunciones
 	- GestionarCines
+ - Empleado de golosinas 1029
+ 	- ??
 
  # Usuarios
  - Administrador
@@ -61,4 +63,7 @@
   	- Contraseña: 1234
 - Gerente de cine 
  	- Nombre de usuario: MaxV 
+  	- Contraseña: 1234
+- Empleado de golosinas
+	- Nombre de usuario: LanNorr 
   	- Contraseña: 1234
