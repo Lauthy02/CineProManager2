@@ -17,14 +17,14 @@ using BE.BITACORAYCAMBIOS;
 
 namespace UI
 {
-    public partial class Form_BitacoraCambios : Form, BE_IOBSERVERIDIOMA
+    public partial class Form_BitacoraCambiosEntradas : Form, BE_IOBSERVERIDIOMA
     {
         BLL_SESION bllsesion = new BLL_SESION();
         BLL_TRADUCTOR blltraductor = new BLL_TRADUCTOR();
 
         BLL_BITACORA_CAMBIOS_ENTRADA bllbitacoracambios = new BLL_BITACORA_CAMBIOS_ENTRADA();
 
-        public Form_BitacoraCambios()
+        public Form_BitacoraCambiosEntradas()
         {
             InitializeComponent();
             ActualizarIdioma(BE_SESION.ObtenerInstancia.Usuario.Idioma);

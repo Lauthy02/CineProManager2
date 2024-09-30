@@ -142,7 +142,7 @@ namespace UI
 
         private void bitacoraCambiosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form_BitacoraCambios formbitacoracambios = new Form_BitacoraCambios();
+            Form_BitacoraCambiosEntradas formbitacoracambios = new Form_BitacoraCambiosEntradas();
             formbitacoracambios.MdiParent = this;
             formbitacoracambios.Show();
         }

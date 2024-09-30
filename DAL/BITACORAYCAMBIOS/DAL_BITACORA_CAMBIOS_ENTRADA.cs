@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace DAL.BITACORAYCAMBIOS
 {
-    public class DAL_MAPPER_BITACORA_CAMBIOS_ENTRADA
+    public class DAL_BITACORA_CAMBIOS_ENTRADA
     {
         DAL_MAPPER_ENTRADA dalmapperentrada = new DAL_MAPPER_ENTRADA();
 
@@ -21,7 +21,7 @@ namespace DAL.BITACORAYCAMBIOS
 
         internal DAL_ACCESOBD acceso = new DAL_ACCESOBD();
 
-        public DAL_MAPPER_BITACORA_CAMBIOS_ENTRADA()
+        public DAL_BITACORA_CAMBIOS_ENTRADA()
         {
             acceso.AbrirConexion();
         }
@@ -164,14 +164,14 @@ namespace DAL.BITACORAYCAMBIOS
             return bitacoraentrada;
         }
 
-        public DateTime ConstruirFecha(int year, int month, int day, int hour, int minute, int second, int millisecond)
+        private DateTime ConstruirFecha(int year, int month, int day, int hour, int minute, int second, int millisecond)
         {
             // Crear un nuevo objeto DateTime con los valores asignados
             DateTime fechaConstruida = new DateTime(year, month, day, hour, minute, second, millisecond);
             return fechaConstruida;
         }
 
-        public DateTime ProcesarFechaDesdeSQL(object registroFecha)
+        private DateTime ProcesarFechaDesdeSQL(object registroFecha)
         {
             // Verificar si el valor que viene de la base de datos es un DateTime
             DateTime fechaSQL;

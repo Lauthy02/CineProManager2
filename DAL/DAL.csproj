@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BACKUP\DAL_BACKUP.cs" />
-    <Compile Include="BITACORAYCAMBIOS\DAL_MAPPER_BITACORA_CAMBIOS_ENTRADA.cs" />
+    <Compile Include="BITACORAYCAMBIOS\DAL_BITACORA_CAMBIOS_ENTRADA.cs" />
     <Compile Include="BITACORAYCAMBIOS\DAL_MAPPER_BITACORA_EVENTOS.cs" />
     <Compile Include="DAL_ACCESOBD.cs" />
     <Compile Include="DAL_CINE_SALA.cs" />

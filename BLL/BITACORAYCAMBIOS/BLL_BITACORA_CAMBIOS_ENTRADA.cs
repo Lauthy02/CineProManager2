@@ -11,7 +11,7 @@ namespace BLL.BITACORAYCAMBIOS
 {
     public class BLL_BITACORA_CAMBIOS_ENTRADA
     {
-        DAL_MAPPER_BITACORA_CAMBIOS_ENTRADA dalbitacoracambiosentrada = new DAL_MAPPER_BITACORA_CAMBIOS_ENTRADA();
+        DAL_BITACORA_CAMBIOS_ENTRADA dalbitacoracambiosentrada = new DAL_BITACORA_CAMBIOS_ENTRADA();
 
         public int GuardarEntrada(BE_BITACORA_CAMBIOS_ENTRADA bitacoracambiosentrada)
         {

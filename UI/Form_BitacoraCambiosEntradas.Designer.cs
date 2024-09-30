@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class Form_BitacoraCambios
+    partial class Form_BitacoraCambiosEntradas
     {
         /// <summary>
         /// Required designer variable.

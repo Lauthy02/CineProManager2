@@ -44,6 +44,8 @@
             this.aBMFuncionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMIdiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bitacoraEventosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bitacoraCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.carteleraToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pagarEntradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,8 +57,6 @@
             this.toolStripStatusLabel_NomApe = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_Rol = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_Correo = new System.Windows.Forms.ToolStripStatusLabel();
-            this.backupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bitacoraCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -88,7 +88,7 @@
             // iniciarSesionToolStripMenuItem
             // 
             this.iniciarSesionToolStripMenuItem.Name = "iniciarSesionToolStripMenuItem";
-            this.iniciarSesionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.iniciarSesionToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.iniciarSesionToolStripMenuItem.Tag = "IniciarSesion";
             this.iniciarSesionToolStripMenuItem.Text = "Iniciar sesión";
             this.iniciarSesionToolStripMenuItem.Click += new System.EventHandler(this.iniciarSesionToolStripMenuItem_Click);
@@ -96,7 +96,7 @@
             // cerrarSesionToolStripMenuItem
             // 
             this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
-            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.cerrarSesionToolStripMenuItem.Tag = "CerrarSesion";
             this.cerrarSesionToolStripMenuItem.Text = "Cerrar sesión";
             this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
@@ -201,6 +201,22 @@
             this.bitacoraEventosToolStripMenuItem.Text = "Bitacora eventos";
             this.bitacoraEventosToolStripMenuItem.Click += new System.EventHandler(this.bitacoraEventosToolStripMenuItem_Click);
             // 
+            // bitacoraCambiosToolStripMenuItem
+            // 
+            this.bitacoraCambiosToolStripMenuItem.Name = "bitacoraCambiosToolStripMenuItem";
+            this.bitacoraCambiosToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.bitacoraCambiosToolStripMenuItem.Tag = "GestionarBitacoraCambios";
+            this.bitacoraCambiosToolStripMenuItem.Text = "Bitacora cambios de entradas";
+            this.bitacoraCambiosToolStripMenuItem.Click += new System.EventHandler(this.bitacoraCambiosToolStripMenuItem_Click);
+            // 
+            // backupToolStripMenuItem
+            // 
+            this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
+            this.backupToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.backupToolStripMenuItem.Tag = "GestionarBackup";
+            this.backupToolStripMenuItem.Text = "Backup";
+            this.backupToolStripMenuItem.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
+            // 
             // cineToolStripMenuItem
             // 
             this.cineToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -288,22 +304,6 @@
             this.toolStripStatusLabel_Correo.Name = "toolStripStatusLabel_Correo";
             this.toolStripStatusLabel_Correo.Size = new System.Drawing.Size(51, 17);
             this.toolStripStatusLabel_Correo.Text = "[Correo]";
-            // 
-            // backupToolStripMenuItem
-            // 
-            this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
-            this.backupToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
-            this.backupToolStripMenuItem.Tag = "GestionarBackup";
-            this.backupToolStripMenuItem.Text = "Backup";
-            this.backupToolStripMenuItem.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
-            // 
-            // bitacoraCambiosToolStripMenuItem
-            // 
-            this.bitacoraCambiosToolStripMenuItem.Name = "bitacoraCambiosToolStripMenuItem";
-            this.bitacoraCambiosToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
-            this.bitacoraCambiosToolStripMenuItem.Tag = "GestionarBitacoraCambios";
-            this.bitacoraCambiosToolStripMenuItem.Text = "Bitacora cambios";
-            this.bitacoraCambiosToolStripMenuItem.Click += new System.EventHandler(this.bitacoraCambiosToolStripMenuItem_Click);
             // 
             // Form_MDIPrincipal
             // 
