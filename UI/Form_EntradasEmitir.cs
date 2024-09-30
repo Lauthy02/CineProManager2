@@ -24,6 +24,7 @@ namespace UI
         BLL_TRADUCTOR blltraductor = new BLL_TRADUCTOR();
         BLL_ENTRADA bllentdada = new BLL_ENTRADA();
         BLL_DIGITOVERIFICADOR blldigitoverificador = new BLL_DIGITOVERIFICADOR();
+        BLL_BITACORA_EVENTOS bllbitacoraeventos = new BLL_BITACORA_EVENTOS();
         BLL_BITACORA_CAMBIOS_ENTRADA bllbitacoracambiosentrada = new BLL_BITACORA_CAMBIOS_ENTRADA();
 
         public Form_EntradasEmitir()
@@ -67,11 +68,13 @@ namespace UI
 
         private void Form_EntradasEmitir_Load(object sender, EventArgs e)
         {
+            bllbitacoraeventos.GuardarBitacoraEvento(new BE_BITACORA_EVENTOS(BE_SESION.ObtenerInstancia.Usuario, DateTime.Now, $"Abrir {this.Text}"));
             bllsesion.AgregarObservadorForm(this);
         }
 
         private void Form_EntradasEmitir_FormClosing(object sender, FormClosingEventArgs e)
         {
+            bllbitacoraeventos.GuardarBitacoraEvento(new BE_BITACORA_EVENTOS(BE_SESION.ObtenerInstancia.Usuario, DateTime.Now, $"Cerrar {this.Text}"));
             bllsesion.QuitarObservadorForm(this);
         }
 

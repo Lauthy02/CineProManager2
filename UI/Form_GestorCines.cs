@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BE.MULTIIDOMA;
 using BE;
+using BLL.BITACORAYCAMBIOS;
+using BE.BITACORAYCAMBIOS;
 
 namespace UI
 {
@@ -19,6 +21,7 @@ namespace UI
     {
         BLL_SESION bllsesion = new BLL_SESION();
         BLL_TRADUCTOR blltraductor = new BLL_TRADUCTOR();
+        BLL_BITACORA_EVENTOS bllbitacoraeventos = new BLL_BITACORA_EVENTOS();
         BLL_CINE bllcine = new BLL_CINE();
 
         public Form_GestorCines()
@@ -68,11 +71,13 @@ namespace UI
 
         private void Form_GestorCines_Load(object sender, EventArgs e)
         {
+            bllbitacoraeventos.GuardarBitacoraEvento(new BE_BITACORA_EVENTOS(BE_SESION.ObtenerInstancia.Usuario, DateTime.Now, $"Abrir {this.Text}"));
             bllsesion.AgregarObservadorForm(this);
         }
 
         private void Form_GestorCines_FormClosing(object sender, FormClosingEventArgs e)
         {
+            bllbitacoraeventos.GuardarBitacoraEvento(new BE_BITACORA_EVENTOS(BE_SESION.ObtenerInstancia.Usuario, DateTime.Now, $"Cerrar {this.Text}"));
             bllsesion.QuitarObservadorForm(this);
         }
 

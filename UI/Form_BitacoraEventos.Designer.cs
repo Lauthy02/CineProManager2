@@ -50,7 +50,7 @@
             this.Name = "Form_BitacoraEventos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "GestionarBitacoraEventos";
-            this.Text = "Form_BitacoraEventos";
+            this.Text = "Bitacora eventos";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_BitacoraEventos_FormClosing);
             this.Load += new System.EventHandler(this.Form_BitacoraEventos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

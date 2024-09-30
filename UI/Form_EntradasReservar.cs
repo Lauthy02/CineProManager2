@@ -28,6 +28,7 @@ namespace UI
         BLL_CINE bllcine = new BLL_CINE();
         BLL_ENTRADA bllentrada = new BLL_ENTRADA();
         BLL_DIGITOVERIFICADOR blldigitoverificador = new BLL_DIGITOVERIFICADOR();
+        BLL_BITACORA_EVENTOS bllbitacoraeventos = new BLL_BITACORA_EVENTOS();
         BLL_BITACORA_CAMBIOS_ENTRADA bllbitacoracambiosentrada = new BLL_BITACORA_CAMBIOS_ENTRADA();
 
         public Form_EntradasReservar()
@@ -236,6 +237,13 @@ namespace UI
             }
         }
 
+        private void button_Confirmar_Click(object sender, EventArgs e)
+        {
+            ControlesEn(false);
+            MessageBox.Show("Ya puede reservar las entradas");
+            button_ReservarEntradas.Enabled = true;
+        }
+
         private Image ConvertirBytesAImagen(byte[] Imagen)
         {
             if (Imagen == null || Imagen.Length == 0)
@@ -258,24 +266,19 @@ namespace UI
 
         private void Form_Cartelera_Load(object sender, EventArgs e)
         {
+            bllbitacoraeventos.GuardarBitacoraEvento(new BE_BITACORA_EVENTOS(BE_SESION.ObtenerInstancia.Usuario, DateTime.Now, $"Abrir {this.Text}"));
             bllsesion.AgregarObservadorForm(this);
         }
 
         private void Form_Cartelera_FormClosing(object sender, FormClosingEventArgs e)
         {
+            bllbitacoraeventos.GuardarBitacoraEvento(new BE_BITACORA_EVENTOS(BE_SESION.ObtenerInstancia.Usuario, DateTime.Now, $"Cerrar {this.Text}"));
             bllsesion.QuitarObservadorForm(this);
         }
 
         public void ActualizarIdioma(BE_IDIOMA idioma)
         {
             blltraductor.CambiarIdiomaEnFormulario(this, idioma);
-        }
-
-        private void button_Confirmar_Click(object sender, EventArgs e)
-        {
-            ControlesEn(false);
-            MessageBox.Show("Ya puede reservar las entradas");
-            button_ReservarEntradas.Enabled = true;
         }
 
         private void ControlesEn(bool trufal)

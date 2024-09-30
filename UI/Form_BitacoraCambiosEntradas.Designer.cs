@@ -54,7 +54,7 @@
             this.button_RecomponerEstado.UseVisualStyleBackColor = true;
             this.button_RecomponerEstado.Click += new System.EventHandler(this.button_RecomponerEstado_Click);
             // 
-            // Form_BitacoraCambios
+            // Form_BitacoraCambiosEntradas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -62,10 +62,10 @@
             this.Controls.Add(this.button_RecomponerEstado);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Form_BitacoraCambios";
+            this.Name = "Form_BitacoraCambiosEntradas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "GestionarBitacoraCambios";
-            this.Text = "Form_BitacoraCambios";
+            this.Text = "Bitacora cambios entradas";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_BitacoraCambios_FormClosing);
             this.Load += new System.EventHandler(this.Form_BitacoraCambios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

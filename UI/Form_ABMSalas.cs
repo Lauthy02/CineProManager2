@@ -1,7 +1,9 @@
 ﻿using BE;
+using BE.BITACORAYCAMBIOS;
 using BE.MULTIIDIOMA;
 using BE.MULTIIDOMA;
 using BLL;
+using BLL.BITACORAYCAMBIOS;
 using BLL.MULTIIDIOMA;
 using System;
 using System.Collections.Generic;
@@ -19,9 +21,10 @@ namespace UI
     {
         BLL_SESION bllsesion = new BLL_SESION();
         BLL_TRADUCTOR blltraductor = new BLL_TRADUCTOR();
-
         BLL_CINE bllcine = new BLL_CINE();
         BLL_SALA bllsala = new BLL_SALA();
+        BLL_BITACORA_EVENTOS bllbitacoraeventos = new BLL_BITACORA_EVENTOS();
+
         BE_SALA salaaux;
         bool operacion = false;
 
@@ -156,11 +159,13 @@ namespace UI
 
         private void Form_ABMSalas_Load(object sender, EventArgs e)
         {
+            bllbitacoraeventos.GuardarBitacoraEvento(new BE_BITACORA_EVENTOS(BE_SESION.ObtenerInstancia.Usuario, DateTime.Now, $"Abrir {this.Text}"));
             bllsesion.AgregarObservadorForm(this);
         }
 
         private void Form_ABMSalas_FormClosing(object sender, FormClosingEventArgs e)
         {
+            bllbitacoraeventos.GuardarBitacoraEvento(new BE_BITACORA_EVENTOS(BE_SESION.ObtenerInstancia.Usuario, DateTime.Now, $"Cerrar {this.Text}"));
             bllsesion.QuitarObservadorForm(this);
         }
 

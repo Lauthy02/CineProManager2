@@ -12,6 +12,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BE;
+using BLL.BITACORAYCAMBIOS;
+using BE.BITACORAYCAMBIOS;
 
 namespace UI
 {
@@ -22,6 +24,8 @@ namespace UI
         BLL_SALA bllsala = new BLL_SALA();
         BLL_PELICULA bllpelicula = new BLL_PELICULA();
         BLL_FUNCION bllfuncion = new BLL_FUNCION();
+        BLL_BITACORA_EVENTOS bllbitacoraeventos = new BLL_BITACORA_EVENTOS();
+
         BE_FUNCION funcionaux;
         bool operacion = false;
 
@@ -160,11 +164,13 @@ namespace UI
 
         private void Form_ABMFunciones_Load(object sender, EventArgs e)
         {
+            bllbitacoraeventos.GuardarBitacoraEvento(new BE_BITACORA_EVENTOS(BE_SESION.ObtenerInstancia.Usuario, DateTime.Now, $"Abrir {this.Text}"));
             bllsesion.AgregarObservadorForm(this);
         }
 
         private void Form_ABMFunciones_FormClosing(object sender, FormClosingEventArgs e)
         {
+            bllbitacoraeventos.GuardarBitacoraEvento(new BE_BITACORA_EVENTOS(BE_SESION.ObtenerInstancia.Usuario, DateTime.Now, $"Cerrar {this.Text}"));
             bllsesion.QuitarObservadorForm(this);
         }
 
