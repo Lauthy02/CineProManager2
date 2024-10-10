@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Reporte - @NOMBREDELREPORTE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+            header h1 {
+                margin: 0;
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+        .report-details, .filters {
+            margin-bottom: 20px;
+        }
+
+        .filters, .observations {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+            .filters h3, .observations h3 {
+                margin-top: 0;
+            }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+            table th, table td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+
+            table th {
+                background-color: #f2f2f2;
+                font-weight: bold;
+            }
+
+        .observations {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Encabezado del reporte -->
+        <header>
+            <h1>Reporte: @NOMBREDELREPORTE</h1>
+            <p>Generado el: @FECHA</p>
+        </header>
+
+        <!-- Detalles del reporte -->
+        <div class="report-details">
+            <p><strong>Autor del Reporte:</strong> @USUARIO</p>
+            <p><strong>Fecha del Reporte:</strong> @FECHA</p>
+            <p><strong>Descripcion:</strong> @DESCRIPCION</p>
+        </div>
+
+        <!-- Filtros aplicados -->
+        <div class="filters">
+            <h3>Filtros Aplicados</h3>
+            <ul>
+                <li><strong>Rango de Fechas:</strong> @FECHAINICIO a @FECHAFIN</li>
+                <li><strong>Estado:</strong> [Estado seleccionado]</li>
+                <!-- Agregar m�s filtros seg�n sea necesario -->
+            </ul>
+        </div>
+
+        <!-- Tabla de datos -->
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>[Columna 1]</th>
+                    <th>[Columna 2]</th>
+                    <th>[Columna 3]</th>
+                    <th>[Columna 4]</th>
+                    <!-- Agregar m�s columnas seg�n sea necesario -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>[Dato 1]</td>
+                    <td>[Dato 2]</td>
+                    <td>[Dato 3]</td>
+                    <td>[Dato 4]</td>
+                </tr>
+                <!-- M�s filas seg�n los datos del reporte -->
+            </tbody>
+        </table>
+
+        <!-- Observaciones -->
+        <div class="observations">
+            <h3>Observaciones</h3>
+            <p>@OBSERVACIONES</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

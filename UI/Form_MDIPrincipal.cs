@@ -153,6 +153,13 @@ namespace UI
             formgestorbackup.MdiParent = this;
             formgestorbackup.Show();
         }
+
+        private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_GestorReportes formgestorreportes = new Form_GestorReportes();
+            formgestorreportes.MdiParent = this;
+            formgestorreportes.Show();
+        }
         #endregion
 
         #region Cine

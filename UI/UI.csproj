@@ -33,6 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.4, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.4\lib\net461\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker, Version=5.5.13.4, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.xmlworker.5.5.13.4\lib\net461\itextsharp.xmlworker.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -130,6 +139,12 @@
     <Compile Include="Form_GestorPermisosUsuarios.Designer.cs">
       <DependentUpon>Form_GestorPermisosUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_GestorReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_GestorReportes.Designer.cs">
+      <DependentUpon>Form_GestorReportes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +216,9 @@
     <EmbeddedResource Include="Form_GestorPermisosUsuarios.resx">
       <DependentUpon>Form_GestorPermisosUsuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_GestorReportes.resx">
+      <DependentUpon>Form_GestorReportes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_LogIn.resx">
       <DependentUpon>Form_LogIn.cs</DependentUpon>
     </EmbeddedResource>
@@ -218,7 +236,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -241,6 +261,9 @@
       <Project>{08c9dd9e-c3b1-4b5c-bb42-f16804f9dfda}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlantillaHTML.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
