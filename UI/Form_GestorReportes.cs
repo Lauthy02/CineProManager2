@@ -19,6 +19,8 @@ using BE.MULTIIDIOMA;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
+using Org.BouncyCastle.Pqc.Crypto.Lms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UI
 {
@@ -28,10 +30,44 @@ namespace UI
         BLL_TRADUCTOR blltraductor = new BLL_TRADUCTOR();
         BLL_BITACORA_EVENTOS bllbitacoraeventos = new BLL_BITACORA_EVENTOS();
 
+        BLL_CINE bllcine = new BLL_CINE();
+        BLL_SALA bllsala = new BLL_SALA();
+        BLL_PELICULA bllpelicula = new BLL_PELICULA();
+
+        BLL_REPORTE bllreporte = new BLL_REPORTE();
+
         public Form_GestorReportes()
         {
             InitializeComponent();
             ActualizarIdioma(BE_SESION.ObtenerInstancia.Usuario.Idioma);
+            LlenarComboBoxCine();
+            //LlenarComboBoxProducto();
+        }
+
+        private void button_Calcular_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = null;
+            BE_CINE cineaux = (BE_CINE)comboBox_Cine.SelectedItem;
+            if (checkBox_EspFecha.Checked)
+            {
+                //ventas totales de todos los cines con fechas
+                MessageBox.Show("no implementado");
+            }
+            else if (checkBox_EspCine.Checked)
+            {
+                //Ventas totales de un cine
+                dataGridView1.DataSource = bllreporte.GenerarReporteCine(cineaux);
+            }
+            else if (checkBox_EspCine.Checked && checkBox_EspFecha.Checked)
+            {
+                //Ventas totales de una cine con fechas
+                MessageBox.Show("no implementado");
+            }
+            else
+            {
+                //ventas totales de todos los cines sin fechas
+                MessageBox.Show("no implementado");
+            }      
         }
 
         private void button_CrearReporte_Click(object sender, EventArgs e)
@@ -41,6 +77,7 @@ namespace UI
 
             string PaginaHTML_Texto = Properties.Resources.PlantillaHTML.ToString();
             string nombredelreporte = "";
+            string descripcion = ObtenerDescripcion();
 
             if (checkBox1.Checked)
             {
@@ -70,59 +107,135 @@ namespace UI
             PaginaHTML_Texto = PaginaHTML_Texto.Replace("@NOMBREDELREPORTE", nombredelreporte);
             PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FECHA", DateTime.Now.ToString("dd/MM/yyyy"));
             PaginaHTML_Texto = PaginaHTML_Texto.Replace("@USUARIO", BE_SESION.ObtenerInstancia.Usuario.ToString());
-            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@DESRIPCION", "Esto es una descripción");
+            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@DESCRIPCION", descripcion);
             PaginaHTML_Texto = PaginaHTML_Texto.Replace("@OBSERVACIONES", "Esto es una observación");
             PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FECHAINICIO", monthCalendar1.SelectionRange.Start.ToString("dd/MM/yyyy"));
             PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FECHAFIN", monthCalendar1.SelectionRange.End.ToString("dd/MM/yyyy"));
 
-            /*
-            string filas = string.Empty;
-            decimal total = 0;
-            foreach (DataGridViewRow row in dgvproductos.Rows)
+            if (dataGridView1.Rows.Count != 0)
             {
-                filas += "<tr>";
-                filas += "<td>" + row.Cells["Cantidad"].Value.ToString() + "</td>";
-                filas += "<td>" + row.Cells["Descripcion"].Value.ToString() + "</td>";
-                filas += "<td>" + row.Cells["PrecioUnitario"].Value.ToString() + "</td>";
-                filas += "<td>" + row.Cells["Importe"].Value.ToString() + "</td>";
-                filas += "</tr>";
-                total += decimal.Parse(row.Cells["Importe"].Value.ToString());
-            }
-            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FILAS", filas);
-            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@TOTAL", total.ToString());
-            */
-            if (savefile.ShowDialog() == DialogResult.OK)
-            {
-                using (FileStream stream = new FileStream(savefile.FileName, FileMode.Create))
+                string filas = string.Empty;
+                foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
-                    //Creamos un nuevo documento y lo definimos como PDF
-                    Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
+                    filas += "<tr>";
+                    filas += "<td>" + row.Cells["IdCine"].Value.ToString() + "</td>";
+                    filas += "<td>" + row.Cells["NombreCine"].Value.ToString() + "</td>";
+                    filas += "<td>" + row.Cells["CantidadEntradasVendidas"].Value.ToString() + "</td>";
+                    filas += "</tr>";
+                }
+                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FILAS", filas);
 
-                    PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
-                    pdfDoc.Open();
-                    pdfDoc.Add(new Phrase(""));
-
-                    //Agregamos la imagen del banner al documento
-                    /*
-                    iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(Properties.Resources.shop, System.Drawing.Imaging.ImageFormat.Png);
-                    img.ScaleToFit(60, 60);
-                    img.Alignment = iTextSharp.text.Image.UNDERLYING;
-                    
-                    //img.SetAbsolutePosition(10,100);
-                    img.SetAbsolutePosition(pdfDoc.LeftMargin, pdfDoc.Top - 60);
-                    pdfDoc.Add(img);
-                    */
-
-                    //pdfDoc.Add(new Phrase("Hola Mundo"));
-                    using (StringReader sr = new StringReader(PaginaHTML_Texto))
+                if (savefile.ShowDialog() == DialogResult.OK)
+                {
+                    using (FileStream stream = new FileStream(savefile.FileName, FileMode.Create))
                     {
-                        XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
-                    }
+                        //Creamos un nuevo documento y lo definimos como PDF
+                        Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
 
-                    pdfDoc.Close();
-                    stream.Close();
+                        PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+                        pdfDoc.Open();
+                        pdfDoc.Add(new Phrase(""));
+
+                        //Agregamos la imagen del banner al documento
+                        /*
+                        iTextSharp.text.Image img = iTextSharp.text.Image.GetInstance(Properties.Resources.shop, System.Drawing.Imaging.ImageFormat.Png);
+                        img.ScaleToFit(60, 60);
+                        img.Alignment = iTextSharp.text.Image.UNDERLYING;
+
+                        //img.SetAbsolutePosition(10,100);
+                        img.SetAbsolutePosition(pdfDoc.LeftMargin, pdfDoc.Top - 60);
+                        pdfDoc.Add(img);
+                        */
+
+                        using (StringReader sr = new StringReader(PaginaHTML_Texto))
+                        {
+                            XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                        }
+
+                        pdfDoc.Close();
+                        stream.Close();
+                    }
                 }
             }
+            else
+            {
+                MessageBox.Show("Debe generar algo para mostrar");
+            }
+        }
+
+        private string ObtenerDescripcion()
+        {
+            if (checkBox_EspFecha.Checked)
+            {
+                //Ventas totales de todos los cines con fechas
+                return "Ventas totales de todos los cines con fechas";
+            }
+            else if (checkBox_EspCine.Checked)
+            {
+                //Ventas totales de un cine
+                return "Ventas totales de un cine";
+            }
+            else if (checkBox_EspCine.Checked && checkBox_EspFecha.Checked)
+            {
+                //Ventas totales de una cine con fechas
+                return "Ventas totales de una cine con fechas";
+            }
+            else
+            {
+                //Ventas totales de todos los cines sin fechas
+                return "Ventas totales de todos los cines sin fechas";
+            }
+        }
+
+        private void LlenarComboBoxCine()
+        {
+            comboBox_Cine.DataSource = null;
+            comboBox_Cine.DataSource = bllcine.ListarCines();
+        }
+
+        private void comboBox_Cine_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BE_CINE cineaux = (BE_CINE)comboBox_Cine.SelectedItem;
+            if (cineaux != null)
+            {
+                comboBox_Sala.DataSource = null;
+                comboBox_Sala.DataSource = cineaux.ListaDeSalas;
+            }
+        }
+
+        private void comboBox_Sala_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BE_SALA salaaux = (BE_SALA)comboBox_Sala.SelectedItem;
+            if (salaaux != null)
+            {
+                comboBox_Pelicula.DataSource = null;
+                comboBox_Pelicula.DataSource = salaaux.ListaDeFunciones;
+            }
+        }
+
+        private void checkBox_EspFecha_CheckedChanged(object sender, EventArgs e)
+        {
+            monthCalendar1.Enabled = checkBox_EspFecha.Checked;
+        }
+
+        private void checkBox_EspCine_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBox_Cine.Enabled = checkBox_EspCine.Checked;
+        }
+
+        private void checkBox_EspSala_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBox_Sala.Enabled = checkBox_EspSala.Checked;
+        }
+
+        private void checkBox_EspPelicula_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBox_Pelicula.Enabled = checkBox_EspPelicula.Checked;
+        }
+
+        private void checkBox_EspProducto_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBox_Producto.Enabled = checkBox_EspProducto.Checked;
         }
 
         private void Form_GestorReportes_Load(object sender, EventArgs e)

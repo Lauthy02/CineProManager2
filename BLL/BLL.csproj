@@ -53,6 +53,7 @@
     <Compile Include="BLL_FUNCION.cs" />
     <Compile Include="BLL_PELICULA.cs" />
     <Compile Include="BLL_ENTRADA.cs" />
+    <Compile Include="BLL_REPORTE.cs" />
     <Compile Include="BLL_SALA.cs" />
     <Compile Include="BLL_CINE.cs" />
     <Compile Include="DIGITOVERIFICADOR\BLL_DIGITOVERIFICADOR.cs" />
