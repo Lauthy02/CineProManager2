@@ -51,6 +51,7 @@
     <Compile Include="DAL_MAPPER_CINE.cs" />
     <Compile Include="DAL_MAPPER_ENTRADA.cs" />
     <Compile Include="DAL_MAPPER_FUNCION.cs" />
+    <Compile Include="DAL_MAPPER_GOLOSINA.cs" />
     <Compile Include="DAL_MAPPER_PELICULA.cs" />
     <Compile Include="DAL_MAPPER_SALA.cs" />
     <Compile Include="DAL_REPORTE.cs" />

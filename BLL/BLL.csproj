@@ -51,6 +51,7 @@
     <Compile Include="BITACORAYCAMBIOS\BLL_BITACORA_EVENTOS.cs" />
     <Compile Include="BLL_CINE_SALA.cs" />
     <Compile Include="BLL_FUNCION.cs" />
+    <Compile Include="BLL_GOLOSINA.cs" />
     <Compile Include="BLL_PELICULA.cs" />
     <Compile Include="BLL_ENTRADA.cs" />
     <Compile Include="BLL_REPORTE.cs" />

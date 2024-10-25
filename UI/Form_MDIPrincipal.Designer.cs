@@ -43,21 +43,23 @@
             this.aBMSalasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMFuncionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMIdiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aBMGolosinasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bitacoraEventosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bitacoraCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.carteleraToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pagarEntradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.emitirEntradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.marcarEntradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ventaDeGolosinasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.idiomasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel_Sesion = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_NomApe = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_Rol = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_Correo = new System.Windows.Forms.ToolStripStatusLabel();
-            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -114,6 +116,7 @@
             this.aBMSalasToolStripMenuItem,
             this.aBMFuncionesToolStripMenuItem,
             this.aBMIdiomaToolStripMenuItem,
+            this.aBMGolosinasToolStripMenuItem,
             this.bitacoraEventosToolStripMenuItem,
             this.bitacoraCambiosToolStripMenuItem,
             this.backupToolStripMenuItem,
@@ -195,6 +198,14 @@
             this.aBMIdiomaToolStripMenuItem.Text = "ABM Idioma";
             this.aBMIdiomaToolStripMenuItem.Click += new System.EventHandler(this.aBMIdiomaToolStripMenuItem_Click);
             // 
+            // aBMGolosinasToolStripMenuItem
+            // 
+            this.aBMGolosinasToolStripMenuItem.Name = "aBMGolosinasToolStripMenuItem";
+            this.aBMGolosinasToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.aBMGolosinasToolStripMenuItem.Tag = "ABMGolosinas";
+            this.aBMGolosinasToolStripMenuItem.Text = "ABM Golosinas";
+            this.aBMGolosinasToolStripMenuItem.Click += new System.EventHandler(this.aBMGolosinasToolStripMenuItem_Click);
+            // 
             // bitacoraEventosToolStripMenuItem
             // 
             this.bitacoraEventosToolStripMenuItem.Name = "bitacoraEventosToolStripMenuItem";
@@ -219,13 +230,22 @@
             this.backupToolStripMenuItem.Text = "Backup";
             this.backupToolStripMenuItem.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
             // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.reportesToolStripMenuItem.Tag = "GestionarReportes";
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            this.reportesToolStripMenuItem.Click += new System.EventHandler(this.reportesToolStripMenuItem_Click);
+            // 
             // cineToolStripMenuItem
             // 
             this.cineToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.carteleraToolStripMenuItem1,
             this.pagarEntradasToolStripMenuItem,
             this.emitirEntradasToolStripMenuItem,
-            this.marcarEntradasToolStripMenuItem});
+            this.marcarEntradasToolStripMenuItem,
+            this.ventaDeGolosinasToolStripMenuItem});
             this.cineToolStripMenuItem.Name = "cineToolStripMenuItem";
             this.cineToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.cineToolStripMenuItem.Tag = "Cine";
@@ -234,7 +254,7 @@
             // carteleraToolStripMenuItem1
             // 
             this.carteleraToolStripMenuItem1.Name = "carteleraToolStripMenuItem1";
-            this.carteleraToolStripMenuItem1.Size = new System.Drawing.Size(166, 22);
+            this.carteleraToolStripMenuItem1.Size = new System.Drawing.Size(172, 22);
             this.carteleraToolStripMenuItem1.Tag = "ReservarEntradas";
             this.carteleraToolStripMenuItem1.Text = "Reservar entradas";
             this.carteleraToolStripMenuItem1.Click += new System.EventHandler(this.reservarEntradasToolStripMenuItem1_Click);
@@ -242,7 +262,7 @@
             // pagarEntradasToolStripMenuItem
             // 
             this.pagarEntradasToolStripMenuItem.Name = "pagarEntradasToolStripMenuItem";
-            this.pagarEntradasToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.pagarEntradasToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.pagarEntradasToolStripMenuItem.Tag = "PagarEntradas";
             this.pagarEntradasToolStripMenuItem.Text = "Pagar entradas";
             this.pagarEntradasToolStripMenuItem.Click += new System.EventHandler(this.pagarEntradasToolStripMenuItem_Click);
@@ -250,7 +270,7 @@
             // emitirEntradasToolStripMenuItem
             // 
             this.emitirEntradasToolStripMenuItem.Name = "emitirEntradasToolStripMenuItem";
-            this.emitirEntradasToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.emitirEntradasToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.emitirEntradasToolStripMenuItem.Tag = "EmitirEntradas";
             this.emitirEntradasToolStripMenuItem.Text = "Emitir entradas";
             this.emitirEntradasToolStripMenuItem.Click += new System.EventHandler(this.emitirEntradasToolStripMenuItem_Click);
@@ -258,10 +278,18 @@
             // marcarEntradasToolStripMenuItem
             // 
             this.marcarEntradasToolStripMenuItem.Name = "marcarEntradasToolStripMenuItem";
-            this.marcarEntradasToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.marcarEntradasToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.marcarEntradasToolStripMenuItem.Tag = "MarcarEntradas";
             this.marcarEntradasToolStripMenuItem.Text = "Marcar entradas";
             this.marcarEntradasToolStripMenuItem.Click += new System.EventHandler(this.marcarEntradasToolStripMenuItem_Click);
+            // 
+            // ventaDeGolosinasToolStripMenuItem
+            // 
+            this.ventaDeGolosinasToolStripMenuItem.Name = "ventaDeGolosinasToolStripMenuItem";
+            this.ventaDeGolosinasToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.ventaDeGolosinasToolStripMenuItem.Tag = "VentaGolosinas";
+            this.ventaDeGolosinasToolStripMenuItem.Text = "Venta de golosinas";
+            this.ventaDeGolosinasToolStripMenuItem.Click += new System.EventHandler(this.ventaDeGolosinasToolStripMenuItem_Click);
             // 
             // idiomasToolStripMenuItem
             // 
@@ -306,14 +334,6 @@
             this.toolStripStatusLabel_Correo.Name = "toolStripStatusLabel_Correo";
             this.toolStripStatusLabel_Correo.Size = new System.Drawing.Size(51, 17);
             this.toolStripStatusLabel_Correo.Text = "[Correo]";
-            // 
-            // reportesToolStripMenuItem
-            // 
-            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
-            this.reportesToolStripMenuItem.Tag = "GestionarReportes";
-            this.reportesToolStripMenuItem.Text = "Reportes";
-            this.reportesToolStripMenuItem.Click += new System.EventHandler(this.reportesToolStripMenuItem_Click);
             // 
             // Form_MDIPrincipal
             // 
@@ -372,6 +392,8 @@
         private System.Windows.Forms.ToolStripMenuItem backupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bitacoraCambiosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ventaDeGolosinasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aBMGolosinasToolStripMenuItem;
     }
 }
 

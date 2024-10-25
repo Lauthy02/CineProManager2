@@ -18,6 +18,7 @@ namespace BE
         ABMSalas,
         ABMFunciones,
         ABMIdiomas,
+        ABMGolosinas,
         ReservarEntradas,
         PagarEntradas,
         EmitirEntradas,
@@ -26,5 +27,10 @@ namespace BE
         GestionarBitacoraCambios,
         GestionarBackup,
         GestionarReportes,
+        VentaGolosinas, //sin uso
+        ReservarGolosinas, //sin uso
+        ReservarPedido, //de golosinas 
+        PagarPedido, //de golosinas 
+        EntregarPedido, //de golosinas
     }
 }

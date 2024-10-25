@@ -133,6 +133,13 @@ namespace UI
             formabmidioma.Show();
         }
 
+        private void aBMGolosinasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_ABMGolosinas formabmgolosinas = new Form_ABMGolosinas();
+            formabmgolosinas.MdiParent = this;
+            formabmgolosinas.Show();
+        }
+
         private void bitacoraEventosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form_BitacoraEventos formbitacoraeventos = new Form_BitacoraEventos();
@@ -189,6 +196,13 @@ namespace UI
             Form_EntradasMarcar formentradasmarcar = new Form_EntradasMarcar();
             formentradasmarcar.MdiParent = this;
             formentradasmarcar.Show();
+        }
+
+        private void ventaDeGolosinasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_VentaGolosinas formventagolosinas = new Form_VentaGolosinas();
+            formventagolosinas.MdiParent = this;
+            formventagolosinas.Show();
         }
         #endregion
 

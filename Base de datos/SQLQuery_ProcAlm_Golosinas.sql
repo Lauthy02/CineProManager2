@@ -1,0 +1,41 @@
+CREATE PROC GOLOSINA_INSERTAR
+@nombre varchar(50), @precio float
+AS
+BEGIN
+	INSERT INTO GOLOSINA VALUES (@nombre, @precio)
+END
+GO
+
+CREATE PROC GOLOSINA_BORRAR
+@id int
+AS
+BEGIN
+	DELETE FROM GOLOSINA WHERE id = @id
+END
+GO
+
+CREATE PROC GOLOSINA_EDITAR
+@id int, @nombre varchar(50), @precio float
+AS
+BEGIN
+	UPDATE GOLOSINA SET 
+		nombre = @nombre, 
+		precio = @precio
+	WHERE id = @id
+END
+GO
+
+CREATE PROC GOLOSINA_BUSCAR
+@nombre varchar(50)
+AS
+BEGIN
+	SELECT * FROM GOLOSINA WHERE nombre = @nombre
+END
+GO
+
+CREATE PROC GOLOSINA_LISTAR
+AS
+BEGIN
+	SELECT * FROM GOLOSINA
+END
+GO
