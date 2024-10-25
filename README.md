@@ -33,6 +33,7 @@
 	- Gerente de cine
 - Cliente 1010
 	- ReservarEntradas
+ 	- ReservarPedido (de golosinas)
 - Taquillero 4
 	- PagarEntradas	
 	- EmitirEntradas
@@ -44,9 +45,11 @@
 	- ABMCines
 	- ABMSalas
 	- ABMFunciones
+ 	- ABMGolosinas
 	- GestionarCines
  - Empleado de golosinas 1029
- 	- ??
+ 	- PagarPedido (de golosinas)
+  	- EntregarPedido (de golosinas)
 
  # Usuarios
  - Administrador
