@@ -31,6 +31,7 @@
 	- Taquillero
 	- Control de acceso
 	- Gerente de cine
+ 	- Empleado de golosinas
 - Cliente 1010
 	- ReservarEntradas
  	- ReservarPedido (de golosinas)
