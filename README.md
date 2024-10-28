@@ -48,6 +48,7 @@
 	- ABMFunciones
  	- ABMGolosinas
 	- GestionarCines
+ 	- GestionarReportes 
  - Empleado de golosinas 1029
  	- PagarPedido (de golosinas)
   	- EntregarPedido (de golosinas)
