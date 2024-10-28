@@ -10,7 +10,6 @@ namespace BLL
 {
     public class BLL_SALA
     {
-        //agregarFuncion(), obtenerFunciones(), buscarFuncion()
         DAL_MAPPER_SALA dalmappersala = new DAL_MAPPER_SALA();
         DAL_CINE_SALA dalcinesala = new DAL_CINE_SALA();
         

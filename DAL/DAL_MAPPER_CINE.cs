@@ -36,6 +36,10 @@ namespace DAL
 
         public override int Baja(BE_CINE entidad)
         {
+            //Cuando doy de baja un cine tengo que dar de baja todas las salas que dependen de el
+            //Esto no lo estoy haciendo, entonces al dar de baja un cine, las salas quedan huerfanas o
+            //debería explotar porque si las referencias estan bien hechas en la base no me va a dejar borrar
+
             List<SqlParameter> parametros = new List<SqlParameter>();
             SqlParameter p = acceso.CrearParametro("@id", entidad.Id);
             parametros.Add(p);
@@ -126,7 +130,7 @@ namespace DAL
             return cine;
         }
 
-        public void LlenarCartelera(BE_CINE entidad)
+        private void LlenarCartelera(BE_CINE entidad)
         {
             List<SqlParameter> parametros = new List<SqlParameter>();
             SqlParameter p = acceso.CrearParametro("@idcine", entidad.Id);
@@ -140,7 +144,7 @@ namespace DAL
             }
         }
 
-        public void LlenarSalas(BE_CINE entidad)
+        private void LlenarSalas(BE_CINE entidad)
         {
             List<SqlParameter> parametros = new List<SqlParameter>();
             SqlParameter p = acceso.CrearParametro("@idcine", entidad.Id);

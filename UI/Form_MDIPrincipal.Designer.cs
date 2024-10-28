@@ -54,6 +54,8 @@
             this.emitirEntradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.marcarEntradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventaDeGolosinasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pagarPedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.entregarPedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.idiomasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel_Sesion = new System.Windows.Forms.ToolStripStatusLabel();
@@ -245,7 +247,9 @@
             this.pagarEntradasToolStripMenuItem,
             this.emitirEntradasToolStripMenuItem,
             this.marcarEntradasToolStripMenuItem,
-            this.ventaDeGolosinasToolStripMenuItem});
+            this.ventaDeGolosinasToolStripMenuItem,
+            this.pagarPedidoToolStripMenuItem,
+            this.entregarPedidoToolStripMenuItem});
             this.cineToolStripMenuItem.Name = "cineToolStripMenuItem";
             this.cineToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.cineToolStripMenuItem.Tag = "Cine";
@@ -254,7 +258,7 @@
             // carteleraToolStripMenuItem1
             // 
             this.carteleraToolStripMenuItem1.Name = "carteleraToolStripMenuItem1";
-            this.carteleraToolStripMenuItem1.Size = new System.Drawing.Size(172, 22);
+            this.carteleraToolStripMenuItem1.Size = new System.Drawing.Size(183, 22);
             this.carteleraToolStripMenuItem1.Tag = "ReservarEntradas";
             this.carteleraToolStripMenuItem1.Text = "Reservar entradas";
             this.carteleraToolStripMenuItem1.Click += new System.EventHandler(this.reservarEntradasToolStripMenuItem1_Click);
@@ -262,7 +266,7 @@
             // pagarEntradasToolStripMenuItem
             // 
             this.pagarEntradasToolStripMenuItem.Name = "pagarEntradasToolStripMenuItem";
-            this.pagarEntradasToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.pagarEntradasToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.pagarEntradasToolStripMenuItem.Tag = "PagarEntradas";
             this.pagarEntradasToolStripMenuItem.Text = "Pagar entradas";
             this.pagarEntradasToolStripMenuItem.Click += new System.EventHandler(this.pagarEntradasToolStripMenuItem_Click);
@@ -270,7 +274,7 @@
             // emitirEntradasToolStripMenuItem
             // 
             this.emitirEntradasToolStripMenuItem.Name = "emitirEntradasToolStripMenuItem";
-            this.emitirEntradasToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.emitirEntradasToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.emitirEntradasToolStripMenuItem.Tag = "EmitirEntradas";
             this.emitirEntradasToolStripMenuItem.Text = "Emitir entradas";
             this.emitirEntradasToolStripMenuItem.Click += new System.EventHandler(this.emitirEntradasToolStripMenuItem_Click);
@@ -278,7 +282,7 @@
             // marcarEntradasToolStripMenuItem
             // 
             this.marcarEntradasToolStripMenuItem.Name = "marcarEntradasToolStripMenuItem";
-            this.marcarEntradasToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.marcarEntradasToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.marcarEntradasToolStripMenuItem.Tag = "MarcarEntradas";
             this.marcarEntradasToolStripMenuItem.Text = "Marcar entradas";
             this.marcarEntradasToolStripMenuItem.Click += new System.EventHandler(this.marcarEntradasToolStripMenuItem_Click);
@@ -286,10 +290,26 @@
             // ventaDeGolosinasToolStripMenuItem
             // 
             this.ventaDeGolosinasToolStripMenuItem.Name = "ventaDeGolosinasToolStripMenuItem";
-            this.ventaDeGolosinasToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.ventaDeGolosinasToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.ventaDeGolosinasToolStripMenuItem.Tag = "VentaGolosinas";
-            this.ventaDeGolosinasToolStripMenuItem.Text = "Venta de golosinas";
+            this.ventaDeGolosinasToolStripMenuItem.Text = "Reserva de golosinas";
             this.ventaDeGolosinasToolStripMenuItem.Click += new System.EventHandler(this.ventaDeGolosinasToolStripMenuItem_Click);
+            // 
+            // pagarPedidoToolStripMenuItem
+            // 
+            this.pagarPedidoToolStripMenuItem.Name = "pagarPedidoToolStripMenuItem";
+            this.pagarPedidoToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.pagarPedidoToolStripMenuItem.Tag = "PagarPedido";
+            this.pagarPedidoToolStripMenuItem.Text = "Pagar pedido";
+            this.pagarPedidoToolStripMenuItem.Click += new System.EventHandler(this.pagarPedidoToolStripMenuItem_Click);
+            // 
+            // entregarPedidoToolStripMenuItem
+            // 
+            this.entregarPedidoToolStripMenuItem.Name = "entregarPedidoToolStripMenuItem";
+            this.entregarPedidoToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.entregarPedidoToolStripMenuItem.Tag = "EntregarPedido";
+            this.entregarPedidoToolStripMenuItem.Text = "Entregar pedido";
+            this.entregarPedidoToolStripMenuItem.Click += new System.EventHandler(this.entregarPedidoToolStripMenuItem_Click);
             // 
             // idiomasToolStripMenuItem
             // 
@@ -394,6 +414,8 @@
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ventaDeGolosinasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aBMGolosinasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pagarPedidoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem entregarPedidoToolStripMenuItem;
     }
 }
 

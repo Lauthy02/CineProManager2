@@ -200,9 +200,23 @@ namespace UI
 
         private void ventaDeGolosinasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form_VentaGolosinas formventagolosinas = new Form_VentaGolosinas();
+            Form_PedidoReservar formventagolosinas = new Form_PedidoReservar();
             formventagolosinas.MdiParent = this;
             formventagolosinas.Show();
+        }
+
+        private void pagarPedidoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_PedidoPagar formpedidopagar = new Form_PedidoPagar();
+            formpedidopagar.MdiParent = this;
+            formpedidopagar.Show();
+        }
+
+        private void entregarPedidoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_PedidoEntregar formpedidoentregar = new Form_PedidoEntregar();
+            formpedidoentregar.MdiParent = this;
+            formpedidoentregar.Show();
         }
         #endregion
 

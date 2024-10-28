@@ -73,17 +73,17 @@ namespace DAL
             return tabla;
         }
 
-        public SqlParameter CrearParametro(string nombre, string valor)
-        {
-            SqlParameter param = new SqlParameter(nombre, valor);
-            param.DbType = DbType.String;
-            return param;
-        }
-
         public SqlParameter CrearParametro(string nombre, int valor)
         {
             SqlParameter param = new SqlParameter(nombre, valor);
             param.DbType = DbType.Int32;
+            return param;
+        }
+
+        public SqlParameter CrearParametro(string nombre, string valor)
+        {
+            SqlParameter param = new SqlParameter(nombre, valor);
+            param.DbType = DbType.String;
             return param;
         }
 

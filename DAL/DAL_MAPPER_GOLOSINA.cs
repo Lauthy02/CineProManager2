@@ -56,6 +56,23 @@ namespace DAL
             return golosinas;
         }
 
+        public BE_GOLOSINA BuscarConId(int idgolosina)
+        {
+            List<BE_GOLOSINA> golosinas = new List<BE_GOLOSINA>();
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            SqlParameter p = acceso.CrearParametro("@id", idgolosina);
+            parametros.Add(p);
+
+            DataTable tabla = acceso.Leer("GOLOSINA_BUSCARID", parametros);
+            //SELECT * FROM GOLOSINA WHERE id = @id
+            foreach (DataRow dr in tabla.Rows)
+            {
+                golosinas.Add(Convertir(dr));
+            }
+
+            return golosinas[0];
+        }
+
         public override int Modificacion(BE_GOLOSINA entidad)
         {
             List<SqlParameter> parametros = new List<SqlParameter>();

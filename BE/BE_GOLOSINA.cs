@@ -28,5 +28,10 @@ namespace BE
 			get { return precio; }
 			set { precio = value; }
 		}
-	}
+
+        public override string ToString()
+        {
+			return nombre;
+        }
+    }
 }

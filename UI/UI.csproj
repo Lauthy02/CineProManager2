@@ -175,11 +175,23 @@
     <Compile Include="Form_ABMSalas.Designer.cs">
       <DependentUpon>Form_ABMSalas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_VentaGolosinas.cs">
+    <Compile Include="Form_PedidoEntregar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_VentaGolosinas.Designer.cs">
-      <DependentUpon>Form_VentaGolosinas.cs</DependentUpon>
+    <Compile Include="Form_PedidoEntregar.Designer.cs">
+      <DependentUpon>Form_PedidoEntregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_PedidoPagar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_PedidoPagar.Designer.cs">
+      <DependentUpon>Form_PedidoPagar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_PedidoReservar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_PedidoReservar.Designer.cs">
+      <DependentUpon>Form_PedidoReservar.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -246,8 +258,14 @@
     <EmbeddedResource Include="Form_GestorPermisos.resx">
       <DependentUpon>Form_GestorPermisos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_VentaGolosinas.resx">
-      <DependentUpon>Form_VentaGolosinas.cs</DependentUpon>
+    <EmbeddedResource Include="Form_PedidoEntregar.resx">
+      <DependentUpon>Form_PedidoEntregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_PedidoPagar.resx">
+      <DependentUpon>Form_PedidoPagar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_PedidoReservar.resx">
+      <DependentUpon>Form_PedidoReservar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -10,7 +10,8 @@ namespace BE
     {
 		public BE_PEDIDO()
 		{
-			golosinas = new List<BE_GOLOSINA>();
+            cliente = new BE_USUARIO();
+            golosinas = new List<BE_GOLOSINA>();
 		}
 
         private int id;
@@ -27,13 +28,6 @@ namespace BE
 			set { cliente = value; }
 		}
 
-		private BE_USUARIO vendedor;
-		public BE_USUARIO Vendedor
-		{
-			get { return vendedor; }
-			set { vendedor = value; }
-		}
-
 		private DateTime fecha;
 		public DateTime Fecha
 		{
@@ -47,5 +41,26 @@ namespace BE
 			get { return golosinas; }
 			set { golosinas = value; }
 		}
-	}
+
+		private BE_PEDIDO_ESTADO_ENUM estado;
+		public BE_PEDIDO_ESTADO_ENUM Estado
+		{
+			get { return estado; }
+			set { estado = value; }
+		}
+
+		private float montototal;
+		public float MontoTotal
+		{
+			get { return montototal; }
+			set { montototal = value; }
+		}
+
+		/*
+        public override string ToString()
+        {
+            return " Pedido N° " + Id + " - Cliente: " + Cliente.NombreDeUsuario + " - Vendedor: " + Vendedor.NombreDeUsuario + " - Fecha: " + Fecha + " - Estado: " + Estado + " - Monto Total: " + MontoTotal;
+        }
+		*/
+    }
 }

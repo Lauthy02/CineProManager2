@@ -48,6 +48,7 @@
     <Compile Include="BE_ENTRADA_ESTADO_ENUM.cs" />
     <Compile Include="BE_FUNCION.cs" />
     <Compile Include="BE_PEDIDO.cs" />
+    <Compile Include="BE_PEDIDO_ESTADO_ENUM.cs" />
     <Compile Include="BE_PELICULA.cs" />
     <Compile Include="BE_PELICULA_GENERO_ENUM.cs" />
     <Compile Include="BE_ENTRADA.cs" />
