@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace DAL
 {
@@ -15,9 +16,14 @@ namespace DAL
 
         public void AbrirConexion()
         {
-            conexion = new SqlConnection("Data Source=DESKTOP-UMILLS4;Initial Catalog=CineProManagerTEST2;Integrated Security=SSPI");
+            //String de conexion para la bd de casa
+            //conexion = new SqlConnection("Data Source=DESKTOP-UMILLS4;Initial Catalog=CineProManagerTEST2;Integrated Security=SSPI");
+
             //String de conexion para la bd de la facu
-            //conexion = new SqlConnection("Data Source=.;Initial Catalog=[nombre de la base];Integrated Security=SSPI");
+            //conexion = new SqlConnection("Data Source=.;Initial Catalog=CineProManagerTEST2;Integrated Security=SSPI");
+
+            //String de conexion para el instalador
+            conexion = new SqlConnection(ConfigurationManager.AppSettings["ConnectionDatabase"]);
             conexion.Open();
         }
 
@@ -108,9 +114,9 @@ namespace DAL
             return param;
         }
 
-        public SqlParameter CrearParametro(string nombre, DBNull dbnull)
+        public SqlParameter CrearParametro(string nombre, DBNull valor)
         {
-            SqlParameter param = new SqlParameter(nombre, dbnull);
+            SqlParameter param = new SqlParameter(nombre, valor);
             //No especifico el DbType para que el motor lo asigne de manera automática
             return param;
         }
