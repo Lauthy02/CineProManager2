@@ -8,14 +8,14 @@ namespace BE
 {
     public enum BE_PELICULA_GENERO_ENUM
     {
-        Acción,
-        Animación,
+        Accion,
+        Animacion,
         Aventura,
-        Ciencia_ficción,
+        Ciencia_ficcion,
         Comedia,
         Documental,
         Drama,
-        Fantasía,
+        Fantasia,
         Infantil,
         Musical,
         Romance,
