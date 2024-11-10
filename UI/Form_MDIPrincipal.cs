@@ -167,6 +167,13 @@ namespace UI
             formgestorreportes.MdiParent = this;
             formgestorreportes.Show();
         }
+
+        private void serializarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_GestorSerializar fromgestorserializar = new Form_GestorSerializar();
+            fromgestorserializar.MdiParent = this;
+            fromgestorserializar.Show();
+        }
         #endregion
 
         #region Cine

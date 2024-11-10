@@ -13,12 +13,15 @@ namespace BLL
         DAL_MAPPER_PEDIDO dalmapperpedido = new DAL_MAPPER_PEDIDO();
         DAL_PEDIDO_GOLOSINA dalpedidogolosina = new DAL_PEDIDO_GOLOSINA();
 
+        BLL_SERIALIZAR bllserializar = new BLL_SERIALIZAR();
+
         public void GuardarPedido(BE_PEDIDO bepedido)
         {
             if (bepedido.Id == 0)
             {
                 bepedido.Id = (dalmapperpedido.TraerTodos().OrderByDescending(funcion => funcion.Id).FirstOrDefault()?.Id ?? 0) + 1;
                 dalmapperpedido.Alta(bepedido);
+                bllserializar.SerializarPedido(bepedido);
             }
             else
             {

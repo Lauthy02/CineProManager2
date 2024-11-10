@@ -62,6 +62,7 @@
             this.toolStripStatusLabel_NomApe = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_Rol = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_Correo = new System.Windows.Forms.ToolStripStatusLabel();
+            this.serializarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -122,7 +123,8 @@
             this.bitacoraEventosToolStripMenuItem,
             this.bitacoraCambiosToolStripMenuItem,
             this.backupToolStripMenuItem,
-            this.reportesToolStripMenuItem});
+            this.reportesToolStripMenuItem,
+            this.serializarToolStripMenuItem});
             this.gestoresToolStripMenuItem.Name = "gestoresToolStripMenuItem";
             this.gestoresToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.gestoresToolStripMenuItem.Tag = "Gestores";
@@ -355,6 +357,14 @@
             this.toolStripStatusLabel_Correo.Size = new System.Drawing.Size(51, 17);
             this.toolStripStatusLabel_Correo.Text = "[Correo]";
             // 
+            // serializarToolStripMenuItem
+            // 
+            this.serializarToolStripMenuItem.Name = "serializarToolStripMenuItem";
+            this.serializarToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.serializarToolStripMenuItem.Tag = "GestionarSerializacion";
+            this.serializarToolStripMenuItem.Text = "Serializar";
+            this.serializarToolStripMenuItem.Click += new System.EventHandler(this.serializarToolStripMenuItem_Click);
+            // 
             // Form_MDIPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -416,6 +426,7 @@
         private System.Windows.Forms.ToolStripMenuItem aBMGolosinasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pagarPedidoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem entregarPedidoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem serializarToolStripMenuItem;
     }
 }
 

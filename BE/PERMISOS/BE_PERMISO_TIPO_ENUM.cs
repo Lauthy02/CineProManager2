@@ -32,5 +32,6 @@ namespace BE
         ReservarPedido, //de golosinas 
         PagarPedido, //de golosinas 
         EntregarPedido, //de golosinas
+        GestionarSerializacion,
     }
 }

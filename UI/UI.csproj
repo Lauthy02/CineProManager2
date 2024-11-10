@@ -154,6 +154,12 @@
     <Compile Include="Form_GestorReportes.Designer.cs">
       <DependentUpon>Form_GestorReportes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_GestorSerializar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_GestorSerializar.Designer.cs">
+      <DependentUpon>Form_GestorSerializar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -251,6 +257,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_GestorReportes.resx">
       <DependentUpon>Form_GestorReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_GestorSerializar.resx">
+      <DependentUpon>Form_GestorSerializar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_LogIn.resx">
       <DependentUpon>Form_LogIn.cs</DependentUpon>

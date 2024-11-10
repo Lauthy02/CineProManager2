@@ -21,11 +21,13 @@ namespace DAL
         public void GenerarReporteTodosLosCines(BE_CINE cine)
         {
             //Generar reporte de un cine
+            NotImplementedException ex = new NotImplementedException();
         }
 
         public void GenerarReporteTodosLosCinesConFechas(DateTime fechaInicio, DateTime fechaFin)
         {
             //Generar reporte de todos los cines con fechas
+            NotImplementedException ex = new NotImplementedException();
         }
 
         public DataTable GenerarReporteCine(BE_CINE cine)
@@ -53,6 +55,7 @@ namespace DAL
         public void GenerarReporteCineConFechas(BE_CINE cine, DateTime fechaInicio, DateTime fechaFin)
         {
             //Generar reporte de un cine con fechas
+            NotImplementedException ex = new NotImplementedException();
         }
     }
 }
