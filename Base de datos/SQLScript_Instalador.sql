@@ -1,6 +1,14 @@
+IF EXISTS (SELECT * FROM sys.databases WHERE name = 'CineProManagerTEST2')
+BEGIN
+    -- Eliminar la base de datos existente
+    ALTER DATABASE CineProManagerTEST2 SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE CineProManagerTEST2;
+END
+
+CREATE DATABASE [CineProManagerTEST2]
 USE [CineProManagerTEST2]
 GO
-/****** Object:  Table [dbo].[BITACORACAMBIOS_ENTRADA]    Script Date: 10/11/2024 13:10:55 ******/
+/****** Object:  Table [dbo].[BITACORACAMBIOS_ENTRADA]    Script Date: 21/11/2024 16:53:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -25,7 +33,7 @@ CREATE TABLE [dbo].[BITACORACAMBIOS_ENTRADA](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[BITACORAEVENTOS]    Script Date: 10/11/2024 13:10:55 ******/
+/****** Object:  Table [dbo].[BITACORAEVENTOS]    Script Date: 21/11/2024 16:53:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -41,7 +49,7 @@ CREATE TABLE [dbo].[BITACORAEVENTOS](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[CARTELERA]    Script Date: 10/11/2024 13:10:55 ******/
+/****** Object:  Table [dbo].[CARTELERA]    Script Date: 21/11/2024 16:53:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -56,7 +64,7 @@ CREATE TABLE [dbo].[CARTELERA](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[CINE]    Script Date: 10/11/2024 13:10:55 ******/
+/****** Object:  Table [dbo].[CINE]    Script Date: 21/11/2024 16:53:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -72,7 +80,7 @@ CREATE TABLE [dbo].[CINE](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[CINE_SALA]    Script Date: 10/11/2024 13:10:55 ******/
+/****** Object:  Table [dbo].[CINE_SALA]    Script Date: 21/11/2024 16:53:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -87,7 +95,7 @@ CREATE TABLE [dbo].[CINE_SALA](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ENTRADA]    Script Date: 10/11/2024 13:10:55 ******/
+/****** Object:  Table [dbo].[ENTRADA]    Script Date: 21/11/2024 16:53:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -108,7 +116,7 @@ CREATE TABLE [dbo].[ENTRADA](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ETIQUETA]    Script Date: 10/11/2024 13:10:55 ******/
+/****** Object:  Table [dbo].[ETIQUETA]    Script Date: 21/11/2024 16:53:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -122,7 +130,7 @@ CREATE TABLE [dbo].[ETIQUETA](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[FUNCION]    Script Date: 10/11/2024 13:10:55 ******/
+/****** Object:  Table [dbo].[FUNCION]    Script Date: 21/11/2024 16:53:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -137,7 +145,7 @@ CREATE TABLE [dbo].[FUNCION](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[GOLOSINA]    Script Date: 10/11/2024 13:10:55 ******/
+/****** Object:  Table [dbo].[GOLOSINA]    Script Date: 21/11/2024 16:53:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -152,7 +160,7 @@ CREATE TABLE [dbo].[GOLOSINA](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[IDIOMA]    Script Date: 10/11/2024 13:10:55 ******/
+/****** Object:  Table [dbo].[IDIOMA]    Script Date: 21/11/2024 16:53:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -168,7 +176,7 @@ CREATE TABLE [dbo].[IDIOMA](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[PEDIDO]    Script Date: 10/11/2024 13:10:55 ******/
+/****** Object:  Table [dbo].[PEDIDO]    Script Date: 21/11/2024 16:53:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -185,7 +193,7 @@ CREATE TABLE [dbo].[PEDIDO](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[PEDIDO_GOLOSINA]    Script Date: 10/11/2024 13:10:55 ******/
+/****** Object:  Table [dbo].[PEDIDO_GOLOSINA]    Script Date: 21/11/2024 16:53:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -202,7 +210,7 @@ CREATE TABLE [dbo].[PEDIDO_GOLOSINA](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[PELICULA]    Script Date: 10/11/2024 13:10:55 ******/
+/****** Object:  Table [dbo].[PELICULA]    Script Date: 21/11/2024 16:53:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -221,7 +229,7 @@ CREATE TABLE [dbo].[PELICULA](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[PERMISOS]    Script Date: 10/11/2024 13:10:55 ******/
+/****** Object:  Table [dbo].[PERMISOS]    Script Date: 21/11/2024 16:53:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -236,7 +244,7 @@ CREATE TABLE [dbo].[PERMISOS](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[PERMISOS_PERMISOS]    Script Date: 10/11/2024 13:10:55 ******/
+/****** Object:  Table [dbo].[PERMISOS_PERMISOS]    Script Date: 21/11/2024 16:53:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -251,7 +259,7 @@ CREATE TABLE [dbo].[PERMISOS_PERMISOS](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[SALA]    Script Date: 10/11/2024 13:10:55 ******/
+/****** Object:  Table [dbo].[SALA]    Script Date: 21/11/2024 16:53:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -268,7 +276,7 @@ CREATE TABLE [dbo].[SALA](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[SALA_FUNCION]    Script Date: 10/11/2024 13:10:55 ******/
+/****** Object:  Table [dbo].[SALA_FUNCION]    Script Date: 21/11/2024 16:53:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -283,7 +291,7 @@ CREATE TABLE [dbo].[SALA_FUNCION](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TABLA_DVV]    Script Date: 10/11/2024 13:10:55 ******/
+/****** Object:  Table [dbo].[TABLA_DVV]    Script Date: 21/11/2024 16:53:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -298,7 +306,7 @@ CREATE TABLE [dbo].[TABLA_DVV](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TRADUCCION]    Script Date: 10/11/2024 13:10:55 ******/
+/****** Object:  Table [dbo].[TRADUCCION]    Script Date: 21/11/2024 16:53:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -316,7 +324,7 @@ CREATE TABLE [dbo].[TRADUCCION](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[USUARIOS]    Script Date: 10/11/2024 13:10:55 ******/
+/****** Object:  Table [dbo].[USUARIOS]    Script Date: 21/11/2024 16:53:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -335,7 +343,7 @@ CREATE TABLE [dbo].[USUARIOS](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[USUARIOS_PERMISOS]    Script Date: 10/11/2024 13:10:55 ******/
+/****** Object:  Table [dbo].[USUARIOS_PERMISOS]    Script Date: 21/11/2024 16:53:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -349,20 +357,6 @@ CREATE TABLE [dbo].[USUARIOS_PERMISOS](
 	[idpermiso] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
-GO
-SET IDENTITY_INSERT [dbo].[BITACORACAMBIOS_ENTRADA] ON 
-GO
-INSERT [dbo].[BITACORACAMBIOS_ENTRADA] ([id], [idusuarioquemodifica], [fechadecambio], [activo], [b_identrada], [b_idusuario], [b_idfuncion], [b_idsala], [b_butaca], [b_precio], [b_fechadereserva], [b_estado], [b_digitohorizontal]) VALUES (1, 4, CAST(N'2024-09-29T15:32:08.853' AS DateTime), 0, 14, 4, 13, 1, N'C8', 100, CAST(N'2024-09-29T15:32:08.777' AS DateTime), N'Reservada', N'Rci1V/BhuGO7VXfjpsIIjuGwqDFNoJGOvX5ccRj3Qzg=')
-GO
-INSERT [dbo].[BITACORACAMBIOS_ENTRADA] ([id], [idusuarioquemodifica], [fechadecambio], [activo], [b_identrada], [b_idusuario], [b_idfuncion], [b_idsala], [b_butaca], [b_precio], [b_fechadereserva], [b_estado], [b_digitohorizontal]) VALUES (2, 4, CAST(N'2024-09-29T15:32:32.547' AS DateTime), 1, 15, 4, 13, 1, N'I9', 100, CAST(N'2024-09-29T15:32:32.530' AS DateTime), N'Reservada', N'k600ED7adTUfzBuStxvS7QgVC+yNt2XUhiJNVDvTaxY=')
-GO
-INSERT [dbo].[BITACORACAMBIOS_ENTRADA] ([id], [idusuarioquemodifica], [fechadecambio], [activo], [b_identrada], [b_idusuario], [b_idfuncion], [b_idsala], [b_butaca], [b_precio], [b_fechadereserva], [b_estado], [b_digitohorizontal]) VALUES (3, 1005, CAST(N'2024-09-29T15:44:31.583' AS DateTime), 0, 14, 4, 13, 1, N'C8', 100, CAST(N'2024-09-29T15:32:08.000' AS DateTime), N'Pagada', N'b9qutiiJkSedKKARH+bzgpNucYB8wC7FZWombkv/erc=')
-GO
-INSERT [dbo].[BITACORACAMBIOS_ENTRADA] ([id], [idusuarioquemodifica], [fechadecambio], [activo], [b_identrada], [b_idusuario], [b_idfuncion], [b_idsala], [b_butaca], [b_precio], [b_fechadereserva], [b_estado], [b_digitohorizontal]) VALUES (4, 1005, CAST(N'2024-09-29T15:45:26.903' AS DateTime), 0, 14, 4, 13, 1, N'C8', 100, CAST(N'2024-09-29T15:32:08.000' AS DateTime), N'Emitida', N'JPXxQ+voSTMJnhGC1/BaXwBBBH8e8FMdrqeY1/OhKiQ=')
-GO
-INSERT [dbo].[BITACORACAMBIOS_ENTRADA] ([id], [idusuarioquemodifica], [fechadecambio], [activo], [b_identrada], [b_idusuario], [b_idfuncion], [b_idsala], [b_butaca], [b_precio], [b_fechadereserva], [b_estado], [b_digitohorizontal]) VALUES (5, 5, CAST(N'2024-09-29T15:47:57.007' AS DateTime), 1, 14, 4, 13, 1, N'C8', 100, CAST(N'2024-09-29T15:32:08.000' AS DateTime), N'Utilizada', N'dxWSJkfkEIy57cSDGRTHxQdLQ+4f/L/VEytrS6uLTy0=')
-GO
-SET IDENTITY_INSERT [dbo].[BITACORACAMBIOS_ENTRADA] OFF
 GO
 SET IDENTITY_INSERT [dbo].[BITACORAEVENTOS] ON 
 GO
@@ -1078,6 +1072,176 @@ INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (33
 GO
 INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3342, 1, CAST(N'2024-11-10T11:52:06.450' AS DateTime), N'Cerrar Gestor serializar')
 GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3343, 1, CAST(N'2024-11-10T13:49:55.540' AS DateTime), N'LogIn')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3344, 1, CAST(N'2024-11-10T13:49:58.550' AS DateTime), N'Abrir Reportes')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3345, 1, CAST(N'2024-11-10T13:50:00.060' AS DateTime), N'Cerrar Reportes')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3346, 1, CAST(N'2024-11-10T13:50:01.837' AS DateTime), N'Abrir Form_GestorBackup')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3347, 1, CAST(N'2024-11-10T13:50:02.700' AS DateTime), N'Crear backup')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3348, 1, CAST(N'2024-11-10T13:50:40.720' AS DateTime), N'Crear backup')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3349, 1, CAST(N'2024-11-10T13:51:04.737' AS DateTime), N'Crear backup')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3350, 1, CAST(N'2024-11-10T13:51:24.033' AS DateTime), N'Cerrar Form_GestorBackup')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3351, 1, CAST(N'2024-11-10T14:54:11.223' AS DateTime), N'LogIn')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3352, 1, CAST(N'2024-11-10T14:54:19.990' AS DateTime), N'Abrir Form_GestorBackup')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3353, 1, CAST(N'2024-11-10T14:54:27.553' AS DateTime), N'Crear backup')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3354, 1, CAST(N'2024-11-10T14:55:25.303' AS DateTime), N'Cerrar Form_GestorBackup')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3355, 1, CAST(N'2024-11-10T14:58:45.313' AS DateTime), N'LogIn')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3356, 1, CAST(N'2024-11-10T14:58:48.307' AS DateTime), N'Abrir Form_GestorBackup')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3357, 1, CAST(N'2024-11-10T14:58:49.530' AS DateTime), N'Crear backup')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3358, 1, CAST(N'2024-11-10T14:59:04.643' AS DateTime), N'Crear backup')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3359, 1, CAST(N'2024-11-10T14:59:28.537' AS DateTime), N'Crear backup')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3360, 1, CAST(N'2024-11-10T14:59:35.343' AS DateTime), N'Cerrar Form_GestorBackup')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3361, 1, CAST(N'2024-11-10T15:00:55.393' AS DateTime), N'LogIn')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3362, 1, CAST(N'2024-11-10T15:00:57.580' AS DateTime), N'Abrir Bitacora cambios entradas')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3363, 1, CAST(N'2024-11-10T15:00:58.853' AS DateTime), N'Cerrar Bitacora cambios entradas')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3364, 1, CAST(N'2024-11-10T15:01:01.177' AS DateTime), N'Abrir Form_GestorBackup')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3365, 1, CAST(N'2024-11-10T15:01:02.133' AS DateTime), N'Crear backup')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3366, 1, CAST(N'2024-11-10T15:01:07.267' AS DateTime), N'Cerrar Form_GestorBackup')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3367, 2, CAST(N'2024-11-11T01:35:28.260' AS DateTime), N'LogIn')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3368, 2, CAST(N'2024-11-11T01:35:37.113' AS DateTime), N'Abrir ABM Usuarios')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3369, 2, CAST(N'2024-11-11T01:35:56.007' AS DateTime), N'Cerrar ABM Usuarios')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3370, 1, CAST(N'2024-11-21T12:49:21.797' AS DateTime), N'LogIn')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3371, 1, CAST(N'2024-11-21T12:49:24.423' AS DateTime), N'Abrir Form_GestorBackup')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3372, 1, CAST(N'2024-11-21T12:49:25.767' AS DateTime), N'Crear backup')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3373, 1, CAST(N'2024-11-21T12:49:55.227' AS DateTime), N'Cerrar Form_GestorBackup')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3374, 1, CAST(N'2024-11-21T12:52:20.467' AS DateTime), N'LogIn')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3375, 1, CAST(N'2024-11-21T12:52:53.403' AS DateTime), N'LogOut')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3376, 1, CAST(N'2024-11-21T14:23:09.387' AS DateTime), N'LogIn')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3377, 1, CAST(N'2024-11-21T14:23:12.610' AS DateTime), N'Abrir Venta Golosinas')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3378, 1, CAST(N'2024-11-21T14:23:13.640' AS DateTime), N'Cerrar Venta Golosinas')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3379, 1, CAST(N'2024-11-21T14:23:19.167' AS DateTime), N'LogOut')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3380, 1, CAST(N'2024-11-21T14:23:27.503' AS DateTime), N'LogIn')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3381, 1, CAST(N'2024-11-21T14:23:32.783' AS DateTime), N'LogOut')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3382, 2, CAST(N'2024-11-21T14:27:17.590' AS DateTime), N'LogIn')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3383, 2, CAST(N'2024-11-21T14:27:24.263' AS DateTime), N'LogOut')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3384, 1, CAST(N'2024-11-21T14:29:37.010' AS DateTime), N'LogIn')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3385, 1, CAST(N'2024-11-21T14:29:42.940' AS DateTime), N'Abrir ABM Usuarios')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3386, 1, CAST(N'2024-11-21T14:30:47.063' AS DateTime), N'Cerrar ABM Usuarios')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3387, 1, CAST(N'2024-11-21T14:30:50.347' AS DateTime), N'Abrir GestorPermisosUsuarios')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3388, 1, CAST(N'2024-11-21T14:32:18.717' AS DateTime), N'Cerrar GestorPermisosUsuarios')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3389, 1, CAST(N'2024-11-21T14:32:29.497' AS DateTime), N'Abrir ABM Usuarios')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3390, 1, CAST(N'2024-11-21T14:32:33.167' AS DateTime), N'Abrir GestorPermisosUsuarios')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3391, 1, CAST(N'2024-11-21T14:32:34.593' AS DateTime), N'Cerrar GestorPermisosUsuarios')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3392, 1, CAST(N'2024-11-21T14:32:35.277' AS DateTime), N'Cerrar ABM Usuarios')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3393, 1, CAST(N'2024-11-21T14:32:37.493' AS DateTime), N'Abrir Permisos')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3394, 1, CAST(N'2024-11-21T14:36:07.183' AS DateTime), N'Cerrar Permisos')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3395, 1, CAST(N'2024-11-21T14:36:16.103' AS DateTime), N'LogOut')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3396, 2007, CAST(N'2024-11-21T14:36:21.160' AS DateTime), N'LogIn')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3397, 2007, CAST(N'2024-11-21T14:36:28.937' AS DateTime), N'LogOut')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3398, 2007, CAST(N'2024-11-21T14:38:55.587' AS DateTime), N'LogIn')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3399, 2007, CAST(N'2024-11-21T14:38:58.433' AS DateTime), N'Abrir ABM Usuarios')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3400, 2007, CAST(N'2024-11-21T14:40:50.493' AS DateTime), N'Cerrar ABM Usuarios')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3401, 2007, CAST(N'2024-11-21T14:40:52.260' AS DateTime), N'Abrir GestorPermisosUsuarios')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3402, 2007, CAST(N'2024-11-21T14:43:26.577' AS DateTime), N'Cerrar GestorPermisosUsuarios')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3403, 2007, CAST(N'2024-11-21T14:43:29.797' AS DateTime), N'Abrir Permisos')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3404, 2007, CAST(N'2024-11-21T14:44:03.867' AS DateTime), N'Cerrar Permisos')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3405, 2007, CAST(N'2024-11-21T14:44:32.110' AS DateTime), N'Abrir Form_GestorBackup')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3406, 2007, CAST(N'2024-11-21T14:44:36.330' AS DateTime), N'Crear backup')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3407, 2007, CAST(N'2024-11-21T14:44:40.670' AS DateTime), N'Cerrar Form_GestorBackup')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3408, 2007, CAST(N'2024-11-21T14:52:09.357' AS DateTime), N'LogIn')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3409, 2007, CAST(N'2024-11-21T14:52:13.970' AS DateTime), N'Abrir Cartelera')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3410, 2007, CAST(N'2024-11-21T14:52:26.400' AS DateTime), N'Cerrar Cartelera')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3411, 2007, CAST(N'2024-11-21T14:53:13.203' AS DateTime), N'Abrir Cartelera')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3412, 2007, CAST(N'2024-11-21T14:53:26.020' AS DateTime), N'Cerrar Cartelera')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3413, 2007, CAST(N'2024-11-21T16:38:30.470' AS DateTime), N'LogIn')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3414, 2007, CAST(N'2024-11-21T16:38:42.327' AS DateTime), N'Abrir Cartelera')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3415, 2007, CAST(N'2024-11-21T16:38:43.837' AS DateTime), N'Cerrar Cartelera')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3416, 2007, CAST(N'2024-11-21T16:38:45.237' AS DateTime), N'Abrir Pagar entradas')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3417, 2007, CAST(N'2024-11-21T16:38:46.063' AS DateTime), N'Cerrar Pagar entradas')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3418, 2007, CAST(N'2024-11-21T16:40:23.437' AS DateTime), N'LogIn')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3419, 2007, CAST(N'2024-11-21T16:40:26.210' AS DateTime), N'Abrir Cartelera')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3420, 2007, CAST(N'2024-11-21T16:40:47.383' AS DateTime), N'Cerrar Cartelera')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3421, 2007, CAST(N'2024-11-21T16:41:06.613' AS DateTime), N'LogOut')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3422, 2007, CAST(N'2024-11-21T16:44:54.630' AS DateTime), N'LogIn')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3423, 2007, CAST(N'2024-11-21T16:44:56.917' AS DateTime), N'Abrir Gestor serializar')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3424, 2007, CAST(N'2024-11-21T16:45:09.297' AS DateTime), N'Cerrar Gestor serializar')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3425, 2007, CAST(N'2024-11-21T16:46:59.217' AS DateTime), N'LogIn')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3426, 2007, CAST(N'2024-11-21T16:47:01.310' AS DateTime), N'Abrir Gestor serializar')
+GO
+INSERT [dbo].[BITACORAEVENTOS] ([id], [idusuario], [fecha], [accion]) VALUES (3427, 2007, CAST(N'2024-11-21T16:47:09.150' AS DateTime), N'Cerrar Gestor serializar')
+GO
 SET IDENTITY_INSERT [dbo].[BITACORAEVENTOS] OFF
 GO
 INSERT [dbo].[CARTELERA] ([idcine], [idpelicula]) VALUES (1, 3)
@@ -1131,20 +1295,6 @@ GO
 INSERT [dbo].[CINE_SALA] ([idcine], [idsala]) VALUES (4, 3)
 GO
 INSERT [dbo].[CINE_SALA] ([idcine], [idsala]) VALUES (8, 8)
-GO
-SET IDENTITY_INSERT [dbo].[ENTRADA] ON 
-GO
-INSERT [dbo].[ENTRADA] ([id], [idusuario], [idfuncion], [idsala], [butaca], [precio], [fechadereserva], [estado], [digitohorizontal]) VALUES (11, 1, 20, 8, N'A1', 500, CAST(N'2024-08-14T13:39:03.000' AS DateTime), N'Pagada', N'M+U9aii/sMuI9yHnQ+4Lv//tm9iC2WPDyDsSV2tDvyE=')
-GO
-INSERT [dbo].[ENTRADA] ([id], [idusuario], [idfuncion], [idsala], [butaca], [precio], [fechadereserva], [estado], [digitohorizontal]) VALUES (12, 1, 13, 1, N'B2', 100, CAST(N'2024-08-14T13:48:37.000' AS DateTime), N'Pagada', N'rOZ9hNqMcI6zyFnPoVHa4ze3EVXCAKmrC9VlZosR+G0=')
-GO
-INSERT [dbo].[ENTRADA] ([id], [idusuario], [idfuncion], [idsala], [butaca], [precio], [fechadereserva], [estado], [digitohorizontal]) VALUES (13, 1, 13, 1, N'D3', 100, CAST(N'2024-09-27T11:26:57.000' AS DateTime), N'Pagada', N'iJoJqcFSItFJ3W7Gm5woZFkhqxrKdP45aE9lXaBEHLQ=')
-GO
-INSERT [dbo].[ENTRADA] ([id], [idusuario], [idfuncion], [idsala], [butaca], [precio], [fechadereserva], [estado], [digitohorizontal]) VALUES (14, 4, 13, 1, N'C8', 100, CAST(N'2024-09-29T15:32:08.000' AS DateTime), N'Utilizada', N'dxWSJkfkEIy57cSDGRTHxQdLQ+4f/L/VEytrS6uLTy0=')
-GO
-INSERT [dbo].[ENTRADA] ([id], [idusuario], [idfuncion], [idsala], [butaca], [precio], [fechadereserva], [estado], [digitohorizontal]) VALUES (15, 4, 13, 1, N'I9', 100, CAST(N'2024-09-29T15:32:32.530' AS DateTime), N'Reservada', N'k600ED7adTUfzBuStxvS7QgVC+yNt2XUhiJNVDvTaxY=')
-GO
-SET IDENTITY_INSERT [dbo].[ENTRADA] OFF
 GO
 SET IDENTITY_INSERT [dbo].[ETIQUETA] ON 
 GO
@@ -1611,12 +1761,6 @@ GO
 INSERT [dbo].[SALA_FUNCION] ([idsala], [idfuncion]) VALUES (8, 20)
 GO
 INSERT [dbo].[SALA_FUNCION] ([idsala], [idfuncion]) VALUES (8, 21)
-GO
-SET IDENTITY_INSERT [dbo].[TABLA_DVV] ON 
-GO
-INSERT [dbo].[TABLA_DVV] ([id], [nombretabla], [digitovertical]) VALUES (1, N'ENTRADA', N'xzkSBFIZCVuVsvvXuSPsvyl3MZZnVs1P1rgtk3L2BDg=')
-GO
-SET IDENTITY_INSERT [dbo].[TABLA_DVV] OFF
 GO
 SET IDENTITY_INSERT [dbo].[TRADUCCION] ON 
 GO
@@ -2136,6 +2280,8 @@ INSERT [dbo].[USUARIOS] ([id], [nombredeusuario], [nombre], [apellido], [contras
 GO
 INSERT [dbo].[USUARIOS] ([id], [nombredeusuario], [nombre], [apellido], [contrasenia], [correo], [ididioma]) VALUES (2006, N'OscarP', N'Oscar', N'Piastri', N'dOLrys7faKWPqir8OWcMNA==', N'oscar.piastri@gmail.com', 2)
 GO
+INSERT [dbo].[USUARIOS] ([id], [nombredeusuario], [nombre], [apellido], [contrasenia], [correo], [ididioma]) VALUES (2007, N'admin', N'Admin', N'Admin', N'Q+y2W7W7UwrKRuXCjsf/WA==', N'-', 2)
+GO
 SET IDENTITY_INSERT [dbo].[USUARIOS] OFF
 GO
 INSERT [dbo].[USUARIOS_PERMISOS] ([idusuario], [idpermiso]) VALUES (1, 3)
@@ -2149,6 +2295,8 @@ GO
 INSERT [dbo].[USUARIOS_PERMISOS] ([idusuario], [idpermiso]) VALUES (1005, 4)
 GO
 INSERT [dbo].[USUARIOS_PERMISOS] ([idusuario], [idpermiso]) VALUES (1006, 1031)
+GO
+INSERT [dbo].[USUARIOS_PERMISOS] ([idusuario], [idpermiso]) VALUES (2007, 3)
 GO
 ALTER TABLE [dbo].[BITACORACAMBIOS_ENTRADA]  WITH CHECK ADD  CONSTRAINT [FK_BITACORACAMBIOS_ENTRADA_ENTRADA] FOREIGN KEY([b_identrada])
 REFERENCES [dbo].[ENTRADA] ([id])
@@ -2260,7 +2408,7 @@ REFERENCES [dbo].[USUARIOS] ([id])
 GO
 ALTER TABLE [dbo].[USUARIOS_PERMISOS] CHECK CONSTRAINT [FK_USUARIOS_PERMISOS_USUARIOS]
 GO
-/****** Object:  StoredProcedure [dbo].[ACCION_LISTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[ACCION_LISTAR]    Script Date: 21/11/2024 16:53:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2272,7 +2420,7 @@ BEGIN
 	SELECT * FROM PERMISOS WHERE tipo IS NOT NULL
 END
 GO
-/****** Object:  StoredProcedure [dbo].[BITACORA_CAMBIOS_ENTRADA_INSERTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[BITACORA_CAMBIOS_ENTRADA_INSERTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2285,7 +2433,7 @@ BEGIN
 	INSERT INTO BITACORACAMBIOS_ENTRADA VALUES (@idusuarioquemodifica, @fechadecambio, @activo, @b_identrada, @b_idusuario, @b_idfuncion, @b_idsala, @b_butaca, @b_precio, @b_fechadereserva, @b_estado, @b_digitohorizontal);
 END
 GO
-/****** Object:  StoredProcedure [dbo].[BITACORA_CAMBIOS_ENTRADA_LISTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[BITACORA_CAMBIOS_ENTRADA_LISTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2296,7 +2444,7 @@ BEGIN
 	SELECT * FROM BITACORACAMBIOS_ENTRADA
 END
 GO
-/****** Object:  StoredProcedure [dbo].[BITACORA_CAMBIOS_ENTRADA_MODIFICAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[BITACORA_CAMBIOS_ENTRADA_MODIFICAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2311,7 +2459,7 @@ BEGIN
 	WHERE fechadecambio = @fechadecambio;
 END
 GO
-/****** Object:  StoredProcedure [dbo].[BITACORAEVENTOS_INSERTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[BITACORAEVENTOS_INSERTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2323,7 +2471,7 @@ BEGIN
 	INSERT INTO BITACORAEVENTOS VALUES (@idusuario, @fecha, @accion)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[BITACORAEVENTOS_LISTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[BITACORAEVENTOS_LISTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2335,7 +2483,7 @@ BEGIN
 	SELECT * FROM BITACORAEVENTOS
 END
 GO
-/****** Object:  StoredProcedure [dbo].[BUTACA_OCUPADA_BUSCAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[BUTACA_OCUPADA_BUSCAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2347,7 +2495,7 @@ BEGIN
 	SELECT butaca FROM ENTRADA WHERE idfuncion = @idfuncion AND (estado = 'Pagada' OR estado = 'Emitida')
 END
 GO
-/****** Object:  StoredProcedure [dbo].[CARTELERA_BUSCAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[CARTELERA_BUSCAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2359,7 +2507,7 @@ BEGIN
 	SELECT * FROM CARTELERA WHERE idcine = @idcine
 END
 GO
-/****** Object:  StoredProcedure [dbo].[CINE_BORRAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[CINE_BORRAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2372,7 +2520,7 @@ BEGIN
 	DELETE FROM CINE WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[CINE_BUSCAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[CINE_BUSCAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2385,7 +2533,7 @@ BEGIN
 	SELECT * FROM CINE WHERE nombre = @nombre
 END
 GO
-/****** Object:  StoredProcedure [dbo].[CINE_EDITAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[CINE_EDITAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2402,7 +2550,7 @@ BEGIN
 	WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[CINE_INSERTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[CINE_INSERTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2414,7 +2562,7 @@ BEGIN
 	INSERT INTO CINE VALUES (@nombre, @zona, @direccion)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[CINE_LISTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[CINE_LISTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2426,7 +2574,7 @@ BEGIN
 	SELECT * FROM CINE
 END
 GO
-/****** Object:  StoredProcedure [dbo].[CINE_SALA_BUSCAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[CINE_SALA_BUSCAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2438,7 +2586,7 @@ BEGIN
 	SELECT * FROM CINE_SALA WHERE idcine = @idcine
 END
 GO
-/****** Object:  StoredProcedure [dbo].[CINE_SALA_INSERTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[CINE_SALA_INSERTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2450,7 +2598,7 @@ BEGIN
 	INSERT INTO CINE_SALA VALUES (@idcine, @idsala)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[ENTRADA_BORRAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[ENTRADA_BORRAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2463,7 +2611,7 @@ BEGIN
 	DELETE FROM ENTRADA WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[ENTRADA_BUSCAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[ENTRADA_BUSCAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2476,7 +2624,7 @@ BEGIN
 	SELECT * FROM ENTRADA WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[ENTRADA_BUSCARESTADO]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[ENTRADA_BUSCARESTADO]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2489,7 +2637,7 @@ BEGIN
 	SELECT * FROM ENTRADA WHERE estado = @estado
 END
 GO
-/****** Object:  StoredProcedure [dbo].[ENTRADA_BUSCARFECHA]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[ENTRADA_BUSCARFECHA]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2501,7 +2649,7 @@ BEGIN
 	SELECT * FROM ENTRADA WHERE fechadereserva = @fecha
 END
 GO
-/****** Object:  StoredProcedure [dbo].[ENTRADA_EDITAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[ENTRADA_EDITAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2522,7 +2670,7 @@ BEGIN
     WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[ENTRADA_INSERTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[ENTRADA_INSERTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2534,7 +2682,7 @@ BEGIN
 	INSERT INTO ENTRADA VALUES (@idusuario, @idfuncion,@idsala, @butaca, @precio, @fehcadereserva, @estado, @digitohorizontal )
 END
 GO
-/****** Object:  StoredProcedure [dbo].[ENTRADA_LISTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[ENTRADA_LISTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2546,7 +2694,7 @@ BEGIN
 	SELECT * FROM ENTRADA
 END
 GO
-/****** Object:  StoredProcedure [dbo].[FUNCION_BORRAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[FUNCION_BORRAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2559,7 +2707,7 @@ BEGIN
 	DELETE FROM FUNCION WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[FUNCION_BUSCAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[FUNCION_BUSCAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2572,7 +2720,7 @@ BEGIN
 	SELECT * FROM FUNCION WHERE idpelicula = @idpelicula
 END
 GO
-/****** Object:  StoredProcedure [dbo].[FUNCION_BUSCARID]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[FUNCION_BUSCARID]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2585,7 +2733,7 @@ BEGIN
 	SELECT * FROM FUNCION WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[FUNCION_EDITAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[FUNCION_EDITAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2601,7 +2749,7 @@ BEGIN
     WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[FUNCION_INSERTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[FUNCION_INSERTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2613,7 +2761,7 @@ BEGIN
 	INSERT INTO FUNCION VALUES (@id, @idpelicula, @horario)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[FUNCION_LISTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[FUNCION_LISTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2625,7 +2773,7 @@ BEGIN
 	SELECT * FROM FUNCION
 END
 GO
-/****** Object:  StoredProcedure [dbo].[GOLOSINA_BORRAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[GOLOSINA_BORRAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2638,7 +2786,7 @@ BEGIN
 	DELETE FROM GOLOSINA WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[GOLOSINA_BUSCAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[GOLOSINA_BUSCAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2651,7 +2799,7 @@ BEGIN
 	SELECT * FROM GOLOSINA WHERE nombre = @nombre
 END
 GO
-/****** Object:  StoredProcedure [dbo].[GOLOSINA_BUSCARID]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[GOLOSINA_BUSCARID]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2663,7 +2811,7 @@ BEGIN
 	SELECT * FROM GOLOSINA WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[GOLOSINA_EDITAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[GOLOSINA_EDITAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2679,7 +2827,7 @@ BEGIN
 	WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[GOLOSINA_INSERTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[GOLOSINA_INSERTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2691,7 +2839,7 @@ BEGIN
 	INSERT INTO GOLOSINA VALUES (@nombre, @precio)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[GOLOSINA_LISTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[GOLOSINA_LISTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2703,7 +2851,7 @@ BEGIN
 	SELECT * FROM GOLOSINA
 END
 GO
-/****** Object:  StoredProcedure [dbo].[IDIOMA_BORRAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[IDIOMA_BORRAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2717,7 +2865,7 @@ BEGIN
 	DELETE FROM IDIOMA WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[IDIOMA_BUSCAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[IDIOMA_BUSCAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2730,7 +2878,7 @@ BEGIN
 	SELECT * FROM IDIOMA WHERE nombre = @nombre
 END
 GO
-/****** Object:  StoredProcedure [dbo].[IDIOMA_EDITAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[IDIOMA_EDITAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2746,7 +2894,7 @@ BEGIN
 	WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[IDIOMA_INSERTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[IDIOMA_INSERTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2759,7 +2907,7 @@ BEGIN
 	--Cree un trigger para cuando se inserte un nuevo idioma se puedan crear las traducciones de forma automática
 END
 GO
-/****** Object:  StoredProcedure [dbo].[IDIOMA_LISTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[IDIOMA_LISTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2771,7 +2919,7 @@ BEGIN
 	SELECT * FROM IDIOMA
 END
 GO
-/****** Object:  StoredProcedure [dbo].[OBTENER_TRADUCCIONES]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[OBTENER_TRADUCCIONES]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2784,7 +2932,7 @@ BEGIN
 	SELECT t.id AS 'idtraduccion', i.id AS 'ididioma', i.nombre AS 'nombreidioma', i.pordefecto, e.id AS 'idetiqueta', e.nombre AS 'nombreetiqueta', t.texto AS 'traduccion' FROM TRADUCCION t INNER JOIN IDIOMA i ON t.ididioma = i.id INNER JOIN ETIQUETA e ON t.idetiqueta = e.id WHERE i.id = @ididioma
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PEDIDO_BORRAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[PEDIDO_BORRAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2797,7 +2945,7 @@ BEGIN
 	DELETE FROM PEDIDO WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PEDIDO_BUSCAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[PEDIDO_BUSCAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2810,7 +2958,7 @@ BEGIN
 	SELECT * FROM PEDIDO WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PEDIDO_BUSCARESTADO]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[PEDIDO_BUSCARESTADO]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2823,7 +2971,7 @@ BEGIN
 	SELECT * FROM PEDIDO WHERE estado = @estado
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PEDIDO_EDITAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[PEDIDO_EDITAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2841,7 +2989,7 @@ BEGIN
     WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PEDIDO_GOLOSINA_BUSCAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[PEDIDO_GOLOSINA_BUSCAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2854,7 +3002,7 @@ BEGIN
 	SELECT * FROM PEDIDO_GOLOSINA WHERE idpedido = @idpedido
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PEDIDO_GOLOSINA_INSERTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[PEDIDO_GOLOSINA_INSERTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2866,7 +3014,7 @@ BEGIN
 	INSERT INTO PEDIDO_GOLOSINA VALUES (@idpedido, @idgolosina, @cantidad, @preciounitario)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PEDIDO_INSERTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[PEDIDO_INSERTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2878,7 +3026,7 @@ BEGIN
 	INSERT INTO PEDIDO VALUES (@id, @idcliente, @fecha, @estado, @montototal)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PEDIDO_LISTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[PEDIDO_LISTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2890,7 +3038,7 @@ BEGIN
 	SELECT * FROM PEDIDO
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PELICULA_BORRAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[PELICULA_BORRAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2903,7 +3051,7 @@ BEGIN
 	DELETE FROM PELICULA WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PELICULA_BUSCAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[PELICULA_BUSCAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2916,7 +3064,7 @@ BEGIN
 	SELECT * FROM PELICULA WHERE titulo = @titulo
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PELICULA_BUSCARID]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[PELICULA_BUSCARID]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2928,7 +3076,7 @@ BEGIN
 	SELECT * FROM PELICULA WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PELICULA_EDITAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[PELICULA_EDITAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2948,7 +3096,7 @@ BEGIN
     WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PELICULA_INSERTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[PELICULA_INSERTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2960,7 +3108,7 @@ BEGIN
 	INSERT INTO PELICULA VALUES (@titulo, @director, @duracion, @genero, @descripcion, @imagen)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PELICULA_LISTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[PELICULA_LISTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2971,7 +3119,7 @@ BEGIN
 	SELECT * FROM PELICULA
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PERMISO_INSERTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[PERMISO_INSERTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2984,7 +3132,7 @@ BEGIN
 	--SELECT id AS LastID FROM PERMISOS WHERE id = @@Identity
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PERMISO_LISTAR_RECURSIVO]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[PERMISO_LISTAR_RECURSIVO]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3006,7 +3154,7 @@ BEGIN
 						inner join PERMISOS P ON rec.idpermisohijo = P.id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PERMISO_PERMISO_BORRAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[PERMISO_PERMISO_BORRAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3019,7 +3167,7 @@ BEGIN
 	DELETE FROM PERMISOS_PERMISOS WHERE idpermisopadre = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PERMISO_PERMISO_INSERTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[PERMISO_PERMISO_INSERTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3032,7 +3180,7 @@ BEGIN
 	INSERT INTO PERMISOS_PERMISOS VALUES (@idpermisopadre, @idpermisohijo) 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[REALIZAR_BACKUP]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[REALIZAR_BACKUP]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3044,7 +3192,7 @@ BEGIN
 	BACKUP DATABASE @nombrebd TO DISK = @rutabackup
 END
 GO
-/****** Object:  StoredProcedure [dbo].[REPORTE_CINE]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[REPORTE_CINE]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3065,7 +3213,7 @@ BEGIN
 	GROUP BY CINE.Id, CINE.Nombre;
 END
 GO
-/****** Object:  StoredProcedure [dbo].[ROL_LISTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[ROL_LISTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3077,7 +3225,7 @@ BEGIN
 	SELECT * FROM PERMISOS WHERE tipo IS NULL
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SALA_BORRAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[SALA_BORRAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3090,7 +3238,7 @@ BEGIN
 	DELETE FROM SALA WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SALA_BUSCAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[SALA_BUSCAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3103,7 +3251,7 @@ BEGIN
 	SELECT * FROM SALA WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SALA_BUSCARID]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[SALA_BUSCARID]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3116,7 +3264,7 @@ BEGIN
 	SELECT * FROM SALA WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SALA_EDITAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[SALA_EDITAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3134,7 +3282,7 @@ BEGIN
     WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SALA_FUNCION_BUSCAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[SALA_FUNCION_BUSCAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3146,7 +3294,7 @@ BEGIN
 	SELECT * FROM SALA_FUNCION WHERE idsala = @idsala
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SALA_FUNCION_INSERTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[SALA_FUNCION_INSERTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3158,7 +3306,7 @@ BEGIN
 	INSERT INTO SALA_FUNCION VALUES (@idsala, @idfuncion)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SALA_INSERTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[SALA_INSERTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3170,7 +3318,7 @@ BEGIN
 	INSERT INTO SALA VALUES (@id, @numerodesala, @capacidad, @formato, @precio)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SALA_LISTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[SALA_LISTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3181,7 +3329,7 @@ BEGIN
 	SELECT * FROM SALA
 END
 GO
-/****** Object:  StoredProcedure [dbo].[TABLA_DVV_INSERTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[TABLA_DVV_INSERTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3202,7 +3350,7 @@ BEGIN
 	END
 END
 GO
-/****** Object:  StoredProcedure [dbo].[USUARIO_BORRAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[USUARIO_BORRAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3215,7 +3363,7 @@ BEGIN
 	DELETE FROM USUARIOS WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[USUARIO_BUSCAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[USUARIO_BUSCAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3228,7 +3376,7 @@ BEGIN
 	SELECT * FROM USUARIOS WHERE nombredeusuario = @nombredeusuario AND contrasenia = @contrasenia
 END
 GO
-/****** Object:  StoredProcedure [dbo].[USUARIO_BUSCARID]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[USUARIO_BUSCARID]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3240,7 +3388,7 @@ BEGIN
 	SELECT * FROM USUARIOS WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[USUARIO_EDITAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[USUARIO_EDITAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3260,7 +3408,7 @@ BEGIN
 	WHERE id = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[USUARIO_INSERTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[USUARIO_INSERTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3272,7 +3420,7 @@ BEGIN
 	INSERT INTO USUARIOS VALUES (@nombredeusuario, @nombre, @apellido, @contrasenia, @correo, @ididioma)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[USUARIO_LISTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[USUARIO_LISTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3284,7 +3432,7 @@ BEGIN
 	SELECT * FROM USUARIOS
 END
 GO
-/****** Object:  StoredProcedure [dbo].[USUARIO_PERMISO_LISTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[USUARIO_PERMISO_LISTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3297,7 +3445,7 @@ BEGIN
 	SELECT P.* FROM USUARIOS_PERMISOS UP INNER JOIN PERMISOS P ON UP.idpermiso = P.id WHERE idusuario = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[USUARIOS_PERMISOS_BORRAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[USUARIOS_PERMISOS_BORRAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3309,7 +3457,7 @@ BEGIN
 	DELETE FROM USUARIOS_PERMISOS WHERE idusuario = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[USUARIOS_PERMISOS_INSERTAR]    Script Date: 10/11/2024 13:10:56 ******/
+/****** Object:  StoredProcedure [dbo].[USUARIOS_PERMISOS_INSERTAR]    Script Date: 21/11/2024 16:53:48 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
