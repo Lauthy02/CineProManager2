@@ -50,6 +50,7 @@
     <Compile Include="BITACORAYCAMBIOS\BLL_BITACORA_CAMBIOS_ENTRADA.cs" />
     <Compile Include="BITACORAYCAMBIOS\BLL_BITACORA_EVENTOS.cs" />
     <Compile Include="BLL_CINE_SALA.cs" />
+    <Compile Include="BLL_CONFIGURACION.cs" />
     <Compile Include="BLL_FUNCION.cs" />
     <Compile Include="BLL_GOLOSINA.cs" />
     <Compile Include="BLL_PEDIDO.cs" />
@@ -59,7 +60,6 @@
     <Compile Include="BLL_REPORTE.cs" />
     <Compile Include="BLL_SALA.cs" />
     <Compile Include="BLL_CINE.cs" />
-    <Compile Include="BLL_SERIALIZAR.cs" />
     <Compile Include="DIGITOVERIFICADOR\BLL_DIGITOVERIFICADOR.cs" />
     <Compile Include="MULTIIDIOMA\BLL_IDIOMA.cs" />
     <Compile Include="MULTIIDIOMA\BLL_TRADUCTOR.cs" />

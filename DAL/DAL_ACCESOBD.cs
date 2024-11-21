@@ -22,7 +22,7 @@ namespace DAL
             //String de conexion para la bd de la facu
             //conexion = new SqlConnection("Data Source=.;Initial Catalog=CineProManagerTEST2;Integrated Security=SSPI");
 
-            //String de conexion para el instalador
+            //String de conexion para el instalador (usando el App.config)
             conexion = new SqlConnection(ConfigurationManager.AppSettings["ConnectionDatabase"]);
             conexion.Open();
         }

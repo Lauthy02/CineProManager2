@@ -45,6 +45,7 @@
     <Compile Include="BE_BUTACA_FILA_ENUM.cs" />
     <Compile Include="BE_CARTELERA.cs" />
     <Compile Include="BE_CINE.cs" />
+    <Compile Include="BE_CONFIGURACION.cs" />
     <Compile Include="BE_ENTRADA_ESTADO_ENUM.cs" />
     <Compile Include="BE_FUNCION.cs" />
     <Compile Include="BE_PEDIDO.cs" />

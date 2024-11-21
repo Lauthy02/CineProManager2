@@ -62,6 +62,7 @@ namespace DAL
 
             int res = acceso.Escribir("ENTRADA_BORRAR", parametros);
             //DELETE FROM ENTRADA WHERE id = @id
+            //Falta calcular los DVH y DVV
             return res;
         }
 

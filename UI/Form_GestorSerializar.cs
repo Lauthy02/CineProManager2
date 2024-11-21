@@ -23,7 +23,7 @@ namespace UI
         BLL_TRADUCTOR blltraductor = new BLL_TRADUCTOR();
         BLL_BITACORA_EVENTOS bllbitacoraeventos = new BLL_BITACORA_EVENTOS();
 
-        BLL_SERIALIZAR bllserializar = new BLL_SERIALIZAR();
+        BLL_CONFIGURACION bllconfiguracion = new BLL_CONFIGURACION();
 
         public Form_GestorSerializar()
         {
@@ -33,8 +33,8 @@ namespace UI
 
         private void button_Deserializar_Click(object sender, EventArgs e)
         {
-            List<BE_PEDIDO> aux = new List<BE_PEDIDO>();
-            aux.Add(bllserializar.DeserializarPedido());
+            List<BE_CONFIGURACION> aux = new List<BE_CONFIGURACION>();
+            aux.Add(bllconfiguracion.CargarConfiguracion());
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = aux;
         }

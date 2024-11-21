@@ -26,8 +26,10 @@ namespace UI
         BLL_IDIOMA bllidioma = new BLL_IDIOMA();
         BLL_BITACORA_EVENTOS bllbitacoraeventos = new BLL_BITACORA_EVENTOS();
         BLL_DIGITOVERIFICADOR blldigitoverificador = new BLL_DIGITOVERIFICADOR();
+        BLL_CONFIGURACION bllconfiguracion = new BLL_CONFIGURACION();
         BE_IDIOMA idiomasinuso = new BE_IDIOMA();
         bool flag;
+        bool primeravez;
 
         public Form_MDIPrincipal()
         {
@@ -36,7 +38,13 @@ namespace UI
             MostrarIdiomas();
             MarcarIdioma();
             ActualizarIdioma(idiomasinuso);
-            flag = ValidarDigitoVerificador("ENTRADA");
+
+            BE_CONFIGURACION configuracion = bllconfiguracion.CargarConfiguracion();
+            primeravez = configuracion.PrimeraVez;
+            if (!primeravez)
+            {
+                flag = ValidarDigitoVerificador("ENTRADA");
+            }
         }
 
         #region Sesion

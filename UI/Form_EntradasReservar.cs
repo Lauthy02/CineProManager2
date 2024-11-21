@@ -30,6 +30,7 @@ namespace UI
         BLL_DIGITOVERIFICADOR blldigitoverificador = new BLL_DIGITOVERIFICADOR();
         BLL_BITACORA_EVENTOS bllbitacoraeventos = new BLL_BITACORA_EVENTOS();
         BLL_BITACORA_CAMBIOS_ENTRADA bllbitacoracambiosentrada = new BLL_BITACORA_CAMBIOS_ENTRADA();
+        BLL_CONFIGURACION bllconfiguracion = new BLL_CONFIGURACION();
 
         public Form_EntradasReservar()
         {
@@ -113,7 +114,6 @@ namespace UI
             entradaaux.Estado = BE_ENTRADA_ESTADO_ENUM.Reservada;
             entradaaux.Sala = salauax;
             entradaaux.Precio = salauax.Precio;
-            //entradaaux.DigitoVerificador = blldigitoverificador.CalcularDVH(entradaaux);
 
             bllentrada.GuardarEntrada(entradaaux);
 
@@ -123,9 +123,14 @@ namespace UI
             bitacoracambiosentradaaux.B_Entrada = entradaaux;
 
             bllbitacoracambiosentrada.GuardarEntrada(bitacoracambiosentradaaux);
+            
+            BE_CONFIGURACION configuracion = bllconfiguracion.CargarConfiguracion();
+            configuracion.PrimeraVez = false;
+            configuracion.CantidadEntradasGeneradas++;
+            bllconfiguracion.GuardarConfiguracion(configuracion);
 
-            MessageBox.Show("Entrada reservada correctamente");
-            MessageBox.Show("Hable con el taquillero para pagar la entrada");
+            MessageBox.Show("Entrada reservada correctamente.");
+            MessageBox.Show("Hable con el taquillero para pagar la entrada.");
 
             VaciarTodosLosControles();
             button_ReservarEntradas.Enabled = false;
