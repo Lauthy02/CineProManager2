@@ -231,6 +231,7 @@ namespace UI
         {
             MenuItemsEnDisabled(gestoresToolStripMenuItem);
             MenuItemsEnDisabled(cineToolStripMenuItem);
+            MenuItemsEnDisabled(idiomasToolStripMenuItem);
 
             iniciarSesionToolStripMenuItem.Enabled = !BE_SESION.ObtenerInstancia.Logueado();
             cerrarSesionToolStripMenuItem.Enabled = BE_SESION.ObtenerInstancia.Logueado();
@@ -266,7 +267,7 @@ namespace UI
             else
             {
                 //Algo salio mal
-                MessageBox.Show("Error en la integridad de los datos. Hable con un administrador", "ATENCION");
+                MessageBox.Show("Error en la integridad de los datos. Hable con un administrador.", "ATENCION");
                 return false;
             }
         }
