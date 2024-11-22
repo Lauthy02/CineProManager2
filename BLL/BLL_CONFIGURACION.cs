@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
@@ -30,7 +31,6 @@ namespace BLL
         public void GuardarConfiguracion(BE_CONFIGURACION beconfiguracion)
         {
             dalserializar.Serializar<BE_CONFIGURACION>(beconfiguracion, BE_CONFIGURACION.Path);
-            MessageBox.Show("Objeto guardado:");
         }
     }
 }

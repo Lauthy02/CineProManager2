@@ -1,11 +1,4 @@
-IF EXISTS (SELECT * FROM sys.databases WHERE name = 'CineProManagerTEST2')
-BEGIN
-    -- Eliminar la base de datos existente
-    ALTER DATABASE CineProManagerTEST2 SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-    DROP DATABASE CineProManagerTEST2;
-END
-
-CREATE DATABASE [CineProManagerTEST2]
+-- Uso el create database del Advanced Installer
 USE [CineProManagerTEST2]
 GO
 /****** Object:  Table [dbo].[BITACORACAMBIOS_ENTRADA]    Script Date: 21/11/2024 16:53:47 ******/
