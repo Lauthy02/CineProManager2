@@ -5,9 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
-using System.Text.Json;
+//using System.Text.Json;
 using System.IO;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace DAL
 {
@@ -15,8 +16,12 @@ namespace DAL
     {
         public void Serializar<T>(T entidad, string path)
         {
-            //Serializar el objeto a JSON
-            string json = JsonSerializer.Serialize(entidad);
+            //Serializar el objeto a JSON con System.Text.Json
+            //string json = JsonSerializer.Serialize(entidad);
+            //File.WriteAllText(path, json);
+
+            //Serializar el objeto a JSON con Newtonsoft.Json
+            string json = JsonConvert.SerializeObject(entidad);
             File.WriteAllText(path, json);
         }
 
@@ -24,8 +29,14 @@ namespace DAL
         {
             if (File.Exists(path))
             {
+                //Deserializar el objeto con System.Text.Json
+                //var json = File.ReadAllText(path);
+                //T deserialized = JsonSerializer.Deserialize<T>(json);
+                //return deserialized;
+
+                //Deserializar el objeto con Newtonsoft.Json
                 var json = File.ReadAllText(path);
-                T deserialized = JsonSerializer.Deserialize<T>(json);
+                T deserialized = JsonConvert.DeserializeObject<T>(json);
                 return deserialized;
             }
             else
