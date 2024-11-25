@@ -35,6 +35,7 @@
             this.groupBox_Butacas = new System.Windows.Forms.GroupBox();
             this.dataGridView_Butacas = new System.Windows.Forms.DataGridView();
             this.groupBox_DetalleEntrada = new System.Windows.Forms.GroupBox();
+            this.label_Precio = new System.Windows.Forms.Label();
             this.button_Confirmar = new System.Windows.Forms.Button();
             this.label_Butaca = new System.Windows.Forms.Label();
             this.label_Película = new System.Windows.Forms.Label();
@@ -59,7 +60,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox_Cines = new System.Windows.Forms.ComboBox();
-            this.label_Precio = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox_Butacas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Butacas)).BeginInit();
@@ -161,6 +161,16 @@
             this.groupBox_DetalleEntrada.TabIndex = 6;
             this.groupBox_DetalleEntrada.TabStop = false;
             this.groupBox_DetalleEntrada.Text = "Detalle de la entrada";
+            // 
+            // label_Precio
+            // 
+            this.label_Precio.AutoSize = true;
+            this.label_Precio.Location = new System.Drawing.Point(7, 311);
+            this.label_Precio.Name = "label_Precio";
+            this.label_Precio.Size = new System.Drawing.Size(40, 13);
+            this.label_Precio.TabIndex = 12;
+            this.label_Precio.Tag = "Precio";
+            this.label_Precio.Text = "Precio:";
             // 
             // button_Confirmar
             // 
@@ -412,23 +422,13 @@
             this.comboBox_Cines.TabIndex = 0;
             this.comboBox_Cines.SelectedIndexChanged += new System.EventHandler(this.comboBox_Cines_SelectedIndexChanged);
             // 
-            // label_Precio
-            // 
-            this.label_Precio.AutoSize = true;
-            this.label_Precio.Location = new System.Drawing.Point(7, 311);
-            this.label_Precio.Name = "label_Precio";
-            this.label_Precio.Size = new System.Drawing.Size(40, 13);
-            this.label_Precio.TabIndex = 12;
-            this.label_Precio.Tag = "Precio";
-            this.label_Precio.Text = "Precio:";
-            // 
             // Form_EntradasReservar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1041, 841);
             this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "Form_EntradasReservar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "Cartelera";
