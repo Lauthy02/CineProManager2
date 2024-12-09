@@ -17,7 +17,7 @@ namespace DAL
         public void AbrirConexion()
         {
             //String de conexion para la bd de casa
-            //conexion = new SqlConnection("Data Source=DESKTOP-UMILLS4;Initial Catalog=CineProManagerTEST2;Integrated Security=SSPI");
+            //conexion = new SqlConnection("Data Source=DESKTOP-7N8JHAP\\SQLEXPRESS;Initial Catalog=CineProManagerTEST2;Integrated Security=SSPI");
 
             //String de conexion para la bd de la facu
             //conexion = new SqlConnection("Data Source=.;Initial Catalog=CineProManagerTEST2;Integrated Security=SSPI");
